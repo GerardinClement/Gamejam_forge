@@ -17,13 +17,14 @@ func _physics_process(delta):
 	else:
 		animations.play("moveLeft")
 	move_and_collide(velocity * speed * delta)
+	shoot()
 
 func shoot():
 	getBulletPath()
 	print(bulletPath)
 	if bulletPath:
-		var bullet = bulletPath.instance()
-		get_parent().add_child(bullet)
+		var bullet = bulletPath.instantiate()
+		add_child(bullet)
 
 func getBulletPath():
 	if get_name() == 'octopus':

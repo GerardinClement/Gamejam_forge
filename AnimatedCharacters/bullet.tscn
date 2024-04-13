@@ -42,6 +42,7 @@ animations = [{
 }]
 
 [node name="Bullet" type="StaticBody2D"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(18.5, -0.5)

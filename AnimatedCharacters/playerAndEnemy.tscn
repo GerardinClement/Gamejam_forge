@@ -9,7 +9,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="mech" parent="." instance=ExtResource("5_45ch5")]
-position = Vector2(264, -78)
+position = Vector2(319, -103)
 scale = Vector2(1.8, 1.8)
 script = ExtResource("3_hybdc")
 
