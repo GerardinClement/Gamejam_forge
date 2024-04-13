@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b1duj81xgtv76"]
+[gd_scene load_steps=50 format=3 uid="uid://b1duj81xgtv76"]
 
 [ext_resource type="Texture2D" uid="uid://dsnnaafxyw6co" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://chjd7fyebb7kr" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
@@ -100,8 +100,23 @@ tile_data = PackedInt32Array(0, 786432, 18, 65536, 786432, 19, 131072, 786432, 2
 [sub_resource type="TileMapPattern" id="TileMapPattern_prbbs"]
 tile_data = PackedInt32Array(0, 524288, 18, 65536, 524288, 19, 131072, 524288, 20, 1, 589824, 18, 65537, 589824, 19, 131073, 589824, 20)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_ejwsl"]
+tile_data = PackedInt32Array(0, 1572864, 12, 65536, 1572864, 13, 262144, 1572864, 12, 327680, 1572864, 13, 1, 1638400, 12, 65537, 1638400, 13, 131073, 1245184, 7, 196609, 1245184, 8, 262145, 1638400, 12, 327681, 1638400, 13, 2, 655360, 20, 65538, 655360, 21, 262146, 1310720, 10, 327682, 1310720, 11)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_cwxjm"]
+tile_data = PackedInt32Array(0, 655360, 268435476, 65536, 655360, 268435477, 262144, 1310720, 268435466, 327680, 1310720, 268435467, 1, 1638400, 268435468, 65537, 1638400, 268435469, 131073, 1245184, 268435463, 196609, 1245184, 268435464, 262145, 1638400, 268435468, 327681, 1638400, 268435469, 2, 1572864, 268435468, 65538, 1572864, 268435469, 262146, 1572864, 268435468, 327682, 1572864, 268435469)
+
 [sub_resource type="TileMapPattern" id="TileMapPattern_qprvy"]
 tile_data = PackedInt32Array(0, 1245184, 6, 65536, 1245184, 7, 131072, 1245184, 8, 196608, 1245184, 9)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_bwuos"]
+tile_data = PackedInt32Array(65536, 1179648, 10, 131072, 1179648, 11, 1, 1245184, 9, 65537, 1245184, 10, 131073, 1245184, 11, 65538, 1310720, 10, 131074, 1310720, 11)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_fnhyg"]
+tile_data = PackedInt32Array(0, 1245184, 6, 65536, 1245184, 7, 131072, 1245184, 8)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ivcr8"]
+tile_data = PackedInt32Array(0, 1114112, 18, 65536, 1114112, 19)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_v23k2"]
 tile_data = PackedInt32Array(0, 4456448, 2, 65536, 4456448, 3, 1, 4521984, 2, 65537, 4521984, 3)
@@ -4785,6 +4800,11 @@ pattern_34 = SubResource("TileMapPattern_632ab")
 pattern_35 = SubResource("TileMapPattern_av7cp")
 pattern_36 = SubResource("TileMapPattern_0ab2o")
 pattern_37 = SubResource("TileMapPattern_prbbs")
+pattern_38 = SubResource("TileMapPattern_ejwsl")
+pattern_39 = SubResource("TileMapPattern_cwxjm")
+pattern_40 = SubResource("TileMapPattern_bwuos")
+pattern_41 = SubResource("TileMapPattern_fnhyg")
+pattern_42 = SubResource("TileMapPattern_ivcr8")
 
 [node name="TileMap" type="TileMap"]
 position = Vector2(1, 0)
