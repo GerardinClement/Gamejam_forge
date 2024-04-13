@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm2knte4tgqkv"]
+[gd_scene load_steps=14 format=3 uid="uid://cm2knte4tgqkv"]
 
 [ext_resource type="Texture2D" uid="uid://cffblmptt047p" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
 [ext_resource type="Script" path="res://player.gd" id="1_yfuhs"]
@@ -26,6 +26,22 @@ region = Rect2(194, 293, 95, 89)
 atlas = ExtResource("1_obtna")
 region = Rect2(289, 293, 95, 89)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbnup"]
+atlas = ExtResource("1_obtna")
+region = Rect2(1, 388, 95, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxdtg"]
+atlas = ExtResource("1_obtna")
+region = Rect2(96, 388, 95, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05o88"]
+atlas = ExtResource("1_obtna")
+region = Rect2(191, 388, 95, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vod6"]
+atlas = ExtResource("1_obtna")
+region = Rect2(286, 388, 95, 93)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_p5bdb"]
 animations = [{
 "frames": [{
@@ -52,9 +68,27 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_pbnup")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_sxdtg")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_05o88")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_8vod6")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_yfuhs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -62,7 +96,23 @@ position = Vector2(-1.5, 8)
 shape = SubResource("RectangleShape2D_fwbjh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-8, -12)
+position = Vector2(-7, -18)
 sprite_frames = SubResource("SpriteFrames_p5bdb")
-animation = &"run"
-frame_progress = 0.381903
+animation = &"shoot"
+frame = 3
+frame_progress = 1.0
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(16, 3)
+rotation = 3.14159
+scale = Vector2(2.31302, 1.7225)
+gizmo_extents = 21.9
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
