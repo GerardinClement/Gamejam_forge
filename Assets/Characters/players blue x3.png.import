@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cshjyhuuuoh80"
-path="res://.godot/imported/Walk.png-29ca1252cd0d437c398999818eb32893.ctex"
+uid="uid://cffblmptt047p"
+path="res://.godot/imported/players blue x3.png-98bfd9d492dec2f9d358a9356f9c24df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Mech/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-29ca1252cd0d437c398999818eb32893.ctex"]
+source_file="res://Assets/Characters/players blue x3.png"
+dest_files=["res://.godot/imported/players blue x3.png-98bfd9d492dec2f9d358a9356f9c24df.ctex"]
 
 [params]
 
