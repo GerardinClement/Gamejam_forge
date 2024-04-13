@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df2xye4npxgco"
-path="res://.godot/imported/players blue x3.png-98bfd9d492dec2f9d358a9356f9c24df.ctex"
+uid="uid://dpo3kohkf3y5x"
+path="res://.godot/imported/enemies x1_flipped.png-5deaf0e0c470bb84eaa4c1f382247783.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/players blue x3.png"
-dest_files=["res://.godot/imported/players blue x3.png-98bfd9d492dec2f9d358a9356f9c24df.ctex"]
+source_file="res://Assets/Characters/Enemies/enemies x1_flipped.png"
+dest_files=["res://.godot/imported/enemies x1_flipped.png-5deaf0e0c470bb84eaa4c1f382247783.ctex"]
 
 [params]
 

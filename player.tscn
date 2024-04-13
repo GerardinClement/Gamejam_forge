@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm2knte4tgqkv"]
+[gd_scene load_steps=10 format=3 uid="uid://b7fbaoof27hvt"]
 
-[ext_resource type="Texture2D" uid="uid://cffblmptt047p" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
+[ext_resource type="Texture2D" uid="uid://df2xye4npxgco" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
 [ext_resource type="Script" path="res://player.gd" id="1_yfuhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwbjh"]
@@ -55,6 +55,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 255
 script = ExtResource("1_yfuhs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -64,5 +65,5 @@ shape = SubResource("RectangleShape2D_fwbjh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, -12)
 sprite_frames = SubResource("SpriteFrames_p5bdb")
-animation = &"run"
-frame_progress = 0.381903
+animation = &"idle"
+frame_progress = 0.911718

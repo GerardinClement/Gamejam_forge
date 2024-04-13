@@ -1,20 +1,31 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+@export var speed = 100
+@onready var player = get_parent().get_node("Player")
+var playerPos
+var enemyPos
+var bulletPath
 
 func _physics_process(delta):
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	var animations = get_node("animations")
+	playerPos = player.position
+	enemyPos = (playerPos - position).normalized()
+	velocity = global_position.direction_to(player.global_position)
+	if enemyPos.x > 0:
+		animations.play("moveRight")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		animations.play("moveLeft")
+	move_and_collide(velocity * speed * delta)
 
-	move_and_slide()
+func shoot():
+	getBulletPath()
+	print(bulletPath)
+	if bulletPath:
+		var bullet = bulletPath.instance()
+		get_parent().add_child(bullet)
+
+func getBulletPath():
+	if get_name() == 'octopus':
+		bulletPath = load("res://AnimatedCharacters/Enemies/octopus/Bullet.tscn")
+		
