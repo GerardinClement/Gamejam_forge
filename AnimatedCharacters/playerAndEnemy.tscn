@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2wwai1ncrvff"]
 
-[ext_resource type="PackedScene" uid="uid://b7fbaoof27hvt" path="res://player.tscn" id="1_ollg0"]
+[ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="1_ollg0"]
 [ext_resource type="Script" path="res://ennemies.gd" id="3_hybdc"]
 [ext_resource type="PackedScene" uid="uid://cyhlud4i6s8kv" path="res://AnimatedCharacters/Enemies/human/human.tscn" id="4_x555r"]
 [ext_resource type="PackedScene" uid="uid://dl0fs76fenl5d" path="res://AnimatedCharacters/Enemies/mech/mech.tscn" id="5_45ch5"]
