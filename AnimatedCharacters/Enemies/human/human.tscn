@@ -191,8 +191,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_fa0r3")
 }],
 "loop": true,
-"name": &"shoot",
-"speed": 5.0
+"name": &"shootRight",
+"speed": 4.0
 }]
 
 [node name="human" type="CharacterBody2D"]
@@ -204,5 +204,10 @@ shape = SubResource("RectangleShape2D_ngs8r")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lyqgq")
-animation = &"moveLeft"
-frame_progress = 0.320866
+animation = &"shootRight"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="gunPos" type="Marker2D" parent="."]
+position = Vector2(13, 0)
