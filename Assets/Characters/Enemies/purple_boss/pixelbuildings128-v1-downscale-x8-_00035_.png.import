@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cujg03mmkma8f"
-path="res://.godot/imported/enemies x1.png-bfba18e4b9604d2f9f829a4219a82c76.ctex"
+uid="uid://bnh6pibvp4q25"
+path="res://.godot/imported/pixelbuildings128-v1-downscale-x8-_00035_.png-95814ff5c5ee73efd3e862d6f3884337.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Enemies/enemies x1.png"
-dest_files=["res://.godot/imported/enemies x1.png-bfba18e4b9604d2f9f829a4219a82c76.ctex"]
+source_file="res://Assets/Characters/Enemies/purple_boss/pixelbuildings128-v1-downscale-x8-_00035_.png"
+dest_files=["res://.godot/imported/pixelbuildings128-v1-downscale-x8-_00035_.png-95814ff5c5ee73efd3e862d6f3884337.ctex"]
 
 [params]
 

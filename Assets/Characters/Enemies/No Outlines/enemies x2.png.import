@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clro4sndwtccx"
-path="res://.godot/imported/MechSheet.png-1d3641e50a58e5d0ba4e07d2fa62ff20.ctex"
+uid="uid://ofkxs4p8f0s0"
+path="res://.godot/imported/enemies x2.png-6002282d9f337f4a5f075922202c37fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Mech/MechSheet.png"
-dest_files=["res://.godot/imported/MechSheet.png-1d3641e50a58e5d0ba4e07d2fa62ff20.ctex"]
+source_file="res://Assets/Characters/Enemies/No Outlines/enemies x2.png"
+dest_files=["res://.godot/imported/enemies x2.png-6002282d9f337f4a5f075922202c37fb.ctex"]
 
 [params]
 
