@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://keejpye2ln1t"]
+
+[ext_resource type="Script" path="res://large_door.gd" id="1_30vlx"]
+[ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="1_ukk0h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvgj6"]
+size = Vector2(64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqrcj"]
+atlas = ExtResource("1_ukk0h")
+region = Rect2(704, 512, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2m5ak"]
+atlas = ExtResource("1_ukk0h")
+region = Rect2(640, 512, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt7yy"]
+atlas = ExtResource("1_ukk0h")
+region = Rect2(384, 512, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qkgy"]
+atlas = ExtResource("1_ukk0h")
+region = Rect2(192, 512, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5pgd7"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_tqrcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m5ak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt7yy")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6qkgy")
+}],
+"loop": false,
+"name": &"large_door_closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6qkgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt7yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2m5ak")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_tqrcj")
+}],
+"loop": false,
+"name": &"large_door_opening",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v51h1"]
+radius = 39.0
+
+[node name="Door" type="StaticBody2D"]
+script = ExtResource("1_30vlx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wvgj6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5pgd7")
+animation = &"large_door_opening"
+
+[node name="player_detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detector"]
+shape = SubResource("CircleShape2D_v51h1")
+
+[connection signal="body_entered" from="player_detector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="player_detector" to="." method="_on_player_detector_body_exited"]
