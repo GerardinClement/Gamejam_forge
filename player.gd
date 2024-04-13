@@ -12,7 +12,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		shoot()
 	$Node2D.look_at(get_global_mouse_position())
-	print($Timer.time_left)
 	if $Timer.is_stopped():
 		shoot()
 		$Timer.start()
