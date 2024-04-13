@@ -4,8 +4,7 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	animation.play("large_door_closed")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -15,6 +14,7 @@ func _process(delta):
 func _on_player_detector_body_entered(body):
 	if body.name == "Player":
 		animation.play("large_door_opening")
+		#$player_detector/CollisionShape2D.disabled = false
 
 
 func _on_player_detector_body_exited(body):
