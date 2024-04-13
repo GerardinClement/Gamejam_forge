@@ -13,6 +13,7 @@ func _process(delta):
 		shoot()
 	$Node2D.look_at(get_global_mouse_position())
 	if $Timer.is_stopped():
+		animation.play("shoot")
 		shoot()
 		$Timer.start()
 	
@@ -24,9 +25,9 @@ func _physics_process(delta):
 		return
 	if direction.x > 0:
 		animation.flip_h = false
-		animation.play("run")
 	else:
 		animation.flip_h = true
+	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle" :
 		animation.play("run")
 	velocity = direction * delta * SPEED
 	move_and_slide()
