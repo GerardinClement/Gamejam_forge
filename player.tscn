@@ -66,7 +66,10 @@ position = Vector2(-7, -18)
 sprite_frames = SubResource("SpriteFrames_p5bdb")
 animation = &"idle"
 
-[node name="Marker2D" type="Marker2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
 position = Vector2(16, 3)
-scale = Vector2(-2.31302, -1.7225)
+rotation = 3.14159
+scale = Vector2(2.31302, 1.7225)
 gizmo_extents = 21.9
