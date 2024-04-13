@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lumh43su88t7"
-path="res://.godot/imported/enemies x2.png-c0ca10c8ddc7f32beb37b434d6388f22.ctex"
+uid="uid://m1nejsn24hqr"
+path="res://.godot/imported/MechSheet.png-c894b562363ea5dbca14e6095b02ce4a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Enemies/No Outlines/enemies x2.png"
-dest_files=["res://.godot/imported/enemies x2.png-c0ca10c8ddc7f32beb37b434d6388f22.ctex"]
+source_file="res://Assets/Characters/Enemies/Mech/MechSheet.png"
+dest_files=["res://.godot/imported/MechSheet.png-c894b562363ea5dbca14e6095b02ce4a.ctex"]
 
 [params]
 

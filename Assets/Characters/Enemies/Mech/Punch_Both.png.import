@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dukea5mdoh4kg"
-path="res://.godot/imported/Shoot.png-8e297c691774b2ad06950059989250c3.ctex"
+uid="uid://gesipf8j8bg1"
+path="res://.godot/imported/Punch_Both.png-c8b33e6c1bf860be1302aff5686f91aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Mech/Shoot.png"
-dest_files=["res://.godot/imported/Shoot.png-8e297c691774b2ad06950059989250c3.ctex"]
+source_file="res://Assets/Characters/Enemies/Mech/Punch_Both.png"
+dest_files=["res://.godot/imported/Punch_Both.png-c8b33e6c1bf860be1302aff5686f91aa.ctex"]
 
 [params]
 
