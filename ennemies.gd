@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed = 60
 @onready var player = get_parent().get_node("Player")
 var hasShot = true
+var canShoot = false
 var animations
 var playerPos
 var enemyPos
@@ -13,7 +14,7 @@ func _ready():
 	animations = get_node("animations")
 
 func _process(delta):
-	if $Timer.is_stopped():
+	if $Timer.is_stopped() && canShoot:
 		hasShot = false
 		if enemyPos.x < playerPos.x:
 			animations.play("shootRight")
@@ -27,8 +28,8 @@ func _process(delta):
 		hasShot = true
 
 func _physics_process(delta):
-	if animations.is_playing() && (animations.animation != "moveRight" || animations.amination != "moveLeft"):
-		return
+	#if animations.is_playing() && (animations.animation != "moveRight" || animations.amination != "moveLeft"):
+	#	return
 	playerPos = player.position
 	enemyPos = (playerPos - position).normalized()
 	velocity = global_position.direction_to(player.global_position)
@@ -37,6 +38,12 @@ func _physics_process(delta):
 	elif !animations.is_playing():
 		animations.play("moveLeft")
 	move_and_collide(velocity * speed * delta)
+	if global_position.distance_to(player.global_position) > 200:
+		canShoot = false
+	elif !canShoot:
+		shoot()
+		canShoot = true
+		$Timer.start()
 
 
 func shoot():
@@ -44,7 +51,6 @@ func shoot():
 	if bulletPath:
 		var bullet = bulletPath.instantiate()
 		get_parent().add_child(bullet)
-		print(get_node("gunPos").global_position)
 		bullet.position = get_node("gunPos").global_position
 
 func getBulletPath():

@@ -1,10 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://t6jn6bwrgcsg"]
+[gd_scene load_steps=5 format=3 uid="uid://t6jn6bwrgcsg"]
 
 [ext_resource type="Script" path="res://AnimatedCharacters/Enemies/enemyBullet.gd" id="1_r8wag"]
 [ext_resource type="Texture2D" uid="uid://dlkphnddk6kq1" path="res://Assets/Projectiles/Laser Sprites/18.png" id="2_garjg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cudqa"]
 size = Vector2(23, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4evaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_garjg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Bullet" type="CharacterBody2D"]
 collision_layer = 4
@@ -14,7 +25,7 @@ script = ExtResource("1_r8wag")
 position = Vector2(-2.5, -1)
 shape = SubResource("RectangleShape2D_cudqa")
 
-[node name="18" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, -1)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_garjg")
+sprite_frames = SubResource("SpriteFrames_4evaw")
