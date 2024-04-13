@@ -16,7 +16,7 @@ func _process(delta):
 		$Timer.start()
 	
 func _physics_process(delta):
-	var mouseOffset = get_viewport().get_mouse_position() - self.position;
+	var mouseOffset = get_global_mouse_position() - self.position;
 	var direction = mouseOffset.normalized() * SPEED
 	if mouseOffset.x < 5 and mouseOffset.x > -5:
 		animation.play("idle")
