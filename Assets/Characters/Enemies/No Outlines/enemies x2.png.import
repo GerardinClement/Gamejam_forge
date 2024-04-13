@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnh6pibvp4q25"
-path="res://.godot/imported/pixelbuildings128-v1-downscale-x8-_00035_.png-f3f8385a2daaeaca9104cd216047afb4.ctex"
+uid="uid://ofkxs4p8f0s0"
+path="res://.godot/imported/enemies x2.png-6002282d9f337f4a5f075922202c37fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/purple_boss/pixelbuildings128-v1-downscale-x8-_00035_.png"
-dest_files=["res://.godot/imported/pixelbuildings128-v1-downscale-x8-_00035_.png-f3f8385a2daaeaca9104cd216047afb4.ctex"]
+source_file="res://Assets/Characters/Enemies/No Outlines/enemies x2.png"
+dest_files=["res://.godot/imported/enemies x2.png-6002282d9f337f4a5f075922202c37fb.ctex"]
 
 [params]
 

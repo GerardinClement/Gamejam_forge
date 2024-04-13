@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chpmvq5s41joy"
-path="res://.godot/imported/pixelbuildings128-v1-downscale-x8-_00043_.png-6620003bbb9a99684a855e5353658c7e.ctex"
+uid="uid://xcjf4rsd8mm"
+path="res://.godot/imported/Punch_LeftHand.png-fba82af928705dd4de3e34c362943842.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/purple_boss/pixelbuildings128-v1-downscale-x8-_00043_.png"
-dest_files=["res://.godot/imported/pixelbuildings128-v1-downscale-x8-_00043_.png-6620003bbb9a99684a855e5353658c7e.ctex"]
+source_file="res://Assets/Characters/Enemies/Mech/Punch_LeftHand.png"
+dest_files=["res://.godot/imported/Punch_LeftHand.png-fba82af928705dd4de3e34c362943842.ctex"]
 
 [params]
 

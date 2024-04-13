@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xcjf4rsd8mm"
-path="res://.godot/imported/Punch_LeftHand.png-2cbb02372ac51d09426ed43f78a8cff5.ctex"
+uid="uid://badcpm8xdwh6u"
+path="res://.godot/imported/enemies x3.png-359d19b968bbd5ee4e8b50d2073a849d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Mech/Punch_LeftHand.png"
-dest_files=["res://.godot/imported/Punch_LeftHand.png-2cbb02372ac51d09426ed43f78a8cff5.ctex"]
+source_file="res://Assets/Characters/Enemies/No Outlines/enemies x3.png"
+dest_files=["res://.godot/imported/enemies x3.png-359d19b968bbd5ee4e8b50d2073a849d.ctex"]
 
 [params]
 

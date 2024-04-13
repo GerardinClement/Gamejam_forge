@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5vvum0tmc22a"
-path="res://.godot/imported/Punch_RightHand.png-9528682b55747be1a1c84e06325d87fa.ctex"
+path="res://.godot/imported/Punch_RightHand.png-c4f65bb50cd51a526f8049c195a3c2c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Mech/Punch_RightHand.png"
-dest_files=["res://.godot/imported/Punch_RightHand.png-9528682b55747be1a1c84e06325d87fa.ctex"]
+source_file="res://Assets/Characters/Enemies/Mech/Punch_RightHand.png"
+dest_files=["res://.godot/imported/Punch_RightHand.png-c4f65bb50cd51a526f8049c195a3c2c2.ctex"]
 
 [params]
 

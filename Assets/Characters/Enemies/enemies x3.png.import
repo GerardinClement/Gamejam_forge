@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbn208hxuearw"
-path="res://.godot/imported/enemies x2.png-1a167dcaf8785d84ae5f8e26033eaf0c.ctex"
+uid="uid://dqyymxgupsvby"
+path="res://.godot/imported/enemies x3.png-21109bd544822bf4fa0f3ee636240f79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Enemies/enemies x2.png"
-dest_files=["res://.godot/imported/enemies x2.png-1a167dcaf8785d84ae5f8e26033eaf0c.ctex"]
+source_file="res://Assets/Characters/Enemies/enemies x3.png"
+dest_files=["res://.godot/imported/enemies x3.png-21109bd544822bf4fa0f3ee636240f79.ctex"]
 
 [params]
 

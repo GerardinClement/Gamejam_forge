@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gesipf8j8bg1"
-path="res://.godot/imported/Punch_Both.png-2b28b4baac1fc8af118e00552cfe9cc0.ctex"
+uid="uid://chpmvq5s41joy"
+path="res://.godot/imported/pixelbuildings128-v1-downscale-x8-_00043_.png-8d0f8f2a3e04d4a696f4720d2781d227.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Mech/Punch_Both.png"
-dest_files=["res://.godot/imported/Punch_Both.png-2b28b4baac1fc8af118e00552cfe9cc0.ctex"]
+source_file="res://Assets/Characters/Enemies/purple_boss/pixelbuildings128-v1-downscale-x8-_00043_.png"
+dest_files=["res://.godot/imported/pixelbuildings128-v1-downscale-x8-_00043_.png-8d0f8f2a3e04d4a696f4720d2781d227.ctex"]
 
 [params]
 
