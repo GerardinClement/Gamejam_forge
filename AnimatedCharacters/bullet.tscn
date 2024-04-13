@@ -41,7 +41,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="StaticBody2D"]
+[node name="Bullet2" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(18.5, -0.5)

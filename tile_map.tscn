@@ -1,8 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://b1duj81xgtv76"]
+[gd_scene load_steps=51 format=3 uid="uid://b1duj81xgtv76"]
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_gudsx"]
+[ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="4_a27w8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
 tile_data = PackedInt32Array(0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1)
@@ -4820,3 +4821,6 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="Player" parent="." instance=ExtResource("3_gudsx")]
 position = Vector2(2, 1)
+
+[node name="octopusEnemy" parent="." instance=ExtResource("4_a27w8")]
+position = Vector2(-93, -7)
