@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcsckvtqclylc"]
+[gd_scene load_steps=8 format=3 uid="uid://cde6snse1po3p"]
 
 [ext_resource type="Texture2D" uid="uid://hhlnyq25m3mm" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Projectiles/projectiles x1.png" id="1_kbm2e"]
 
@@ -41,7 +41,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="StaticBody2D"]
+[node name="Bullet" type="CharacterBody2D"]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
