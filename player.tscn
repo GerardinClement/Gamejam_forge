@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bghlfveoqowne"]
+[gd_scene load_steps=14 format=3 uid="uid://bghlfveoqowne"]
 
-[ext_resource type="Texture2D" uid="uid://cffblmptt047p" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
+[ext_resource type="Texture2D" uid="uid://df2xye4npxgco" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
 [ext_resource type="Script" path="res://player.gd" id="1_yfuhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwbjh"]
@@ -25,6 +25,22 @@ region = Rect2(194, 293, 95, 89)
 [sub_resource type="AtlasTexture" id="AtlasTexture_a7g70"]
 atlas = ExtResource("1_obtna")
 region = Rect2(289, 293, 95, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ekn3"]
+atlas = ExtResource("1_obtna")
+region = Rect2(0, 388, 96, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kleu"]
+atlas = ExtResource("1_obtna")
+region = Rect2(96, 388, 96, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0luv"]
+atlas = ExtResource("1_obtna")
+region = Rect2(192, 388, 96, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dai6"]
+atlas = ExtResource("1_obtna")
+region = Rect2(288, 388, 96, 92)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p5bdb"]
 animations = [{
@@ -52,6 +68,23 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ekn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kleu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0luv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dai6")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -64,5 +97,15 @@ shape = SubResource("RectangleShape2D_fwbjh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, -12)
 sprite_frames = SubResource("SpriteFrames_p5bdb")
-animation = &"run"
-frame_progress = 0.381903
+animation = &"shoot"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
