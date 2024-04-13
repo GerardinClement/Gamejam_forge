@@ -9,8 +9,6 @@ func _ready():
 	$Timer.start()
 	
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		shoot()
 	$Node2D.look_at(get_global_mouse_position())
 	if $Timer.is_stopped():
 		animation.play("shoot")
