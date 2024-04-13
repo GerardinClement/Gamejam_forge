@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cm2knte4tgqkv"]
 
-[ext_resource type="Texture2D" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
+[ext_resource type="Texture2D" uid="uid://cffblmptt047p" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
 [ext_resource type="Script" path="res://player.gd" id="1_yfuhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwbjh"]
@@ -62,6 +62,11 @@ position = Vector2(-1.5, 8)
 shape = SubResource("RectangleShape2D_fwbjh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-8, -12)
+position = Vector2(-7, -18)
 sprite_frames = SubResource("SpriteFrames_p5bdb")
 animation = &"idle"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(16, 3)
+scale = Vector2(-2.31302, -1.7225)
+gizmo_extents = 21.9
