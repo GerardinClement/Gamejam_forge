@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://166oltx3okgt"]
+[gd_scene load_steps=14 format=3 uid="uid://166oltx3okgt"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_7n1qw"]
 [ext_resource type="Texture2D" uid="uid://1utd36kfuwuh" path="res://Assets/Projectiles/projectiles x2.png" id="1_se1ag"]
@@ -19,6 +19,22 @@ region = Rect2(128, 64, 64, 64)
 atlas = ExtResource("1_se1ag")
 region = Rect2(192, 64, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2l3d"]
+atlas = ExtResource("1_se1ag")
+region = Rect2(43, 384, 55, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgqqt"]
+atlas = ExtResource("1_se1ag")
+region = Rect2(98, 384, 55, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47w0n"]
+atlas = ExtResource("1_se1ag")
+region = Rect2(153, 384, 55, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ush"]
+atlas = ExtResource("1_se1ag")
+region = Rect2(208, 384, 55, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ct15c"]
 animations = [{
 "frames": [{
@@ -37,6 +53,23 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2l3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgqqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47w0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ush")
+}],
+"loop": false,
+"name": &"impact",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwngm"]
@@ -53,7 +86,8 @@ script = ExtResource("1_7n1qw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ct15c")
-frame_progress = 0.287771
+animation = &"impact"
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1)
@@ -67,4 +101,5 @@ collision_mask = 8
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_tj8vj")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -4,9 +4,25 @@ const SPEED = 300.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-func _physics_process(delta):
+func _on_ready():
 	animated_sprite.play("default")
+
+func _physics_process(delta):
+	if !animated_sprite.is_playing():
+		animated_sprite.play("default")
 	move_and_collide(velocity.normalized() * delta * SPEED)
 
 func _on_area_2d_body_entered(body):
-	self.queue_free()
+	destroy_itself()
+	
+func destroy_itself():
+	animated_sprite.play("impact")
+	if velocity.x < 0:
+		animated_sprite.flip_h = false
+	else:
+		animated_sprite.flip_h = true
+
+func _on_animated_sprite_2d_animation_finished():
+	if animated_sprite.animation == "impact":
+		self.queue_free()
+		
