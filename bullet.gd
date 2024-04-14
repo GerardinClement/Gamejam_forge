@@ -25,4 +25,3 @@ func destroy_itself():
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "impact":
 		self.queue_free()
-		

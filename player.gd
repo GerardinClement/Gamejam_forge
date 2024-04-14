@@ -49,7 +49,6 @@ func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		take_damage(area.get_parent())
 		
 func take_damage(bullet):
-	print("take_damage")
 	PV -= 33
 	player_animation.play("damage")
 	bullet.queue_free()
