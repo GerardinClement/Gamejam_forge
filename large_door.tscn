@@ -68,7 +68,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_peabt"]
-radius = 23.0
+radius = 28.0
 height = 96.0
 
 [node name="Door" type="StaticBody2D"]
@@ -81,10 +81,10 @@ shape = SubResource("RectangleShape2D_wvgj6")
 sprite_frames = SubResource("SpriteFrames_5pgd7")
 animation = &"large_door_closed"
 
-[node name="player_detector" type="Area2D" parent="."]
+[node name="player_detection" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
 shape = SubResource("CapsuleShape2D_peabt")
 
-[connection signal="body_entered" from="player_detector" to="." method="_on_player_detector_body_entered"]
-[connection signal="body_exited" from="player_detector" to="." method="_on_player_detector_body_exited"]
+[connection signal="body_entered" from="player_detection" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="player_detection" to="." method="_on_player_detector_body_exited"]
