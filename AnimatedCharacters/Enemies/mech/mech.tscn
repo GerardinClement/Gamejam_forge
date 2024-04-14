@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://dl0fs76fenl5d"]
+[gd_scene load_steps=43 format=3 uid="uid://dl0fs76fenl5d"]
 
 [ext_resource type="Texture2D" uid="uid://m1nejsn24hqr" path="res://Assets/Characters/Enemies/Mech/MechSheet.png" id="1_lna24"]
+[ext_resource type="Script" path="res://ennemies.gd" id="1_oslv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_per6e"]
 size = Vector2(33, 33)
@@ -312,8 +313,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkvlr"]
+size = Vector2(193, 158)
+
 [node name="mech" type="CharacterBody2D"]
 collision_layer = 2
+script = ExtResource("1_oslv5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -1.5)
@@ -330,3 +335,8 @@ one_shot = true
 
 [node name="gunPos" type="Marker2D" parent="."]
 position = Vector2(23, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_fkvlr")
