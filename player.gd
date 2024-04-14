@@ -3,11 +3,14 @@ const bulletPath = preload("res://bullet.tscn")
 
 @onready var animation = $AnimatedSprite2D
 @onready var player_animation =  $AnimationPlayer
+
 var player: Player
 
 class Player:
 
+	var Cards = preload("res://Cards.gd").new()
 	var stats: Dictionary
+	var cards: Dictionary
 		
 	func _init():
 		stats = {
@@ -16,6 +19,9 @@ class Player:
 			"attack_speed" : 4,
 			"strength": 25,
 		}
+		var card = Cards.generate_random_card()
+		print(card.name)
+		
 		
 	func take_damage(bullet):
 		self.stats["pv"] -= 33
