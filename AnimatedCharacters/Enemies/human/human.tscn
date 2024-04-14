@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://cyhlud4i6s8kv"]
+[gd_scene load_steps=29 format=3 uid="uid://cyhlud4i6s8kv"]
 
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_5btoe"]
+[ext_resource type="Script" path="res://ennemies.gd" id="1_ux6as"]
 [ext_resource type="Texture2D" uid="uid://dpo3kohkf3y5x" path="res://Assets/Characters/Enemies/enemies x1_flipped.png" id="2_0vidi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngs8r"]
@@ -197,6 +198,7 @@ animations = [{
 
 [node name="human" type="CharacterBody2D"]
 collision_layer = 2
+script = ExtResource("1_ux6as")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -211,3 +213,7 @@ one_shot = true
 
 [node name="gunPos" type="Marker2D" parent="."]
 position = Vector2(13, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
