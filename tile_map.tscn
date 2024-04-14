@@ -4817,6 +4817,8 @@ layer_1/tile_data = PackedInt32Array(-655352, 1048576, 0, -589816, 1048576, 1, -
 layer_2/name = "Stripes"
 layer_2/tile_data = PackedInt32Array()
 
+[node name="octopus" parent="." instance=ExtResource("5_wbw7w")]
+
 [node name="Player" parent="." instance=ExtResource("3_gudsx")]
 position = Vector2(2, 1)
 
@@ -4844,6 +4846,3 @@ collision_mask = 0
 position = Vector2(432, 320)
 collision_layer = 0
 collision_mask = 0
-
-[node name="octopus" parent="." instance=ExtResource("5_wbw7w")]
-position = Vector2(-81, -77)
