@@ -5,6 +5,7 @@ const SPEED = 75.0
 var PV = 100
 const bulletPath = preload("res://bullet.tscn")
 @onready var animation = $AnimatedSprite2D
+@onready var player_animation =  $AnimationPlayer
 
 func _ready():
 	$Timer.start()
@@ -49,9 +50,8 @@ func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shap
 		
 func take_damage(bullet):
 	PV -= 33
+	player_animation.play("damage")
 	bullet.queue_free()
 	
 func player_death():
-	print("player is dead")
-	
-	
+	pass
