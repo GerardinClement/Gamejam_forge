@@ -10,7 +10,7 @@
 
 [node name="mech" parent="." instance=ExtResource("5_45ch5")]
 position = Vector2(319, -103)
-scale = Vector2(1.8, 1.8)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("3_hybdc")
 
 [node name="Player" parent="." instance=ExtResource("1_ollg0")]
@@ -21,10 +21,9 @@ position = Vector2(135, 99)
 
 [node name="human" parent="." instance=ExtResource("4_x555r")]
 position = Vector2(223, 106)
-scale = Vector2(1.5, 1.5)
 script = ExtResource("3_hybdc")
 
 [node name="octopus" parent="." instance=ExtResource("5_t4syh")]
 position = Vector2(297, 19)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.2, 1.2)
 script = ExtResource("3_hybdc")
