@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bengab2gwd7r"]
+[gd_scene load_steps=9 format=3 uid="uid://d21p8612ejj0m"]
 
 [ext_resource type="Texture2D" uid="uid://1utd36kfuwuh" path="res://Assets/Projectiles/projectiles x2.png" id="1_incx7"]
 [ext_resource type="Script" path="res://AnimatedCharacters/Enemies/enemyBullet.gd" id="1_vtpx8"]
