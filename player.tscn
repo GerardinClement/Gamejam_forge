@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://player.gd" id="1_yfuhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwbjh"]
-size = Vector2(27, 42)
+size = Vector2(17, 28.4157)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pq7sh"]
 atlas = ExtResource("1_obtna")
@@ -70,16 +70,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_1ekn3")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_0kleu")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_k0luv")
 }, {
-"duration": 1.0,
+"duration": 0.1,
 "texture": SubResource("AtlasTexture_5dai6")
 }],
 "loop": false,
@@ -91,11 +91,13 @@ animations = [{
 script = ExtResource("1_yfuhs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 8)
+position = Vector2(-10, 1)
+scale = Vector2(1, 0.943944)
 shape = SubResource("RectangleShape2D_fwbjh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, -12)
+scale = Vector2(0.505067, 0.553075)
 sprite_frames = SubResource("SpriteFrames_p5bdb")
 animation = &"shoot"
 
