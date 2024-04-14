@@ -7,8 +7,8 @@ const bulletPath = preload("res://bullet.tscn")
 var player: Player
 
 class Player:
-
-	var Cards = preload("res://Cards.gd").new()
+	#var cardsManagement = preload("res://cardsManager.gd").new()
+	
 	var stats: Dictionary
 	var cards: Dictionary
 		
@@ -19,8 +19,8 @@ class Player:
 			"attack_speed" : 4,
 			"strength": 25,
 		}
-		var card = Cards.generate_random_card()
-		cards[card.name] = card
+		#var card = cardsManagement.generate_random_card()
+		#cards[card.name] = card
 		
 		
 	func take_damage(bullet):
