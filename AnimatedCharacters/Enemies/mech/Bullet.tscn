@@ -17,8 +17,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="bullet_enemy" type="Area2D"]
 collision_layer = 4
+collision_mask = 25
 script = ExtResource("1_r8wag")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,3 +30,5 @@ shape = SubResource("RectangleShape2D_cudqa")
 position = Vector2(-4, -1)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_4evaw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

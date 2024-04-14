@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var speed = 60
+@export var speed = 30
 @onready var player = get_parent().get_node("Player")
 var hasShot = true
 var canShoot = false
@@ -14,12 +14,18 @@ func _ready():
 	animations = get_node("animations")
 
 func _process(delta):
-	if $Timer.is_stopped() && canShoot:
+	if !canShoot:
+		shoot()
+		canShoot = true
+		$Timer.start()
+
+	if $Timer.is_stopped() && global_position.distance_to(player.global_position) < 200:
 		hasShot = false
-		if enemyPos.x < playerPos.x:
-			animations.play("shootRight")
+		if position.x < player.position.x:
+			animations.set_flip_h(false)
 		else:
-			animations.play("shootLeft")
+			animations.set_flip_h(true)
+		animations.play("shootRight")
 		$Timer.set_wait_time(1)
 		$Timer.start()
 		
@@ -28,22 +34,17 @@ func _process(delta):
 		hasShot = true
 
 func _physics_process(delta):
-	#if animations.is_playing() && (animations.animation != "moveRight" || animations.amination != "moveLeft"):
-	#	return
 	playerPos = player.position
 	enemyPos = (playerPos - position).normalized()
 	velocity = global_position.direction_to(player.global_position)
-	if enemyPos.x > 0 && !animations.is_playing():
-		animations.play("moveRight")
-	elif !animations.is_playing():
-		animations.play("moveLeft")
+	if animations.is_playing && animations.animation != "moveRight":
+		return
+	if position.x > 0:
+		animations.set_flip_h(false)
+	else:
+		animations.set_flip_h(true)
+	animations.play("moveRight")
 	move_and_collide(velocity * speed * delta)
-	if global_position.distance_to(player.global_position) > 200:
-		canShoot = false
-	elif !canShoot:
-		shoot()
-		canShoot = true
-		$Timer.start()
 
 
 func shoot():
@@ -51,7 +52,10 @@ func shoot():
 	if bulletPath:
 		var bullet = bulletPath.instantiate()
 		get_parent().add_child(bullet)
-		bullet.position = get_node("gunPos").global_position
+		if animations.is_flipped_h() == false:
+			bullet.position = get_node("rightSide").global_position
+		else:
+			bullet.position = get_node("leftSide").global_position
 
 func getBulletPath():
 	if get_name() == 'octopus':

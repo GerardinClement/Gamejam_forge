@@ -42,8 +42,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="bullet_enemy" type="Area2D"]
 collision_layer = 4
+collision_mask = 25
 script = ExtResource("1_vtpx8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -52,3 +53,5 @@ shape = SubResource("RectangleShape2D_arxls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3bgo6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
