@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0pweq64e17kj"]
+
+[ext_resource type="Script" path="res://Cards.gd" id="1_ud0bj"]
+[ext_resource type="Texture2D" uid="uid://covvbjfmp7fa4" path="res://Assets/Cards/FirstOne.png" id="2_1s1nc"]
+
+[node name="Cards" type="Node2D"]
+script = ExtResource("1_ud0bj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(3, 7)
+texture = ExtResource("2_1s1nc")

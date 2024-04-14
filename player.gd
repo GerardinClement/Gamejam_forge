@@ -20,7 +20,7 @@ class Player:
 			"strength": 25,
 		}
 		var card = Cards.generate_random_card()
-		print(card.name)
+		cards[card.name] = card
 		
 		
 	func take_damage(bullet):
