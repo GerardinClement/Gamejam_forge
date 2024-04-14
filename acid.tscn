@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://b2uk7ad0o4ccd"]
+
+[ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_5pgj1"]
+
+[sub_resource type="GDScript" id="GDScript_trbbx"]
+script/source = "extends StaticBody2D
+
+@onready var animation = $AnimatedSprite2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	animation.play(\"acid\")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptewu"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rll7"]
+atlas = ExtResource("1_5pgj1")
+region = Rect2(1120, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqhgi"]
+atlas = ExtResource("1_5pgj1")
+region = Rect2(1136, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgflx"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_0rll7")
+}, {
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_fqhgi")
+}],
+"loop": true,
+"name": &"acid",
+"speed": 5.0
+}]
+
+[node name="Acid" type="StaticBody2D"]
+script = SubResource("GDScript_trbbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_ptewu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_jgflx")
+animation = &"acid"
+frame_progress = 0.335078
