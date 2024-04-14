@@ -4846,4 +4846,4 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="octopus" parent="." instance=ExtResource("5_wbw7w")]
-position = Vector2(-81, -77)
+position = Vector2(-70, -78)
