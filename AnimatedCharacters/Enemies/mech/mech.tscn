@@ -321,5 +321,12 @@ shape = SubResource("RectangleShape2D_per6e")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qt316")
-animation = &"shootTop"
-frame_progress = 0.0624864
+animation = &"shootRight"
+frame_progress = 0.950173
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="gunPos" type="Marker2D" parent="."]
+position = Vector2(23, 1)

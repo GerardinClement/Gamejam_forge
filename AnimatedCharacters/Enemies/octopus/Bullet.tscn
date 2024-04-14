@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bisr108gd3htl"]
+[gd_scene load_steps=9 format=3 uid="uid://bisr108gd3htl"]
 
+[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/enemyBullet.gd" id="1_71bs5"]
 [ext_resource type="Texture2D" uid="uid://hhlnyq25m3mm" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Projectiles/projectiles x1.png" id="1_kbm2e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2ux3"]
-size = Vector2(9, 9)
+size = Vector2(5.33333, 6.66667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v8ax"]
 atlas = ExtResource("1_kbm2e")
@@ -41,10 +42,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="StaticBody2D"]
+[node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_layer = 4
+script = ExtResource("1_71bs5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(18.5, -0.5)
+position = Vector2(16.6667, -0.666667)
 shape = SubResource("RectangleShape2D_x2ux3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

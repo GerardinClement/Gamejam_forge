@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://bengab2gwd7r"]
+
+[ext_resource type="Texture2D" uid="uid://1utd36kfuwuh" path="res://Assets/Projectiles/projectiles x2.png" id="1_incx7"]
+[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/enemyBullet.gd" id="1_vtpx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arxls"]
+size = Vector2(16, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tlwb"]
+atlas = ExtResource("1_incx7")
+region = Rect2(0, 0, 64, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycj8e"]
+atlas = ExtResource("1_incx7")
+region = Rect2(64, 0, 64, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0n52"]
+atlas = ExtResource("1_incx7")
+region = Rect2(128, 0, 64, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r51hh"]
+atlas = ExtResource("1_incx7")
+region = Rect2(192, 0, 64, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bgo6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tlwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycj8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0n52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r51hh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_vtpx8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_arxls")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3bgo6")
