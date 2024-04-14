@@ -8,5 +8,5 @@ func _physics_process(delta):
 	animated_sprite.play("default")
 	move_and_collide(velocity.normalized() * delta * SPEED)
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	self.queue_free()

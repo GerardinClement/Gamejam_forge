@@ -4807,7 +4807,7 @@ pattern_42 = SubResource("TileMapPattern_ivcr8")
 pattern_43 = SubResource("TileMapPattern_hgeno")
 
 [node name="TileMap" type="TileMap"]
-position = Vector2(18, 127)
+position = Vector2(6, 105)
 tile_set = SubResource("TileSet_wh2f6")
 collision_animatable = true
 format = 2

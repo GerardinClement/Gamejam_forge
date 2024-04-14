@@ -314,7 +314,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkvlr"]
-size = Vector2(193, 158)
+size = Vector2(276.5, 228)
 
 [node name="mech" type="CharacterBody2D"]
 collision_layer = 2
@@ -343,3 +343,9 @@ shape = SubResource("RectangleShape2D_fkvlr")
 
 [node name="leftSide" type="Marker2D" parent="."]
 position = Vector2(-23, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(200, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,7 +1,7 @@
 extends Area2D
 
-#@onready var player = get_parent().get_parent().get_node("Player")
 const speed = 300.0
+var damage
 var isReady = false
 var velocity = Vector2()
 @onready var player = get_parent().get_node("Player")
@@ -18,5 +18,5 @@ func _physics_process(delta):
 		isReady =  true
 	position += velocity * speed * delta
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	queue_free()
