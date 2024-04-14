@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8afn38mfwi0d"]
+
+[ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://tile_map.tscn" id="2_r3ojv"]
+[ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
+[ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="3_w6e60"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("2_r3ojv")]
+
+[node name="Player" parent="." instance=ExtResource("3_keqr3")]
+
+[node name="octopus" parent="." instance=ExtResource("3_w6e60")]
