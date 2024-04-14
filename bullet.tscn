@@ -67,5 +67,4 @@ collision_mask = 8
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_tj8vj")
 
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered" unbinds=1]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
