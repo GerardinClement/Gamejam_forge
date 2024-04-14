@@ -2,14 +2,15 @@ extends Node2D
 @onready var invetory_menu = $Player/Camera2D/InventoryMenu
 @onready var Player = $Player.player
 var pause = true
+var card_manager
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var card_manager_scene = preload("res://cardsManager.tscn")
-	var card_manager_instance = card_manager_scene.instantiate()
-	add_child(card_manager_instance)
-	await card_manager_instance
+	var card_manager = card_manager_scene.instantiate()
+	add_child(card_manager)
+	await card_manager
 	invetory_menu.hide()
 	
 func _process(delta):

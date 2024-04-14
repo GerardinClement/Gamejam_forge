@@ -3,23 +3,21 @@ const bulletPath = preload("res://bullet.tscn")
 
 @onready var animation = $AnimatedSprite2D
 @onready var player_animation =  $AnimationPlayer
-
+@onready var main = $".."
 var player: Player
 
 class Player:
-	#var cardsManagement = preload("res://cardsManager.gd").new()
-	
 	var stats: Dictionary
 	var cards: Dictionary
 		
-	func _init():
+	func _init(cardsManager):
 		stats = {
 			"pv" : 100,
 			"speed": 75,
 			"attack_speed" : 4,
 			"strength": 25,
 		}
-		#var card = cardsManagement.generate_random_card()
+		#var card = cardsManager.generate_random_card()
 		#cards[card.name] = card
 		
 		
@@ -33,7 +31,8 @@ class Player:
 		pass
 
 func _ready():
-	player = Player.new()
+	print(main.card_manager)
+	player = Player.new(main.card_manager)
 	$Timer.start()
 	
 func _process(delta):

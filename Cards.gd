@@ -1,7 +1,5 @@
 extends Node2D
 
-
-
 class Card:
 	var name: String
 	var description: String
