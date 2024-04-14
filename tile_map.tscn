@@ -4847,10 +4847,9 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="mech" parent="." instance=ExtResource("6_dqmgf")]
-position = Vector2(-37, -103)
-scale = Vector2(1.5, 1.5)
+position = Vector2(114, -103)
 collision_mask = 9
 
 [node name="human" parent="." instance=ExtResource("5_g1cfj")]
-position = Vector2(130, -119)
+position = Vector2(-109, -90)
 collision_mask = 9

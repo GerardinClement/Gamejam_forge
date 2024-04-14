@@ -321,7 +321,6 @@ animation = &"shootRight"
 frame_progress = 0.319514
 
 [node name="Timer" type="Timer" parent="."]
-one_shot = true
 
 [node name="gunPos" type="Marker2D" parent="."]
 position = Vector2(2, -1)

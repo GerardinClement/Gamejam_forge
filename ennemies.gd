@@ -14,11 +14,6 @@ func _ready():
 	animations = get_node("animations")
 
 func _process(delta):
-	if !canShoot:
-		shoot()
-		canShoot = true
-		$Timer.start()
-
 	if $Timer.is_stopped() && global_position.distance_to(player.global_position) < 200:
 		hasShot = false
 		if position.x < player.position.x:
@@ -26,18 +21,19 @@ func _process(delta):
 		else:
 			animations.set_flip_h(true)
 		animations.play("shootRight")
-		$Timer.set_wait_time(1)
 		$Timer.start()
 		
-	if checkFrame() && !hasShot:
-		shoot()
+	if checkFrame() && !hasShot && global_position.distance_to(player.global_position) < 200:
 		hasShot = true
+		print("here")
+		shoot()
 
 func _physics_process(delta):
 	playerPos = player.position
 	enemyPos = (playerPos - position).normalized()
 	velocity = global_position.direction_to(player.global_position)
-	if animations.is_playing && animations.animation != "moveRight":
+	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && global_position.distance_to(player.global_position) < 200:
+		print(animations.animation)
 		return
 	if position.x > 0:
 		animations.set_flip_h(false)

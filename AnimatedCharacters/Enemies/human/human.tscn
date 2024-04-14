@@ -209,7 +209,7 @@ shape = SubResource("RectangleShape2D_ngs8r")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lyqgq")
-animation = &"moveLeft"
+animation = &"moveRight"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
