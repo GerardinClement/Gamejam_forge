@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var sprite = $StaticBody2D/Sprite2D
+
 class Card:
 	var name: String
 	var description: String
@@ -14,22 +16,28 @@ class Card:
 
 	func applyEffects(player):
 		for effect_key in effects.keys():
-			match effect_key in effects.keys():
-				"increase_strenght":
+			match effect_key:
+				"strength":
 					player.strength += effects[effect_key]
-				"increase_attack_speed":
+				"attack_speed":
 					player.attack_speed += effects[effect_key]
-				"increase_health":
-					player.health += effects[effect_key]
+				"pv_max":
+					player.pv_max += effects[effect_key]
 					
 	func loadImage(name: String):
 		var image_texture = ImageTexture.new()
-		var image = Image.new()
-		var error = image.load("res://Assets/Cards/" + name + ".png")
+		var new_image = Image.new()
+		var error = new_image.load("res://Assets/Cards/" + name + ".png")
 		
 		if error == OK:
-			image_texture.create_from_image(image)
-			print(name, "is loaded")
+			return(image_texture.create_from_image(new_image))
+			print(name, " is loaded")
 		else:
 			print(name + "Error: ", error)
+	
+
+
+func _on_sprite_2d_texture_changed():
+	print("texture changed")
+	print(sprite.get_texture())
 	

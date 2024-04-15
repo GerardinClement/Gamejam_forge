@@ -7,14 +7,13 @@ func _ready():
 	load_cards()
 
 func load_cards():
-	var firstOne = Card.new("FirstOne", "This is the First one", {"increase_strength": 10,"increase_attack_speed": 10, "increase_health": 10 })
-	var heal = Card.new("Health +", "Give heal", {"increase_strength": 0,"increase_attack_speed": 0, "increase_health": 20 })
+	var firstOne = Card.new("FirstOne", "This is the First one", {"strength": 10,"attack_speed": 10, "pv_max": 10 })
+	var heal = Card.new("Health+", "Give heal", {"strength": 0,"attack_speed": 0, "pv_max": 20 })
 	
 	cards["firstOne"] = firstOne
-	cards["heal+"] = heal
+	cards["health+"] = heal
 	
 func generate_random_card():
-	print(cards.size())
 	var size = cards.size()
 	if size == 0:
 		return null

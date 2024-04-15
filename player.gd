@@ -3,27 +3,32 @@ const bulletPath = preload("res://bullet.tscn")
 
 @onready var animation = $AnimatedSprite2D
 @onready var player_animation =  $AnimationPlayer
-@onready var main = $".."
+@onready var Card = "res://Cards.gd"
 var player: Player
 
 class Player:
-	var stats: Dictionary
 	var cards: Dictionary
+	var pv
+	var pv_max
+	var speed
+	var attack_speed
+	var strength
 		
-	func _init(cardsManager):
-		stats = {
-			"pv" : 100,
-			"speed": 75,
-			"attack_speed" : 4,
-			"strength": 25,
-		}
-		#var card = cardsManager.generate_random_card()
-		#cards[card.name] = card
-		
+	func _init():
+		pv = 100
+		pv_max = 100
+		speed = 75
+		attack_speed = 4
+		strength = 25
+	
+	func add_card(newCard):
+		newCard.applyEffects(self)
+		cards[newCard.name] = newCard
+		print("new card:", newCard.name)
 		
 	func take_damage(bullet):
-		self.stats["pv"] -= 33
-		if self.stats["pv"] <= 0:
+		self.pv -= 33
+		if self.pv <= 0:
 			self.player_death()
 		bullet.queue_free()
 
@@ -31,8 +36,7 @@ class Player:
 		pass
 
 func _ready():
-	print(main.card_manager)
-	player = Player.new(main.card_manager)
+	player = Player.new()
 	$Timer.start()
 	
 func _process(delta):
@@ -44,7 +48,7 @@ func _process(delta):
 	
 func _physics_process(delta):
 	var mouseOffset = get_global_mouse_position() - self.position;
-	var direction = mouseOffset.normalized() * player.stats["speed"]
+	var direction = mouseOffset.normalized() * player.speed
 	if mouseOffset.x < 5 and mouseOffset.x > -5:
 		animation.play("idle")
 		return
@@ -54,7 +58,7 @@ func _physics_process(delta):
 		animation.flip_h = true
 	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle" :
 		animation.play("run")
-	velocity = direction * delta * player.stats["speed"]
+	velocity = direction * delta * player.speed
 	move_and_slide()
 	
 func shoot():

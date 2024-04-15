@@ -11,6 +11,7 @@ func _ready():
 	var card_manager = card_manager_scene.instantiate()
 	add_child(card_manager)
 	await card_manager
+	Player.add_card(card_manager.generate_random_card())
 	invetory_menu.hide()
 	
 func _process(delta):

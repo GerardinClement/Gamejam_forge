@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8afn38mfwi0d"]
+[gd_scene load_steps=6 format=3 uid="uid://tdg55ys4pwqt"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_g3bdo"]
 [ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://tile_map.tscn" id="2_r3ojv"]
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
 [ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="3_w6e60"]
-[ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="5_h6o1h"]
+[ext_resource type="PackedScene" uid="uid://defyvtt5kgt3k" path="res://inventory_menu.tscn" id="5_h6o1h"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_g3bdo")
