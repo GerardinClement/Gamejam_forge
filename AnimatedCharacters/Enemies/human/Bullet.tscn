@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d21p8612ejj0m"]
+[gd_scene load_steps=13 format=3 uid="uid://d21p8612ejj0m"]
 
 [ext_resource type="Script" path="res://AnimatedCharacters/Enemies/freeBullet.gd" id="1_5skae"]
 [ext_resource type="Texture2D" uid="uid://1utd36kfuwuh" path="res://Assets/Projectiles/projectiles x2.png" id="1_incx7"]
@@ -22,6 +22,22 @@ region = Rect2(128, 0, 64, 52)
 atlas = ExtResource("1_incx7")
 region = Rect2(192, 0, 64, 52)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3udl"]
+atlas = ExtResource("1_incx7")
+region = Rect2(40, 320, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0uec"]
+atlas = ExtResource("1_incx7")
+region = Rect2(100, 320, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkylk"]
+atlas = ExtResource("1_incx7")
+region = Rect2(160, 320, 60, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfanp"]
+atlas = ExtResource("1_incx7")
+region = Rect2(220, 320, 60, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3bgo6"]
 animations = [{
 "frames": [{
@@ -40,6 +56,23 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3udl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0uec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkylk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfanp")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
 }]
 
 [node name="bullet_enemy" type="Area2D"]
@@ -53,5 +86,9 @@ shape = SubResource("RectangleShape2D_arxls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3bgo6")
+animation = &"destroy"
+frame = 3
+frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
