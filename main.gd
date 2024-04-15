@@ -12,11 +12,14 @@ func _ready():
 	add_child(card_manager)
 	await card_manager
 	Player.add_card(card_manager.generate_random_card())
+	Player.add_card(card_manager.generate_random_card())
+	Player.add_card(card_manager.generate_random_card())
+	Player.add_card(card_manager.generate_random_card())
+	Player.add_card(card_manager.generate_random_card())
 	invetory_menu.hide()
 	
 func _process(delta):
-	if Input.is_action_just_pressed("Invetory"):
-		pass
+	if Input.is_action_just_pressed("Inventory"):
 		invetoryMenu()
 		
 func invetoryMenu():

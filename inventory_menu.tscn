@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctr3p3hercw2n"]
+[gd_scene load_steps=2 format=3 uid="uid://ctr3p3hercw2n"]
 
-[ext_resource type="PackedScene" uid="uid://b0pweq64e17kj" path="res://cards.tscn" id="1_48c6e"]
 [ext_resource type="Script" path="res://script/inventory_menu.gd" id="1_pu8kg"]
 
 [node name="InventoryMenu" type="Control"]
@@ -32,18 +31,3 @@ text = "Resume"
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="Cards1" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(173, 506)
-
-[node name="Cards2" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(365, 509)
-
-[node name="Cards3" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(554, 510)
-
-[node name="Cards4" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(737, 511)
-
-[node name="Cards5" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(927, 509)
