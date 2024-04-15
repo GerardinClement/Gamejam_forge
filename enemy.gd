@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var player = get_parent().get_parent().get_node("Player")
 @onready var timer = get_parent().get_node("Timer")
 var speed
+var bulletSpeed
 var damage
 var shootFrame
 var playerPos
@@ -14,32 +15,29 @@ var bulletPath
 var canShoot = false
 var hasShot = true
 
-func _init():
-	pass
-	
 func _process(delta):
 	if timer.is_stopped() && canShoot && !checkWalls():
 		hasShot = false
-		if position.x < player.position.x:
+		if global_position.x < player.global_position.x:
 			animations.set_flip_h(false)
 		else:
 			animations.set_flip_h(true)
 		animations.play("shootRight")
 		timer.start()
-		
+
 func _physics_process(delta):
 	if checkFrame() && !hasShot && !checkWalls():
 		hasShot = true
 		shoot()
-	playerPos = player.position
-	enemyPos = (playerPos - position).normalized()
+	playerPos = player.global_position
+	enemyPos = (playerPos - global_position).normalized()
 	velocity = global_position.direction_to(player.global_position)
 	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && global_position.distance_to(player.global_position) < 200:
 		return
 	move(delta)
 
 func move(delta):
-	if position.x < player.position.x:
+	if global_position.x < player.global_position.x:
 		animations.set_flip_h(false)
 	else:
 		animations.set_flip_h(true)
@@ -47,21 +45,20 @@ func move(delta):
 	get_parent().move_and_collide(velocity * speed * delta)
 
 func shoot():
-	print(bulletPath)
-	if bulletPath:
-		var bullet = bulletPath.instantiate()
-		get_parent().get_parent().add_child(bullet)
-		if animations.is_flipped_h() == false:
-			bullet.position = get_parent().get_node("rightSide").global_position
-		else:
-			bullet.position = get_parent().get_node("leftSide").global_position
-		print(bullet.position)
-		
+	var bullet = EnemyBullet.new()
+	bullet.damage = damage
+	bullet.speed = bulletSpeed
+	bullet.bulletPath = bulletPath
+	get_parent().get_parent().add_child(bullet)
+	if animations.is_flipped_h() == false:
+		bullet.position = get_parent().get_node("rightSide").global_position
+	else:
+		bullet.position = get_parent().get_node("leftSide").global_position
+
 func checkFrame():
 	if animations.frame == shootFrame:
 		return true
 	return false
-
 
 func resetAnimation():
 	if animations.is_playing() && animations.animation == 'shootRight':
@@ -70,10 +67,6 @@ func resetAnimation():
 
 func checkWalls():
 	var ray = get_parent().get_node("RayCast2D")
-	if !animations.is_flipped_h():
-		ray.position = get_parent().get_node("rightSide").global_position
-	else:
-		ray.position = get_parent().get_node("leftSide").global_position
 	ray.target_position = player.global_position
 	if ray.get_collider():
 		resetAnimation()

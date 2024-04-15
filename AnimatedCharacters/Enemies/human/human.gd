@@ -7,6 +7,7 @@ func _ready():
 	human.damage = 2
 	human.speed = 30
 	human.shootFrame = 1
+	human.bulletSpeed = 300.0
 	human.bulletPath = load("res://AnimatedCharacters/Enemies/human/Bullet.tscn")
 	add_child(human)
 

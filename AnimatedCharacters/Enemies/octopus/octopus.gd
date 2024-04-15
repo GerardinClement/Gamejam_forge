@@ -7,6 +7,7 @@ func _ready():
 	octopus.damage = 5
 	octopus.speed = 35
 	octopus.shootFrame = 2
+	octopus.bulletSpeed = 250.0
 	octopus.bulletPath = load("res://AnimatedCharacters/Enemies/octopus/Bullet.tscn")
 	add_child(octopus)
 

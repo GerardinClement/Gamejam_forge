@@ -12,8 +12,8 @@ func _physics_process(delta):
 		animated_sprite.play("default")
 	move_and_collide(velocity.normalized() * delta * SPEED)
 
-#func _on_area_2d_body_entered(body):
-#	destroy_itself()
+func _on_area_2d_body_entered(body):
+	destroy_itself()
 	
 func destroy_itself():
 	animated_sprite.play("impact")
@@ -25,6 +25,3 @@ func destroy_itself():
 func _on_animated_sprite_2d_animation_finished():
 	if animated_sprite.animation == "impact":
 		self.queue_free()
-
-func _on_area_2d_body_entered(_body):
-	self.queue_free()

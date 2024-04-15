@@ -1,7 +1,10 @@
+class_name EnemyBullet
+
 extends Area2D
 
-const speed = 300.0
+var speed
 var damage
+var bulletPath
 var isReady = false
 var velocity = Vector2()
 @onready var player = get_parent().get_node("Player")
@@ -9,14 +12,13 @@ var velocity = Vector2()
 func _ready():
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	$AnimatedSprite2D.play("default")
-	if !isReady:
-		look_at(player.global_position)
-		velocity = position.direction_to(player.global_position)
-		isReady =  true
-	position += velocity * speed * delta
-
-func _on_body_entered(_body):
-	queue_free()
+	if bulletPath:
+		var bulletSprite = bulletPath.instantiate()
+		add_child(bulletSprite)
+		bulletSprite.get_node("AnimatedSprite2D").play("default")
+		if !isReady:
+			look_at(player.global_position)
+			velocity = bulletSprite.global_position.direction_to(player.global_position)
+			isReady = true
+		global_position += velocity * speed * delta

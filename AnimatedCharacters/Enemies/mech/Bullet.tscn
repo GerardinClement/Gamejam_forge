@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dedys5vj348u6"]
 
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/enemyBullet.gd" id="1_r8wag"]
+[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/freeBullet.gd" id="1_0lpa2"]
 [ext_resource type="Texture2D" uid="uid://dlkphnddk6kq1" path="res://Assets/Projectiles/Laser Sprites/18.png" id="2_garjg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cudqa"]
@@ -20,7 +20,7 @@ animations = [{
 [node name="bullet_enemy" type="Area2D"]
 collision_layer = 4
 collision_mask = 25
-script = ExtResource("1_r8wag")
+script = ExtResource("1_0lpa2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, -1)

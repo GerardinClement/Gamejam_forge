@@ -45,7 +45,6 @@ func move(delta):
 	move_and_collide(velocity * speed * delta)
 
 func shoot():
-	getBulletPath()
 	if bulletPath:
 		var bullet = bulletPath.instantiate()
 		get_parent().add_child(bullet)
@@ -54,14 +53,6 @@ func shoot():
 			bullet.position = get_node("rightSide").global_position
 		else:
 			bullet.position = get_node("leftSide").global_position
-
-func getBulletPath():
-	if get_name() == 'octopus':
-		bulletPath = load("res://AnimatedCharacters/Enemies/octopus/Bullet.tscn")
-	elif get_name() == 'mech':
-		bulletPath = load("res://AnimatedCharacters/Enemies/mech/Bullet.tscn")
-	elif get_name() == 'human':
-		bulletPath = load("res://AnimatedCharacters/Enemies/human/Bullet.tscn")
 		
 func checkFrame():
 	if name == 'octopus' && animations.frame == 2:

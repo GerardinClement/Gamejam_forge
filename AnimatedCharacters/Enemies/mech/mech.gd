@@ -7,6 +7,7 @@ func _ready():
 	mech.damage = 10
 	mech.speed = 20
 	mech.shootFrame = 3
+	mech.bulletSpeed = 200.0
 	mech.bulletPath = load("res://AnimatedCharacters/Enemies/mech/Bullet.tscn")
 	add_child(mech)
 
