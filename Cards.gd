@@ -29,7 +29,11 @@ class Card:
 					addShootSide(player, effects[effect_key])
 
 	func addShootSide(player, shootSide):
-		pass
+		print(shootSide)
+		for side in shootSide:
+			player.shootSide[side] = true
+		print(player.shootSide)
+		
 			
 	func loadImage(name: String):
 		var image_texture = ImageTexture.new()
