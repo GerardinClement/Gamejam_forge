@@ -6,9 +6,9 @@ var isDestroyed = false
 func _on_body_entered(body):
 	animations.play("destroy")
 	if get_parent().velocity.x < 0:
-		animations.flip_h = true
-	else:
 		animations.flip_h = false
+	else:
+		animations.flip_h = true
 	get_parent().velocity = Vector2(0,0)
 	isDestroyed = true
 
