@@ -2,8 +2,10 @@ extends CharacterBody2D
 
 
 const SPEED = 75.0
+var PV = 100
 const bulletPath = preload("res://bullet.tscn")
 @onready var animation = $AnimatedSprite2D
+@onready var player_animation =  $AnimationPlayer
 
 func _ready():
 	$Timer.start()
@@ -14,6 +16,8 @@ func _process(delta):
 		animation.play("shoot")
 		shoot()
 		$Timer.start()
+	if PV <= 0:
+		player_death()
 	
 func _physics_process(delta):
 	var mouseOffset = get_global_mouse_position() - self.position;
@@ -38,3 +42,16 @@ func shoot():
 		bullet.velocity.x = 1
 	else:
 		bullet.velocity.x = -1
+		
+
+func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	if area.name == "bullet_enemy":
+		take_damage(area.get_parent())
+		
+func take_damage(bullet):
+	PV -= 33
+	player_animation.play("damage")
+	bullet.queue_free()
+	
+func player_death():
+	pass

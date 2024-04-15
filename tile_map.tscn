@@ -4,8 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_gudsx"]
 [ext_resource type="PackedScene" uid="uid://keejpye2ln1t" path="res://large_door.tscn" id="4_4hjqr"]
-[ext_resource type="PackedScene" uid="uid://cyhlud4i6s8kv" path="res://AnimatedCharacters/Enemies/human/human.tscn" id="5_g1cfj"]
-[ext_resource type="PackedScene" uid="uid://dl0fs76fenl5d" path="res://AnimatedCharacters/Enemies/mech/mech.tscn" id="6_dqmgf"]
+[ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="5_wbw7w"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
 tile_data = PackedInt32Array(0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1)
@@ -4846,10 +4845,5 @@ position = Vector2(432, 320)
 collision_layer = 16
 collision_mask = 0
 
-[node name="mech" parent="." instance=ExtResource("6_dqmgf")]
-position = Vector2(114, -103)
-collision_mask = 9
-
-[node name="human" parent="." instance=ExtResource("5_g1cfj")]
-position = Vector2(-109, -90)
-collision_mask = 9
+[node name="octopus" parent="." instance=ExtResource("5_wbw7w")]
+position = Vector2(-81, -77)

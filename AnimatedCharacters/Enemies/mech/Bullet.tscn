@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://t6jn6bwrgcsg"]
+[gd_scene load_steps=5 format=3 uid="uid://dedys5vj348u6"]
 
 [ext_resource type="Script" path="res://AnimatedCharacters/Enemies/enemyBullet.gd" id="1_r8wag"]
 [ext_resource type="Texture2D" uid="uid://dlkphnddk6kq1" path="res://Assets/Projectiles/Laser Sprites/18.png" id="2_garjg"]
