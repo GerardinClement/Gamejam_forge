@@ -25,7 +25,12 @@ class Card:
 					player.attack_speed += effects[effect_key]
 				"pv_max":
 					player.pv_max += effects[effect_key]
-					
+				"shootSide":
+					addShootSide(player, effects[effect_key])
+
+	func addShootSide(player, shootSide):
+		pass
+			
 	func loadImage(name: String):
 		var image_texture = ImageTexture.new()
 		var new_image = Image.new()
