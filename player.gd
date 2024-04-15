@@ -26,10 +26,10 @@ class Player:
 			"back": false,
 			"top": false,
 			"bottom": false,
-			"topLeft": false,
-			"topRight": false,
-			"bottomLeft": false,
-			"bottomRight": false,
+			"topBack": false,
+			"topForward": false,
+			"bottomBack": false,
+			"bottomForward": false,
 		}
 	
 	func add_card(newCard):
@@ -46,28 +46,63 @@ class Player:
 	func player_death():
 		pass
 		
-	func bulletDirection(parent, marker2d, lookLeft, side):
-		var direction = Vector2(1, 0)
-		if lookLeft:
-			direction.x = -1
-		match side:
-			"forward":
-				createBulletInstance(parent, marker2d, lookLeft, direction)
-			"back":
-				direction.x = -direction.x
-				createBulletInstance(parent, marker2d, lookLeft, direction)
-		
 	func shoot(parent, marker2d, lookLeft):
 		for side in shootSide:
 			if shootSide[side]:
 				self.bulletDirection(parent, marker2d, lookLeft, side)
 				
-
-	func createBulletInstance(parent, marker2d, lookLeft, direction):
+	func bulletDirection(parent, marker2d, lookLeft, side):
+		var direction = Vector2(1, 0)
+		var rotate = 0
+		if lookLeft:
+			direction.x = -1
+		match side:
+			"forward":
+				createBulletInstance(parent, marker2d, direction, rotate)
+			"back":
+				direction.x = -direction.x
+				createBulletInstance(parent, marker2d, direction, rotate)
+			"top":
+				direction = Vector2(0, -1)
+				rotate = 90
+				createBulletInstance(parent, marker2d, direction, rotate)
+			"bottom":
+				rotate = 90
+				direction = Vector2(0, 1)
+				createBulletInstance(parent, marker2d, direction, rotate)
+			"topBack":
+				rotate = 45
+				if direction.x < 0:
+					rotate = -45
+				direction = Vector2(-direction.x, -1)
+				createBulletInstance(parent, marker2d, direction, rotate)
+			"topForward":
+				rotate = 135
+				if direction.x < 0:
+					rotate = -135
+				direction = Vector2(direction.x, -1)
+				createBulletInstance(parent, marker2d, direction, rotate)
+			"bottomBack":
+				rotate = 45
+				if direction.x > 0:
+					rotate = -45
+				direction = Vector2(-direction.x, 1)
+				createBulletInstance(parent, marker2d, direction, rotate)
+			"bottomForward":
+				rotate = 135
+				if direction.x > 0:
+					rotate = -135
+				direction = Vector2(direction.x, 1)
+				createBulletInstance(parent, marker2d, direction, rotate)
+		
+				
+	func createBulletInstance(parent, marker2d, direction, angleRotate):
 		var bullet = bulletPath.instantiate()
 		parent.add_child(bullet)
 		bullet.position = marker2d.global_position
 		bullet.velocity = direction
+		bullet.rotation_degrees = angleRotate
+
 
 func _ready():
 	player = Player.new()

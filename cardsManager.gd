@@ -9,7 +9,7 @@ func _ready():
 func load_cards():
 	#var firstOne = Card.new("FirstOne", "This is the First one", "stats", {"strength": 10,"attack_speed": 10, "pv_max": 10 })
 	#var heal = Card.new("Health+", "Give heal", "stats", {"strength": 0,"attack_speed": 0, "pv_max": 20 })
-	var mirror = Card.new("Mirror", "Shoot in back", "gadget", {"shootSide": ["back"]})
+	var mirror = Card.new("Mirror", "Shoot in back", "gadget", {"shootSide": ["back", "topBack", "top", "topForward", "bottom", "bottomBack", "bottomForward"]})
 	
 	#cards["firstOne"] = firstOne
 	#cards["health+"] = heal
