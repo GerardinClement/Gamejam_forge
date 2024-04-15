@@ -45,15 +45,29 @@ class Player:
 
 	func player_death():
 		pass
-
+		
+	func bulletDirection(parent, marker2d, lookLeft, side):
+		var direction = Vector2(1, 0)
+		if lookLeft:
+			direction.x = -1
+		match side:
+			"forward":
+				createBulletInstance(parent, marker2d, lookLeft, direction)
+			"back":
+				direction.x = -direction.x
+				createBulletInstance(parent, marker2d, lookLeft, direction)
+		
 	func shoot(parent, marker2d, lookLeft):
+		for side in shootSide:
+			if shootSide[side]:
+				self.bulletDirection(parent, marker2d, lookLeft, side)
+				
+
+	func createBulletInstance(parent, marker2d, lookLeft, direction):
 		var bullet = bulletPath.instantiate()
 		parent.add_child(bullet)
 		bullet.position = marker2d.global_position
-		if !lookLeft:
-			bullet.velocity.x = 1
-		else:
-			bullet.velocity.x = -1
+		bullet.velocity = direction
 
 func _ready():
 	player = Player.new()
