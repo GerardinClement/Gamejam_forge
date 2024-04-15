@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var player = get_parent().get_node("Player")
 var hasShot = true
 var canShoot = false
+var enemy
 var animations
 var playerPos
 var enemyPos
@@ -12,9 +13,10 @@ var bulletPath
 
 func _ready():
 	animations = get_node("animations")
+	enemy = Enemy.new()
 
 func _process(delta):
-	if $Timer.is_stopped() && canShoot:
+	if $Timer.is_stopped() && canShoot && !checkWalls():
 		hasShot = false
 		if position.x < player.position.x:
 			animations.set_flip_h(false)
@@ -24,7 +26,7 @@ func _process(delta):
 		$Timer.start()
 
 func _physics_process(delta):
-	if checkFrame() && !hasShot:
+	if checkFrame() && !hasShot && !checkWalls():
 		hasShot = true
 		shoot()
 	playerPos = player.position
@@ -43,7 +45,6 @@ func move(delta):
 	move_and_collide(velocity * speed * delta)
 
 func shoot():
-	checkWalls()
 	getBulletPath()
 	if bulletPath:
 		var bullet = bulletPath.instantiate()
@@ -78,9 +79,7 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body.name == 'Player':
 		canShoot = false
-	if animations.is_playing() && animations.animation == 'shootRight':
-		animations.stop()
-		animations.play("moveRight")
+	resetAnimation()
 
 func setDamage(bullet):
 	if name == 'mech':
@@ -90,6 +89,11 @@ func setDamage(bullet):
 	else:
 		bullet.damage = 5
 
+func resetAnimation():
+	if animations.is_playing() && animations.animation == 'shootRight':
+		animations.stop()
+		animations.play("moveRight")
+
 func checkWalls():
 	var ray = $RayCast2D
 	if !animations.is_flipped_h():
@@ -97,4 +101,7 @@ func checkWalls():
 	else:
 		ray.position = get_node("leftSide").global_position
 	ray.target_position = player.global_position
-	print(ray.target_position)
+	if ray.get_collider():
+		resetAnimation()
+		return true
+	return false

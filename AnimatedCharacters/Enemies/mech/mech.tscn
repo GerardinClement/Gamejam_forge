@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://dl0fs76fenl5d"]
 
+[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/mech/mech.gd" id="1_ctctx"]
 [ext_resource type="Texture2D" uid="uid://m1nejsn24hqr" path="res://Assets/Characters/Enemies/Mech/MechSheet.png" id="1_lna24"]
-[ext_resource type="Script" path="res://ennemies.gd" id="1_oslv5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_per6e"]
 size = Vector2(19, 27)
@@ -318,7 +318,8 @@ size = Vector2(276.5, 228)
 
 [node name="mech" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_oslv5")
+collision_mask = 9
+script = ExtResource("1_ctctx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
@@ -345,7 +346,7 @@ shape = SubResource("RectangleShape2D_fkvlr")
 position = Vector2(-23, 1)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(200, 0)
+collision_mask = 9
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

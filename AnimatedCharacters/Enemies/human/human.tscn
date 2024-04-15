@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://cyhlud4i6s8kv"]
 
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_5btoe"]
-[ext_resource type="Script" path="res://ennemies.gd" id="1_ux6as"]
+[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/human/human.gd" id="1_vrnhr"]
 [ext_resource type="Texture2D" uid="uid://dpo3kohkf3y5x" path="res://Assets/Characters/Enemies/enemies x1_flipped.png" id="2_0vidi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngs8r"]
@@ -201,7 +201,8 @@ size = Vector2(244, 194.5)
 
 [node name="human" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_ux6as")
+collision_mask = 9
+script = ExtResource("1_vrnhr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 3.5)
@@ -226,7 +227,7 @@ shape = SubResource("RectangleShape2D_dosin")
 position = Vector2(-13, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(151, 0)
+collision_mask = 9
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
