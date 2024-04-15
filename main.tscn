@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8afn38mfwi0d"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_g3bdo"]
+[ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://tile_map.tscn" id="2_r3ojv"]
+[ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
+[ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="5_h6o1h"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_g3bdo")
+
+[node name="TileMap" parent="." instance=ExtResource("2_r3ojv")]
+
+[node name="Player" parent="." instance=ExtResource("3_keqr3")]
+process_priority = 2
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="InventoryMenu" parent="Player/Camera2D" instance=ExtResource("5_h6o1h")]
+anchors_preset = -1
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -530.0
+offset_top = -316.0
+offset_right = -530.0
+offset_bottom = -316.0
+size_flags_horizontal = 0

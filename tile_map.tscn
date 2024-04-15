@@ -1,12 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://b1duj81xgtv76"]
+[gd_scene load_steps=51 format=3 uid="uid://b1duj81xgtv76"]
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
-[ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_gudsx"]
 [ext_resource type="PackedScene" uid="uid://keejpye2ln1t" path="res://large_door.tscn" id="4_4hjqr"]
-[ext_resource type="PackedScene" uid="uid://dl0fs76fenl5d" path="res://AnimatedCharacters/Enemies/mech/mech.tscn" id="5_cei18"]
-[ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="5_wbw7w"]
-[ext_resource type="PackedScene" uid="uid://cyhlud4i6s8kv" path="res://AnimatedCharacters/Enemies/human/human.tscn" id="6_t3hfa"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
 tile_data = PackedInt32Array(0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1)
@@ -4808,7 +4804,7 @@ pattern_42 = SubResource("TileMapPattern_ivcr8")
 pattern_43 = SubResource("TileMapPattern_hgeno")
 
 [node name="TileMap" type="TileMap"]
-position = Vector2(-40, 7)
+position = Vector2(1, 0)
 tile_set = SubResource("TileSet_wh2f6")
 collision_animatable = true
 format = 2
@@ -4819,9 +4815,6 @@ layer_1/tile_data = PackedInt32Array(-655352, 1048576, 0, -589816, 1048576, 1, -
 layer_2/name = "Stripes"
 layer_2/tile_data = PackedInt32Array()
 
-[node name="Player" parent="." instance=ExtResource("3_gudsx")]
-position = Vector2(4, 204)
-
 [node name="LargeDoors" parent="." instance=ExtResource("4_4hjqr")]
 position = Vector2(336, -96)
 collision_layer = 0
@@ -4829,29 +4822,20 @@ collision_mask = 0
 
 [node name="LargeDoor_1" parent="LargeDoors" instance=ExtResource("4_4hjqr")]
 position = Vector2(-336, 208)
-collision_layer = 16
+collision_layer = 0
 collision_mask = 0
 
 [node name="LargeDoor_3" parent="LargeDoors" instance=ExtResource("4_4hjqr")]
 position = Vector2(432, 240)
-collision_layer = 16
+collision_layer = 0
 collision_mask = 0
 
 [node name="LargeDoor_2" parent="LargeDoors" instance=ExtResource("4_4hjqr")]
 position = Vector2(144, -158)
-collision_layer = 16
+collision_layer = 0
 collision_mask = 0
 
 [node name="LargeDoor_4" parent="LargeDoors" instance=ExtResource("4_4hjqr")]
 position = Vector2(432, 320)
-collision_layer = 16
+collision_layer = 0
 collision_mask = 0
-
-[node name="mech" parent="." instance=ExtResource("5_cei18")]
-position = Vector2(80, -74)
-
-[node name="human" parent="." instance=ExtResource("6_t3hfa")]
-position = Vector2(-129, 26)
-
-[node name="octopus" parent="." instance=ExtResource("5_wbw7w")]
-position = Vector2(-108, 374)

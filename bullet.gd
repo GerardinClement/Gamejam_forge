@@ -4,7 +4,7 @@ const SPEED = 300.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-func _on_ready():
+func ready():
 	animated_sprite.play("default")
 
 func _physics_process(delta):
