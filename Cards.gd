@@ -4,14 +4,16 @@ extends Node2D
 
 class Card:
 	var name: String
+	var type: String
 	var description: String
 	var effects : Dictionary
 	var image: ImageTexture
-	
-	func _init(name: String, description: String, effects: Dictionary):
+
+	func _init(name: String, description: String, type: String, effects: Dictionary):
 		self.name = name
 		self.description = description
 		self.effects = effects
+		self.type = type
 		self.image = self.loadImage(self.name)
 
 	func applyEffects(player):
@@ -30,8 +32,8 @@ class Card:
 		var error = new_image.load("res://Assets/Cards/" + name + ".png")
 		
 		if error == OK:
-			return(image_texture.create_from_image(new_image))
 			print(name, " is loaded")
+			return(image_texture.create_from_image(new_image))
 		else:
 			print(name + "Error: ", error)
 	
