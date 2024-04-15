@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drgxigacfh2ub"
-path="res://.godot/imported/Health+.png-7db705a44bd8f2712eb5bb488f9fb83c.ctex"
+uid="uid://d16luwpue3x5e"
+path="res://.godot/imported/FlashMcqueen.png-02043da0c52c25df5eb7f6f1475bd3ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Health+.png"
-dest_files=["res://.godot/imported/Health+.png-7db705a44bd8f2712eb5bb488f9fb83c.ctex"]
+source_file="res://Assets/Cards/FlashMcqueen.png"
+dest_files=["res://.godot/imported/FlashMcqueen.png-02043da0c52c25df5eb7f6f1475bd3ad.ctex"]
 
 [params]
 

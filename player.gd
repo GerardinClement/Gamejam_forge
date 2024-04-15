@@ -106,6 +106,7 @@ class Player:
 
 func _ready():
 	player = Player.new()
+	$Timer.wait_time = player.attack_speed
 	$Timer.start()
 	
 func _process(delta):
@@ -113,6 +114,7 @@ func _process(delta):
 	if $Timer.is_stopped():
 		animation.play("shoot")
 		player.shoot(self.get_parent(), $Node2D/Marker2D, animation.flip_h )
+		$Timer.wait_time = player.attack_speed
 		$Timer.start()
 	
 func _physics_process(delta):

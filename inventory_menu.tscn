@@ -8,10 +8,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
+offset_left = 4.0
 offset_top = -3.0
 offset_right = 2.0
-offset_bottom = -7.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pu8kg")
@@ -34,16 +34,16 @@ layout_mode = 2
 text = "Quit"
 
 [node name="Cards1" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(251, 520)
+position = Vector2(173, 506)
 
 [node name="Cards2" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(394, 525)
+position = Vector2(365, 509)
 
 [node name="Cards3" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(534, 518)
+position = Vector2(554, 510)
 
 [node name="Cards4" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(680, 525)
+position = Vector2(737, 511)
 
 [node name="Cards5" parent="." instance=ExtResource("1_48c6e")]
-position = Vector2(818, 520)
+position = Vector2(927, 509)

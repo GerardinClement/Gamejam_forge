@@ -22,9 +22,11 @@ class Card:
 				"strength":
 					player.strength += effects[effect_key]
 				"attack_speed":
-					player.attack_speed += effects[effect_key]
+					player.attack_speed -= player.attack_speed * effects[effect_key]
 				"pv_max":
 					player.pv_max += effects[effect_key]
+				"speed":
+					player.speed += effects[effect_key]
 				"shootSide":
 					addShootSide(player, effects[effect_key])
 
