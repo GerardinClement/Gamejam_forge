@@ -109,6 +109,7 @@ func _ready():
 	$Timer.start()
 	
 func _process(_delta):
+	Global.playerPos = self.global_position
 	$Node2D.look_at(get_global_mouse_position())
 	if $Timer.is_stopped():
 		animation.play("shoot")

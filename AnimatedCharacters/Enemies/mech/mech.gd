@@ -8,8 +8,16 @@ func _ready():
 	mech.speed = 20
 	mech.shootFrame = 3
 	mech.bulletSpeed = 200.0
-	mech.bulletPath = load("res://AnimatedCharacters/Enemies/mech/Bullet.tscn")
-	add_child(mech)
+	mech.bulletPath = preload("res://AnimatedCharacters/Enemies/mech/Bullet.tscn")
+	mech.animations = $animations
+	mech.timer = $Timer
+	mech.ray = $RayCast2D
+	
+func _physics_process(_delta):
+	mech.process(_delta, self)
+	
+func _process(_delta):
+	mech.play_shoot_animations()
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":

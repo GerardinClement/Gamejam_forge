@@ -7,15 +7,35 @@ var damage
 var bulletPath
 var isShot = false
 var velocity = Vector2()
-@onready var player = get_parent().get_node("Player")
+var isDestroyed = false
+@onready var parent = get_parent()
+@onready var animations = $AnimatedSprite2D
 
+func _ready():
+	print(parent.name)
+	self.damage = parent.mech.damage
+	self.speed = parent.mech.speed
+	self.bulletPath = parent.mech.bulletPath
+	
 func _physics_process(delta):
 	if bulletPath:
 		if !isShot:
-			var bulletSprite = bulletPath.instantiate()
-			add_child(bulletSprite)
-			bulletSprite.get_node("AnimatedSprite2D").play("default")
-			look_at(player.global_position)
-			velocity = bulletSprite.global_position.direction_to(player.global_position)
+			self.get_node("AnimatedSprite2D").play("default")
+			look_at(Global.playerPos)
+			velocity = self.global_position.direction_to(Global.playerPos)
 			isShot = true
-		global_position += velocity * speed * delta
+		self.global_position += velocity * speed * delta
+
+
+func _on_body_entered(_body):
+	animations.play("destroy")
+	if self.velocity.x < 0:
+		animations.flip_h = false
+	else:
+		animations.flip_h = true
+	self.velocity = Vector2(0,0)
+	isDestroyed = true
+	
+func _on_animated_sprite_2d_animation_finished():
+	if animations.animation == "destroy":
+		self.queue_free()
