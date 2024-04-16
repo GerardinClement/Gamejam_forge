@@ -41,7 +41,6 @@ class Player:
 		self.pv -= 33
 		if self.pv <= 0:
 			self.player_death()
-		bullet.queue_free()
 
 	func player_death():
 		pass
@@ -136,8 +135,10 @@ func _physics_process(_delta):
 		
 
 func _on_area_2d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
-	if _area.name == "bullet_enemy":
+	if (_area.name == "Area2D" and _area.get_parent().is_in_group("enemy")):
 		player.take_damage(_area.get_parent())
 		player_animation.play("damage")
-		
-	
+
+
+func _on_area_2d_area_entered(area):
+	print(area.name)

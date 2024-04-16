@@ -9,9 +9,6 @@ var isShot = false
 var velocity = Vector2()
 @onready var player = get_parent().get_node("Player")
 
-func _ready():
-	pass
-
 func _physics_process(delta):
 	if bulletPath:
 		if !isShot:
