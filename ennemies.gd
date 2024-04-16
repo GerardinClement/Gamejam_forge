@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 
-@export var speed = 60
+@export var speed = 30
 @onready var player = get_parent().get_node("Player")
 var hasShot = true
 var canShoot = false
+var enemy
 var animations
 var playerPos
 var enemyPos
@@ -12,60 +13,86 @@ var bulletPath
 
 func _ready():
 	animations = get_node("animations")
+	enemy = Enemy.new()
 
 func _process(delta):
-	if $Timer.is_stopped() && canShoot:
+	if $Timer.is_stopped() && canShoot && !checkWalls():
 		hasShot = false
-		if enemyPos.x < playerPos.x:
-			animations.play("shootRight")
+		if position.x < player.position.x:
+			animations.set_flip_h(false)
 		else:
-			animations.play("shootLeft")
-		$Timer.set_wait_time(1)
+			animations.set_flip_h(true)
+		animations.play("shootRight")
 		$Timer.start()
-		
-	if checkFrame() && !hasShot:
-		shoot()
-		hasShot = true
 
 func _physics_process(delta):
-	#if animations.is_playing() && (animations.animation != "moveRight" || animations.amination != "moveLeft"):
-	#	return
+	if checkFrame() && !hasShot && !checkWalls():
+		hasShot = true
+		shoot()
 	playerPos = player.position
 	enemyPos = (playerPos - position).normalized()
 	velocity = global_position.direction_to(player.global_position)
-	if enemyPos.x > 0 && !animations.is_playing():
-		animations.play("moveRight")
-	elif !animations.is_playing():
-		animations.play("moveLeft")
-	move_and_collide(velocity * speed * delta)
-	if global_position.distance_to(player.global_position) > 200:
-		canShoot = false
-	elif !canShoot:
-		shoot()
-		canShoot = true
-		$Timer.start()
+	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && global_position.distance_to(player.global_position) < 200:
+		return
+	move(delta)
 
+func move(delta):
+	if position.x < player.position.x:
+		animations.set_flip_h(false)
+	else:
+		animations.set_flip_h(true)
+	animations.play("moveRight")
+	move_and_collide(velocity * speed * delta)
 
 func shoot():
-	getBulletPath()
 	if bulletPath:
 		var bullet = bulletPath.instantiate()
 		get_parent().add_child(bullet)
-		bullet.position = get_node("gunPos").global_position
-
-func getBulletPath():
-	if get_name() == 'octopus':
-		bulletPath = load("res://AnimatedCharacters/Enemies/octopus/Bullet.tscn")
-	elif get_name() == 'mech':
-		bulletPath = load("res://AnimatedCharacters/Enemies/mech/Bullet.tscn")
-	elif get_name() == 'human':
-		bulletPath = load("res://AnimatedCharacters/Enemies/human/Bullet.tscn")
+		setDamage(bullet)
+		if animations.is_flipped_h() == false:
+			bullet.position = get_node("rightSide").global_position
+		else:
+			bullet.position = get_node("leftSide").global_position
 		
 func checkFrame():
-	if get_name() == 'octopus' && animations.frame == 2:
+	if name == 'octopus' && animations.frame == 2:
 		return true
-	elif get_name() == 'mech' && animations.frame == 3:
+	elif name == 'mech' && animations.frame == 3:
 		return true
-	elif get_name() == 'human' && animations.frame == 1:
+	elif name == 'human' && animations.frame == 1:
+		return true
+	return false
+
+func _on_area_2d_body_entered(body):
+	if body.name == "Player":
+		canShoot = true
+
+func _on_area_2d_body_exited(body):
+	if body.name == 'Player':
+		canShoot = false
+	resetAnimation()
+
+func setDamage(bullet):
+	if name == 'mech':
+		bullet.damage = 10
+	elif name == 'human':
+		bullet.damage = 2
+	else:
+		bullet.damage = 5
+
+func resetAnimation():
+	if animations.is_playing() && animations.animation == 'shootRight':
+		animations.stop()
+		animations.play("moveRight")
+
+func checkWalls():
+	var ray = $RayCast2D
+	if !animations.is_flipped_h():
+		ray.position = get_node("rightSide").global_position
+	else:
+		ray.position = get_node("leftSide").global_position
+	ray.target_position = player.global_position
+	if ray.get_collider():
+		resetAnimation()
 		return true
 	return false
