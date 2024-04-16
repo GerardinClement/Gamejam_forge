@@ -15,7 +15,7 @@ var bulletPath
 var canShoot = false
 var hasShot = true
 
-func _process(delta):
+func _process(_delta):
 	if timer.is_stopped() && canShoot && !checkWalls():
 		hasShot = false
 		if global_position.x < player.global_position.x:
@@ -25,7 +25,7 @@ func _process(delta):
 		animations.play("shootRight")
 		timer.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if checkFrame() && !hasShot && !checkWalls():
 		hasShot = true
 		shoot()
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	velocity = global_position.direction_to(player.global_position)
 	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && global_position.distance_to(player.global_position) < 200:
 		return
-	move(delta)
+	move(_delta)
 
 func move(delta):
 	if global_position.x < player.global_position.x:

@@ -3,9 +3,7 @@ extends Control
 @onready var cards = preload("res://cards.tscn")
 
 func displayPlayerCards(player):
-	var viewport_rect = get_viewport_rect()  
-	var element_height = 50
-	var element_width = 50
+	var viewport_rect = get_viewport_rect()
 	var bottom_position = viewport_rect.size.y / 1.25
 	var left_position = viewport_rect.size.x / 6
 

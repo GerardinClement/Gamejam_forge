@@ -3,7 +3,7 @@ extends Area2D
 @onready var animations = get_node("AnimatedSprite2D") 
 var isDestroyed = false
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	animations.play("destroy")
 	if get_parent().velocity.x < 0:
 		animations.flip_h = false

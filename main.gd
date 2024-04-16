@@ -8,9 +8,8 @@ var card_manager
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var card_manager_scene = preload("res://cardsManager.tscn")
-	var card_manager = card_manager_scene.instantiate()
+	card_manager = card_manager_scene.instantiate()
 	add_child(card_manager)
-	await card_manager
 	Player.add_card(card_manager.generate_random_card())
 	Player.add_card(card_manager.generate_random_card())
 	Player.add_card(card_manager.generate_random_card())
@@ -18,7 +17,7 @@ func _ready():
 	Player.add_card(card_manager.generate_random_card())
 	invetory_menu.hide()
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("Inventory"):
 		invetoryMenu()
 		

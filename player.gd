@@ -109,15 +109,16 @@ func _ready():
 	$Timer.wait_time = player.attack_speed
 	$Timer.start()
 	
-func _process(delta):
+func _process(_delta):
 	$Node2D.look_at(get_global_mouse_position())
 	if $Timer.is_stopped():
 		animation.play("shoot")
 		player.shoot(self.get_parent(), $Node2D/Marker2D, animation.flip_h )
-		$Timer.wait_time = player.attack_speed
+		if player.attack_speed > 0:
+			$Timer.wait_time = player.attack_speed
 		$Timer.start()
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	var mouseOffset = get_global_mouse_position() - self.position;
 	var direction = mouseOffset.normalized() * player.speed
 	if mouseOffset.x < 5 and mouseOffset.x > -5:
@@ -129,14 +130,14 @@ func _physics_process(delta):
 		animation.flip_h = true
 	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle" :
 		animation.play("run")
-	velocity = direction * delta * player.speed
+	velocity = direction * _delta * player.speed
 	move_and_slide()
 	
 		
 
-func _on_area_2d_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-	if area.name == "bullet_enemy":
-		player.take_damage(area.get_parent())
+func _on_area_2d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
+	if _area.name == "bullet_enemy":
+		player.take_damage(_area.get_parent())
 		player_animation.play("damage")
 		
 	
