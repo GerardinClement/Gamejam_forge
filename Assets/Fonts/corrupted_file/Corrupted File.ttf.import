@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://cwf2l1lyped0w"
+path="res://.godot/imported/Corrupted File.ttf-d836037da297273ca3d225aaff16c416.fontdata"
+
+[deps]
+
+source_file="res://Assets/Fonts/corrupted_file/Corrupted File.ttf"
+dest_files=["res://.godot/imported/Corrupted File.ttf-d836037da297273ca3d225aaff16c416.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

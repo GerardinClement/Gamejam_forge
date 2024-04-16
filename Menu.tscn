@@ -1,6 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cv1cmhhc8tjpy"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_qhih1"]
+[ext_resource type="FontFile" uid="uid://c0vgglrwwyam2" path="res://Assets/Fonts/tenada/Tenada.ttf" id="2_7bf1p"]
 [ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
 
 [sub_resource type="FontFile" id="FontFile_w8gkv"]
@@ -42,10 +43,6 @@ region = Rect2(960, 402, 192, 201)
 atlas = ExtResource("2_aip23")
 region = Rect2(1152, 402, 192, 201)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmtlg"]
-atlas = ExtResource("2_aip23")
-region = Rect2(1344, 402, 192, 201)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_nn8is"]
 animations = [{
 "frames": [{
@@ -69,9 +66,6 @@ animations = [{
 }, {
 "duration": 0.75,
 "texture": SubResource("AtlasTexture_822ip")
-}, {
-"duration": 0.75,
-"texture": SubResource("AtlasTexture_cmtlg")
 }],
 "loop": true,
 "name": &"mecha_animation",
@@ -98,11 +92,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -234.5
-offset_right = 234.5
-offset_bottom = 49.0
+offset_left = -519.0
+offset_top = 40.0
+offset_right = 527.0
+offset_bottom = 116.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("2_7bf1p")
+theme_override_font_sizes/font_size = 75
 text = "Dungeon Technical: Damien"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -140,11 +136,12 @@ size_flags_vertical = 4
 text = "Quit"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(186, 497)
-scale = Vector2(2.17188, 2.17188)
+position = Vector2(182.25, 497)
+scale = Vector2(2.13281, 2.17188)
+skew = 0.0872665
 sprite_frames = SubResource("SpriteFrames_nn8is")
 animation = &"mecha_animation"
-frame_progress = 0.932565
+frame_progress = 0.790259
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
