@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://d21p8612ejj0m"]
 
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/freeBullet.gd" id="1_5skae"]
 [ext_resource type="Texture2D" uid="uid://1utd36kfuwuh" path="res://Assets/Projectiles/projectiles x2.png" id="1_incx7"]
+[ext_resource type="Script" path="res://script/enemyBullet.gd" id="1_njo3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arxls"]
 size = Vector2(16, 2)
@@ -78,7 +78,7 @@ animations = [{
 [node name="bullet_enemy" type="Area2D"]
 collision_layer = 4
 collision_mask = 25
-script = ExtResource("1_5skae")
+script = ExtResource("1_njo3h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 7)
@@ -86,9 +86,6 @@ shape = SubResource("RectangleShape2D_arxls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3bgo6")
-animation = &"destroy"
-frame = 3
-frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

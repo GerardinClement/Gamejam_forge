@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var Card = preload("res://Cards.gd").Card
+@onready var Card = preload("res://script/Cards.gd").Card
 var cards = {}
 
 func _ready():
