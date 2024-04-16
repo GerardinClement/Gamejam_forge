@@ -83,9 +83,30 @@ script = ExtResource("1_qhih1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 1149.0
-offset_bottom = 650.0
-color = Color(0.403922, 0.403922, 0.403922, 1)
+offset_left = 26.0
+offset_top = -101.0
+offset_right = 350.0
+offset_bottom = 651.0
+rotation = 0.254818
+color = Color(0.219608, 0.717647, 0.392157, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 948.0
+offset_top = -90.0
+offset_right = 1362.0
+offset_bottom = 689.0
+rotation = 0.254818
+color = Color(0.109804, 0.121569, 0.184314, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 567.0
+offset_top = -160.0
+offset_right = 968.0
+offset_bottom = 710.0
+rotation = 0.254818
+color = Color(0.2, 0.235294, 0.341176, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -141,7 +162,7 @@ scale = Vector2(2.13281, 2.17188)
 skew = 0.0872665
 sprite_frames = SubResource("SpriteFrames_nn8is")
 animation = &"mecha_animation"
-frame_progress = 0.790259
+frame_progress = 0.987445
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
