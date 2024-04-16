@@ -2,6 +2,7 @@ class_name Enemy
 
 extends CharacterBody2D
 
+@onready var EnemyBullet = preload("res://AnimatedCharacters/Enemies/enemyBullet.gd")
 @onready var animations = get_parent().get_node("animations")
 @onready var player = get_parent().get_parent().get_node("Player")
 @onready var timer = get_parent().get_node("Timer")
