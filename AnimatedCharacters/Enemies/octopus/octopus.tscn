@@ -1,6 +1,6 @@
 [gd_scene load_steps=44 format=3 uid="uid://dk23hftmrd5n8"]
 
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/octopus/octopus.gd" id="1_5ca8a"]
+[ext_resource type="Script" path="res://script/enemies.gd" id="1_5ca8a"]
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_njbmb"]
 [ext_resource type="Texture2D" uid="uid://dpo3kohkf3y5x" path="res://Assets/Characters/Enemies/enemies x1_flipped.png" id="2_iijnq"]
 

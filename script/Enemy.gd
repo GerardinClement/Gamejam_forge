@@ -17,7 +17,7 @@ var hasShot = true
 func play_shoot_animations():
 	if timer.is_stopped() && canShoot && !checkWalls():
 		hasShot = false
-		if global_position.x < Global.playerPos.x:
+		if self.position.x < Global.playerPos.x:
 			animations.set_flip_h(false)
 		else:
 			animations.set_flip_h(true)
@@ -28,14 +28,14 @@ func process(_delta, parent):
 	if checkFrame() && !hasShot && !checkWalls():
 		hasShot = true
 		shoot(parent)
-	enemyPos = (Global.playerPos - global_position).normalized()
-	velocity = global_position.direction_to(Global.playerPos)
-	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && global_position.distance_to(Global.playerPos) < 200:
+	enemyPos = (Global.playerPos - self.position).normalized()
+	velocity = self.position.direction_to(Global.playerPos)
+	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && self.position.distance_to(Global.playerPos) < 200:
 		return
 	move(_delta, parent)
 
 func move(delta, parent):
-	if global_position.x < Global.playerPos.x:
+	if self.position.x < Global.playerPos.x:
 		animations.set_flip_h(false)
 	else:
 		animations.set_flip_h(true)
@@ -44,13 +44,11 @@ func move(delta, parent):
 
 func shoot(parent):
 	var bullet = bulletPath.instantiate()
-	var right_side = parent.get_node("rightSide")
-	var left_side = parent.get_node("leftSide")
 
 	if animations.is_flipped_h() == false:
-		bullet.position = parent.get_node("rightSide").position
-	else:
 		bullet.position = parent.get_node("leftSide").position
+	else:
+		bullet.position = parent.get_node("rightSide").position
 	parent.add_child(bullet)
 
 func checkFrame():

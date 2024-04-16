@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://keejpye2ln1t"]
 
-[ext_resource type="Script" path="res://large_door.gd" id="1_30vlx"]
+[ext_resource type="Script" path="res://script/large_door.gd" id="1_30vlx"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="1_ukk0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvgj6"]

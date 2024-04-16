@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://cyhlud4i6s8kv"]
 
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_5btoe"]
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/human/human.gd" id="1_vrnhr"]
+[ext_resource type="Script" path="res://script/enemies.gd" id="1_64q6h"]
 [ext_resource type="Texture2D" uid="uid://dpo3kohkf3y5x" path="res://Assets/Characters/Enemies/enemies x1_flipped.png" id="2_0vidi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngs8r"]
@@ -202,7 +202,7 @@ size = Vector2(244, 194.5)
 [node name="human" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
 collision_mask = 9
-script = ExtResource("1_vrnhr")
+script = ExtResource("1_64q6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 4.5)

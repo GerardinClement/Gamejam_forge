@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dedys5vj348u6"]
 
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/enemyBullet.gd" id="1_r8wag"]
+[ext_resource type="Script" path="res://script/enemyBullet.gd" id="1_28gef"]
 [ext_resource type="Texture2D" uid="uid://dlkphnddk6kq1" path="res://Assets/Projectiles/Laser Sprites/18.png" id="2_garjg"]
 [ext_resource type="Texture2D" uid="uid://bievvg3xcckmo" path="res://Assets/Projectiles/yellow projectile.png" id="3_adhyx"]
 
@@ -54,7 +54,7 @@ animations = [{
 [node name="bullet_enemy" type="Area2D"]
 collision_layer = 4
 collision_mask = 25
-script = ExtResource("1_r8wag")
+script = ExtResource("1_28gef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, -1)

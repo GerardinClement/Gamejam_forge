@@ -12,22 +12,21 @@ var isDestroyed = false
 @onready var animations = $AnimatedSprite2D
 
 func _ready():
-	self.damage = parent.mech.damage
-	self.speed = parent.mech.speed
-	self.bulletPath = parent.mech.bulletPath
+	self.damage = parent.enemy.damage
+	self.speed = parent.enemy.speed
+	self.bulletPath = parent.enemy.bulletPath
 	
 func _physics_process(delta):
 	if bulletPath:
 		if !isShot:
 			self.get_node("AnimatedSprite2D").play("default")
 			look_at(Global.playerPos)
-			velocity = self.global_position.direction_to(Global.playerPos)
+			velocity = self.position.direction_to(Global.playerPos)
 			isShot = true
-		self.global_position += velocity * speed * delta
+		self.position += velocity * speed * delta
 
 
 func _on_body_entered(_body):
-	print(_body.name)
 	if _body.name == "Player":
 		_body.player.take_damage(self)
 	if self.velocity.x < 0:

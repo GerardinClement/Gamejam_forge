@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://dl0fs76fenl5d"]
 
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/mech/mech.gd" id="1_ctctx"]
 [ext_resource type="Texture2D" uid="uid://m1nejsn24hqr" path="res://Assets/Characters/Enemies/Mech/MechSheet.png" id="1_lna24"]
+[ext_resource type="Script" path="res://script/enemies.gd" id="1_pyyym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_per6e"]
 size = Vector2(14, 22)
@@ -320,7 +320,7 @@ size = Vector2(276.5, 228)
 position = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 9
-script = ExtResource("1_ctctx")
+script = ExtResource("1_pyyym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -328,8 +328,7 @@ shape = SubResource("RectangleShape2D_per6e")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qt316")
-animation = &"shootRight"
-frame_progress = 0.950173
+animation = &"idle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.8

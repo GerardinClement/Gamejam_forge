@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bisr108gd3htl"]
 
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/freeBullet.gd" id="1_jpqwv"]
+[ext_resource type="Script" path="res://script/enemyBullet.gd" id="1_71bs5"]
 [ext_resource type="Texture2D" uid="uid://hhlnyq25m3mm" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Projectiles/projectiles x1.png" id="1_kbm2e"]
 [ext_resource type="Texture2D" uid="uid://1utd36kfuwuh" path="res://Assets/Projectiles/projectiles x2.png" id="3_a00x4"]
 
@@ -80,7 +80,7 @@ animations = [{
 scale = Vector2(1.5, 1.5)
 collision_layer = 4
 collision_mask = 9
-script = ExtResource("1_jpqwv")
+script = ExtResource("1_71bs5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.166633, -2.98023e-07)

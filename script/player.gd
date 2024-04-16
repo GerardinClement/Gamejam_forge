@@ -112,7 +112,7 @@ func _ready():
 	$Timer.start()
 	
 func _process(_delta):
-	Global.playerPos = self.global_position
+	Global.playerPos = self.position
 	$Node2D.look_at(get_global_mouse_position())
 	if $Timer.is_stopped():
 		animation.play("shoot")
@@ -135,14 +135,4 @@ func _physics_process(_delta):
 		animation.play("run")
 	velocity = direction * _delta * player.speed
 	move_and_slide()
-	
-		
 
-func _on_area_2d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
-	print(_area.name)
-	#if (_area.name == "Area2D" and _area.get_parent().is_in_group("enemy")):
-		#player.take_damage(_area.get_parent())
-
-
-func _on_area_2d_area_entered(area):
-	print(area.name)
