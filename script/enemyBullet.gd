@@ -24,7 +24,6 @@ func _physics_process(delta):
 		return
 	self.position += self.velocity * delta
 
-
 func _on_body_entered(_body):
 	if _body.name == "Player":
 		_body.player.take_damage(self)

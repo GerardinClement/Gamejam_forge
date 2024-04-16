@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/enemyBullet.gd" id="1_28gef"]
 [ext_resource type="Texture2D" uid="uid://dlkphnddk6kq1" path="res://Assets/Projectiles/Laser Sprites/18.png" id="2_garjg"]
-[ext_resource type="Texture2D" uid="uid://bievvg3xcckmo" path="res://Assets/Projectiles/yellow projectile.png" id="3_adhyx"]
+[ext_resource type="Texture2D" path="res://Assets/Projectiles/yellow projectile.png" id="3_adhyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arxls"]
 size = Vector2(16, 2)
