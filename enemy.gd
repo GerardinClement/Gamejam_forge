@@ -44,11 +44,14 @@ func move(delta, parent):
 
 func shoot(parent):
 	var bullet = bulletPath.instantiate()
-	parent.add_child(bullet)
+	var right_side = parent.get_node("rightSide")
+	var left_side = parent.get_node("leftSide")
+
 	if animations.is_flipped_h() == false:
-		bullet.position = parent.get_node("rightSide").global_position
+		bullet.position = parent.get_node("rightSide").position
 	else:
-		bullet.position = parent.get_node("leftSide").global_position
+		bullet.position = parent.get_node("leftSide").position
+	parent.add_child(bullet)
 
 func checkFrame():
 	if animations.frame == shootFrame:

@@ -317,6 +317,7 @@ animations = [{
 size = Vector2(276.5, 228)
 
 [node name="mech" type="CharacterBody2D" groups=["enemy"]]
+position = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_ctctx")
@@ -340,6 +341,7 @@ position = Vector2(23, 1)
 [node name="View" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_fkvlr")
 
 [node name="leftSide" type="Marker2D" parent="."]
