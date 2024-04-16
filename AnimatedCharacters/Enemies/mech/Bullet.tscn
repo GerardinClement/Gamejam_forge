@@ -1,10 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://dedys5vj348u6"]
+[gd_scene load_steps=10 format=3 uid="uid://dedys5vj348u6"]
 
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/enemyBullet.gd" id="1_r8wag"]
+[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/freeBullet.gd" id="1_0lpa2"]
 [ext_resource type="Texture2D" uid="uid://dlkphnddk6kq1" path="res://Assets/Projectiles/Laser Sprites/18.png" id="2_garjg"]
+[ext_resource type="Texture2D" uid="uid://bievvg3xcckmo" path="res://Assets/Projectiles/yellow projectile.png" id="3_adhyx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cudqa"]
 size = Vector2(23, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afrs8"]
+atlas = ExtResource("3_adhyx")
+region = Rect2(25, 0, 320, 377)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwuk5"]
+atlas = ExtResource("3_adhyx")
+region = Rect2(345, 0, 320, 377)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xf3l"]
+atlas = ExtResource("3_adhyx")
+region = Rect2(665, 0, 320, 377)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrw5c"]
+atlas = ExtResource("3_adhyx")
+region = Rect2(985, 0, 320, 377)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4evaw"]
 animations = [{
@@ -15,11 +32,29 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afrs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwuk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xf3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrw5c")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
 }]
 
-[node name="Bullet" type="CharacterBody2D"]
+[node name="bullet_enemy" type="Area2D"]
 collision_layer = 4
-script = ExtResource("1_r8wag")
+collision_mask = 25
+script = ExtResource("1_0lpa2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.5, -1)
@@ -29,3 +64,9 @@ shape = SubResource("RectangleShape2D_cudqa")
 position = Vector2(-4, -1)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_4evaw")
+animation = &"destroy"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

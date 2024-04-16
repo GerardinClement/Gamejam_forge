@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var sprite = $StaticBody2D/Sprite2D
-
 class Card:
 	var name: String
 	var type: String
@@ -9,12 +7,12 @@ class Card:
 	var effects : Dictionary
 	var image: ImageTexture
 
-	func _init(name: String, description: String, type: String, effects: Dictionary):
-		self.name = name
-		self.description = description
-		self.effects = effects
-		self.type = type
-		self.image = self.loadImage(self.name)
+	func _init(new_name: String, new_description: String, new_type: String, new_effects: Dictionary):
+		self.name = new_name
+		self.description = new_description
+		self.effects = new_effects
+		self.type = new_type
+		self.image = self.loadImage()
 
 	func applyEffects(player):
 		for effect_key in effects.keys():
@@ -23,6 +21,8 @@ class Card:
 					player.strength += effects[effect_key]
 				"attack_speed":
 					player.attack_speed -= player.attack_speed * effects[effect_key]
+					if player.attack_speed <= 0:
+						player.attack_speed = 0.1
 				"pv_max":
 					player.pv_max += effects[effect_key]
 				"speed":
@@ -34,20 +34,13 @@ class Card:
 		for side in shootSide:
 			player.shootSide[side] = true
 			
-	func loadImage(name: String):
-		var image_texture = ImageTexture.new()
+	func loadImage():
 		var new_image = Image.new()
-		var error = new_image.load("res://Assets/Cards/" + name + ".png")
+		var error = new_image.load("res://Assets/Cards/" + self.name + ".png")
 		
 		if error == OK:
 			print(name, " is loaded")
-			return(image_texture.create_from_image(new_image))
+			return(ImageTexture.create_from_image(new_image))
 		else:
 			print(name + "Error: ", error)
-	
-
-
-func _on_sprite_2d_texture_changed():
-	print("texture changed")
-	print(sprite.get_texture())
 	
