@@ -2,7 +2,7 @@ extends CharacterBody2D
 const bulletPath = preload("res://bullet.tscn")
 
 @onready var animation = $AnimatedSprite2D
-@onready var player_animation =  $AnimationPlayer
+@onready var playerAnimation =  $AnimationPlayer
 @onready var Card = "res://Cards.gd"
 var player: Player
 
@@ -14,8 +14,9 @@ class Player:
 	var speed: int
 	var attack_speed: int
 	var strength: int
+	var playerAnimation
 		
-	func _init():
+	func _init(playerAnimation):
 		pv = 100
 		pv_max = 100
 		speed = 75
@@ -31,6 +32,7 @@ class Player:
 			"bottomBack": false,
 			"bottomForward": false,
 		}
+		self.playerAnimation = playerAnimation
 	
 	func add_card(newCard):
 		newCard.applyEffects(self)
@@ -38,9 +40,10 @@ class Player:
 		print("new card:", newCard.name)
 		
 	func take_damage(bullet):
-		self.pv -= 33
+		self.pv -= bullet.damage
 		if self.pv <= 0:
 			self.player_death()
+		playerAnimation.play("damage")
 
 	func player_death():
 		pass
@@ -104,7 +107,7 @@ class Player:
 
 
 func _ready():
-	player = Player.new()
+	player = Player.new(playerAnimation)
 	$Timer.wait_time = player.attack_speed
 	$Timer.start()
 	
@@ -136,9 +139,9 @@ func _physics_process(_delta):
 		
 
 func _on_area_2d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
-	if (_area.name == "Area2D" and _area.get_parent().is_in_group("enemy")):
-		player.take_damage(_area.get_parent())
-		player_animation.play("damage")
+	print(_area.name)
+	#if (_area.name == "Area2D" and _area.get_parent().is_in_group("enemy")):
+		#player.take_damage(_area.get_parent())
 
 
 func _on_area_2d_area_entered(area):

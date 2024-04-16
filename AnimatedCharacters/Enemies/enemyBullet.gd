@@ -12,7 +12,6 @@ var isDestroyed = false
 @onready var animations = $AnimatedSprite2D
 
 func _ready():
-	print(parent.name)
 	self.damage = parent.mech.damage
 	self.speed = parent.mech.speed
 	self.bulletPath = parent.mech.bulletPath
@@ -28,13 +27,16 @@ func _physics_process(delta):
 
 
 func _on_body_entered(_body):
-	animations.play("destroy")
+	print(_body.name)
+	if _body.name == "Player":
+		_body.player.take_damage(self)
 	if self.velocity.x < 0:
 		animations.flip_h = false
 	else:
 		animations.flip_h = true
 	self.velocity = Vector2(0,0)
 	isDestroyed = true
+	animations.play("destroy")
 	
 func _on_animated_sprite_2d_animation_finished():
 	if animations.animation == "destroy":
