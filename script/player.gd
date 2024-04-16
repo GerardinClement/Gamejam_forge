@@ -17,8 +17,8 @@ class Player:
 	var playerAnimation
 		
 	func _init(playerAnimation):
-		pv = 100
-		pv_max = 100
+		pv = 3
+		pv_max = 3
 		speed = 75
 		attack_speed = 4
 		strength = 25
