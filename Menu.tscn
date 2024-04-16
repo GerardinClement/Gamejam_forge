@@ -1,6 +1,82 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv1cmhhc8tjpy"]
+[gd_scene load_steps=14 format=3 uid="uid://cv1cmhhc8tjpy"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_qhih1"]
+[ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
+
+[sub_resource type="FontFile" id="FontFile_w8gkv"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_2jc5r"]
+/fonts/bonjpit = SubResource("FontFile_w8gkv")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncwg7"]
+atlas = ExtResource("2_aip23")
+region = Rect2(0, 402, 192, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhx7p"]
+atlas = ExtResource("2_aip23")
+region = Rect2(192, 402, 192, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsmpo"]
+atlas = ExtResource("2_aip23")
+region = Rect2(384, 402, 192, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u5qs"]
+atlas = ExtResource("2_aip23")
+region = Rect2(576, 402, 192, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rmou"]
+atlas = ExtResource("2_aip23")
+region = Rect2(768, 402, 192, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av2cd"]
+atlas = ExtResource("2_aip23")
+region = Rect2(960, 402, 192, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_822ip"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1152, 402, 192, 201)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmtlg"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1344, 402, 192, 201)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn8is"]
+animations = [{
+"frames": [{
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_ncwg7")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_fhx7p")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_rsmpo")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_7u5qs")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_1rmou")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_av2cd")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_822ip")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_cmtlg")
+}],
+"loop": true,
+"name": &"mecha_animation",
+"speed": 5.0
+}]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,28 +87,64 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qhih1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 650.0
+color = Color(0.403922, 0.403922, 0.403922, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.5
+offset_right = 234.5
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 35
+text = "Dungeon Technical: Damien"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -33.0
-offset_right = 23.0
-offset_bottom = 33.0
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 85.0
+offset_bottom = 94.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 1
+theme = SubResource("Theme_2jc5r")
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Start"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(186, 497)
+scale = Vector2(2.17188, 2.17188)
+sprite_frames = SubResource("SpriteFrames_nn8is")
+animation = &"mecha_animation"
+frame_progress = 0.932565
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
