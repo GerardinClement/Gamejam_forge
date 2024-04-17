@@ -1,6 +1,7 @@
 extends Node
 
 var playerPos = Vector2(0,0)
+var player = null
 
 #Array of ennemies
 const ennemies = {

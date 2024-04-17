@@ -4,21 +4,23 @@ const bulletPath = preload("res://bullet.tscn")
 @onready var animation = $AnimatedSprite2D
 @onready var playerAnimation =  $AnimationPlayer
 @onready var Card = "res://Cards.gd"
+@onready var gui = $Camera2D/Gui
 var player: Player
 
 class Player:
 	var cards: Dictionary
 	var shootSide: Dictionary
-	var pv: int
+	var pv: float
 	var pv_max: int
 	var speed: int
 	var attack_speed: int
 	var strength: int
 	var playerAnimation
+	var gui
 		
-	func _init(playerAnimation):
+	func _init(playerAnimation, gui):
 		pv = 3
-		pv_max = 3
+		pv_max = 5
 		speed = 75
 		attack_speed = 4
 		strength = 25
@@ -33,10 +35,12 @@ class Player:
 			"bottomForward": false,
 		}
 		self.playerAnimation = playerAnimation
+		self.gui = gui
 	
 	func add_card(newCard):
 		newCard.applyEffects(self)
 		cards[newCard.name] = newCard
+		gui.display_life(self)
 		print("new card:", newCard.name)
 		
 	func take_damage(bullet):
@@ -44,9 +48,11 @@ class Player:
 		if self.pv <= 0:
 			self.player_death()
 		playerAnimation.play("damage")
+		gui.display_life(self)
 
 	func player_death():
-		pass
+		print(self.pv_max)
+		print("death")
 		
 	func shoot(parent, marker2d, lookLeft):
 		for side in shootSide:
@@ -107,12 +113,15 @@ class Player:
 
 
 func _ready():
-	player = Player.new(playerAnimation)
+	player = Player.new(playerAnimation, gui)
+	Global.player = player
+	gui.display_life(player)
 	$Timer.wait_time = player.attack_speed
 	$Timer.start()
 	
 func _process(_delta):
 	Global.playerPos = self.position
+	Global.player = player
 	$Node2D.look_at(get_global_mouse_position())
 	if $Timer.is_stopped():
 		animation.play("shoot")

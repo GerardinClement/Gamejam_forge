@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://druavmkwql20o"]
+[gd_scene load_steps=3 format=3 uid="uid://druavmkwql20o"]
 
 [ext_resource type="Texture2D" uid="uid://cgy4c86eltss8" path="res://Assets/Interface/FullHeart.png" id="1_bgbcl"]
+[ext_resource type="Script" path="res://script/gui.gd" id="1_q3sno"]
 
 [node name="InGame" type="Control"]
 layout_mode = 3
@@ -11,6 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_q3sno")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
