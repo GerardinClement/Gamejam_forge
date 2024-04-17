@@ -2,23 +2,26 @@ extends CharacterBody2D
 const bulletPath = preload("res://bullet.tscn")
 
 @onready var animation = $AnimatedSprite2D
-@onready var playerAnimation =  $AnimationPlayer
+@onready var playerAnimation =  $AnimatedSprite2D/AnimationPlayer
 @onready var Card = "res://Cards.gd"
+@onready var gui = $Camera2D/Gui
 var player: Player
 
 class Player:
 	var cards: Dictionary
 	var shootSide: Dictionary
-	var pv: int
-	var pv_max: int
+	var pv: float
+	var pv_max: float
 	var speed: int
 	var attack_speed: int
 	var strength: int
 	var playerAnimation
+	var gui
+	var iframes
 		
-	func _init(playerAnimation):
-		pv = 100
-		pv_max = 100
+	func _init(playerAnimation, gui, timerIframe):
+		pv = 6
+		pv_max = 6
 		speed = 75
 		attack_speed = 4
 		strength = 25
@@ -33,20 +36,28 @@ class Player:
 			"bottomForward": false,
 		}
 		self.playerAnimation = playerAnimation
+		self.gui = gui
+		self.iframes = timerIframe
 	
 	func add_card(newCard):
 		newCard.applyEffects(self)
 		cards[newCard.name] = newCard
+		gui.display_life(self)
 		print("new card:", newCard.name)
 		
 	func take_damage(bullet):
+		print(iframes.time_left)
+		print(iframes.is_stopped())
+		if !iframes.is_stopped():
+			return 
 		self.pv -= bullet.damage
-		if self.pv <= 0:
-			self.player_death()
 		playerAnimation.play("damage")
+		gui.display_life(self)
+		print("start iframes")
+		iframes.start()
 
-	func player_death():
-		pass
+	func player_death(animatedSprite):
+		animatedSprite.play("death")
 		
 	func shoot(parent, marker2d, lookLeft):
 		for side in shootSide:
@@ -107,21 +118,28 @@ class Player:
 
 
 func _ready():
-	player = Player.new(playerAnimation)
-	$Timer.wait_time = player.attack_speed
-	$Timer.start()
+	player = Player.new(playerAnimation, gui, $IFrames)
+	Global.player = player
+	gui.display_life(player)
+	$Shoot.wait_time = player.attack_speed
+	$Shoot.start()
 	
 func _process(_delta):
+	if player.pv <= 0:
+		player.player_death(animation)
 	Global.playerPos = self.position
+	Global.player = player
 	$Node2D.look_at(get_global_mouse_position())
-	if $Timer.is_stopped():
+	if $Shoot.is_stopped():
 		animation.play("shoot")
 		player.shoot(self.get_parent(), $Node2D/Marker2D, animation.flip_h )
 		if player.attack_speed > 0:
-			$Timer.wait_time = player.attack_speed
-		$Timer.start()
+			$Shoot.wait_time = player.attack_speed
+		$Shoot.start()
 	
 func _physics_process(_delta):
+	if player.pv <= 0:
+		return
 	var mouseOffset = get_global_mouse_position() - self.position;
 	var direction = mouseOffset.normalized() * player.speed
 	if mouseOffset.x < 5 and mouseOffset.x > -5:
@@ -131,8 +149,13 @@ func _physics_process(_delta):
 		animation.flip_h = false
 	else:
 		animation.flip_h = true
-	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle" :
+	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle":
 		animation.play("run")
 	velocity = direction * _delta * player.speed
 	move_and_slide()
 
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if animation.animation == "death":
+		get_tree().quit()
