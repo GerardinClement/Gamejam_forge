@@ -5,6 +5,7 @@ const bulletPath = preload("res://bullet.tscn")
 @onready var playerAnimation =  $AnimatedSprite2D/AnimationPlayer
 @onready var Card = "res://Cards.gd"
 @onready var gui = $Camera2D/Gui
+const scent_scene = preload("res://scent.tscn")
 var player: Player
 
 class Player:
@@ -18,6 +19,7 @@ class Player:
 	var playerAnimation
 	var gui
 	var iframes
+	var scent_trail = []
 		
 	func _init(playerAnimation, gui, timerIframe):
 		pv = 6
@@ -154,8 +156,14 @@ func _physics_process(_delta):
 	velocity = direction * _delta * player.speed
 	move_and_slide()
 
-
-
 func _on_animated_sprite_2d_animation_finished():
 	if animation.animation == "death":
 		get_tree().quit()
+
+func add_scent():
+	var scent = scent_scene.instantiate()
+	scent.player = player
+	scent.position = Global.playerPos
+	
+	get_parent().add_child(scent)
+	player.scent_trail.push_front(scent)
