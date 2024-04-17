@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgip20utey1rn"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eol3d"]
+
+[node name="Black-smithShop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(0.0117647, 0.00392157, 0.14902, 1)
+layout_mode = 0
+offset_right = 336.0
+offset_bottom = 213.0
+texture = SubResource("ViewportTexture_eol3d")
