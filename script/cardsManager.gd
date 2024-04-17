@@ -16,6 +16,7 @@ func load_cards():
 	cards["health+"] = heal
 	cards["mirror"] = mirror
 	cards["flashMcqueen"] = flashMcqueen
+	Global.allCards = cards
 	
 func generate_random_card():
 	var size = cards.size()
