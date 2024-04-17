@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @onready var animatedSprite = $AnimatedSprite2D
+@onready var shopMenu = $"../Player/Camera2D/Black-smithShop"
+@onready var cardManager = CardManager.new()
 var player_in_chat_zone = false
 var shopOpen = false
-@onready var shopMenu = $"../Player/Camera2D/Black-smithShop"
+var shop: Dictionary
 
 func _ready():
 	animatedSprite.play("idle")
@@ -25,13 +27,20 @@ func _on_area_2d_body_exited(body):
 	if body.name == "Player":
 		player_in_chat_zone = false
 		
+func generate_shop():
+	for i in 3:
+		var card = cardManager.generate_random_card(Global.allCards)
+		shop[card.name] = card
+		
 func displayShop():
+	if shop.is_empty():
+		generate_shop()
 	if shopOpen:
 		shopMenu.hide()
 		shopMenu.close()
 		shopOpen = false
 	else:
 		shopMenu.show()
-		shopMenu.open()
+		shopMenu.open(shop)
 		shopOpen = true
 	Global.pause = shopOpen
