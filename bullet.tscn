@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://166oltx3okgt"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_7n1qw"]
+[ext_resource type="Script" path="res://script/bullet.gd" id="1_icme4"]
 [ext_resource type="Texture2D" uid="uid://1utd36kfuwuh" path="res://Assets/Projectiles/projectiles x2.png" id="1_se1ag"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_actf4"]
@@ -83,7 +83,7 @@ position = Vector2(2, 0)
 rotation = 0.785398
 collision_layer = 4
 collision_mask = 8
-script = ExtResource("1_7n1qw")
+script = ExtResource("1_icme4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ct15c")
