@@ -19,7 +19,7 @@ class Player:
 	var gui
 		
 	func _init(playerAnimation, gui):
-		pv = 0.5
+		pv = 6
 		pv_max = 6
 		speed = 75
 		attack_speed = 4

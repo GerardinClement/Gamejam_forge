@@ -11,7 +11,7 @@ func display_life(player):
 	var textureRect = self.get_child(0)
 	for i in player.pv_max:
 		var textureDup = textureRect.duplicate()
-		if abs(player.pv - int(player.pv)) > 0 and i == int(player.pv):
+		if abs(player.pv - int(player.pv)) > 0 and i == int(player.pv) and player.pv > 0:
 			textureDup.set_texture(halfHeart)
 		elif i >= player.pv:
 			textureDup.set_texture(emptyHeart)
