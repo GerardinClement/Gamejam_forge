@@ -46,14 +46,11 @@ class Player:
 		print("new card:", newCard.name)
 		
 	func take_damage(bullet):
-		print(iframes.time_left)
-		print(iframes.is_stopped())
 		if !iframes.is_stopped():
 			return 
 		self.pv -= bullet.damage
 		playerAnimation.play("damage")
 		gui.display_life(self)
-		print("start iframes")
 		iframes.start()
 
 	func player_death(animatedSprite):
