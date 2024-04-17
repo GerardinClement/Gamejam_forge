@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8afn38mfwi0d"]
+[gd_scene load_steps=7 format=3 uid="uid://c8afn38mfwi0d"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_g3bdo"]
 [ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://tile_map.tscn" id="2_r3ojv"]
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
 [ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="5_h6o1h"]
-[ext_resource type="PackedScene" uid="uid://cyhlud4i6s8kv" path="res://AnimatedCharacters/Enemies/human/human.tscn" id="6_6twkd"]
 [ext_resource type="PackedScene" uid="uid://dl0fs76fenl5d" path="res://AnimatedCharacters/Enemies/mech/mech.tscn" id="6_ajchu"]
-[ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="6_j7am5"]
 [ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="7_pjywa"]
 
 [node name="Main" type="Node2D"]
@@ -42,10 +40,5 @@ offset_bottom = -200.0
 scale = Vector2(0.642438, 0.642438)
 size_flags_horizontal = 0
 
-[node name="octopus" parent="." instance=ExtResource("6_j7am5")]
-
 [node name="mech" parent="." instance=ExtResource("6_ajchu")]
 position = Vector2(-88, -73)
-
-[node name="human" parent="." instance=ExtResource("6_6twkd")]
-position = Vector2(88, -73)

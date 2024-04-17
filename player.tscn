@@ -1,10 +1,38 @@
-[gd_scene load_steps=18 format=3 uid="uid://bghlfveoqowne"]
+[gd_scene load_steps=25 format=3 uid="uid://bghlfveoqowne"]
 
 [ext_resource type="Texture2D" uid="uid://df2xye4npxgco" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_yfuhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwbjh"]
 size = Vector2(16, 27.9799)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lo5i"]
+atlas = ExtResource("1_obtna")
+region = Rect2(0, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxibv"]
+atlas = ExtResource("1_obtna")
+region = Rect2(96, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d07gw"]
+atlas = ExtResource("1_obtna")
+region = Rect2(192, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5krq"]
+atlas = ExtResource("1_obtna")
+region = Rect2(288, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vurt0"]
+atlas = ExtResource("1_obtna")
+region = Rect2(384, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckxlh"]
+atlas = ExtResource("1_obtna")
+region = Rect2(480, 480, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6w3i"]
+atlas = ExtResource("1_obtna")
+region = Rect2(576, 480, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pq7sh"]
 atlas = ExtResource("1_obtna")
@@ -44,6 +72,32 @@ region = Rect2(288, 388, 96, 92)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p5bdb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lo5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxibv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d07gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5krq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vurt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckxlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6w3i")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pq7sh")
@@ -140,7 +194,9 @@ shape = SubResource("RectangleShape2D_fwbjh")
 position = Vector2(-8, -12)
 scale = Vector2(0.505067, 0.553075)
 sprite_frames = SubResource("SpriteFrames_p5bdb")
-animation = &"idle"
+animation = &"death"
+frame = 6
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -162,5 +218,6 @@ libraries = {
 "": SubResource("AnimationLibrary_d01wx")
 }
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]

@@ -7,8 +7,6 @@ extends Control
 @onready var emptyHeart = preload("res://Assets/Interface/emptyHeart.png")
 
 func display_life(player):
-	print("pv: ", player.pv)
-	print("pv_max: ", player.pv_max)
 	remove_life()
 	var textureRect = self.get_child(0)
 	for i in player.pv_max:

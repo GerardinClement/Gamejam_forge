@@ -19,7 +19,7 @@ class Player:
 	var gui
 		
 	func _init(playerAnimation, gui):
-		pv = 6
+		pv = 0.5
 		pv_max = 6
 		speed = 75
 		attack_speed = 4
@@ -44,15 +44,14 @@ class Player:
 		print("new card:", newCard.name)
 		
 	func take_damage(bullet):
+		if playerAnimation.current_animation == "damage":
+			return 
 		self.pv -= bullet.damage
-		if self.pv <= 0:
-			self.player_death()
 		playerAnimation.play("damage")
 		gui.display_life(self)
 
-	func player_death():
-		print(self.pv_max)
-		print("death")
+	func player_death(animatedSprite):
+		animatedSprite.play("death")
 		
 	func shoot(parent, marker2d, lookLeft):
 		for side in shootSide:
@@ -120,6 +119,8 @@ func _ready():
 	$Timer.start()
 	
 func _process(_delta):
+	if player.pv <= 0:
+		player.player_death(animation)
 	Global.playerPos = self.position
 	Global.player = player
 	$Node2D.look_at(get_global_mouse_position())
@@ -131,6 +132,8 @@ func _process(_delta):
 		$Timer.start()
 	
 func _physics_process(_delta):
+	if player.pv <= 0:
+		return
 	var mouseOffset = get_global_mouse_position() - self.position;
 	var direction = mouseOffset.normalized() * player.speed
 	if mouseOffset.x < 5 and mouseOffset.x > -5:
@@ -140,8 +143,13 @@ func _physics_process(_delta):
 		animation.flip_h = false
 	else:
 		animation.flip_h = true
-	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle" :
+	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle":
 		animation.play("run")
 	velocity = direction * _delta * player.speed
 	move_and_slide()
 
+
+
+func _on_animated_sprite_2d_animation_finished():
+	if animation.animation == "death":
+		get_tree().quit()
