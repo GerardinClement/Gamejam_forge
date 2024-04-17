@@ -1,10 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://cv1cmhhc8tjpy"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_qhih1"]
-[ext_resource type="FontFile" uid="uid://c0vgglrwwyam2" path="res://Assets/Fonts/tenada/Tenada.ttf" id="2_7bf1p"]
 [ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
+[ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="2_bxvg7"]
 
 [sub_resource type="FontFile" id="FontFile_w8gkv"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
@@ -81,46 +84,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qhih1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 26.0
-offset_top = -101.0
-offset_right = 350.0
-offset_bottom = 651.0
-rotation = 0.254818
-color = Color(0.219608, 0.717647, 0.392157, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 948.0
-offset_top = -90.0
-offset_right = 1362.0
-offset_bottom = 689.0
-rotation = 0.254818
-color = Color(0.109804, 0.121569, 0.184314, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 567.0
-offset_top = -160.0
-offset_right = 968.0
-offset_bottom = 710.0
-rotation = 0.254818
-color = Color(0.2, 0.235294, 0.341176, 1)
-
 [node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -519.0
-offset_top = 40.0
-offset_right = 527.0
-offset_bottom = 116.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_7bf1p")
-theme_override_font_sizes/font_size = 75
-text = "Dungeon Technical: Damien"
+layout_mode = 2
+offset_left = 122.0
+offset_top = 21.0
+offset_right = 1003.0
+offset_bottom = 109.0
+theme_override_colors/font_color = Color(0.219608, 0.717647, 0.392157, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_bxvg7")
+theme_override_font_sizes/font_size = 64
+text = "TITLE TITLE TITLE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -129,10 +110,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = -90.0
-offset_right = 85.0
-offset_bottom = 94.0
+offset_left = -492.0
+offset_top = 90.0
+offset_right = -317.0
+offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -157,7 +138,7 @@ size_flags_vertical = 4
 text = "Quit"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(182.25, 497)
+position = Vector2(929, 496)
 scale = Vector2(2.13281, 2.17188)
 skew = 0.0872665
 sprite_frames = SubResource("SpriteFrames_nn8is")

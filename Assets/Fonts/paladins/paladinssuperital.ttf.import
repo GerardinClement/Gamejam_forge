@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c0vgglrwwyam2"
-path="res://.godot/imported/Tenada.ttf-01b09ba5da0d5fbce0a6b2d8361025ec.fontdata"
+uid="uid://cnib0cbj57xw3"
+path="res://.godot/imported/paladinssuperital.ttf-8adfcbcc3ce69094a3611a64c6a73101.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/tenada/Tenada.ttf"
-dest_files=["res://.godot/imported/Tenada.ttf-01b09ba5da0d5fbce0a6b2d8361025ec.fontdata"]
+source_file="res://Assets/Fonts/paladins/paladinssuperital.ttf"
+dest_files=["res://.godot/imported/paladinssuperital.ttf-8adfcbcc3ce69094a3611a64c6a73101.fontdata"]
 
 [params]
 

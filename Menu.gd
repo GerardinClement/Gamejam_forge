@@ -4,6 +4,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	animation.flip_h = true
 	animation.play("mecha_animation")
 
 
