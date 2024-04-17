@@ -7,14 +7,16 @@ extends Control
 @onready var emptyHeart = preload("res://Assets/Interface/emptyHeart.png")
 
 func display_life(player):
+	print("pv: ", player.pv)
+	print("pv_max: ", player.pv_max)
 	remove_life()
 	var textureRect = self.get_child(0)
 	for i in player.pv_max:
 		var textureDup = textureRect.duplicate()
-		if i >= player.pv:
+		if abs(player.pv - int(player.pv)) > 0 and i == int(player.pv):
+			textureDup.set_texture(halfHeart)
+		elif i >= player.pv:
 			textureDup.set_texture(emptyHeart)
-		else:
-			textureDup.set_texture(fullHeart)
 		textureDup.position.x = (textureRect.position.x + textureRect.size.x) * i
 		self.add_child(textureDup)
 
@@ -26,6 +28,5 @@ func remove_life():
 		self.get_child(i).queue_free()
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

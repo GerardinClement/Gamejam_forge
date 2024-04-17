@@ -25,6 +25,7 @@ class Card:
 						player.attack_speed = 0.1
 				"pv_max":
 					player.pv_max += effects[effect_key]
+					player.pv += effects[effect_key]
 				"speed":
 					player.speed += effects[effect_key]
 				"shootSide":

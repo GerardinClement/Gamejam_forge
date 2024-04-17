@@ -11,7 +11,7 @@ class Player:
 	var cards: Dictionary
 	var shootSide: Dictionary
 	var pv: float
-	var pv_max: int
+	var pv_max: float
 	var speed: int
 	var attack_speed: int
 	var strength: int
@@ -19,8 +19,8 @@ class Player:
 	var gui
 		
 	func _init(playerAnimation, gui):
-		pv = 3
-		pv_max = 5
+		pv = 6
+		pv_max = 6
 		speed = 75
 		attack_speed = 4
 		strength = 25
