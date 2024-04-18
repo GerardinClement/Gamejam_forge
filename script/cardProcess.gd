@@ -31,6 +31,12 @@ func _on_mouse_entered():
 	for key in card.effects:
 		labelEffects.text += key + ": " + str(card.effects[key]) + "\n"
 	self.scale = Vector2(0.8, 0.8)
+	
+func forge_animation():
+	$AnimationPlayer.play("Intro")
+	
+func remove_card_from_forge():
+	self.isStored = false
 
 
 func _on_mouse_exited():
