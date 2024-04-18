@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtpjgsdv3mbrc"]
+[gd_scene load_steps=13 format=3 uid="uid://d2v846qn6y318"]
 
 [ext_resource type="Texture2D" uid="uid://cwy7ocjj4rh1h" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/NPC/No Outlines/npc x3.png" id="1_7yfcr"]
 [ext_resource type="Script" path="res://script/black-smith.gd" id="1_sjui2"]

@@ -1,39 +1,72 @@
 extends Node2D
 
-var card
-var onShop = false
-var mouseOn = false
-var isStored = false
-var dropableZoneName
+class Card:
+	var name: String
+	var type: String
+	var description: String
+	var effects : Dictionary
+	var image: ImageTexture
 
-@onready var rectLabel = $ColorRect
-@onready var labelName = $ColorRect/name
-@onready var labelDescription = $ColorRect/description
-@onready var labelEffects = $ColorRect/effects
+	func _init(new_name: String, new_description: String, new_type: String, new_effects: Dictionary):
+		self.name = new_name
+		self.description = new_description
+		self.effects = new_effects
+		self.type = new_type
+		self.image = self.loadImage()
 
-func _ready():
-	self.scale = Vector2(0.7, 0.7)
-	rectLabel.visible = false
-	self.input_pickable = true
+	func applyEffects(player):
+		for effect_key in effects.keys():
+			match effect_key:
+				"strength":
+					player.strength += effects[effect_key]
+				"attack_speed":
+					player.attack_speed -= player.attack_speed * effects[effect_key]
+					if player.attack_speed <= 0:
+						player.attack_speed = 0.1
+				"pv_max":
+					player.pv_max += effects[effect_key]
+					player.pv += effects[effect_key]
+				"speed":
+					player.speed += effects[effect_key]
+				"shootSide":
+					addShootSide(player, effects[effect_key])
+
+	func addShootSide(player, shootSide):
+		for side in shootSide:
+			player.shootSide[side] = true
+			
+	func removeEffects(player):
+		for effect_key in effects.keys():
+			match effect_key:
+				"strength":
+					player.strength -= effects[effect_key]
+				"attack_speed":
+					player.attack_speed += player.attack_speed * effects[effect_key]
+					if player.attack_speed <= 0:
+						player.attack_speed = 0.1
+				"pv_max":
+					player.pv_max -= effects[effect_key]
+					player.pv -= effects[effect_key]
+				"speed":
+					player.speed -= effects[effect_key]
+				"shootSide":
+					addShootSide(player, effects[effect_key])
+
+	func removeShootSide(player, shootSide):
+		for side in shootSide:
+			player.shootSide[side] = false
+			
+	func loadImage():
+		var filename = self.name
+		var new_image = Image.new()
+		
+		if self.type == "merge":
+			filename = "mergeCard"
+		var error = new_image.load("res://Assets/Cards/" + name + ".png")
+		
+		if error == OK:
+			print(name, " is loaded")
+			return(ImageTexture.create_from_image(new_image))
+		else:
+			print(name + "Error: ", error)
 	
-func _process(delta):
-	if Input.is_action_just_pressed("click") and onShop and mouseOn:
-		get_parent().add_to_dropable(self)
-
-func _on_mouse_entered():
-	if get_parent().name == "Black-smithShop":
-		onShop = true
-		mouseOn = true
-	rectLabel.visible = true
-	labelName.text = card.name
-	labelDescription.text = card.description
-	labelEffects.text = ""
-	for key in card.effects:
-		labelEffects.text += key + ": " + str(card.effects[key]) + "\n"
-	self.scale = Vector2(0.8, 0.8)
-
-
-func _on_mouse_exited():
-	mouseOn = false
-	rectLabel.visible = false
-	self.scale = Vector2(0.7, 0.7)

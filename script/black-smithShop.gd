@@ -24,7 +24,7 @@ func displayShop():
 		card_instance.position = Vector2(marker.position.x, marker.position.y)
 		card_instance.scale = Vector2(0.7, 0.7)
 		self.add_child(card_instance)
-		var sprite = card_instance.get_child(0)
+		var sprite = card_instance.get_child(1)
 		var cardTexture = card_instance.card.image
 		sprite.texture = cardTexture
 		cardsInstance.append(card_instance)
@@ -58,4 +58,6 @@ func _on_animated_sprite_2d_2_animation_finished():
 
 func _on_button_pressed():
 	if dropable1.cardIsOn and dropable2.cardIsOn:
-		Merge.merge_cards(dropable1.cardOn.card, dropable2.cardOn.card)
+		var mergeCard = Merge.merge_cards(dropable1.cardOn.card, dropable2.cardOn.card)
+		Global.player.add_card(mergeCard)
+		pass

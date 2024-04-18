@@ -114,6 +114,10 @@ class Player:
 		bullet.position = marker2d.global_position
 		bullet.velocity = direction
 		bullet.rotation_degrees = angleRotate
+		
+	func remove_card(card):
+		card.remove_effects(self)
+		self.cards.erase(card.name)
 
 
 func _ready():
