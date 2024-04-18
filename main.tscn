@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://tile_map.tscn" id="2_r3ojv"]
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
 [ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="5_h6o1h"]
-[ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="6_8hfyc"]
-[ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://black-smith.tscn" id="6_m3sb8"]
+[ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="6_egpkk"]
+[ext_resource type="PackedScene" path="res://black-smith.tscn" id="6_frb6t"]
 [ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="7_pjywa"]
 
 [node name="Main" type="Node2D"]
@@ -13,8 +13,8 @@ script = ExtResource("1_g3bdo")
 
 [node name="TileMap" parent="." instance=ExtResource("2_r3ojv")]
 
-[node name="Black-smith" parent="." instance=ExtResource("6_m3sb8")]
-position = Vector2(-106, -101)
+[node name="Black-smith" parent="." instance=ExtResource("6_frb6t")]
+position = Vector2(-128, -143)
 
 [node name="Player" parent="." instance=ExtResource("3_keqr3")]
 process_priority = 2
@@ -44,15 +44,10 @@ offset_bottom = -200.0
 scale = Vector2(0.642438, 0.642438)
 size_flags_horizontal = 0
 
-[node name="Black-smithShop" parent="Player/Camera2D" instance=ExtResource("6_8hfyc")]
+[node name="Black-smithShop" parent="Player/Camera2D" instance=ExtResource("6_egpkk")]
 visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -316.0
-offset_top = -177.0
-offset_right = -316.0
-offset_bottom = -177.0
-grow_horizontal = 1
-grow_vertical = 1
-scale = Vector2(0.56569, 0.56569)
+offset_left = -439.0
+offset_top = -200.0
+offset_right = -439.0
+offset_bottom = -200.0
+scale = Vector2(0.577244, 0.577244)
