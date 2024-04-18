@@ -9,7 +9,7 @@ func _ready():
 	animation_mecha.play("mecha_animation")
 	animation_mecha.flip_h = true
 	animation_background.play("background_animation")
-	animation_background.modulate.a = 0.5
+	animation_background.modulate.a = 0.75
 	#$StartButton.connect("pressed", Callable(self, "_on_start_button_pressed"))
 	$Timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
 	
