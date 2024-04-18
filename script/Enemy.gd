@@ -11,13 +11,15 @@ var damage
 var shootFrame
 var enemyDir
 var bulletPath
+var ray_pos
+var ray_target
 var canShoot = false
 var hasShot = true
 
-func play_shoot_animations():
+func play_shoot_animations(parent):
 	if timer.is_stopped() && canShoot && !checkWalls():
 		hasShot = false
-		if position.x < Global.playerPos.x:
+		if parent.position.x < Global.playerPos.x:
 			animations.set_flip_h(false)
 		else:
 			animations.set_flip_h(true)
@@ -28,32 +30,36 @@ func process(delta, parent):
 	if checkFrame() && !hasShot && !checkWalls():
 		hasShot = true
 		shoot(parent)
-	chase_player()
-	velocity = global_position.direction_to(enemyDir)
+	
+	chase_player(parent)
 	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && self.position.distance_to(Global.playerPos) < 200:
 		return
 	move(delta, parent)
 
-func chase_player():
+func chase_player(parent):
+	ray.position = parent.position
+	ray_pos.position = ray.position
 	ray.target_position = Global.playerPos
 	ray.force_raycast_update()
 	
 	if !ray.is_colliding():
-		print("No collision")
 		enemyDir = ray.target_position
+		ray_target.position = enemyDir
 	
 	else:
-		print("Collision")
 		for scent in Global.player.scent_trail:
 			ray.target_position = scent.position
 			ray.force_raycast_update()
 			if !ray.is_colliding():
-				print("Scent pos : ", scent.position)
 				enemyDir = ray.target_position
+				ray_target.position = enemyDir
 				break
+	
+	if enemyDir != Vector2():
+		velocity = parent.position.direction_to(enemyDir)
 
 func move(delta, parent):
-	if enemyDir.x > position.x:
+	if enemyDir.x > parent.global_position.x:
 		animations.set_flip_h(false)
 	else:
 		animations.set_flip_h(true)

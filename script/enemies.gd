@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
-var enemy = self.name
+var enemy = name
 
 func _ready():
-	var statEnemy = Global.ennemies[self.name]
+	var statEnemy = Global.ennemies[name]
+	var ray = RayCast2D.new()
+	ray.set_collision_mask_value(4, true)
+	add_child(ray)
+	
 	enemy = Enemy.new()
 	enemy.damage = statEnemy.damage
 	enemy.speed = statEnemy.speed
@@ -12,13 +16,15 @@ func _ready():
 	enemy.bulletPath = load("res://AnimatedCharacters/Enemies/" + self.name + "/Bullet.tscn")
 	enemy.animations = $animations
 	enemy.timer = $Timer
-	enemy.ray = $RayCast2D
+	enemy.ray = ray
+	enemy.ray_pos = get_parent().get_node("rayPos")
+	enemy.ray_target = get_parent().get_node("rayTarget")
 	
-func _physics_process(_delta):
-	enemy.process(_delta, self)
+func _physics_process(delta):
+	enemy.process(delta, self)
 	
 func _process(_delta):
-	enemy.play_shoot_animations()
+	enemy.play_shoot_animations(self)
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":

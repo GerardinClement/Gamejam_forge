@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_pyyym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_per6e"]
-size = Vector2(14, 22)
+size = Vector2(13, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkl8r"]
 atlas = ExtResource("1_lna24")
@@ -328,7 +328,7 @@ shape = SubResource("RectangleShape2D_per6e")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qt316")
-animation = &"idle"
+animation = &"moveRight"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.8
@@ -345,9 +345,6 @@ shape = SubResource("RectangleShape2D_fkvlr")
 
 [node name="leftSide" type="Marker2D" parent="."]
 position = Vector2(-23, 1)
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 9
 
 [connection signal="body_entered" from="View" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="View" to="." method="_on_area_2d_body_exited"]
