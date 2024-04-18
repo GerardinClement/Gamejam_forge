@@ -5,8 +5,11 @@ extends Control
 @onready var animatedSprite = $AnimatedSprite2D2
 @onready var marker = $Marker2D
 @onready var cardManager = CardManager.new()
+@onready var Dropable1 = $Dropable
+@onready var Dropable2 = $Dropable2
 
 var shop
+var cardsInstance: Array
 
 func displayShop():
 	var size = self.size
@@ -20,10 +23,16 @@ func displayShop():
 		card_instance.position = Vector2(marker.position.x + 125 * i, marker.position.y)
 		card_instance.scale = Vector2(0.7, 0.7)
 		self.add_child(card_instance)
-		var sprite = card_instance.get_child(1)
+		var sprite = card_instance.get_child(0)
 		var cardTexture = card_instance.card.image
 		sprite.texture = cardTexture
+		cardsInstance.append(card_instance)
 		i += 1
+		
+func add_to_dropable(card):
+	var tween = get_tree().create_tween()
+	var position = Vector2(Dropable1.position.x + 45, Dropable1.position.y + 60)
+	tween.tween_property(card, "position", position, 0.2).set_ease(Tween.EASE_OUT)
 
 func open(shopCards):
 	shop = shopCards
@@ -36,6 +45,6 @@ func close():
 		if child.name.find("StaticBody2D") >= 0 or child.name == "Cards":
 			child.queue_free()
 
-
 func _on_animated_sprite_2d_2_animation_finished():
 	displayShop()
+
