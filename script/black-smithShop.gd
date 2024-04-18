@@ -60,4 +60,3 @@ func _on_button_pressed():
 	if dropable1.cardIsOn and dropable2.cardIsOn:
 		var mergeCard = Merge.merge_cards(dropable1.cardOn.card, dropable2.cardOn.card)
 		Global.player.add_card(mergeCard)
-		pass

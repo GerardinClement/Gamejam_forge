@@ -62,7 +62,7 @@ class Card:
 		
 		if self.type == "merge":
 			filename = "mergeCard"
-		var error = new_image.load("res://Assets/Cards/" + name + ".png")
+		var error = new_image.load("res://Assets/Cards/" + filename + ".png")
 		
 		if error == OK:
 			print(name, " is loaded")

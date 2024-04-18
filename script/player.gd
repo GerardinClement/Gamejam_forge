@@ -129,6 +129,7 @@ func _ready():
 	$Shoot.start()
 	
 func _process(_delta):
+	player = Global.player
 	if player.pv <= 0:
 		player.player_death(animation)
 	setGlobal()

@@ -18,7 +18,7 @@ func merge_cards(card1, card2):
 	var mergedCard
 	abilities1 = get_card_abilities(card1)
 	abilities2 = get_card_abilities(card2)
-	mergedCard = Card.new(card1.name + card2.name, "This is a merge card", "merged", {abilities1: card1.effects[abilities1], abilities2: card2.effects[abilities2]})
+	mergedCard = Card.new(card1.name + card2.name, "This is a merge card", "merge", {abilities1: card1.effects[abilities1], abilities2: card2.effects[abilities2]})
 	Global.player.cards.erase(card1.name)
 	Global.player.cards.erase(card2.name)
 	return mergedCard
