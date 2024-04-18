@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsvnuo8akvltu"]
+[gd_scene load_steps=13 format=3 uid="uid://bkbuw7o13rxyr"]
 
 [ext_resource type="Script" path="res://script/chest.gd" id="1_xqntj"]
-[ext_resource type="Texture2D" uid="uid://jjc6sfievnvn" path="res://Assets/Objects/Fantasy RPG (Toony) 32x32.png" id="1_yc2nq"]
+[ext_resource type="Texture2D" path="res://Assets/Objects/Fantasy RPG (Toony) 32x32.png" id="1_yc2nq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43irc"]
 size = Vector2(11.8481, 13.8795)

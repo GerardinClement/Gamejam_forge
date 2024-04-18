@@ -39,7 +39,7 @@ class Card:
 		var filename = self.name
 		var new_image = Image.new()
 		if (self.type == "merge")
-		var error = new_image.load("res://Assets/Cards/" + name + ".png")
+			var error = new_image.load("res://Assets/Cards/" + name + ".png")
 		
 		if error == OK:
 			print(name, " is loaded")
