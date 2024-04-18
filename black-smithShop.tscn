@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhjnugc48cumm"]
+[gd_scene load_steps=11 format=3 uid="uid://dhjnugc48cumm"]
 
 [ext_resource type="Texture2D" uid="uid://hhge5bg3lnyf" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Tablets/blue/tablet_animation_spritesheet.png" id="1_h5ona"]
 [ext_resource type="Script" path="res://script/black-smithShop.gd" id="1_r1a0n"]
-[ext_resource type="Texture2D" uid="uid://dbo7gwnby0pnd" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Text ScreenPads/blue/Text_Screen01.png" id="3_vhuop"]
+[ext_resource type="PackedScene" uid="uid://krk3endjmiti" path="res://dropable.tscn" id="3_ht2lt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0le6r"]
 atlas = ExtResource("1_h5ona")
@@ -54,9 +54,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_thk0l"]
-size = Vector2(141, 191)
-
 [node name="Black-smithShop" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -79,49 +76,12 @@ position = Vector2(634, 421)
 scale = Vector2(-2.11886, -0.572058)
 gizmo_extents = 0.0
 
-[node name="Dropable" type="Area2D" parent="." groups=["dropable"]]
-position = Vector2(220, 261)
-scale = Vector2(1.23984, 1.18366)
-collision_layer = 512
-collision_mask = 256
-priority = 5
+[node name="Dropable" parent="." instance=ExtResource("3_ht2lt")]
+position = Vector2(194, 261)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dropable"]
-position = Vector2(28.1555, 50.7653)
-shape = SubResource("RectangleShape2D_thk0l")
-
-[node name="TextureRect" type="TextureRect" parent="Dropable"]
-offset_left = 98.0588
-offset_top = -46.8169
-offset_right = 173.059
-offset_bottom = 72.1831
-rotation = 1.5708
-scale = Vector2(2.72212, 3.11332)
-texture = ExtResource("3_vhuop")
-expand_mode = 4
-stretch_mode = 2
-
-[node name="Dropable2" type="Area2D" parent="." groups=["dropable"]]
-position = Vector2(433, 261)
-scale = Vector2(1.23984, 1.18366)
-collision_layer = 512
-collision_mask = 256
-priority = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Dropable2"]
-position = Vector2(28.1555, 50.7653)
-shape = SubResource("RectangleShape2D_thk0l")
-
-[node name="TextureRect" type="TextureRect" parent="Dropable2"]
-offset_left = 98.0588
-offset_top = -46.8169
-offset_right = 173.059
-offset_bottom = 72.1831
-rotation = 1.5708
-scale = Vector2(2.72212, 3.11332)
-texture = ExtResource("3_vhuop")
-expand_mode = 4
-stretch_mode = 2
+[node name="Dropable2" parent="." instance=ExtResource("3_ht2lt")]
+position = Vector2(405, 261)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]
+[connection signal="body_entered" from="Dropable" to="." method="_on_dropable_body_entered"]

@@ -2,6 +2,9 @@ extends Node2D
 
 var card
 var onShop = false
+var mouseOn = false
+var isStored = false
+var dropableNb
 
 @onready var rectLabel = $ColorRect
 @onready var labelName = $ColorRect/name
@@ -14,13 +17,13 @@ func _ready():
 	self.input_pickable = true
 	
 func _process(delta):
-	if Input.is_action_just_pressed("click") and onShop:
-		get_parent().add_to_dropable(self)
+	if Input.is_action_just_pressed("click") and onShop and mouseOn:
+		get_parent().add_or_remove_to_dropable(self)
 
 func _on_mouse_entered():
-	print(get_parent())
 	if get_parent().name == "Black-smithShop":
 		onShop = true
+		mouseOn = true
 	rectLabel.visible = true
 	labelName.text = card.name
 	labelDescription.text = card.description
@@ -31,5 +34,6 @@ func _on_mouse_entered():
 
 
 func _on_mouse_exited():
+	mouseOn = false
 	rectLabel.visible = false
 	self.scale = Vector2(0.7, 0.7)

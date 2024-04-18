@@ -29,10 +29,20 @@ func displayShop():
 		cardsInstance.append(card_instance)
 		i += 1
 		
-func add_to_dropable(card):
-	var tween = get_tree().create_tween()
-	var position = Vector2(Dropable1.position.x + 45, Dropable1.position.y + 60)
-	tween.tween_property(card, "position", position, 0.2).set_ease(Tween.EASE_OUT)
+func add_or_remove_to_dropable(card):
+	print(card.isStored)
+	if not card.isStored:
+		if not Dropable1.cardOn:
+			card.dropableNb = 1
+			Dropable1.add_card(card, Dropable1.position)
+		elif not Dropable2.cardOn:
+			card.dropableNb = 2
+			Dropable2.add_card(card, Dropable2.position)
+	else:
+		if card.dropableNb == 1:
+			print("Remove dropable1")
+		if card.dropableNb == 2:
+			print("Remove dropable2")
 
 func open(shopCards):
 	shop = shopCards
