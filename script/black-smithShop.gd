@@ -1,6 +1,7 @@
 extends Control
 
 @onready var cards = preload("res://cards.tscn")
+@onready var CardManager = preload("res://script/cardsManager.gd")
 @onready var animatedSprite = $AnimatedSprite2D2
 @onready var marker = $Marker2D
 @onready var cardManager = CardManager.new()
@@ -9,10 +10,11 @@ var shop
 
 func displayShop():
 	var size = self.size
+	var i = 0
 	
-	for i in 3:
+	for key in shop:
 		var card_instance = cards.instantiate()
-		card_instance.card = cardManager.generate_random_card(shop)
+		card_instance.card = shop[key]
 		if (card_instance.card == null):
 			return
 		card_instance.position = Vector2(marker.position.x + 125 * i, marker.position.y)
@@ -21,6 +23,7 @@ func displayShop():
 		var sprite = card_instance.get_child(1)
 		var cardTexture = card_instance.card.image
 		sprite.texture = cardTexture
+		i += 1
 
 func open(shopCards):
 	shop = shopCards

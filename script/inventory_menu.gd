@@ -4,12 +4,13 @@ extends Control
 
 func displayPlayerCards(player):
 	var viewport_rect = get_viewport_rect()
-	var bottom_position = viewport_rect.size.y / 1.25
-	var left_position = viewport_rect.size.x / 6
+	var bottom_position = viewport_rect.size.y * 0.83
+	var left_position = viewport_rect.size.x / 2
 
 	var i = 1
 	for card in player.cards.values():
 		var card_instance = cards.instantiate()
+		card_instance.card = player.cards[card.name]
 		card_instance.position = Vector2(left_position * i, bottom_position)
 		add_child(card_instance) 
 		var cardNode = self.get_child(i)

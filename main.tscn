@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
 [ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="5_h6o1h"]
 [ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="6_8hfyc"]
-[ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://black-smith.tscn" id="6_m3sb8"]
+[ext_resource type="PackedScene" path="res://black-smith.tscn" id="6_m3sb8"]
 [ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="7_pjywa"]
 
 [node name="Main" type="Node2D"]

@@ -133,6 +133,13 @@ func _process(_delta):
 		shoot()
 	isPause = Global.pause
 
+func _physics_process(_delta):
+	if player.pv <= 0:
+		return
+	if !Global.pause:
+		move(_delta)
+	else:
+		animation.play("idle")
 		
 func setGlobal():
 	Global.playerPos = self.position
@@ -160,17 +167,6 @@ func move(_delta):
 		animation.play("run")
 	velocity = direction * _delta * player.speed
 	move_and_slide()
-	
-	
-func _physics_process(_delta):
-	if player.pv <= 0:
-		return
-	if !Global.pause:
-		move(_delta)
-	else:
-		animation.play("idle")
-
-
 
 func _on_animated_sprite_2d_animation_finished():
 	if animation.animation == "death":
