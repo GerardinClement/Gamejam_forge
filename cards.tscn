@@ -1,25 +1,103 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0pweq64e17kj"]
+[gd_scene load_steps=8 format=3 uid="uid://b0pweq64e17kj"]
 
-[ext_resource type="Script" path="res://script/cards.gd" id="1_to1ro"]
-[ext_resource type="Texture2D" uid="uid://do7uk3ro3p2e1" path="res://Assets/Cards/back.png" id="2_2hksk"]
+[ext_resource type="Script" path="res://script/cardProcess.gd" id="1_0gio1"]
+[ext_resource type="Texture2D" uid="uid://bheuemyqmuk4q" path="res://Assets/Cards/mergeCard.png" id="2_hdgd6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkmhg"]
 size = Vector2(167, 247)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dfim"]
-size = Vector2(170, 248)
+[sub_resource type="Animation" id="Animation_ok8d2"]
+resource_name = "Intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.00154606, -0.33343, 0.480619, 0.0189992]
+}
+
+[sub_resource type="Animation" id="Animation_srsln"]
+resource_name = "MergeLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -65), Vector2(272, -65)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 2,
+"values": [0.0, -0.417134]
+}
+
+[sub_resource type="Animation" id="Animation_sw2v1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.00154606]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -65)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_myeox"]
+_data = {
+"Intro": SubResource("Animation_ok8d2"),
+"MergeLeft": SubResource("Animation_srsln"),
+"RESET": SubResource("Animation_sw2v1")
+}
 
 [node name="Cards" type="StaticBody2D"]
-collision_layer = 256
-collision_mask = 512
-script = ExtResource("1_to1ro")
+position = Vector2(0, -65)
+rotation = 0.00154606
+script = ExtResource("1_0gio1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -4.5)
+shape = SubResource("RectangleShape2D_kkmhg")
 
 [node name="Card" type="Sprite2D" parent="."]
 position = Vector2(-4, -2)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_2hksk")
+texture = ExtResource("2_hdgd6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -218.0
 offset_top = -222.0
 offset_right = -13.0
@@ -53,20 +131,11 @@ offset_right = 167.0
 offset_bottom = 211.0
 scale = Vector2(1.1342, 1.39516)
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-3.5, -4.5)
-shape = SubResource("RectangleShape2D_kkmhg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -5)
-shape = SubResource("RectangleShape2D_4dfim")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_myeox")
+}
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hhge5bg3lnyf"
-path="res://.godot/imported/tablet_animation_spritesheet.png-c37fddf27a3e4f39322ae9b9ee6aeb26.ctex"
+uid="uid://bheuemyqmuk4q"
+path="res://.godot/imported/mergeCard.png-f94ba4ca5f364d02e2b8de19bfea3a05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Tablets/blue/tablet_animation_spritesheet.png"
-dest_files=["res://.godot/imported/tablet_animation_spritesheet.png-c37fddf27a3e4f39322ae9b9ee6aeb26.ctex"]
+source_file="res://Assets/Cards/mergeCard.png"
+dest_files=["res://.godot/imported/mergeCard.png-f94ba4ca5f364d02e2b8de19bfea3a05.ctex"]
 
 [params]
 

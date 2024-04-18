@@ -1,7 +1,9 @@
 extends Node
 
 var playerPos = Vector2(0,0)
+var allCards = null
 var player = null
+var pause = false
 var playerIsDead = false
 
 #Array of ennemies
