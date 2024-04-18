@@ -1,33 +1,9 @@
-[gd_scene load_steps=38 format=3 uid="uid://bvvr2ifpc0s0w"]
+[gd_scene load_steps=26 format=3 uid="uid://cv1cmhhc8tjpy"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_qhih1"]
 [ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="2_bxvg7"]
-[ext_resource type="Texture2D" uid="uid://d33cdxavimdk0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Blue/worldmap_highlight_blue.png" id="2_j7orl"]
-[ext_resource type="Texture2D" uid="uid://dl8fvdxb3nfx0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Blue/worldmap_blue.png" id="3_ecrtr"]
 [ext_resource type="Texture2D" uid="uid://c825jf53riexh" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Menu buttons v2/Blue/menu_button02.png" id="4_a0ex4"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlny2"]
-atlas = ExtResource("2_j7orl")
-region = Rect2(0, 0, 208, 107)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5rcjj"]
-atlas = ExtResource("3_ecrtr")
-region = Rect2(0, 0, 208, 107)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_06tnp"]
-animations = [{
-"frames": [{
-"duration": 8.0,
-"texture": SubResource("AtlasTexture_jlny2")
-}, {
-"duration": 6.0,
-"texture": SubResource("AtlasTexture_5rcjj")
-}],
-"loop": true,
-"name": &"background_animation",
-"speed": 5.0
-}]
 
 [sub_resource type="FontFile" id="FontFile_w8gkv"]
 subpixel_positioning = 0
@@ -173,56 +149,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_45drc"]
-atlas = ExtResource("2_aip23")
-region = Rect2(576, 1152, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_73epj"]
-atlas = ExtResource("2_aip23")
-region = Rect2(768, 1152, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fxdds"]
-atlas = ExtResource("2_aip23")
-region = Rect2(960, 1152, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d6xpq"]
-atlas = ExtResource("2_aip23")
-region = Rect2(1152, 1152, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_isuh8"]
-atlas = ExtResource("2_aip23")
-region = Rect2(1344, 1152, 192, 192)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vvpx5"]
-atlas = ExtResource("2_aip23")
-region = Rect2(1536, 1152, 192, 192)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mpt4x"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_45drc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_73epj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fxdds")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d6xpq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_isuh8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vvpx5")
-}],
-"loop": true,
-"name": &"mecha_death",
-"speed": 5.0
-}]
-
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -231,13 +157,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qhih1")
-
-[node name="Background" type="AnimatedSprite2D" parent="."]
-modulate = Color(0.219608, 0.717647, 0.392157, 1)
-position = Vector2(577, 338)
-scale = Vector2(5.56308, 5.56308)
-sprite_frames = SubResource("SpriteFrames_06tnp")
-animation = &"background_animation"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
@@ -331,16 +250,6 @@ sprite_frames = SubResource("SpriteFrames_5c8al")
 position = Vector2(253, 536)
 scale = Vector2(5.61368, 3.27083)
 sprite_frames = SubResource("SpriteFrames_5c8al")
-
-[node name="MechaDeath" type="AnimatedSprite2D" parent="."]
-position = Vector2(934, 479)
-scale = Vector2(1.77083, 1.77083)
-sprite_frames = SubResource("SpriteFrames_mpt4x")
-animation = &"mecha_death"
-frame = 5
-frame_progress = 0.879175
-
-[node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
