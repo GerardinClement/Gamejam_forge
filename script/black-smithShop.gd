@@ -68,8 +68,7 @@ func _on_animated_sprite_2d_2_animation_finished():
 	
 func animate_forge_success(pos: Vector2, card_instance):
 	card_instance.position = Vector2(pos.x + 150, pos.y + 75)
-	card_instance.forge_animation()
-	
+	card_instance.forge_animation(dropable1.initialPosCard)
 	
 func forge():
 	var mergeCard = Merge.merge_cards(dropable1.cardOn.card, dropable2.cardOn.card)
@@ -81,7 +80,6 @@ func forge():
 	dropable1.cardOn.queue_free()
 	dropable2.cardOn.queue_free()
 	
-
 func _on_button_pressed():
 	if dropable1.cardIsOn and dropable2.cardIsOn:
 		forge()
