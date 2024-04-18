@@ -98,7 +98,6 @@ texture = ExtResource("2_hdgd6")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-z_index = 10
 offset_left = -218.0
 offset_top = -222.0
 offset_right = -13.0
