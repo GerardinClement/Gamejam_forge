@@ -4,8 +4,9 @@ extends Control
 @onready var CardManager = preload("res://script/cardsManager.gd")
 @onready var animatedSprite = $AnimatedSprite2D2
 @onready var cardManager = CardManager.new()
-@onready var Dropable1 = $Dropable
-@onready var Dropable2 = $Dropable2
+@onready var dropable1 = $Dropable
+@onready var dropable2 = $Dropable2
+var Merge = preload("res://script/mergeCards.gd").new()
 
 var shop
 var cardsInstance: Array
@@ -31,15 +32,15 @@ func displayShop():
 		
 func add_to_dropable(card):
 	if not card.isStored:
-		if not Dropable1.cardIsOn:
-			Dropable1.add_card(card, Dropable1.position)
-		elif not Dropable2.cardIsOn:
-			Dropable2.add_card(card, Dropable2.position)
+		if not dropable1.cardIsOn:
+			dropable1.add_card(card, dropable1.position)
+		elif not dropable2.cardIsOn:
+			dropable2.add_card(card, dropable2.position)
 	else:
 		if card.dropableZoneName == "Dropable":
-			Dropable1.remove_card()
+			dropable1.remove_card()
 		else:
-			Dropable2.remove_card()
+			dropable2.remove_card()
 
 func open(shopCards):
 	shop = shopCards
@@ -55,3 +56,6 @@ func close():
 func _on_animated_sprite_2d_2_animation_finished():
 	displayShop()
 
+func _on_button_pressed():
+	if dropable1.cardIsOn and dropable2.cardIsOn:
+		Merge.merge_cards(dropable1.cardOn.card, dropable2.cardOn.card)

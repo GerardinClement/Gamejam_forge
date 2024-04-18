@@ -120,3 +120,4 @@ text = "Forge"
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Dropable" to="." method="_on_dropable_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
