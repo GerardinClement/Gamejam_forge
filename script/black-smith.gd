@@ -10,6 +10,7 @@ var shop: Dictionary
 
 func _ready():
 	animatedSprite.play("idle")
+	shopMenu
 	
 func _process(delta):
 	if Input.is_action_just_pressed("Interact") and player_in_chat_zone:

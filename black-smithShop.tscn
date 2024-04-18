@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://hhge5bg3lnyf" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Tablets/blue/tablet_animation_spritesheet.png" id="1_h5ona"]
 [ext_resource type="Script" path="res://script/black-smithShop.gd" id="1_r1a0n"]
-[ext_resource type="PackedScene" uid="uid://krk3endjmiti" path="res://dropable.tscn" id="3_ht2lt"]
+[ext_resource type="PackedScene" uid="uid://j47svx0fyeop" path="res://dropable.tscn" id="3_ht2lt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0le6r"]
 atlas = ExtResource("1_h5ona")

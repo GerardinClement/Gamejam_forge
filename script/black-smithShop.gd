@@ -29,20 +29,17 @@ func displayShop():
 		cardsInstance.append(card_instance)
 		i += 1
 		
-func add_or_remove_to_dropable(card):
-	print(card.isStored)
+func add_to_dropable(card):
 	if not card.isStored:
-		if not Dropable1.cardOn:
-			card.dropableNb = 1
+		if not Dropable1.cardIsOn:
 			Dropable1.add_card(card, Dropable1.position)
-		elif not Dropable2.cardOn:
-			card.dropableNb = 2
+		elif not Dropable2.cardIsOn:
 			Dropable2.add_card(card, Dropable2.position)
 	else:
-		if card.dropableNb == 1:
-			print("Remove dropable1")
-		if card.dropableNb == 2:
-			print("Remove dropable2")
+		if card.dropableZoneName == "Dropable":
+			Dropable1.remove_card()
+		else:
+			Dropable2.remove_card()
 
 func open(shopCards):
 	shop = shopCards

@@ -4,7 +4,7 @@ var card
 var onShop = false
 var mouseOn = false
 var isStored = false
-var dropableNb
+var dropableZoneName
 
 @onready var rectLabel = $ColorRect
 @onready var labelName = $ColorRect/name
@@ -18,7 +18,7 @@ func _ready():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("click") and onShop and mouseOn:
-		get_parent().add_or_remove_to_dropable(self)
+		get_parent().add_to_dropable(self)
 
 func _on_mouse_entered():
 	if get_parent().name == "Black-smithShop":
