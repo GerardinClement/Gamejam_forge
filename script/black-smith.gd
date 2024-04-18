@@ -7,6 +7,7 @@ extends CharacterBody2D
 var player_in_chat_zone = false
 var shopOpen = false
 var shop: Dictionary
+var player
 
 func _ready():
 	animatedSprite.play("idle")
@@ -37,14 +38,14 @@ func generate_shop():
 		shop[card.name] = card
 		
 func displayShop():
-	if shop.is_empty():
-		generate_shop()
+	#if shop.is_empty():
+		#generate_shop()
 	if shopOpen:
 		shopMenu.hide()
 		shopMenu.close()
 		shopOpen = false
 	else:
 		shopMenu.show()
-		shopMenu.open(shop)
+		shopMenu.open(Global.player.cards)
 		shopOpen = true
 	Global.pause = shopOpen

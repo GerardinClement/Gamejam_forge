@@ -3,7 +3,6 @@ extends Control
 @onready var cards = preload("res://cards.tscn")
 @onready var CardManager = preload("res://script/cardsManager.gd")
 @onready var animatedSprite = $AnimatedSprite2D2
-@onready var marker = $Marker2D
 @onready var cardManager = CardManager.new()
 @onready var Dropable1 = $Dropable
 @onready var Dropable2 = $Dropable2
@@ -16,11 +15,12 @@ func displayShop():
 	var i = 0
 	
 	for key in shop:
+		var marker = self.get_child(i + 1)
 		var card_instance = cards.instantiate()
 		card_instance.card = shop[key]
 		if (card_instance.card == null):
 			return
-		card_instance.position = Vector2(marker.position.x + 125 * i, marker.position.y)
+		card_instance.position = Vector2(marker.position.x, marker.position.y)
 		card_instance.scale = Vector2(0.7, 0.7)
 		self.add_child(card_instance)
 		var sprite = card_instance.get_child(0)
