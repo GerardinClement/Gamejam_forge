@@ -15,6 +15,8 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Inventory"):
 		invetoryMenu()
+	if Global.playerIsDead == true:
+		get_tree().change_scene_to_file("res://GameOver.tscn")
 		
 func invetoryMenu():
 	if !pause:

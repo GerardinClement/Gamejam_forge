@@ -56,6 +56,7 @@ class Player:
 
 	func player_death(animatedSprite):
 		animatedSprite.play("death")
+		Global.playerIsDead = true
 		
 	func shoot(parent, marker2d, lookLeft):
 		for side in shootSide:
