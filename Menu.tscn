@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://bvvr2ifpc0s0w"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_qhih1"]
+[ext_resource type="Script" path="res://script/Menu.gd" id="1_qhih1"]
 [ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="2_bxvg7"]
 [ext_resource type="Texture2D" uid="uid://d33cdxavimdk0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Blue/worldmap_highlight_blue.png" id="2_j7orl"]
@@ -233,6 +233,7 @@ grow_vertical = 2
 script = ExtResource("1_qhih1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 647.0
 color = Color(0.286275, 0.329412, 0.470588, 1)

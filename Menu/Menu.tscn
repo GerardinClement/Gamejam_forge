@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://cv1cmhhc8tjpy"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_qhih1"]
+[ext_resource type="Script" path="res://script/Menu.gd" id="1_qhih1"]
 [ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="2_bxvg7"]
 [ext_resource type="Texture2D" uid="uid://c825jf53riexh" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Menu buttons v2/Blue/menu_button02.png" id="4_a0ex4"]
