@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bvvr2ifpc0s0w"]
+[gd_scene load_steps=42 format=3 uid="uid://bvvr2ifpc0s0w"]
 
 [ext_resource type="Script" path="res://script/Menu.gd" id="1_qhih1"]
 [ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d33cdxavimdk0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Blue/worldmap_highlight_blue.png" id="2_j7orl"]
 [ext_resource type="Texture2D" uid="uid://dl8fvdxb3nfx0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Blue/worldmap_blue.png" id="3_ecrtr"]
 [ext_resource type="Texture2D" uid="uid://c825jf53riexh" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Menu buttons v2/Blue/menu_button02.png" id="4_a0ex4"]
+[ext_resource type="Texture2D" uid="uid://coy72muqwcskx" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Inventory Pack/blue/Selector1.png" id="7_j8tj4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlny2"]
 atlas = ExtResource("2_j7orl")
@@ -18,10 +19,10 @@ region = Rect2(0, 0, 208, 107)
 [sub_resource type="SpriteFrames" id="SpriteFrames_06tnp"]
 animations = [{
 "frames": [{
-"duration": 8.0,
+"duration": 7.0,
 "texture": SubResource("AtlasTexture_jlny2")
 }, {
-"duration": 6.0,
+"duration": 7.0,
 "texture": SubResource("AtlasTexture_5rcjj")
 }],
 "loop": true,
@@ -223,6 +224,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wlp7"]
+atlas = ExtResource("7_j8tj4")
+region = Rect2(0, 0, 19, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7fgw"]
+atlas = ExtResource("7_j8tj4")
+region = Rect2(19, 0, 19, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhvp0"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_0wlp7")
+}, {
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_o7fgw")
+}],
+"loop": true,
+"name": &"target",
+"speed": 5.0
+}]
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -352,6 +375,67 @@ frame = 5
 frame_progress = 0.879175
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Targets" type="AnimatedSprite2D" parent="."]
+position = Vector2(453, 144)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets4" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(74, 19.3333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets5" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(160, 47.3333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets6" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(33, 69.6667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets7" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(72, 48.6667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets8" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(-14.6667, 92.6667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets9" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(-37.3333, 140)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets10" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(-108.333, 12)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets11" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(57.6667, 117.333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets12" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(188.333, 7.66667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets13" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(42, 25.6667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets14" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(-48, 34.3333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
