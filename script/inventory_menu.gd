@@ -12,10 +12,10 @@ func displayPlayerCards(player):
 
 	var i = 0
 	for card in player.cards.values():
-		var marker = self.markersNode.get_child(i)
-		Instance.create_card(self, card, marker.position, false)
-		i += 1
-		
+		for x in player.occurenceCard[card.name]:
+			var marker = self.markersNode.get_child(i)
+			Instance.create_card(self, card, marker.position, false)
+			i += 1
 
 func open(player):
 	displayPlayerCards(player)

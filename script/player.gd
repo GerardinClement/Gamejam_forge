@@ -12,6 +12,7 @@ var isPause
 
 class Player:
 	var cards: Dictionary
+	var occurenceCard: Dictionary
 	var shootSide: Dictionary
 	var pv: float
 	var pv_max: float
@@ -28,7 +29,7 @@ class Player:
 		pv = 6
 		pv_max = 6
 		speed = 75
-		attack_speed = 4
+		attack_speed = 2
 		strength = 25
 		shield = 1
 		shootSide = {
@@ -47,7 +48,11 @@ class Player:
 	
 	func add_card(newCard):
 		newCard.applyEffects(self)
-		cards[newCard.name] = newCard
+		if not cards.has(newCard.name):
+			cards[newCard.name] = newCard
+			occurenceCard[newCard.name] = 1
+		else:
+			occurenceCard[newCard.name] += 1
 		gui.display_life(self)
 		print("new card:", newCard.name)
 		

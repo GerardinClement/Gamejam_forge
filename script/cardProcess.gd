@@ -12,6 +12,7 @@ var dropableZoneName
 @onready var rectLabel = $ColorRect
 @onready var labelName = $ColorRect/name
 @onready var labelDescription = $ColorRect/description
+@onready var labelLevel = $ColorRect/level
 @onready var labelEffects = $ColorRect/effects
 @onready var animationPlayer = $Card/AnimationPlayer
 @onready var animatesExplosions = $AnimatesExplosions
@@ -35,6 +36,7 @@ func _on_mouse_entered():
 		onShop = true
 	rectLabel.visible = true
 	labelName.text = card.name
+	labelLevel.text = "Level: " + str(card.level)
 	labelDescription.text = card.description
 	labelEffects.text = ""
 	for key in card.effects:

@@ -3,6 +3,7 @@ extends Node2D
 class Card:
 	var name: String
 	var type: String
+	var level: int
 	var description: String
 	var effects : Dictionary
 	var image: ImageTexture
@@ -13,6 +14,7 @@ class Card:
 		self.effects = new_effects
 		self.type = new_type
 		self.image = self.loadImage()
+		self.level = 1
 
 	func applyEffects(player):
 		for effect_key in effects.keys():
