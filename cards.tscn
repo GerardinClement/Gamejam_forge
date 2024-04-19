@@ -639,6 +639,7 @@ animations = [{
 }]
 
 [node name="Cards" type="StaticBody2D"]
+z_index = 10
 position = Vector2(0, -65)
 rotation = 0.00154606
 script = ExtResource("1_0gio1")

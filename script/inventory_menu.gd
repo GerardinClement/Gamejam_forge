@@ -26,3 +26,8 @@ func close():
 		var child = self.get_child(i)
 		if child.name.find("StaticBody2D") >= 0 or child.name == "Cards":
 			child.queue_free()
+
+func _on_exit_pressed():
+	Engine.time_scale = 1
+	get_tree().change_scene_to_file("res://Menu.tscn")
+
