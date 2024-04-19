@@ -34,6 +34,8 @@ func _on_Timer_timeout():
 func _on_quit_button_pressed():
 	get_tree().quit()
 
+func _on_credits_button_pressed():
+	get_tree().change_scene_to_file("res://Credits.tscn")
 
 # Assuming you have an AnimationPlayer node named "AnimationPlayer"
 # and a Button node named "StartButton"
@@ -45,3 +47,6 @@ func _on_quit_button_pressed():
 #func _on_StartButton_pressed():
 	## Play the new animation when the start button is pressed
 	#$AnimationPlayer.play("NewAnimationName")
+
+
+
