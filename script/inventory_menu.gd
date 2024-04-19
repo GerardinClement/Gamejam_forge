@@ -2,6 +2,7 @@ extends Control
 
 @onready var cards = preload("res://cards.tscn")
 @onready var markersNode = $Markers
+var Instance = preload("res://script/createInstance.gd").new()
 
 
 func displayPlayerCards(player):
@@ -12,14 +13,7 @@ func displayPlayerCards(player):
 	var i = 2
 	for card in player.cards.values():
 		var marker = self.markersNode.get_child(i)
-		var card_instance = cards.instantiate()
-		card_instance.card = player.cards[card.name]
-		card_instance.position = Vector2(marker.position.x, marker.position.y)
-		self.add_child(card_instance) 
-		var cardNode = self.get_child(i)
-		var sprite = cardNode.find_child("Card")
-		if sprite:
-			sprite.set_texture(card.image)
+		Instance.create_card(self, card, marker.position, false)
 		i += 1
 		
 

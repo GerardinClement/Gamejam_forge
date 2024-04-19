@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8afn38mfwi0d"]
+[gd_scene load_steps=13 format=3 uid="uid://c8afn38mfwi0d"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_g3bdo"]
 [ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://tile_map.tscn" id="2_r3ojv"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="6_egpkk"]
 [ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://black-smith.tscn" id="6_frb6t"]
 [ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="7_pjywa"]
+[ext_resource type="PackedScene" uid="uid://c83jt85vdtnf0" path="res://chestMenu.tscn" id="8_fq4ra"]
 [ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="8_k78ve"]
 [ext_resource type="PackedScene" uid="uid://cyhlud4i6s8kv" path="res://AnimatedCharacters/Enemies/human/human.tscn" id="9_qf0k0"]
 [ext_resource type="PackedScene" uid="uid://dl0fs76fenl5d" path="res://AnimatedCharacters/Enemies/mech/mech.tscn" id="10_d746t"]
@@ -32,29 +33,37 @@ drag_bottom_margin = 0.0
 
 [node name="Gui" parent="Player/Camera2D" instance=ExtResource("7_pjywa")]
 anchors_preset = -1
-offset_left = -359.0
-offset_top = 195.0
-offset_right = -359.0
-offset_bottom = 195.0
+offset_left = -302.0
+offset_top = 166.0
+offset_right = -302.0
+offset_bottom = 166.0
 
 [node name="InventoryMenu" parent="Player/Camera2D" instance=ExtResource("5_h6o1h")]
 anchors_preset = -1
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -369.0
-offset_top = -200.0
-offset_right = -369.0
-offset_bottom = -200.0
-scale = Vector2(0.642438, 0.642438)
+offset_left = -317.0
+offset_top = -177.0
+offset_right = -317.0
+offset_bottom = -177.0
+scale = Vector2(0.595376, 0.595376)
 size_flags_horizontal = 0
 
 [node name="Black-smithShop" parent="Player/Camera2D" instance=ExtResource("6_egpkk")]
 visible = false
-offset_left = -439.0
-offset_top = -200.0
-offset_right = -439.0
-offset_bottom = -200.0
-scale = Vector2(0.577244, 0.577244)
+offset_left = -361.0
+offset_top = -187.0
+offset_right = -361.0
+offset_bottom = -187.0
+scale = Vector2(0.455806, 0.455806)
+
+[node name="ChestMenu" parent="Player/Camera2D" instance=ExtResource("8_fq4ra")]
+visible = false
+offset_left = -334.0
+offset_top = -187.0
+offset_right = -334.0
+offset_bottom = -187.0
+scale = Vector2(0.578131, 0.578131)
 
 [node name="octopus" parent="." instance=ExtResource("8_k78ve")]
 position = Vector2(-28, 168)
@@ -66,4 +75,4 @@ position = Vector2(-134, 571)
 position = Vector2(219, 591)
 
 [node name="Chest" parent="." instance=ExtResource("11_07gvh")]
-position = Vector2(104, -130)
+position = Vector2(117, -104)

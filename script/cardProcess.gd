@@ -4,6 +4,8 @@ var card
 var onShop = false
 var mouseOn = false
 var isStored = false
+var forChoose = false
+var isSelected = false
 var dropableZoneName
 
 @onready var rectLabel = $ColorRect
@@ -22,6 +24,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("click") and onShop and mouseOn:
 		get_parent().add_to_dropable(self)
+	if Input.is_action_just_pressed("click") and forChoose and mouseOn:
+		isSelected = true
 
 func _on_mouse_entered():
 	if get_parent().name == "Black-smithShop":
@@ -42,12 +46,10 @@ func forge_animation(cardInitPos):
 func remove_card_from_forge():
 	self.isStored = false
 
-
 func _on_mouse_exited():
 	mouseOn = false
 	rectLabel.visible = false
 	self.scale = Vector2(0.7, 0.7)
-
 
 func _on_animation_player_animation_finished(anim_name):
 	var tween = get_tree().create_tween()

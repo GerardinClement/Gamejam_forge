@@ -3,8 +3,6 @@ extends Node2D
 @onready var Player = $Player.player
 var pause = false
 var card_manager
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var card_manager_scene = preload("res://cardsManager.tscn")
