@@ -44,3 +44,6 @@ func chooseRandomEnemy():
 func _on_animations_animation_finished():
 	if $animations.animation == "death":
 		queue_free()
+
+	elif $animations.animation == "hit":
+		$animations.play("moveRight")

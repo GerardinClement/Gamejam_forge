@@ -10,7 +10,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_body_entered(body):
 	if Global.playerKeys == Global.allKeys:
 		get_tree().change_scene_to_file("res://Victory.tscn")

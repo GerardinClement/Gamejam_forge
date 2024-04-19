@@ -67,7 +67,7 @@ scale = Vector2(0.578131, 0.578131)
 position = Vector2(-28, 168)
 
 [node name="human" parent="." instance=ExtResource("9_qf0k0")]
-position = Vector2(-134, 571)
+position = Vector2(-175, 586)
 
 [node name="mech" parent="." instance=ExtResource("10_d746t")]
 position = Vector2(219, 591)
