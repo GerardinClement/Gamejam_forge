@@ -21,6 +21,8 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("Inventory"):
 		inventoryMenu()
+	if Input.is_action_just_pressed("EscapeMenu"):
+		get_tree().change_scene_to_file("res://escapeInterface.tscn")
 		
 func inventoryMenu():
 	if pause:
