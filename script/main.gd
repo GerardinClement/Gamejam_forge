@@ -4,8 +4,6 @@ extends Node2D
 @onready var animation_go_to_forge = $GoToForge/Animation
 var pause = false
 var card_manager
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_go_to_forge.play("go_to_animation")

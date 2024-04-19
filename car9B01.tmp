@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://b0pweq64e17kj"]
+[gd_scene load_steps=88 format=3 uid="uid://b0pweq64e17kj"]
 
 [ext_resource type="Script" path="res://script/cardProcess.gd" id="1_0gio1"]
 [ext_resource type="Texture2D" uid="uid://bheuemyqmuk4q" path="res://Assets/Cards/mergeCard.png" id="2_hdgd6"]
@@ -400,6 +400,10 @@ region = Rect2(900, 700, 100, 100)
 atlas = ExtResource("4_twvx7")
 region = Rect2(0, 800, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6qdm"]
+atlas = ExtResource("4_twvx7")
+region = Rect2(100, 800, 100, 100)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_k133j"]
 animations = [{
 "frames": [{
@@ -591,7 +595,7 @@ animations = [{
 "duration": 0.8,
 "texture": SubResource("AtlasTexture_ma2h7")
 }, {
-"duration": 3.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_88xet")
 }, {
 "duration": 1.0,
@@ -600,42 +604,45 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r68fr")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_bevld")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_d7dq6")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ly5ww")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3jqhv")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_c5vef")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gjibj")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_131ty")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8xcky")
 }, {
-"duration": 3.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_24t86")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_umumo")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1rbcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6qdm")
 }],
 "loop": false,
 "name": &"vortex",
-"speed": 30.0
+"speed": 20.0
 }]
 
 [node name="Cards" type="StaticBody2D"]
