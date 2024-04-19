@@ -124,11 +124,17 @@ class Player:
 
 func _ready():
 	isPause = false
-	player = Player.new(playerAnimation, gui, $IFrames)
-	Global.player = player
-	gui.display_life(player)
-	$Shoot.wait_time = player.attack_speed
-	$Shoot.start()
+	if not Global.gameIsStart:
+		player = Player.new(playerAnimation, gui, $IFrames)
+		Global.player = player
+		gui.display_life(player)
+		$Shoot.wait_time = player.attack_speed
+		$Shoot.start()
+	else:
+		player = Global.player
+		player.playerAnimation = playerAnimation
+		player.gui = gui
+		player.iframes = $IFrames
 	
 func _process(_delta):
 	player = Global.player
