@@ -141,6 +141,7 @@ func _ready():
 		player.playerAnimation = playerAnimation
 		player.gui = gui
 		player.iframes = $IFrames
+	gui.display_life(player)
 	
 func _process(_delta):
 	player = Global.player
