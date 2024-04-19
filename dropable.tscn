@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://j47svx0fyeop"]
+
+[ext_resource type="Texture2D" uid="uid://dbo7gwnby0pnd" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Text ScreenPads/blue/Text_Screen01.png" id="2_iy762"]
+
+[sub_resource type="GDScript" id="GDScript_x5qxd"]
+script/source = "extends Area2D
+
+var cardIsOn = false
+var initialPosCard
+var positionCard = Vector2(45, 60)
+var mouseOn
+var cardOn
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+	
+func add_card(card, position):
+	cardOn = card
+	initialPosCard = card.position
+	var tween = get_tree().create_tween()
+	tween.tween_property(cardOn, \"position\", Vector2(position.x + positionCard.x, position.y + positionCard.y), 0.2).set_ease(Tween.EASE_OUT)
+	cardIsOn = true
+	cardOn.isStored = true
+	card.dropableZoneName = self.name
+
+func  remove_card():
+	if not cardOn:
+		return
+	var tween = get_tree().create_tween()
+	tween.tween_property(cardOn, \"position\", initialPosCard, 0.2).set_ease(Tween.EASE_OUT)
+	cardIsOn = false
+	cardOn.isStored = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thk0l"]
+size = Vector2(101.626, 147.002)
+
+[node name="Dropable" type="Area2D" groups=["dropable"]]
+position = Vector2(220, 261)
+scale = Vector2(1.47756, 1.41061)
+collision_layer = 512
+collision_mask = 256
+priority = 5
+script = SubResource("GDScript_x5qxd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(29.036, 34.6383)
+shape = SubResource("RectangleShape2D_thk0l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(28.1716, 38.3426)
+rotation = 4.71239
+scale = Vector2(2.0955, 2.25207)
+texture = ExtResource("2_iy762")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

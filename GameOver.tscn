@@ -1,0 +1,233 @@
+[gd_scene load_steps=22 format=3 uid="uid://bfyjd3iueaje6"]
+
+[ext_resource type="Script" path="res://script/GameOver.gd" id="1_3t6nk"]
+[ext_resource type="Texture2D" uid="uid://m4ad5b2i237m" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Red/worldmap_red.png" id="1_ohgkb"]
+[ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_r4tb8"]
+[ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="3_hjukh"]
+[ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="5_vwsuf"]
+[ext_resource type="Texture2D" uid="uid://defpun5c6gjfx" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Menu buttons v2/yellow/icons-yellow.png" id="6_hsein"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssyl4"]
+atlas = ExtResource("1_ohgkb")
+region = Rect2(0, 0, 212, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhx45"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_ssyl4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pkpe"]
+atlas = ExtResource("3_hjukh")
+region = Rect2(0, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c31pt"]
+atlas = ExtResource("3_hjukh")
+region = Rect2(192, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7djd"]
+atlas = ExtResource("3_hjukh")
+region = Rect2(384, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxb4m"]
+atlas = ExtResource("3_hjukh")
+region = Rect2(576, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2621"]
+atlas = ExtResource("3_hjukh")
+region = Rect2(768, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pwgd"]
+atlas = ExtResource("3_hjukh")
+region = Rect2(960, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijfte"]
+atlas = ExtResource("3_hjukh")
+region = Rect2(1152, 768, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6plyt"]
+atlas = ExtResource("3_hjukh")
+region = Rect2(1344, 768, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lu17s"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7pkpe")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_c31pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7djd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxb4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2621")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pwgd")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ijfte")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_6plyt")
+}],
+"loop": true,
+"name": &"mecha_shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8f1aj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1s2re"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72eb5"]
+atlas = ExtResource("6_hsein")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ep02s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72eb5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_3t6nk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0.243137, 0, 0, 1)
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.588235, 0, 0, 1)
+position = Vector2(625, 330)
+scale = Vector2(4.33492, 4.33492)
+sprite_frames = SubResource("SpriteFrames_fhx45")
+frame_progress = 0.468391
+
+[node name="GameOverText" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 949.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(1, 0.0784314, 0.0470588, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_r4tb8")
+theme_override_font_sizes/font_size = 90
+text = "GAME OVER !
+"
+
+[node name="Mecha" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.635294, 0.580392, 1)
+position = Vector2(149, 475)
+scale = Vector2(1.81771, 1.81771)
+sprite_frames = SubResource("SpriteFrames_lu17s")
+animation = &"mecha_shoot"
+frame_progress = 0.812731
+
+[node name="RestartButton" type="Button" parent="."]
+offset_left = 618.0
+offset_top = 500.0
+offset_right = 965.0
+offset_bottom = 559.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.317647, 0.317647, 0.933333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("5_vwsuf")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8f1aj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8f1aj")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8f1aj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8f1aj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8f1aj")
+text = "Restart"
+
+[node name="BackToMenuButton" type="Button" parent="."]
+offset_left = 499.0
+offset_top = 557.0
+offset_right = 1092.0
+offset_bottom = 605.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.317647, 0.317647, 0.933333, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 25
+theme_override_fonts/font = ExtResource("5_vwsuf")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1s2re")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1s2re")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1s2re")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1s2re")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1s2re")
+text = "Back to the menu"
+
+[node name="Crosses" type="AnimatedSprite2D" parent="."]
+position = Vector2(599, 228)
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.393596
+
+[node name="Cross_1" type="AnimatedSprite2D" parent="Crosses"]
+position = Vector2(-66.2857, 7.99999)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.40289
+
+[node name="Cross_2" type="AnimatedSprite2D" parent="Crosses"]
+position = Vector2(91.4286, 17.4286)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.40289
+
+[node name="Cross_3" type="AnimatedSprite2D" parent="Crosses"]
+position = Vector2(-36.2857, 49.1428)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.40289
+
+[node name="Cross_4" type="AnimatedSprite2D" parent="Crosses"]
+position = Vector2(122.571, 70.8571)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.40289
+
+[node name="Cross_5" type="AnimatedSprite2D" parent="Crosses"]
+position = Vector2(-6.85714, 22.8571)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.40289
+
+[node name="Cross_6" type="AnimatedSprite2D" parent="Crosses"]
+position = Vector2(86.2857, 45.4286)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.40289
+
+[node name="Cross_7" type="AnimatedSprite2D" parent="Crosses"]
+position = Vector2(32.2857, -6.00001)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.40289
+
+[node name="Cross_8" type="AnimatedSprite2D" parent="Crosses"]
+position = Vector2(28.2857, 18.8571)
+sprite_frames = SubResource("SpriteFrames_ep02s")
+frame_progress = 0.40289
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
