@@ -6,6 +6,7 @@ func _ready():
 	var statEnemy = Global.ennemies[name]
 	var ray = RayCast2D.new()
 	ray.set_collision_mask_value(4, true)
+	ray.set_collision_mask_value(1, false)
 	add_child(ray)
 	
 	enemy = Enemy.new()
@@ -23,7 +24,7 @@ func _ready():
 func _physics_process(delta):
 	enemy.process(delta, self)
 	
-func _process(_delta):
+func _process(delta):
 	enemy.play_shoot_animations(self)
 
 func _on_area_2d_body_entered(body):
