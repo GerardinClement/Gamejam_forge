@@ -12,12 +12,14 @@ var damage
 var shootFrame
 var enemyDir
 var bulletPath
-var ray_pos
-var ray_target
+var health
 var canShoot = false
 var hasShot = true
 
 func play_shoot_animations(parent):
+	if health <= 0:
+		return
+	
 	if timer.is_stopped() && canShoot && !checkWalls(parent):
 		hasShot = false
 		if parent.position.x < Global.playerPos.x:
@@ -26,22 +28,20 @@ func play_shoot_animations(parent):
 			animations.set_flip_h(true)
 		animations.play("shootRight")
 		timer.start()
-		return
-
-func process(delta, parent):
-	if checkFrame() && !hasShot && !checkWalls(parent):
+		
+	if checkFrame() && !hasShot:
 		hasShot = true
 		shoot(parent)
-	
+
+func process(delta, parent):
 	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && parent.position.distance_to(Global.playerPos) < 200:
 		return
 	
+	if health <= 0:
+		return
+	
 	chase_player(parent)
-	if enemyDir != Vector2():
-		velocity = parent.position.direction_to(enemyDir)
-		move(delta, parent)
-	else:
-		animations.play("idle")
+	move(delta, parent)
 
 func chase_player(parent):
 	enemyDir = Vector2()
@@ -50,11 +50,9 @@ func chase_player(parent):
 	ray.force_raycast_update()
 
 	if !ray.is_colliding():
-		print("No collisison")
 		enemyDir = to_local(Global.playerPos)
 	
 	else:
-		print("Collision")
 		for scent in Global.player.scent_trail:
 			ray.target_position = parent.to_local(scent.position)
 			ray.force_raycast_update()
@@ -63,6 +61,12 @@ func chase_player(parent):
 				break
 
 func move(delta, parent):
+	if enemyDir == Vector2():
+		animations.play("idle")
+		return
+	
+	velocity = parent.position.direction_to(enemyDir)
+
 	if enemyDir.x > parent.position.x:
 		animations.set_flip_h(false)
 	else:
@@ -80,7 +84,7 @@ func shoot(parent):
 	parent.add_child(bullet)
 
 func checkFrame():
-	if animations.frame == shootFrame:
+	if animations.animation == "shootRight" && animations.frame == shootFrame:
 		return true
 	return false
 
@@ -96,3 +100,14 @@ func checkWalls(parent):
 		resetAnimation()
 		return true
 	return false
+
+func check_death(parent):
+	if health > 0:
+		return
+
+	animations.play("death")
+
+func takeDamage():
+	print(Global.player.strength)
+	health -= Global.player.strength
+	print(self, " : ", health)

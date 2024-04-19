@@ -1,8 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://cyhlud4i6s8kv"]
+[gd_scene load_steps=25 format=3 uid="uid://cyhlud4i6s8kv"]
 
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_5btoe"]
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_64q6h"]
-[ext_resource type="Texture2D" uid="uid://dpo3kohkf3y5x" path="res://Assets/Characters/Enemies/enemies x1_flipped.png" id="2_0vidi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42g01"]
 radius = 5.5
@@ -51,22 +50,6 @@ region = Rect2(64, 385, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_slcw0"]
 atlas = ExtResource("1_5btoe")
 region = Rect2(96, 385, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yxwy4"]
-atlas = ExtResource("2_0vidi")
-region = Rect2(288, 417, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pfvim"]
-atlas = ExtResource("2_0vidi")
-region = Rect2(256, 417, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b1it1"]
-atlas = ExtResource("2_0vidi")
-region = Rect2(224, 417, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c7cfh"]
-atlas = ExtResource("2_0vidi")
-region = Rect2(192, 417, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5amoy"]
 atlas = ExtResource("1_5btoe")
@@ -127,7 +110,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3mwbb")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -143,23 +126,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yxwy4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pfvim")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b1it1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c7cfh")
-}],
-"loop": true,
-"name": &"moveLeft",
 "speed": 5.0
 }, {
 "frames": [{
@@ -211,7 +177,7 @@ shape = SubResource("CapsuleShape2D_42g01")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lyqgq")
-animation = &"idle"
+animation = &"death"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -227,5 +193,6 @@ shape = SubResource("RectangleShape2D_dosin")
 [node name="leftSide" type="Marker2D" parent="."]
 position = Vector2(-13, 0)
 
+[connection signal="animation_finished" from="animations" to="." method="_on_animations_animation_finished"]
 [connection signal="body_entered" from="View" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="View" to="." method="_on_area_2d_body_exited"]

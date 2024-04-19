@@ -12,7 +12,9 @@ func _physics_process(_delta):
 		animated_sprite.play("default")
 	move_and_collide(velocity.normalized() * _delta * SPEED)
 
-func _on_area_2d_body_entered(_body):
+func _on_area_2d_body_entered(body):
+	if body.name != "TileMap":
+		body.enemy.takeDamage()
 	destroy_itself()
 	
 func destroy_itself():

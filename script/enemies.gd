@@ -10,6 +10,7 @@ func _ready():
 	add_child(ray)
 	
 	enemy = Enemy.new()
+	enemy.health = statEnemy.health
 	enemy.damage = statEnemy.damage
 	enemy.speed = statEnemy.speed
 	enemy.shootFrame = statEnemy.shootFrame
@@ -18,12 +19,12 @@ func _ready():
 	enemy.animations = $animations
 	enemy.timer = $Timer
 	enemy.ray = ray
-	enemy.ray_pos = ColorRect.new()
 	
 func _physics_process(delta):
 	enemy.process(delta, self)
 	
 func _process(delta):
+	enemy.check_death(self)
 	enemy.play_shoot_animations(self)
 
 func _on_area_2d_body_entered(body):
@@ -39,3 +40,7 @@ func chooseRandomEnemy():
 	var ennemies = Global.ennemies.keys()
 	var enemy = ennemies[randi() % ennemies.size()]
 	return Global.ennemies[enemy]
+
+func _on_animations_animation_finished():
+	if $animations.animation == "death":
+		queue_free()

@@ -12,18 +12,21 @@ var playerIsInForge = false
 #Array of ennemies
 const ennemies = {
 	"octopus": {
+		"health": 50,
 		"damage": 0.5,
 		"speed": 50,
 		"shootFrame": 3,
 		"bulletSpeed": 200.0,
 	},
 	"human": {
+		"health": 25,
 		"damage": 0.5,
 		"speed": 50,
-		"shootFrame": 3,
+		"shootFrame": 1,
 		"bulletSpeed": 200.0,
 	},
 	"mech": {
+		"health": 100,
 		"damage": 0.5,
 		"speed": 50,
 		"shootFrame": 3,
