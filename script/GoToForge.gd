@@ -13,8 +13,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if Global.playerIsInForge == false:
+		Global.playerIsInForge = true
 		get_tree().change_scene_to_file("res://forge.tscn")
-		Global.playerIsInForge == true
 	else:
+		Global.playerIsInForge = false
 		get_tree().change_scene_to_file("res://main.tscn")
-		Global.playerIsInForge == false

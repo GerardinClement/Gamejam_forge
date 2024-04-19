@@ -48,7 +48,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1sy0h")
 }],
 "loop": true,
-"name": &"go_to_forge_animation",
+"name": &"go_to_animation",
 "speed": 5.0
 }]
 
@@ -61,7 +61,7 @@ shape = SubResource("CircleShape2D_5icx4")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_y6036")
-animation = &"go_to_forge_animation"
-frame_progress = 0.746578
+animation = &"go_to_animation"
+frame_progress = 0.143328
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
