@@ -121,10 +121,10 @@ sprite_frames = SubResource("SpriteFrames_fhx45")
 frame_progress = 0.468391
 
 [node name="GameOverText" type="Label" parent="."]
-offset_left = 17.6659
-offset_top = 6.22118
-offset_right = 805.666
-offset_bottom = 97.2212
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 949.0
+offset_bottom = 97.0
 theme_override_colors/font_color = Color(1, 0.0784314, 0.0470588, 1)
 theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -134,7 +134,7 @@ theme_override_constants/outline_size = 0
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_r4tb8")
 theme_override_font_sizes/font_size = 90
-text = "GAME OVER
+text = "GAME OVER !
 "
 
 [node name="Mecha" type="AnimatedSprite2D" parent="."]
