@@ -12,7 +12,7 @@ var dropableZoneName
 @onready var labelName = $ColorRect/name
 @onready var labelDescription = $ColorRect/description
 @onready var labelEffects = $ColorRect/effects
-@onready var animationPlayer = $AnimationPlayer
+@onready var animationPlayer = $Card/AnimationPlayer
 @onready var animatesExplosions = $AnimatesExplosions
 var initPos
 
@@ -57,14 +57,16 @@ func _on_animation_player_animation_finished(anim_name):
 		tween.tween_property(self, "position", Vector2(initPos.x, initPos.y), 0.2).set_ease(Tween.EASE_OUT)
 
 func destroy_card():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Card, "scale", Vector2(0.1, 0.1), 0.3).set_ease(Tween.EASE_IN)
 	animatesExplosions.visible = true
-	animatesExplosions.play("default")
+	animatesExplosions.play("vortex")
 
 
 func _on_animates_explosions_animation_finished():
-	if animatesExplosions.animation == "default":
+	if animatesExplosions.animation == "vortex":
 		self.queue_free()
 		
 func _on_animates_explosions_frame_changed():
-	if animatesExplosions.animation == "default" and animatesExplosions.frame == 5:
+	if animatesExplosions.animation == "vortex" and animatesExplosions.frame == 14:
 		$Card.visible = false
