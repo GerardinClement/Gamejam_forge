@@ -17,13 +17,13 @@ func displayShop():
 	var i = 0
 	
 	for key in shop:
-		var marker = self.get_child(i + 1)
-		Instance.create_card(self, shop[key], marker.position, false)
-		i += 1
+		for x in Global.player.occurenceCard[key]:
+			var marker = self.get_child(i + 1)
+			Instance.create_card(self, shop[key], marker.position, false)
+			i += 1
 		
 func add_to_dropable(card):
 	if not card.isStored:
-		print(card.isStored)
 		if not dropable1.cardIsOn:
 			dropable1.add_card(card, dropable1.position)
 		elif not dropable2.cardIsOn:

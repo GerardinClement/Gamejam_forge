@@ -44,7 +44,7 @@ func _process(_delta):
 			if card_instance.isSelected:
 				cardChooseInstance = card_instance
 				card_instance.animationPlayer.play("Intro")
-				Global.player.cards[card_instance.card.name] = card_instance.card
+				Global.player.add_card(card_instance.card)
 				delete_cards()
 				card_instance.isSelected = false
 				self.isClose = true
