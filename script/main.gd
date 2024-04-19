@@ -1,12 +1,14 @@
 extends Node2D
 @onready var inventory_menu = $Player/Camera2D/InventoryMenu
 @onready var Player = $Player.player
+@onready var animation_go_to_forge = $GoToForge/Animation
 var pause = false
 var card_manager
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	animation_go_to_forge.play("go_to_forge_animation")
 	var card_manager_scene = preload("res://cardsManager.tscn")
 	card_manager = card_manager_scene.instantiate()
 	add_child(card_manager)
