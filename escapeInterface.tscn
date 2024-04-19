@@ -1,10 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://3g7jqvgdnmr7"]
+[gd_scene load_steps=8 format=3 uid="uid://3g7jqvgdnmr7"]
 
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="1_e8fju"]
 [ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_rf2h6"]
 [ext_resource type="Script" path="res://script/Resume.gd" id="3_dch1a"]
+[ext_resource type="Texture2D" uid="uid://cayklwksk8fca" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 01-yellow.png" id="4_mo4js"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fgsx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d3e8"]
+atlas = ExtResource("4_mo4js")
+region = Rect2(133, 0, 19, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3pdgb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d3e8")
+}],
+"loop": true,
+"name": &"exit",
+"speed": 5.0
+}]
 
 [node name="EscapeInterface" type="Control"]
 layout_mode = 3
@@ -85,6 +101,23 @@ theme_override_font_sizes/font_size = 35
 text = "Inventory :                 tab"
 vertical_alignment = 1
 
+[node name="Tips" type="Label" parent="."]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 387.0
+offset_right = 1149.0
+offset_bottom = 438.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_rf2h6")
+theme_override_font_sizes/font_size = 35
+text = "TIps:   Look for the exit !"
+vertical_alignment = 1
+
 [node name="Resume" type="Button" parent="."]
 layout_mode = 0
 offset_top = 512.0
@@ -102,5 +135,12 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_0fgsx")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_0fgsx")
 text = "resume"
 script = ExtResource("3_dch1a")
+
+[node name="Exit" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.156863, 0.952941, 0.478431, 1)
+position = Vector2(1037, 413)
+scale = Vector2(2.92105, 2.92105)
+sprite_frames = SubResource("SpriteFrames_3pdgb")
+animation = &"exit"
 
 [connection signal="pressed" from="Resume" to="Resume" method="_on_pressed"]

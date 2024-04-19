@@ -1,9 +1,11 @@
-[gd_scene load_steps=67 format=3 uid="uid://b1duj81xgtv76"]
+[gd_scene load_steps=69 format=3 uid="uid://b1duj81xgtv76"]
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://bu15ks0yxhion" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x2.png" id="2_bqe3v"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
 [ext_resource type="PackedScene" uid="uid://keejpye2ln1t" path="res://large_door.tscn" id="4_4hjqr"]
+[ext_resource type="PackedScene" uid="uid://26tk0bshfbfv" path="res://Exit.tscn" id="5_sw7wm"]
+[ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="6_3o8f0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
 tile_data = PackedInt32Array(0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1)
@@ -8471,3 +8473,12 @@ collision_mask = 0
 position = Vector2(1776, 2960)
 collision_layer = 0
 collision_mask = 0
+
+[node name="Exit" parent="." instance=ExtResource("5_sw7wm")]
+position = Vector2(-210, 574)
+
+[node name="GoToForge" parent="." instance=ExtResource("6_3o8f0")]
+position = Vector2(-127, -108)
+
+[node name="GoToForge2" parent="." instance=ExtResource("6_3o8f0")]
+position = Vector2(341, 554)
