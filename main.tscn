@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
 [ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="5_h6o1h"]
 [ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="6_egpkk"]
-[ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="7_pjywa"]
+[ext_resource type="PackedScene" path="res://interface_in_game.tscn" id="7_pjywa"]
 [ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="8_k78ve"]
 [ext_resource type="PackedScene" uid="uid://cyhlud4i6s8kv" path="res://AnimatedCharacters/Enemies/human/human.tscn" id="9_qf0k0"]
 [ext_resource type="PackedScene" uid="uid://dl0fs76fenl5d" path="res://AnimatedCharacters/Enemies/mech/mech.tscn" id="10_d746t"]
@@ -46,6 +46,8 @@ offset_bottom = -200.0
 scale = Vector2(0.642438, 0.642438)
 size_flags_horizontal = 0
 
+[node name="mech" parent="." instance=ExtResource("6_ajchu")]
+position = Vector2(-88, -73)
 [node name="Black-smithShop" parent="Player/Camera2D" instance=ExtResource("6_egpkk")]
 visible = false
 offset_left = -439.0
