@@ -13,19 +13,19 @@ var playerIsInForge = false
 const ennemies = {
 	"octopus": {
 		"damage": 0.5,
-		"speed": 20,
+		"speed": 50,
 		"shootFrame": 3,
 		"bulletSpeed": 200.0,
 	},
 	"human": {
 		"damage": 0.5,
-		"speed": 20,
+		"speed": 50,
 		"shootFrame": 3,
 		"bulletSpeed": 200.0,
 	},
 	"mech": {
 		"damage": 0.5,
-		"speed": 20,
+		"speed": 50,
 		"shootFrame": 3,
 		"bulletSpeed": 200.0,
 	},	
