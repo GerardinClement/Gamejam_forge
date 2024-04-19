@@ -12,10 +12,19 @@ func _process(delta):
 
 
 func _on_body_entered(body):
+	if body.name != "Player":
+		return
 	if Global.playerIsInForge == false:
-		Global.playerIsInForge = true
-		Global.lastPosition = markerPosition
-		get_tree().change_scene_to_file("res://forge.tscn")
+		go_to_forge()
 	else:
-		Global.playerIsInForge = false
-		get_tree().change_scene_to_file("res://main.tscn")
+		exit_forge()
+		
+func go_to_forge():
+	Global.playerIsInForge = true
+	Global.lastPosition = markerPosition
+	get_tree().change_scene_to_file("res://forge.tscn")
+
+func exit_forge():
+	Global.playerIsInForge = false
+	get_tree().change_scene_to_file("res://main.tscn")
+	

@@ -64,5 +64,6 @@ animation = &"go_to_animation"
 frame_progress = 0.143328
 
 [node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 63)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

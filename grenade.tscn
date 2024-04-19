@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://gud0vc6bv6jp"]
+[gd_scene load_steps=3 format=3 uid="uid://by6gx04dju67i"]
 
 [ext_resource type="Script" path="res://script/grenade.gd" id="1_mc3bs"]
 [ext_resource type="Texture2D" path="res://Assets/gadget/grenades_by_mtk.png" id="2_ccosx"]
