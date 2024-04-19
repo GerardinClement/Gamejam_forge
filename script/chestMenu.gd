@@ -57,3 +57,9 @@ func delete_cards():
 		if not card_instance.isSelected:
 			card_instance.destroy_card()
 	self.isClose = true
+
+
+func _on_button_pressed():
+	set_process(false)
+	isClose = true
+	close()

@@ -24,3 +24,14 @@ scale = Vector2(5.35681, 0.264263)
 [node name="Marker2D3" type="Marker2D" parent="Markers"]
 position = Vector2(883, 313)
 scale = Vector2(5.35681, 0.264263)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1006.0
+offset_top = 573.0
+offset_right = 1048.0
+offset_bottom = 604.0
+scale = Vector2(2.15138, 1.55506)
+text = "SKIP"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
