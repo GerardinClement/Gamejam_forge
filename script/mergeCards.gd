@@ -5,7 +5,7 @@ extends Node
 
 var abilities1: String
 var abilities2: String
-var Card = preload("res://script/Cards.gd").Card
+var Card = preload("res://script/cardsClass.gd").Card
 
 func get_card_abilities(card):
 	var size = card.effects.size()

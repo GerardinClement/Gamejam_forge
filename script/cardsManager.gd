@@ -2,7 +2,7 @@ class_name CardManager
 
 extends Node2D
 
-var Card = preload("res://script/cards.gd").Card
+var Card = preload("res://script/cardsClass.gd").Card
 var cards = {}
 
 func _ready():
@@ -10,6 +10,7 @@ func _ready():
 
 func load_cards():
 	var firstOne = Card.new("FirstOne", "This is the First one", "stats", {"strength": 10,"attack_speed": 10, "pv_max": 1 })
+	var theDevil = Card.new("TheDevil", "The devil", "stats", {"strength": 20, "pv_max": -2})
 	var heal = Card.new("Health+", "Give heal", "stats", {"pv_max": 1})
 	var flashMcqueen = Card.new("FlashMcqueen", "Focus. Speed. I am speed", "stats", {"speed": 10, "attack_speed": 0.33})
 	var mirror = Card.new("Mirror", "Shoot in back", "gadget", {"shootSide": ["back", "topBack", "top", "topForward", "bottom", "bottomBack", "bottomForward"]})
@@ -18,6 +19,7 @@ func load_cards():
 	cards["health+"] = heal
 	cards["mirror"] = mirror
 	cards["flashMcqueen"] = flashMcqueen
+	cards["theDevil"] = theDevil
 	Global.allCards = cards
 	
 func generate_random_card(deck):
