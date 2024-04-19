@@ -209,7 +209,8 @@ func _on_animated_sprite_2d_animation_finished():
 func add_scent():
 	var scent = scent_scene.instantiate()
 	scent.player = player
-	scent.position = self.position
+	scent.position = position
+	print(scent.position)
 	
 	get_parent().add_child(scent)
 	player.scent_trail.push_front(scent)
