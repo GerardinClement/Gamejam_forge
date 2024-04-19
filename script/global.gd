@@ -5,6 +5,7 @@ var allCards = null
 var player = null
 var pause = false
 var playerIsDead = false
+var playerIsInForge = false
 
 #Array of ennemies
 const ennemies = {
