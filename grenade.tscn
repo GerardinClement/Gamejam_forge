@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu7f6td5kr32w"]
+[gd_scene load_steps=3 format=3 uid="uid://gud0vc6bv6jp"]
 
 [ext_resource type="Script" path="res://script/grenade.gd" id="1_mc3bs"]
-[ext_resource type="Texture2D" uid="uid://c8p5ir2yjef8i" path="res://Assets/gadget/grenades_by_mtk.png" id="2_ccosx"]
+[ext_resource type="Texture2D" path="res://Assets/gadget/grenades_by_mtk.png" id="2_ccosx"]
 
 [node name="Grenade" type="RigidBody2D"]
 script = ExtResource("1_mc3bs")

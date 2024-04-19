@@ -5,6 +5,7 @@ const bulletPath = preload("res://bullet.tscn")
 @onready var playerAnimation =  $AnimatedSprite2D/AnimationPlayer
 @onready var Card = "res://Cards.gd"
 @onready var gui = $Camera2D/Gui
+@onready var guided_missile = preload("res://guided_missile.tscn")
 var player: Player
 var isPause
 
@@ -188,3 +189,5 @@ func move(_delta):
 func _on_animated_sprite_2d_animation_finished():
 	if animation.animation == "death":
 		get_tree().quit()
+	
+	

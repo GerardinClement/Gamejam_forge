@@ -8,6 +8,7 @@ var pause = false
 var card_manager
 
 func _ready():
+	inventory_menu.hide()
 	if not Global.gameIsStart:
 		self.start_the_game()
 	else:
