@@ -47,6 +47,8 @@ class Player:
 		self.iframes = timerIframe
 	
 	func add_card(newCard):
+		if count_number_of_card() == 6:
+			return 
 		newCard.applyEffects(self)
 		if not cards.has(newCard.name):
 			cards[newCard.name] = newCard
@@ -131,6 +133,12 @@ class Player:
 	func remove_card(card):
 		card.remove_effects(self)
 		self.cards.erase(card.name)
+		
+	func count_number_of_card():
+		var count = 0
+		for key in occurenceCard:
+			count += occurenceCard[key]
+		return count
 
 
 func _ready():
