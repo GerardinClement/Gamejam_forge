@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://m1nejsn24hqr" path="res://Assets/Characters/Enemies/Mech/MechSheet.png" id="1_lna24"]
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_pyyym"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh4wr"]
-radius = 8.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_per6e"]
+size = Vector2(14, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kkl8r"]
 atlas = ExtResource("1_lna24")
@@ -324,12 +323,12 @@ collision_mask = 9
 script = ExtResource("1_pyyym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-shape = SubResource("CapsuleShape2D_kh4wr")
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_per6e")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qt316")
-animation = &"moveRight"
+animation = &"idle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.8
@@ -346,6 +345,9 @@ shape = SubResource("RectangleShape2D_fkvlr")
 
 [node name="leftSide" type="Marker2D" parent="."]
 position = Vector2(-23, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 9
 
 [connection signal="body_entered" from="View" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="View" to="." method="_on_area_2d_body_exited"]
