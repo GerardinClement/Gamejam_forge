@@ -8479,6 +8479,3 @@ position = Vector2(-210, 574)
 
 [node name="GoToForge" parent="." instance=ExtResource("6_3o8f0")]
 position = Vector2(-127, -108)
-
-[node name="GoToForge2" parent="." instance=ExtResource("6_3o8f0")]
-position = Vector2(341, 554)
