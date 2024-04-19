@@ -2,7 +2,7 @@ class_name CardManager
 
 extends Node2D
 
-var Card = preload("res://script/cards.gd").Card
+var Card = preload("res://script/cardsClass.gd").Card
 var cards = {}
 
 func _ready():
