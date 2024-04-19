@@ -18,8 +18,7 @@ func _ready():
 	enemy.animations = $animations
 	enemy.timer = $Timer
 	enemy.ray = ray
-	enemy.ray_pos = get_parent().get_node("rayPos")
-	enemy.ray_target = get_parent().get_node("rayTarget")
+	enemy.ray_pos = ColorRect.new()
 	
 func _physics_process(delta):
 	enemy.process(delta, self)

@@ -18,7 +18,7 @@ var canShoot = false
 var hasShot = true
 
 func play_shoot_animations(parent):
-	if timer.is_stopped() && canShoot && !checkWalls():
+	if timer.is_stopped() && canShoot && !checkWalls(parent):
 		hasShot = false
 		if parent.position.x < Global.playerPos.x:
 			animations.set_flip_h(false)
@@ -29,11 +29,11 @@ func play_shoot_animations(parent):
 		return
 
 func process(delta, parent):
-	if checkFrame() && !hasShot && !checkWalls():
+	if checkFrame() && !hasShot && !checkWalls(parent):
 		hasShot = true
 		shoot(parent)
 	
-	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && self.position.distance_to(Global.playerPos) < 200:
+	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && parent.position.distance_to(Global.playerPos) < 200:
 		return
 	
 	chase_player(parent)
@@ -50,6 +50,7 @@ func chase_player(parent):
 	ray.force_raycast_update()
 
 	if !ray.is_colliding():
+		print("No collisison")
 		enemyDir = to_local(Global.playerPos)
 	
 	else:
@@ -88,8 +89,8 @@ func resetAnimation():
 		animations.stop()
 		animations.play("idle")
 
-func checkWalls():
-	ray.target_position = Global.playerPos
+func checkWalls(parent):
+	ray.target_position = parent.to_local(Global.playerPos)
 	ray.force_raycast_update()
 	if ray.get_collider():
 		resetAnimation()
