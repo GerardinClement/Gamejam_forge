@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3j6nqx4ur7hr"]
+[gd_scene load_steps=16 format=3 uid="uid://3j6nqx4ur7hr"]
 
 [ext_resource type="Script" path="res://script/forge.gd" id="1_0b3tr"]
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_p4hy5"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="6_csox7"]
 [ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="7_3i1v6"]
 [ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="8_6m4b5"]
+[ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://black-smith.tscn" id="9_ei8sp"]
+[ext_resource type="Texture2D" uid="uid://dgk77un2ro0c2" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/UI/ui x1.png" id="10_bjx5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41wcj"]
 texture = ExtResource("1_p4hy5")
@@ -1482,6 +1484,21 @@ texture = ExtResource("2_774k0")
 sources/1 = SubResource("TileSetAtlasSource_41wcj")
 sources/2 = SubResource("TileSetAtlasSource_5twfj")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2p1w"]
+atlas = ExtResource("10_bjx5x")
+region = Rect2(69, 297, 23, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7cgx8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2p1w")
+}],
+"loop": true,
+"name": &"interaction",
+"speed": 5.0
+}]
+
 [node name="Forge" type="Node2D"]
 position = Vector2(1, 0)
 script = ExtResource("1_0b3tr")
@@ -1536,3 +1553,12 @@ offset_top = -200.0
 offset_right = -439.0
 offset_bottom = -200.0
 scale = Vector2(0.577244, 0.577244)
+
+[node name="Black-smith" parent="." instance=ExtResource("9_ei8sp")]
+position = Vector2(43, 55)
+
+[node name="Interaction" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 30)
+scale = Vector2(1.46429, 1.46429)
+sprite_frames = SubResource("SpriteFrames_7cgx8")
+animation = &"interaction"
