@@ -5,7 +5,6 @@ extends Control
 @onready var animation_mecha_death = $MechaDeath
 @onready var animation_targets = $Targets
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_mecha.play("mecha_animation")
 	animation_mecha.flip_h = true
@@ -17,7 +16,6 @@ func _ready():
 	animation_background.modulate.a = 0.75
 	$Timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
 	
-# Called every frame. 'delta' is animation_mechathe elapsed time since the previous frame.
 func _process(delta):
 	pass
 
