@@ -1,8 +1,6 @@
 extends Node
 
-var gameIsStart = false
 var playerPos = Vector2(0,0)
-var lastPosition = Vector2(0, 0)
 var allCards = null
 var player = null
 var pause = false

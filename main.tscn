@@ -73,11 +73,8 @@ position = Vector2(-134, 571)
 [node name="mech" parent="." instance=ExtResource("10_d746t")]
 position = Vector2(219, 591)
 
-[node name="GoTo" parent="." instance=ExtResource("11_oag1s")]
-position = Vector2(-127, -107)
-
-[node name="GoTo2" parent="." instance=ExtResource("11_oag1s")]
-position = Vector2(352, -240)
+[node name="GoToForge" parent="." instance=ExtResource("11_oag1s")]
+position = Vector2(-127, -108)
 
 [node name="Chest" parent="." instance=ExtResource("11_07gvh")]
 position = Vector2(78, -126)
