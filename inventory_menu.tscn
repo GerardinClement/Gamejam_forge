@@ -31,3 +31,23 @@ text = "Resume"
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="Marker2D6" type="Marker2D" parent="Markers"]
+position = Vector2(1009, 495)
+
+[node name="Marker2D5" type="Marker2D" parent="Markers"]
+position = Vector2(846, 495)
+
+[node name="Marker2D4" type="Marker2D" parent="Markers"]
+position = Vector2(667, 495)
+
+[node name="Marker2D3" type="Marker2D" parent="Markers"]
+position = Vector2(519, 495)
+
+[node name="Marker2D2" type="Marker2D" parent="Markers"]
+position = Vector2(345, 495)
+
+[node name="Marker2D" type="Marker2D" parent="Markers"]
+position = Vector2(170, 494)
