@@ -7,6 +7,7 @@ const bulletPath = preload("res://bullet.tscn")
 @onready var gui = $Camera2D/Gui
 const scent_scene = preload("res://scent.tscn")
 var player: Player
+var isPause
 
 class Player:
 	var cards: Dictionary
@@ -48,18 +49,16 @@ class Player:
 		print("new card:", newCard.name)
 		
 	func take_damage(bullet):
-		print(iframes.time_left)
-		print(iframes.is_stopped())
 		if !iframes.is_stopped():
 			return 
 		self.pv -= bullet.damage
 		playerAnimation.play("damage")
 		gui.display_life(self)
-		print("start iframes")
 		iframes.start()
 
 	func player_death(animatedSprite):
 		animatedSprite.play("death")
+		Global.playerIsDead = true
 		
 	func shoot(parent, marker2d, lookLeft):
 		for side in shootSide:
@@ -117,9 +116,14 @@ class Player:
 		bullet.position = marker2d.global_position
 		bullet.velocity = direction
 		bullet.rotation_degrees = angleRotate
+		
+	func remove_card(card):
+		card.remove_effects(self)
+		self.cards.erase(card.name)
 
 
 func _ready():
+	isPause = false
 	player = Player.new(playerAnimation, gui, $IFrames)
 	Global.player = player
 	gui.display_life(player)
@@ -127,24 +131,40 @@ func _ready():
 	$Shoot.start()
 	
 func _process(_delta):
+	player = Global.player
 	if player.pv <= 0:
 		player.player_death(animation)
-	Global.playerPos = self.position
-	Global.player = player
-	$Node2D.look_at(get_global_mouse_position())
-	if $Shoot.is_stopped():
-		animation.play("shoot")
-		player.shoot(self.get_parent(), $Node2D/Marker2D, animation.flip_h )
-		if player.attack_speed > 0:
-			$Shoot.wait_time = player.attack_speed
+	setGlobal()
+	if Global.pause != isPause and !Global.pause:
 		$Shoot.start()
-	
+	if $Shoot.is_stopped() and !Global.pause:
+		shoot()
+	isPause = Global.pause
+
 func _physics_process(_delta):
 	if player.pv <= 0:
 		return
+	if !Global.pause:
+		move(_delta)
+	else:
+		animation.play("idle")
+		
+func setGlobal():
+	Global.playerPos = self.position
+	Global.player = player
+	
+func shoot():
+	animation.play("shoot")
+	player.shoot(self.get_parent(), $Node2D/Marker2D, animation.flip_h)
+	if player.attack_speed > 0:
+		$Shoot.wait_time = player.attack_speed
+	$Shoot.start()
+
+func move(_delta):
+	$Node2D.look_at(get_global_mouse_position())
 	var mouseOffset = get_global_mouse_position() - self.position;
 	var direction = mouseOffset.normalized() * player.speed
-	if mouseOffset.x < 5 and mouseOffset.x > -5:
+	if (mouseOffset.x < 5 and mouseOffset.x > -5):
 		animation.play("idle")
 		return
 	if direction.x > 0:

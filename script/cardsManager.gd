@@ -1,6 +1,8 @@
+class_name CardManager
+
 extends Node2D
 
-@onready var Card = preload("res://script/Cards.gd").Card
+var Card = preload("res://script/Cards.gd").Card
 var cards = {}
 
 func _ready():
@@ -16,10 +18,11 @@ func load_cards():
 	cards["health+"] = heal
 	cards["mirror"] = mirror
 	cards["flashMcqueen"] = flashMcqueen
+	Global.allCards = cards
 	
-func generate_random_card():
-	var size = cards.size()
+func generate_random_card(deck):
+	var size = deck.size()
 	if size == 0:
 		return null
-	var random_key = cards.keys()[randi() % size]
-	return cards[random_key]
+	var random_key = deck.keys()[randi() % size]
+	return deck[random_key]

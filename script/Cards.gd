@@ -36,8 +36,10 @@ class Card:
 			player.shootSide[side] = true
 			
 	func loadImage():
+		var filename = self.name
 		var new_image = Image.new()
-		var error = new_image.load("res://Assets/Cards/" + self.name + ".png")
+		if (self.type == "merge")
+		var error = new_image.load("res://Assets/Cards/" + name + ".png")
 		
 		if error == OK:
 			print(name, " is loaded")
