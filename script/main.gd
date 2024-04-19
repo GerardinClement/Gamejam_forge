@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var inventory_menu = $Player/Camera2D/InventoryMenu
 @onready var Player = $Player.player
-@onready var animation_go_to = $GoTo/Animation
 var card_manager_scene = preload("res://cardsManager.tscn")
 var pause = false
 var card_manager
@@ -17,7 +16,6 @@ func _ready():
 			$Player.position = Global.lastPosition 
 
 func start_the_game():
-	animation_go_to.play("go_to_animation")
 	card_manager = card_manager_scene.instantiate()
 	add_child(card_manager)
 	Player.add_card(card_manager.generate_random_card(card_manager.cards))
