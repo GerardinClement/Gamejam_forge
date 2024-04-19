@@ -13,6 +13,7 @@ class Player:
 	var shootSide: Dictionary
 	var pv: float
 	var pv_max: float
+	var shield: int
 	var speed: int
 	var attack_speed: int
 	var strength: int
@@ -26,6 +27,7 @@ class Player:
 		speed = 75
 		attack_speed = 4
 		strength = 25
+		shield = 1
 		shootSide = {
 			"forward": true,
 			"back": false,
@@ -49,7 +51,10 @@ class Player:
 	func take_damage(bullet):
 		if !iframes.is_stopped():
 			return 
-		self.pv -= bullet.damage
+		if self.shield > 0:
+			self.shield -= 1
+		else:
+			self.pv -= bullet.damage
 		playerAnimation.play("damage")
 		gui.display_life(self)
 		iframes.start()
