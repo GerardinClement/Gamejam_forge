@@ -8,6 +8,7 @@ var pause = false
 var card_manager
 
 func _ready():
+	var card_manager_scene = preload("res://cardsManager.tscn")
 	if not Global.gameIsStart:
 		self.start_the_game()
 	else:
@@ -32,6 +33,8 @@ func start_the_game():
 func _process(_delta):
 	if Input.is_action_just_pressed("Inventory"):
 		inventoryMenu()
+	if Input.is_action_just_pressed("EscapeMenu"):
+		get_tree().change_scene_to_file("res://escapeInterface.tscn")
 		
 func inventoryMenu():
 	if pause:
