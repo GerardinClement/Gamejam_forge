@@ -1,0 +1,472 @@
+[gd_scene load_steps=44 format=3 uid="uid://bvvr2ifpc0s0w"]
+
+[ext_resource type="Script" path="res://script/Menu.gd" id="1_qhih1"]
+[ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
+[ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="2_bxvg7"]
+[ext_resource type="Texture2D" uid="uid://d33cdxavimdk0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Blue/worldmap_highlight_blue.png" id="2_j7orl"]
+[ext_resource type="Texture2D" uid="uid://dl8fvdxb3nfx0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Blue/worldmap_blue.png" id="3_ecrtr"]
+[ext_resource type="Texture2D" uid="uid://c825jf53riexh" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Menu buttons v2/Blue/menu_button02.png" id="4_a0ex4"]
+[ext_resource type="Texture2D" uid="uid://coy72muqwcskx" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Inventory Pack/blue/Selector1.png" id="7_j8tj4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlny2"]
+atlas = ExtResource("2_j7orl")
+region = Rect2(0, 0, 208, 107)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rcjj"]
+atlas = ExtResource("3_ecrtr")
+region = Rect2(0, 0, 208, 107)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_06tnp"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_jlny2")
+}, {
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_5rcjj")
+}],
+"loop": true,
+"name": &"background_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="FontFile" id="FontFile_w8gkv"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="Theme" id="Theme_2jc5r"]
+/fonts/bonjpit = SubResource("FontFile_w8gkv")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnd2s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40031"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltqn2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2bg8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu4rp"]
+atlas = ExtResource("2_aip23")
+region = Rect2(0, 423, 192, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83uvq"]
+atlas = ExtResource("2_aip23")
+region = Rect2(192, 423, 192, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m72wu"]
+atlas = ExtResource("2_aip23")
+region = Rect2(384, 423, 192, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hp6f"]
+atlas = ExtResource("2_aip23")
+region = Rect2(576, 423, 192, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erild"]
+atlas = ExtResource("2_aip23")
+region = Rect2(768, 423, 192, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbk4i"]
+atlas = ExtResource("2_aip23")
+region = Rect2(960, 423, 192, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx0mj"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1152, 423, 192, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60xpp"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1344, 423, 192, 153)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6unw"]
+atlas = ExtResource("2_aip23")
+region = Rect2(576, 1137, 192, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us6f4"]
+atlas = ExtResource("2_aip23")
+region = Rect2(768, 1137, 192, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6aem"]
+atlas = ExtResource("2_aip23")
+region = Rect2(960, 1137, 192, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh67w"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1152, 1137, 192, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5oe6"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1344, 1137, 192, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g0m7"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1536, 1137, 192, 204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn8is"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu4rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83uvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m72wu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hp6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erild")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbk4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx0mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60xpp")
+}],
+"loop": true,
+"name": &"mecha_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_q6unw")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_us6f4")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_b6aem")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_rh67w")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_d5oe6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_1g0m7")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqb3u"]
+atlas = ExtResource("4_a0ex4")
+region = Rect2(0, 0, 46, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5c8al"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqb3u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45drc"]
+atlas = ExtResource("2_aip23")
+region = Rect2(576, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73epj"]
+atlas = ExtResource("2_aip23")
+region = Rect2(768, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxdds"]
+atlas = ExtResource("2_aip23")
+region = Rect2(960, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6xpq"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1152, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isuh8"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1344, 1152, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvpx5"]
+atlas = ExtResource("2_aip23")
+region = Rect2(1536, 1152, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpt4x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45drc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73epj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxdds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6xpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isuh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvpx5")
+}],
+"loop": true,
+"name": &"mecha_death",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wlp7"]
+atlas = ExtResource("7_j8tj4")
+region = Rect2(0, 0, 19, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7fgw"]
+atlas = ExtResource("7_j8tj4")
+region = Rect2(19, 0, 19, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uhvp0"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_0wlp7")
+}, {
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_o7fgw")
+}],
+"loop": true,
+"name": &"target",
+"speed": 5.0
+}]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qhih1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -255
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+color = Color(0.286275, 0.329412, 0.470588, 1)
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.156863, 0.952941, 0.478431, 1)
+position = Vector2(579.78, 354.656)
+scale = Vector2(4.89077, 4.89077)
+sprite_frames = SubResource("SpriteFrames_06tnp")
+animation = &"background_animation"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = -7.0
+offset_right = 1145.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
+theme_override_colors/font_shadow_color = Color(0.443137, 0.0627451, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.607843, 0.0745098, 0.298039, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_bxvg7")
+theme_override_font_sizes/font_size = 75
+text = "Damien Cooper"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -592.0
+offset_top = 101.0
+offset_right = -254.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 1
+theme = SubResource("Theme_2jc5r")
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
+theme_override_colors/font_hover_color = Color(0.878431, 0.219608, 0.458824, 1)
+theme_override_colors/font_outline_color = Color(0.223529, 0.133333, 0.337255, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("2_bxvg7")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mnd2s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mnd2s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mnd2s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnd2s")
+text = "Start "
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
+theme_override_colors/font_hover_color = Color(0.878431, 0.219608, 0.458824, 1)
+theme_override_colors/font_outline_color = Color(0.223529, 0.133333, 0.337255, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_bxvg7")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_40031")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ltqn2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ltqn2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ltqn2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ltqn2")
+text = "Credits "
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.952941, 0.235294, 0.478431, 1)
+theme_override_colors/font_hover_color = Color(0.133333, 0.815686, 0.407843, 1)
+theme_override_colors/font_outline_color = Color(0.223529, 0.133333, 0.337255, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_bxvg7")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_y2bg8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y2bg8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_y2bg8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_y2bg8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y2bg8")
+text = "QuiT "
+
+[node name="Mecha" type="AnimatedSprite2D" parent="."]
+position = Vector2(932, 511)
+scale = Vector2(1.84452, 1.87831)
+skew = 0.0872665
+sprite_frames = SubResource("SpriteFrames_nn8is")
+animation = &"mecha_animation"
+
+[node name="StartButton" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.156863, 0.952941, 0.478431, 1)
+position = Vector2(147, 446)
+scale = Vector2(5.61368, 3.27083)
+sprite_frames = SubResource("SpriteFrames_5c8al")
+
+[node name="CreditsButton" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.156863, 0.952941, 0.478431, 1)
+position = Vector2(147, 520)
+scale = Vector2(5.61368, 3.27083)
+sprite_frames = SubResource("SpriteFrames_5c8al")
+
+[node name="QuitButton" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.0823529, 0.321569, 1)
+position = Vector2(148, 593)
+scale = Vector2(5.61368, 3.27083)
+sprite_frames = SubResource("SpriteFrames_5c8al")
+
+[node name="MechaDeath" type="AnimatedSprite2D" parent="."]
+position = Vector2(934, 479)
+scale = Vector2(1.77083, 1.77083)
+sprite_frames = SubResource("SpriteFrames_mpt4x")
+animation = &"mecha_death"
+frame = 5
+frame_progress = 0.879175
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Targets" type="AnimatedSprite2D" parent="."]
+position = Vector2(453, 144)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets4" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(74, 19.3333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets5" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(160, 47.3333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets6" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(33, 69.6667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets7" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(72, 48.6667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets8" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(-14.6667, 92.6667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets9" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(-37.3333, 140)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets10" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(-108.333, 12)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets11" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(57.6667, 117.333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets12" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(188.333, 7.66667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets13" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(42, 25.6667)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets14" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(-48, 34.3333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -1,21 +1,19 @@
 extends Control
 
 @onready var cards = preload("res://cards.tscn")
+@onready var markersNode = $Markers
+var Instance = preload("res://script/createInstance.gd").new()
+
 
 func displayPlayerCards(player):
 	var viewport_rect = get_viewport_rect()
-	var bottom_position = viewport_rect.size.y / 1.25
-	var left_position = viewport_rect.size.x / 6
+	var bottom_position = viewport_rect.size.y * 0.83
+	var left_position = viewport_rect.size.x / 2
 
-	var i = 1
+	var i = 0
 	for card in player.cards.values():
-		var card_instance = cards.instantiate()
-		card_instance.position = Vector2(left_position * i, bottom_position)
-		add_child(card_instance) 
-		var cardNode = self.get_child(i)
-		var sprite = cardNode.find_child("Card")
-		if sprite:
-			sprite.set_texture(card.image)
+		var marker = self.markersNode.get_child(i)
+		Instance.create_card(self, card, marker.position, false)
 		i += 1
 		
 
@@ -26,5 +24,10 @@ func close():
 	var count = self.get_child_count()
 	for i in count:
 		var child = self.get_child(i)
-		if child.name.find("Node2D") >= 0 or child.name == "Cards":
+		if child.name.find("StaticBody2D") >= 0 or child.name == "Cards":
 			child.queue_free()
+
+func _on_exit_pressed():
+	Engine.time_scale = 1
+	get_tree().change_scene_to_file("res://Menu.tscn")
+

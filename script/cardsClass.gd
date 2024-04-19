@@ -35,13 +35,37 @@ class Card:
 		for side in shootSide:
 			player.shootSide[side] = true
 			
+	func removeEffects(player):
+		for effect_key in effects.keys():
+			match effect_key:
+				"strength":
+					player.strength -= effects[effect_key]
+				"attack_speed":
+					player.attack_speed += player.attack_speed * effects[effect_key]
+					if player.attack_speed <= 0:
+						player.attack_speed = 0.1
+				"pv_max":
+					player.pv_max -= effects[effect_key]
+					player.pv -= effects[effect_key]
+				"speed":
+					player.speed -= effects[effect_key]
+				"shootSide":
+					addShootSide(player, effects[effect_key])
+
+	func removeShootSide(player, shootSide):
+		for side in shootSide:
+			player.shootSide[side] = false
+			
 	func loadImage():
+		var filename = self.name
 		var new_image = Image.new()
-		var error = new_image.load("res://Assets/Cards/" + self.name + ".png")
+		
+		if self.type == "merge":
+			filename = "mergeCard"
+		var error = new_image.load("res://Assets/Cards/" + filename + ".png")
 		
 		if error == OK:
 			print(name, " is loaded")
 			return(ImageTexture.create_from_image(new_image))
 		else:
 			print(name + "Error: ", error)
-	
