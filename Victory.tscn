@@ -1,0 +1,190 @@
+[gd_scene load_steps=23 format=3 uid="uid://cugkhx4fi3yn7"]
+
+[ext_resource type="Texture2D" uid="uid://h76dppo4a6ny" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Yellow/worldmap_Yellow.png" id="1_i2ceo"]
+[ext_resource type="Script" path="res://script/Victory.gd" id="1_oq2wg"]
+[ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_solrm"]
+[ext_resource type="Texture2D" uid="uid://bee6okonilb8" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Players/players blue x3.png" id="4_mhf50"]
+[ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="5_tpm42"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh3hy"]
+atlas = ExtResource("1_i2ceo")
+region = Rect2(0, 0, 212, 131)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qv75e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh3hy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epmtv"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(0, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_638pb"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(96, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip1ya"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(192, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpqd2"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(288, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_latnm"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(480, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrtgh"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(576, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rhmy"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(672, 288, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa8u5"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(768, 288, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0ayt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epmtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_638pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip1ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpqd2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_latnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrtgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rhmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa8u5")
+}],
+"loop": true,
+"name": &"animation_victory",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ejq6"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(0, 960, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4mmc"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(96, 960, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe62y"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(192, 960, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_disip"]
+atlas = ExtResource("4_mhf50")
+region = Rect2(288, 960, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggg2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ejq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4mmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe62y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_disip")
+}],
+"loop": true,
+"name": &"npc_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kjx0y"]
+
+[node name="Victory" type="Node2D"]
+script = ExtResource("1_oq2wg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0, 0.282353, 0.14902, 1)
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.180392, 0.992157, 0.498039, 1)
+position = Vector2(607, 320)
+scale = Vector2(4.18225, 4.18225)
+sprite_frames = SubResource("SpriteFrames_qv75e")
+
+[node name="VictoryText" type="Label" parent="."]
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 949.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0.858824, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_solrm")
+theme_override_font_sizes/font_size = 90
+text = "VICTORY !
+"
+
+[node name="PlayerAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(301, 546)
+scale = Vector2(2.19792, 2.19792)
+sprite_frames = SubResource("SpriteFrames_r0ayt")
+animation = &"animation_victory"
+frame_progress = 0.514271
+
+[node name="NPCAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(114, 521)
+scale = Vector2(2.83333, 2.83333)
+sprite_frames = SubResource("SpriteFrames_ggg2v")
+animation = &"npc_animation"
+frame_progress = 0.74122
+
+[node name="BackToMenuButton" type="Button" parent="."]
+offset_left = 566.0
+offset_top = 541.0
+offset_right = 1110.0
+offset_bottom = 611.0
+theme_override_colors/font_color = Color(0, 0.858824, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("5_tpm42")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kjx0y")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kjx0y")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kjx0y")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kjx0y")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kjx0y")
+text = "back to main menu"
+
+[connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
