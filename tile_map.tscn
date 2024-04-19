@@ -8475,7 +8475,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="Exit" parent="." instance=ExtResource("5_sw7wm")]
-position = Vector2(-210, 574)
+position = Vector2(-85, -108)
 
 [node name="GoToForge" parent="." instance=ExtResource("6_3o8f0")]
 position = Vector2(-127, -108)

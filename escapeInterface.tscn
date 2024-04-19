@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://3g7jqvgdnmr7"]
+[gd_scene load_steps=13 format=3 uid="uid://3g7jqvgdnmr7"]
 
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="1_e8fju"]
 [ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_rf2h6"]
 [ext_resource type="Script" path="res://script/Resume.gd" id="3_dch1a"]
+[ext_resource type="Script" path="res://BackToMenuButton.gd" id="4_5fag0"]
 [ext_resource type="Texture2D" uid="uid://cayklwksk8fca" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 01-yellow.png" id="4_mo4js"]
 [ext_resource type="Texture2D" uid="uid://e8a403a5gbw0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 04-yellow.png" id="5_76v0a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fgsx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwsyn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2d3e8"]
 atlas = ExtResource("4_mo4js")
@@ -51,7 +54,7 @@ color = Color(0.286275, 0.329412, 0.470588, 1)
 
 [node name="Pause" type="Label" parent="."]
 layout_mode = 0
-offset_top = 44.0
+offset_top = 16.0
 offset_right = 1153.0
 offset_bottom = 67.0
 theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
@@ -68,10 +71,10 @@ vertical_alignment = 1
 
 [node name="Controls" type="Label" parent="."]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 122.0
-offset_right = 1214.0
-offset_bottom = 173.0
+offset_left = 62.0
+offset_top = 89.0
+offset_right = 1215.0
+offset_bottom = 140.0
 theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -85,10 +88,10 @@ vertical_alignment = 1
 
 [node name="Interact" type="Label" parent="."]
 layout_mode = 0
-offset_left = 189.0
-offset_top = 199.0
-offset_right = 1133.0
-offset_bottom = 250.0
+offset_left = 190.0
+offset_top = 166.0
+offset_right = 1134.0
+offset_bottom = 217.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -102,10 +105,10 @@ vertical_alignment = 1
 
 [node name="Inventory" type="Label" parent="."]
 layout_mode = 0
-offset_left = 189.0
-offset_top = 261.0
-offset_right = 1133.0
-offset_bottom = 312.0
+offset_left = 190.0
+offset_top = 228.0
+offset_right = 1134.0
+offset_bottom = 279.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -117,12 +120,12 @@ theme_override_font_sizes/font_size = 35
 text = "Inventory :                 tab"
 vertical_alignment = 1
 
-[node name="Tip" type="Label" parent="."]
+[node name="Tips" type="Label" parent="."]
 layout_mode = 0
-offset_left = 189.0
-offset_top = 324.0
-offset_right = 1133.0
-offset_bottom = 375.0
+offset_left = 190.0
+offset_top = 291.0
+offset_right = 1134.0
+offset_bottom = 342.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -134,12 +137,12 @@ theme_override_font_sizes/font_size = 35
 text = "tips:"
 vertical_alignment = 1
 
-[node name="Tips" type="Label" parent="."]
+[node name="TipExit" type="Label" parent="."]
 layout_mode = 0
-offset_left = 312.0
-offset_top = 373.0
-offset_right = 810.0
-offset_bottom = 424.0
+offset_left = 313.0
+offset_top = 340.0
+offset_right = 811.0
+offset_bottom = 391.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -151,12 +154,12 @@ theme_override_font_sizes/font_size = 30
 text = "Look for the exit !"
 vertical_alignment = 1
 
-[node name="Tips1" type="Label" parent="."]
+[node name="TipBlacksmith" type="Label" parent="."]
 layout_mode = 0
-offset_left = 311.0
-offset_top = 443.0
-offset_right = 1016.0
-offset_bottom = 494.0
+offset_left = 312.0
+offset_top = 410.0
+offset_right = 1017.0
+offset_bottom = 461.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -168,13 +171,13 @@ theme_override_font_sizes/font_size = 30
 text = "look for the blacksmith !"
 vertical_alignment = 1
 
-[node name="Resume" type="Button" parent="."]
+[node name="ResumeButton" type="Button" parent="."]
 layout_mode = 0
-offset_top = 552.0
+offset_top = 481.0
 offset_right = 1152.0
-offset_bottom = 647.0
+offset_bottom = 576.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0.988235, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("1_e8fju")
@@ -186,16 +189,36 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_0fgsx")
 text = "resume"
 script = ExtResource("3_dch1a")
 
+[node name="BackToMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_top = 557.0
+offset_right = 1151.0
+offset_bottom = 648.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_e8fju")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rwsyn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_rwsyn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rwsyn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rwsyn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rwsyn")
+text = "back to main menu"
+script = ExtResource("4_5fag0")
+
 [node name="Exit" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.156863, 0.952941, 0.478431, 1)
-position = Vector2(1070, 393)
+position = Vector2(1071, 360)
 scale = Vector2(2.92105, 2.92105)
 sprite_frames = SubResource("SpriteFrames_3pdgb")
 animation = &"exit"
 
 [node name="Blacksmith" type="AnimatedSprite2D" parent="."]
-position = Vector2(1070, 467)
+position = Vector2(1071, 434)
 scale = Vector2(2.92105, 2.92105)
 sprite_frames = SubResource("SpriteFrames_w33pb")
 
-[connection signal="pressed" from="Resume" to="Resume" method="_on_pressed"]
+[connection signal="pressed" from="ResumeButton" to="ResumeButton" method="_on_pressed"]
+[connection signal="pressed" from="BackToMenuButton" to="ResumeButton" method="_on_back_to_menu_button_pressed"]
