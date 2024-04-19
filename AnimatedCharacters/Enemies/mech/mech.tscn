@@ -4,9 +4,8 @@
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_pyyym"]
 [ext_resource type="Texture2D" uid="uid://umnf3hr8dd8y" path="res://Assets/Characters/Enemies/Mech/mechExplosion.png" id="2_5iq8v"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh4wr"]
-radius = 8.0
-height = 28.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_per6e"]
+size = Vector2(14, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0ivr"]
 atlas = ExtResource("2_5iq8v")
@@ -219,14 +218,15 @@ collision_mask = 9
 script = ExtResource("1_pyyym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-shape = SubResource("CapsuleShape2D_kh4wr")
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_per6e")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qt316")
 animation = &"death"
 frame = 4
 frame_progress = 1.0
+animation = &"idle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.8

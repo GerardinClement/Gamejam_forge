@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var markerPosition = $Marker2D.global_position
+
 func _ready():
 	pass # Replace with function body.
 

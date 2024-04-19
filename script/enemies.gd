@@ -1,14 +1,9 @@
 extends CharacterBody2D
 
-var enemy = name
+var enemy = self.name
 
 func _ready():
-	var statEnemy = Global.ennemies[name]
-	var ray = RayCast2D.new()
-	ray.set_collision_mask_value(4, true)
-	ray.set_collision_mask_value(1, false)
-	add_child(ray)
-	
+	var statEnemy = Global.ennemies[self.name]
 	enemy = Enemy.new()
 	enemy.health = statEnemy.health
 	enemy.damage = statEnemy.damage
@@ -20,8 +15,8 @@ func _ready():
 	enemy.timer = $Timer
 	enemy.ray = ray
 	
-func _physics_process(delta):
-	enemy.process(delta, self)
+func _physics_process(_delta):
+	enemy.process(_delta, self)
 	
 func _process(delta):
 	enemy.check_death(self)

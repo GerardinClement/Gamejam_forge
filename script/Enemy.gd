@@ -2,7 +2,6 @@ class_name Enemy
 
 extends CharacterBody2D
 
-@onready var player = get_parent().get_parent().get_node("Player")
 var animations
 var timer
 var speed
@@ -10,7 +9,7 @@ var ray
 var bulletSpeed
 var damage
 var shootFrame
-var enemyDir
+var enemyPos 
 var bulletPath
 var health
 var canShoot = false
@@ -22,7 +21,7 @@ func play_shoot_animations(parent):
 	
 	if timer.is_stopped() && canShoot && !checkWalls(parent):
 		hasShot = false
-		if parent.position.x < Global.playerPos.x:
+		if self.position.x < Global.playerPos.x:
 			animations.set_flip_h(false)
 		else:
 			animations.set_flip_h(true)
@@ -77,7 +76,7 @@ func move(delta, parent):
 func shoot(parent):
 	var bullet = bulletPath.instantiate()
 
-	if animations.is_flipped_h() == true:
+	if animations.is_flipped_h() == false:
 		bullet.position = parent.get_node("leftSide").position
 	else:
 		bullet.position = parent.get_node("rightSide").position
@@ -91,11 +90,10 @@ func checkFrame():
 func resetAnimation():
 	if animations.is_playing() && animations.animation == 'shootRight':
 		animations.stop()
-		animations.play("idle")
+		animations.play("moveRight")
 
-func checkWalls(parent):
-	ray.target_position = parent.to_local(Global.playerPos)
-	ray.force_raycast_update()
+func checkWalls():
+	ray.target_position = Global.playerPos
 	if ray.get_collider():
 		resetAnimation()
 		return true

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dpo3kohkf3y5x" path="res://Assets/Characters/Enemies/enemies x1_flipped.png" id="2_iijnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ojqj"]
-size = Vector2(14, 21)
+size = Vector2(15, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfxcp"]
 atlas = ExtResource("1_njbmb")
@@ -313,7 +313,7 @@ collision_mask = 9
 script = ExtResource("1_5ca8a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0.5)
+position = Vector2(-2.5, 1.5)
 shape = SubResource("RectangleShape2D_3ojqj")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
@@ -330,6 +330,9 @@ position = Vector2(4, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="View"]
 shape = SubResource("RectangleShape2D_hrqmx")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 9
 
 [node name="leftSide" type="Marker2D" parent="."]
 position = Vector2(-4, 0)

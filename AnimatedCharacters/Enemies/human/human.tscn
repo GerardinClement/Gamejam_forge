@@ -3,9 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_5btoe"]
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_64q6h"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42g01"]
-radius = 5.5
-height = 23.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngs8r"]
+size = Vector2(9, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cinu5"]
 atlas = ExtResource("1_5btoe")
@@ -173,7 +172,7 @@ script = ExtResource("1_64q6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 4.5)
-shape = SubResource("CapsuleShape2D_42g01")
+shape = SubResource("RectangleShape2D_ngs8r")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lyqgq")
