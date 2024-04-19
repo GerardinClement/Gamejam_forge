@@ -11,7 +11,7 @@ var card_manager
 func _ready():
 	animation_go_to.play("go_to_animation")
 	var card_manager_scene = preload("res://cardsManager.tscn")
-	card_manager = card_manager_scene.instantiate()
+	card_manager =card_manager_scene.instantiate()
 	add_child(card_manager)
 	Player.add_card(card_manager.generate_random_card(card_manager.cards))
 	Player.add_card(card_manager.generate_random_card(card_manager.cards))
