@@ -26,9 +26,18 @@ func close():
 		if child.name.find("StaticBody2D") >= 0 or child.name == "Cards":
 			child.queue_free()
 
-func process():
+func _process(_delta):
 	#if not cards_instance:
 		#return
 	for card_instance in cards_instance:
 		if card_instance.isSelected:
-			pass
+			card_instance.animationPlayer.play("Intro")
+			Global.player.cards[card_instance.card.name] = card_instance.card
+			delete_cards()
+			card_instance.isSelected = false
+			
+func delete_cards():
+	for card_instance in cards_instance:
+		if not card_instance.isSelected:
+			card_instance.destroy_card()
+	cards_instance.clear()

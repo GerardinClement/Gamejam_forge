@@ -13,7 +13,7 @@ var dropableZoneName
 @onready var labelDescription = $ColorRect/description
 @onready var labelEffects = $ColorRect/effects
 @onready var animationPlayer = $AnimationPlayer
-
+@onready var animatesExplosions = $AnimatesExplosions
 var initPos
 
 func _ready():
@@ -28,9 +28,9 @@ func _process(delta):
 		isSelected = true
 
 func _on_mouse_entered():
+	mouseOn = true
 	if get_parent().name == "Black-smithShop":
 		onShop = true
-		mouseOn = true
 	rectLabel.visible = true
 	labelName.text = card.name
 	labelDescription.text = card.description
@@ -53,4 +53,18 @@ func _on_mouse_exited():
 
 func _on_animation_player_animation_finished(anim_name):
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", Vector2(initPos.x, initPos.y), 0.2).set_ease(Tween.EASE_OUT)
+	if initPos:
+		tween.tween_property(self, "position", Vector2(initPos.x, initPos.y), 0.2).set_ease(Tween.EASE_OUT)
+
+func destroy_card():
+	animatesExplosions.visible = true
+	animatesExplosions.play("default")
+
+
+func _on_animates_explosions_animation_finished():
+	if animatesExplosions.animation == "default":
+		self.queue_free()
+		
+func _on_animates_explosions_frame_changed():
+	if animatesExplosions.animation == "default" and animatesExplosions.frame == 5:
+		$Card.visible = false

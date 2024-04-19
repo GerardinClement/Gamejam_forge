@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="8_k78ve"]
 [ext_resource type="PackedScene" uid="uid://cyhlud4i6s8kv" path="res://AnimatedCharacters/Enemies/human/human.tscn" id="9_qf0k0"]
 [ext_resource type="PackedScene" uid="uid://dl0fs76fenl5d" path="res://AnimatedCharacters/Enemies/mech/mech.tscn" id="10_d746t"]
+[ext_resource type="PackedScene" uid="uid://bkbuw7o13rxyr" path="res://chest.tscn" id="11_07gvh"]
 [ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="11_oag1s"]
 
 [node name="Main" type="Node2D"]
@@ -74,3 +75,6 @@ position = Vector2(219, 591)
 
 [node name="GoToForge" parent="." instance=ExtResource("11_oag1s")]
 position = Vector2(-127, -108)
+
+[node name="Chest" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(78, -126)

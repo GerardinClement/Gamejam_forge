@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0pweq64e17kj"]
+[gd_scene load_steps=19 format=3 uid="uid://b0pweq64e17kj"]
 
 [ext_resource type="Script" path="res://script/cardProcess.gd" id="1_0gio1"]
 [ext_resource type="Texture2D" uid="uid://bheuemyqmuk4q" path="res://Assets/Cards/mergeCard.png" id="2_hdgd6"]
+[ext_resource type="Texture2D" uid="uid://jdjw6i13j6vy" path="res://Assets/explosions/spritesheet.png" id="3_2annx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkmhg"]
 size = Vector2(167, 247)
@@ -75,12 +76,92 @@ tracks/1/keys = {
 "values": [Vector2(0, -65)]
 }
 
+[sub_resource type="Animation" id="Animation_vtsc7"]
+resource_name = "remove"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -65), Vector2(0, -101), Vector2(0, 57), Vector2(-2, 1210)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_myeox"]
 _data = {
 "Intro": SubResource("Animation_ok8d2"),
 "MergeLeft": SubResource("Animation_srsln"),
-"RESET": SubResource("Animation_sw2v1")
+"RESET": SubResource("Animation_sw2v1"),
+"remove": SubResource("Animation_vtsc7")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnw8i"]
+atlas = ExtResource("3_2annx")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt0gt"]
+atlas = ExtResource("3_2annx")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5tx6"]
+atlas = ExtResource("3_2annx")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltmue"]
+atlas = ExtResource("3_2annx")
+region = Rect2(0, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkcvl"]
+atlas = ExtResource("3_2annx")
+region = Rect2(0, 400, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rasix"]
+atlas = ExtResource("3_2annx")
+region = Rect2(0, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3jnr"]
+atlas = ExtResource("3_2annx")
+region = Rect2(100, 600, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3y3y"]
+atlas = ExtResource("3_2annx")
+region = Rect2(0, 600, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k133j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnw8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt0gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5tx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltmue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkcvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rasix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3jnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3y3y")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Cards" type="StaticBody2D"]
 position = Vector2(0, -65)
@@ -137,6 +218,15 @@ libraries = {
 "": SubResource("AnimationLibrary_myeox")
 }
 
+[node name="AnimatesExplosions" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(4.67041, 4.67041)
+sprite_frames = SubResource("SpriteFrames_k133j")
+frame = 7
+frame_progress = 1.0
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimatesExplosions" to="." method="_on_animates_explosions_animation_finished"]
+[connection signal="frame_changed" from="AnimatesExplosions" to="." method="_on_animates_explosions_frame_changed"]

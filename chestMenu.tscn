@@ -24,12 +24,3 @@ scale = Vector2(5.35681, 0.264263)
 [node name="Marker2D3" type="Marker2D" parent="Markers"]
 position = Vector2(883, 313)
 scale = Vector2(5.35681, 0.264263)
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 279.0
-offset_top = 469.0
-offset_right = 344.0
-offset_bottom = 500.0
-scale = Vector2(0.87518, 0.520867)
-text = "Choose"
