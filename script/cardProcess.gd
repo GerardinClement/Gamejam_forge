@@ -6,6 +6,7 @@ var mouseOn = false
 var isStored = false
 var forChoose = false
 var isSelected = false
+var animationsFinished: Array
 var dropableZoneName
 
 @onready var rectLabel = $ColorRect
@@ -52,6 +53,7 @@ func _on_mouse_exited():
 	self.scale = Vector2(0.7, 0.7)
 
 func _on_animation_player_animation_finished(anim_name):
+	animationsFinished.append(anim_name)
 	var tween = get_tree().create_tween()
 	if initPos:
 		tween.tween_property(self, "position", Vector2(initPos.x, initPos.y), 0.2).set_ease(Tween.EASE_OUT)
@@ -64,8 +66,9 @@ func destroy_card():
 
 
 func _on_animates_explosions_animation_finished():
-	if animatesExplosions.animation == "vortex":
-		self.queue_free()
+	animationsFinished.append(animatesExplosions.animation)
+	#if animatesExplosions.animation == "vortex":
+		#self.queue_free()
 		
 func _on_animates_explosions_frame_changed():
 	if animatesExplosions.animation == "vortex" and animatesExplosions.frame == 14:
