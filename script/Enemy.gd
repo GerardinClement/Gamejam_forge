@@ -2,6 +2,7 @@ class_name Enemy
 
 extends CharacterBody2D
 
+@onready var player = get_parent().get_parent().get_node("Player")
 var animations
 var timer
 var speed
@@ -9,33 +10,64 @@ var ray
 var bulletSpeed
 var damage
 var shootFrame
-var enemyPos 
+var enemyDir
 var bulletPath
+var health
 var canShoot = false
 var hasShot = true
 
-func play_shoot_animations():
-	if timer.is_stopped() && canShoot && !checkWalls():
+func play_shoot_animations(parent):
+	if health <= 0:
+		return
+	
+	if timer.is_stopped() && canShoot && !checkWalls(parent):
 		hasShot = false
-		if self.position.x < Global.playerPos.x:
+		if parent.position.x < Global.playerPos.x:
 			animations.set_flip_h(false)
 		else:
 			animations.set_flip_h(true)
 		animations.play("shootRight")
 		timer.start()
-
-func process(_delta, parent):
-	if checkFrame() && !hasShot && !checkWalls():
+		
+	if checkFrame() && !hasShot:
 		hasShot = true
 		shoot(parent)
-	enemyPos = (Global.playerPos - self.position).normalized()
-	velocity = self.position.direction_to(Global.playerPos)
-	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && self.position.distance_to(Global.playerPos) < 200:
+
+func process(delta, parent):
+	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && parent.position.distance_to(Global.playerPos) < 200:
 		return
-	move(_delta, parent)
+	
+	if health <= 0:
+		return
+	
+	chase_player(parent)
+	move(delta, parent)
+
+func chase_player(parent):
+	enemyDir = Vector2()
+	ray.position = position
+	ray.target_position = parent.to_local(Global.playerPos)
+	ray.force_raycast_update()
+
+	if !ray.is_colliding():
+		enemyDir = to_local(Global.playerPos)
+	
+	else:
+		for scent in Global.player.scent_trail:
+			ray.target_position = parent.to_local(scent.position)
+			ray.force_raycast_update()
+			if !ray.is_colliding():
+				enemyDir = to_local(scent.position)
+				break
 
 func move(delta, parent):
-	if self.position.x < Global.playerPos.x:
+	if enemyDir == Vector2():
+		animations.play("idle")
+		return
+	
+	velocity = parent.position.direction_to(enemyDir)
+
+	if enemyDir.x > parent.position.x:
 		animations.set_flip_h(false)
 	else:
 		animations.set_flip_h(true)
@@ -45,25 +77,37 @@ func move(delta, parent):
 func shoot(parent):
 	var bullet = bulletPath.instantiate()
 
-	if animations.is_flipped_h() == false:
+	if animations.is_flipped_h() == true:
 		bullet.position = parent.get_node("leftSide").position
 	else:
 		bullet.position = parent.get_node("rightSide").position
 	parent.add_child(bullet)
 
 func checkFrame():
-	if animations.frame == shootFrame:
+	if animations.animation == "shootRight" && animations.frame == shootFrame:
 		return true
 	return false
 
 func resetAnimation():
 	if animations.is_playing() && animations.animation == 'shootRight':
 		animations.stop()
-		animations.play("moveRight")
+		animations.play("idle")
 
-func checkWalls():
-	ray.target_position = Global.playerPos
+func checkWalls(parent):
+	ray.target_position = parent.to_local(Global.playerPos)
+	ray.force_raycast_update()
 	if ray.get_collider():
 		resetAnimation()
 		return true
 	return false
+
+func check_death(parent):
+	if health > 0:
+		return
+
+	animations.play("death")
+
+func takeDamage():
+	print(Global.player.strength)
+	health -= Global.player.strength
+	print(self, " : ", health)
