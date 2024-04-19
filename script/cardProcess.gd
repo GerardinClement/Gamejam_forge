@@ -23,10 +23,11 @@ func _ready():
 	self.input_pickable = true
 	
 func _process(delta):
-	if Input.is_action_just_pressed("click") and onShop and mouseOn:
-		get_parent().add_to_dropable(self)
-	if Input.is_action_just_pressed("click") and forChoose and mouseOn:
-		isSelected = true
+	if not animationPlayer.is_playing() and not animatesExplosions.is_playing():
+		if Input.is_action_just_pressed("click") and onShop and mouseOn:
+			get_parent().add_to_dropable(self)
+		if Input.is_action_just_pressed("click") and forChoose and mouseOn:
+			isSelected = true
 
 func _on_mouse_entered():
 	mouseOn = true
