@@ -12,7 +12,6 @@ var isPause
 
 class Player:
 	var cards: Dictionary
-	var occurenceCard: Dictionary
 	var shootSide: Dictionary
 	var pv: float
 	var pv_max: float
@@ -21,6 +20,7 @@ class Player:
 	var attack_speed: int
 	var strength: int
 	var playerAnimation
+	var money
 	var gui
 	var iframes
 	var scent_trail = []
@@ -32,6 +32,7 @@ class Player:
 		attack_speed = 2
 		strength = 25
 		shield = 1
+		money = 10
 		shootSide = {
 			"forward": true,
 			"back": false,
@@ -51,10 +52,9 @@ class Player:
 			return 
 		newCard.applyEffects(self)
 		if not cards.has(newCard.name):
-			cards[newCard.name] = newCard
-			occurenceCard[newCard.name] = 1
+			cards[newCard.name] = [newCard]
 		else:
-			occurenceCard[newCard.name] += 1
+			cards[newCard.name].append(newCard)
 		gui.display_life(self)
 		print("new card:", newCard.name)
 		
@@ -136,8 +136,9 @@ class Player:
 		
 	func count_number_of_card():
 		var count = 0
-		for key in occurenceCard:
-			count += occurenceCard[key]
+		for cardsArray in self.cards.values():
+			for card in cardsArray:
+				count += 1
 		return count
 
 
