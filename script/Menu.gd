@@ -19,7 +19,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_start_button_pressed():
 	animation_mecha.modulate.a = 0
 	animation_mecha_death.play("mecha_death")
