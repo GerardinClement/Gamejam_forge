@@ -12,7 +12,6 @@ var isPause
 
 class Player:
 	var cards: Dictionary
-	var occurenceCard: Dictionary
 	var shootSide: Dictionary
 	var pv: float
 	var pv_max: float
@@ -55,7 +54,6 @@ class Player:
 		if not cards.has(newCard.name):
 			print("herer")
 			cards[newCard.name] = [newCard]
-			occurenceCard[newCard.name] = 1
 		else:
 			print("la")
 			cards[newCard.name].append(newCard)
@@ -140,8 +138,9 @@ class Player:
 		
 	func count_number_of_card():
 		var count = 0
-		for key in occurenceCard:
-			count += occurenceCard[key]
+		for cardsArray in self.cards.values():
+			for card in cardsArray:
+				count += 1
 		return count
 
 
