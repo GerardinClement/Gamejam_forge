@@ -52,10 +52,8 @@ class Player:
 			return 
 		newCard.applyEffects(self)
 		if not cards.has(newCard.name):
-			print("herer")
 			cards[newCard.name] = [newCard]
 		else:
-			print("la")
 			cards[newCard.name].append(newCard)
 		gui.display_life(self)
 		print("new card:", newCard.name)
