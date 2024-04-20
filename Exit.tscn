@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://26tk0bshfbfv"]
+[gd_scene load_steps=7 format=3 uid="uid://26tk0bshfbfv"]
 
 [ext_resource type="Texture2D" uid="uid://cayklwksk8fca" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 01-yellow.png" id="1_pfdxs"]
 [ext_resource type="Script" path="res://script/Exit.gd" id="1_ukaq1"]
+[ext_resource type="FontFile" uid="uid://0payxjcvrkak" path="res://Assets/Fonts/paladins/paladinsstraight.ttf" id="3_p34r5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epa2n"]
 radius = 20.0
@@ -31,4 +32,24 @@ shape = SubResource("CircleShape2D_epa2n")
 modulate = Color(0.156863, 0.952941, 0.478431, 1)
 sprite_frames = SubResource("SpriteFrames_corvb")
 
+[node name="NotEnoughKeys" type="Label" parent="."]
+offset_left = -151.0
+offset_top = 13.0
+offset_right = 150.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.984314, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 6
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_p34r5")
+theme_override_font_sizes/font_size = 10
+text = "You do not have 
+enough keys to leave !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

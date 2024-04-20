@@ -8,6 +8,8 @@ var player = null
 var pause = false
 var playerIsDead = false
 var playerIsInForge = false
+var playerKeys = 0
+var allKeys = 4
 
 #Array of ennemies
 const ennemies = {
