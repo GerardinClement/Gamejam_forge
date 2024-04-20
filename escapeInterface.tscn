@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="1_e8fju"]
 [ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_rf2h6"]
 [ext_resource type="Script" path="res://script/Resume.gd" id="3_dch1a"]
-[ext_resource type="Script" path="res://BackToMenuButton.gd" id="4_5fag0"]
+[ext_resource type="Script" path="res://script/BackToMenuButton.gd" id="4_5fag0"]
 [ext_resource type="Texture2D" uid="uid://cayklwksk8fca" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 01-yellow.png" id="4_mo4js"]
 [ext_resource type="Texture2D" uid="uid://e8a403a5gbw0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 04-yellow.png" id="5_76v0a"]
 
