@@ -618,10 +618,10 @@ offset_bottom = 166.0
 anchors_preset = -1
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -294.0
-offset_top = -154.0
-offset_right = -294.0
-offset_bottom = -154.0
+offset_left = -345.0
+offset_top = -214.0
+offset_right = -345.0
+offset_bottom = -214.0
 scale = Vector2(0.595376, 0.595376)
 size_flags_horizontal = 0
 

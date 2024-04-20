@@ -1,13 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://rj8yy7blonbk"]
+[gd_scene load_steps=14 format=3 uid="uid://rj8yy7blonbk"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_6nxey"]
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_p4hy5"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_774k0"]
 [ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="4_c3pxg"]
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="5_4ao46"]
-[ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="6_csox7"]
-[ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="7_3i1v6"]
-[ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="8_6m4b5"]
+[ext_resource type="PackedScene" uid="uid://v1isdrkxdmq6" path="res://camera_2d.tscn" id="8_8exj4"]
 [ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://black-smith.tscn" id="9_ei8sp"]
 [ext_resource type="Texture2D" uid="uid://dgk77un2ro0c2" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/UI/ui x1.png" id="10_bjx5x"]
 
@@ -4484,35 +4482,12 @@ process_priority = 2
 position = Vector2(222, 52)
 collision_mask = 43
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.5, 1.5)
-drag_left_margin = 0.0
-drag_top_margin = 0.0
-drag_right_margin = 0.0
-drag_bottom_margin = 0.0
+[node name="Camera2D" parent="Player" instance=ExtResource("8_8exj4")]
 
-[node name="Gui" parent="Player/Camera2D" instance=ExtResource("6_csox7")]
-anchors_preset = -1
-offset_left = -359.0
-offset_top = 195.0
-offset_right = -359.0
-offset_bottom = 195.0
+[node name="InventoryMenu" parent="Player/Camera2D" index="1"]
+offset_left = -348.0
+offset_top = -213.0
+offset_right = -348.0
+offset_bottom = -213.0
 
-[node name="InventoryMenu" parent="Player/Camera2D" instance=ExtResource("7_3i1v6")]
-anchors_preset = -1
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -369.0
-offset_top = -200.0
-offset_right = -369.0
-offset_bottom = -200.0
-scale = Vector2(0.642438, 0.642438)
-size_flags_horizontal = 0
-
-[node name="Black-smithShop" parent="Player/Camera2D" instance=ExtResource("8_6m4b5")]
-visible = false
-offset_left = -439.0
-offset_top = -200.0
-offset_right = -439.0
-offset_bottom = -200.0
-scale = Vector2(0.577244, 0.577244)
+[editable path="Player/Camera2D"]
