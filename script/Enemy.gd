@@ -107,5 +107,8 @@ func check_death(parent):
 	animations.play("death")
 
 func takeDamage():
+	if animations.is_playing() && animations.animation == "hit":
+		return
+
 	health -= Global.player.strength
 	animations.play("hit")
