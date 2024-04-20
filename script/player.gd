@@ -53,10 +53,12 @@ class Player:
 			return 
 		newCard.applyEffects(self)
 		if not cards.has(newCard.name):
-			cards[newCard.name] = newCard
+			print("herer")
+			cards[newCard.name] = [newCard]
 			occurenceCard[newCard.name] = 1
 		else:
-			occurenceCard[newCard.name] += 1
+			print("la")
+			cards[newCard.name].append(newCard)
 		gui.display_life(self)
 		print("new card:", newCard.name)
 		

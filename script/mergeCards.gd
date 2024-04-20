@@ -2,7 +2,6 @@ class_name Merge
 
 extends Node
 
-
 var abilities1: String
 var abilities2: String
 var Card = preload("res://script/cardsClass.gd").Card

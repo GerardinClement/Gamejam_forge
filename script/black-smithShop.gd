@@ -18,10 +18,10 @@ func displayShop():
 	var size = self.size
 	var i = 0
 	
-	for key in shop:
-		for x in Global.player.occurenceCard[key]:
+	for cardsArray in Global.player.cards.values():
+		for card in cardsArray:
 			var marker = self.get_child(i + 1)
-			Instance.create_card(self, shop[key], marker.position, false)
+			Instance.create_card(self, card, marker.position, false)
 			i += 1
 		
 func add_to_dropable(card):
