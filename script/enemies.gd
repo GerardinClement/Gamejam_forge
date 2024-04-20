@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var enemy = name
+const moneyPath = preload("res://money.tscn")
 
 func _ready():
 	var statEnemy = Global.ennemies[name]
@@ -44,7 +45,18 @@ func chooseRandomEnemy():
 
 func _on_animations_animation_finished():
 	if $animations.animation == "death":
+		dropMoney()
 		queue_free()
 
 	elif $animations.animation == "hit":
 		$animations.play("moveRight")
+
+func dropMoney():
+	var statEnemy = Global.ennemies[name]
+	var moneyDroped = moneyPath.instantiate()
+	
+	print("Money droped")
+	moneyDroped.goldAmount = statEnemy.goldAmount
+	moneyDroped.value = statEnemy.goldValue
+	moneyDroped.position = position
+	get_parent().add_child(moneyDroped)

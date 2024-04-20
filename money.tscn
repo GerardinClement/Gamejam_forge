@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgs8bf3tblb52"]
+
+[ext_resource type="Script" path="res://script/money.gd" id="1_62vjd"]
+[ext_resource type="Texture2D" uid="uid://cnp0bp6r58r40" path="res://Assets/Collectables/Dungeon Collectables.png" id="1_b1yas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx8by"]
+size = Vector2(22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fvgf"]
+atlas = ExtResource("1_b1yas")
+region = Rect2(5, 132, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxiyy"]
+atlas = ExtResource("1_b1yas")
+region = Rect2(64, 136, 27, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx83d"]
+atlas = ExtResource("1_b1yas")
+region = Rect2(33, 136, 28, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wlw4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fvgf")
+}],
+"loop": true,
+"name": &"oneGold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxiyy")
+}],
+"loop": true,
+"name": &"tenGolds",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx83d")
+}],
+"loop": true,
+"name": &"threeGolds",
+"speed": 5.0
+}]
+
+[node name="Money" type="Area2D"]
+scale = Vector2(1.2, 1.2)
+collision_layer = 64
+script = ExtResource("1_62vjd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yx8by")
+
+[node name="goldAmount" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2wlw4")
+animation = &"threeGolds"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
