@@ -159,7 +159,6 @@ func _ready():
 	
 func _process(_delta):
 	player = Global.player
-	print("Money : ", player.money)
 	if player.pv <= 0:
 		player.player_death(animation)
 	setGlobal()
