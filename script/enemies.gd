@@ -19,6 +19,7 @@ func _ready():
 	enemy.animations = $animations
 	enemy.timer = $Timer
 	enemy.ray = ray
+	enemy.animations.play("idle")
 	
 func _physics_process(delta):
 	enemy.process(delta, self)
