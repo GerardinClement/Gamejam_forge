@@ -1,8 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://dk23hftmrd5n8"]
+[gd_scene load_steps=39 format=3 uid="uid://dk23hftmrd5n8"]
 
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_5ca8a"]
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_njbmb"]
-[ext_resource type="Texture2D" uid="uid://dpo3kohkf3y5x" path="res://Assets/Characters/Enemies/enemies x1_flipped.png" id="2_iijnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ojqj"]
 size = Vector2(15, 23)
@@ -103,22 +102,6 @@ region = Rect2(224, 193, 32, 32)
 atlas = ExtResource("1_njbmb")
 region = Rect2(256, 193, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tgpr6"]
-atlas = ExtResource("2_iijnq")
-region = Rect2(286, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_htdju"]
-atlas = ExtResource("2_iijnq")
-region = Rect2(254, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0g37c"]
-atlas = ExtResource("2_iijnq")
-region = Rect2(222, 256, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3ekf"]
-atlas = ExtResource("2_iijnq")
-region = Rect2(190, 256, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_q1822"]
 atlas = ExtResource("1_njbmb")
 region = Rect2(0, 257, 33, 32)
@@ -208,6 +191,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ay2qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2dgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0y30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2dgs")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ugo31")
 }, {
 "duration": 1.0,
@@ -247,23 +247,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"idleActivated",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tgpr6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_htdju")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0g37c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x3ekf")
-}],
-"loop": true,
-"name": &"moveLeft",
 "speed": 5.0
 }, {
 "frames": [{
@@ -318,7 +301,7 @@ shape = SubResource("RectangleShape2D_3ojqj")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lm8er")
-animation = &"death"
+animation = &"hit"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

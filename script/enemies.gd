@@ -19,6 +19,7 @@ func _ready():
 	enemy.animations = $animations
 	enemy.timer = $Timer
 	enemy.ray = ray
+	enemy.animations.play("idle")
 	
 func _physics_process(delta):
 	enemy.process(delta, self)
@@ -44,3 +45,6 @@ func chooseRandomEnemy():
 func _on_animations_animation_finished():
 	if $animations.animation == "death":
 		queue_free()
+
+	elif $animations.animation == "hit":
+		$animations.play("moveRight")

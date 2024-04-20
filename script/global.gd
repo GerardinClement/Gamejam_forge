@@ -19,7 +19,7 @@ const ennemies = {
 		"bulletSpeed": 200.0,
 	},
 	"human": {
-		"health": 25,
+		"health": 500,
 		"damage": 0.5,
 		"speed": 50,
 		"shootFrame": 1,
