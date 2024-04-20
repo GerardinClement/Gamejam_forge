@@ -55,7 +55,6 @@ func dropMoney():
 	var statEnemy = Global.ennemies[name]
 	var moneyDroped = moneyPath.instantiate()
 	
-	print("Money droped")
 	moneyDroped.goldAmount = statEnemy.goldAmount
 	moneyDroped.value = statEnemy.goldValue
 	moneyDroped.position = position
