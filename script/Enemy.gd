@@ -51,8 +51,7 @@ func chase_player(parent):
 
 	if !ray.is_colliding():
 		enemyDir = to_local(Global.playerPos)
-	
-	else:
+	elif Global.playerIsInForge:
 		for scent in Global.player.scent_trail:
 			ray.target_position = parent.to_local(scent.position)
 			ray.force_raycast_update()

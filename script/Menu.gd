@@ -19,7 +19,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_start_button_pressed():
 	animation_mecha.modulate.a = 0
 	animation_mecha_death.play("mecha_death")
@@ -29,8 +28,12 @@ func _on_start_button_pressed():
 func _on_Timer_timeout():
 	get_tree().change_scene_to_file("res://main.tscn")
 
-func _on_quit_button_pressed():
-	get_tree().quit()
+func _on_controls_button_pressed():
+	get_tree().change_scene_to_file("res://Controls.tscn")
 
 func _on_credits_button_pressed():
 	get_tree().change_scene_to_file("res://Credits.tscn")
+
+func _on_quit_button_pressed():
+	get_tree().quit()
+
