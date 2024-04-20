@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var is_destroyed = false
 const SPEED = 300.0
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -13,11 +14,12 @@ func _physics_process(_delta):
 	move_and_collide(velocity.normalized() * _delta * SPEED)
 
 func _on_area_2d_body_entered(body):
-	if body.name != "TileMap":
+	if body.name != "TileMap" && !is_destroyed:
 		body.enemy.takeDamage()
 	destroy_itself()
 	
 func destroy_itself():
+	is_destroyed = true
 	animated_sprite.play("impact")
 	if velocity.x < 0:
 		animated_sprite.flip_h = false

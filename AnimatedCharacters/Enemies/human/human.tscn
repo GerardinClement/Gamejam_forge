@@ -116,6 +116,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_5q02g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5q02g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinu5")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_p6iyx")
 }, {
 "duration": 1.0,
@@ -177,7 +194,9 @@ shape = SubResource("CapsuleShape2D_42g01")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lyqgq")
-animation = &"death"
+animation = &"hit"
+frame = 3
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
