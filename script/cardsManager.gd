@@ -37,6 +37,6 @@ func generate_card(name):
 	elif name == "mirror":
 		return Card.new("Mirror", "Shoot in back", "gadget", {"shootSide": ["back", "topBack", "top", "topForward", "bottom", "bottomBack", "bottomForward"]})
 	elif name == "flashMcqueen":
-		return Card.new("FlashMcqueen", "Focus. Speed. I am speed", "stats", {"speed": 10, "attack_speed": 0.33})
+		return Card.new("FlashMcqueen", "Focus. Speed. I am speed", "stats", {"speed": 2, "attack_speed": 0.33})
 	elif name == "theDevil":
 		return Card.new("TheDevil", "The devil", "stats", {"strength": 20, "pv_max": -2})
