@@ -48,7 +48,6 @@ class Player:
 		self.iframes = timerIframe
 	
 	func add_card(newCard):
-		print(newCard)
 		if count_number_of_card() == 6:
 			return 
 		newCard.applyEffects(self)
