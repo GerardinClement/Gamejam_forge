@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dh2npl7bcieu5"]
+[gd_scene load_steps=30 format=3 uid="uid://dh2npl7bcieu5"]
 
 [ext_resource type="Script" path="res://script/Key.gd" id="1_fplna"]
 [ext_resource type="Texture2D" uid="uid://deev8e0q3qrm6" path="res://Assets/key/key_32x32_24f.png" id="1_jcs0k"]
+[ext_resource type="AudioStream" uid="uid://ou6ni11evcdh" path="res://Assets/Sounds/Sparkle Sound Effect.mp3" id="3_nh7mq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jv13v"]
 
@@ -192,5 +193,11 @@ sprite_frames = SubResource("SpriteFrames_p1r5c")
 animation = &"key_anim"
 frame = 2
 frame_progress = 0.391954
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.25
+
+[node name="KeySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nh7mq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
