@@ -211,7 +211,7 @@ func move(_delta):
 
 func _on_animated_sprite_2d_animation_finished():
 	if animation.animation == "death":
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://GameOver.tscn")
 	
 func add_scent():
 	var scent = scent_scene.instantiate()
@@ -220,3 +220,4 @@ func add_scent():
 	
 	get_parent().add_child(scent)
 	player.scent_trail.push_front(scent)
+
