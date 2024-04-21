@@ -5118,7 +5118,13 @@ position = Vector2(768.508, 336.37)
 position = Vector2(-2221.58, 2577.16)
 
 [node name="Key" parent="." instance=ExtResource("5_hfq06")]
-position = Vector2(104.933, 67.4754)
+position = Vector2(-699.552, -1146.08)
 
 [node name="Key2" parent="." instance=ExtResource("5_hfq06")]
-position = Vector2(478.694, 66.4683)
+position = Vector2(-1243.2, 3456.35)
+
+[node name="Key3" parent="." instance=ExtResource("5_hfq06")]
+position = Vector2(2554.36, 2169.28)
+
+[node name="Key4" parent="." instance=ExtResource("5_hfq06")]
+position = Vector2(5699.35, 3493.62)
