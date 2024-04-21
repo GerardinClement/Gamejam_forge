@@ -24,14 +24,8 @@ func start_the_game():
 	card_manager = card_manager_scene.instantiate()
 	add_child(card_manager)
 	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
 	inventory_menu.hide()
 	Global.gameIsStart = true
-	
 	
 func _process(_delta):
 	if music && !music.playing:

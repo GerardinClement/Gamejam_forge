@@ -14,13 +14,7 @@ func _ready():
 	card_manager = card_manager_scene.instantiate()
 	add_child(card_manager)
 	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
-	Player.add_card(card_manager.generate_random_card(card_manager.cards))
 	inventory_menu.hide()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

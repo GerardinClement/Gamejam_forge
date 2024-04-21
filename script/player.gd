@@ -26,8 +26,8 @@ class Player:
 	var scent_trail = []
 		
 	func _init(playerAnimation, gui, timerIframe):
-		pv = 1
-		pv_max = 1
+		pv = 6
+		pv_max = 6
 		speed = 75
 		attack_speed = 2
 		strength = 25
@@ -197,13 +197,13 @@ func move(_delta):
 	$Node2D.look_at(get_global_mouse_position())
 	var mouseOffset = get_global_mouse_position() - self.position;
 	var direction = mouseOffset.normalized() * player.speed
-	if (mouseOffset.x < 5 and mouseOffset.x > -5):
-		animation.play("idle")
-		return
 	if direction.x > 0:
 		animation.flip_h = false
 	else:
 		animation.flip_h = true
+	if Input.is_action_pressed("rightClick"):
+		animation.play("idle")
+		return
 	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle":
 		animation.play("run")
 	velocity = direction * _delta * player.speed

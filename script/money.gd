@@ -1,9 +1,13 @@
 extends Area2D
 
 var rng = RandomNumberGenerator.new()
+var value = 0
+var goldAmount = 0
 
 func _ready():
 	$Timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
+	if value != 0:
+		$Gold.play(goldAmount)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
