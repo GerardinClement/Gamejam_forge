@@ -66,7 +66,7 @@ func checkName(oldName: String):
 	var newName = ""
 
 	for c in oldName:
-		if c > "0" && c < "9":
+		if c >= "0" && c <= "9":
 			continue
 		else:
 			newName += c

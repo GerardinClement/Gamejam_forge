@@ -643,17 +643,35 @@ offset_right = -334.0
 offset_bottom = -187.0
 scale = Vector2(0.578131, 0.578131)
 
-[node name="octopus" parent="." instance=ExtResource("8_k78ve")]
-position = Vector2(-28, 168)
-
-[node name="human" parent="." instance=ExtResource("9_qf0k0")]
-position = Vector2(-175, 586)
-
-[node name="mech" parent="." instance=ExtResource("10_d746t")]
-position = Vector2(219, 591)
-
 [node name="Chest" parent="." instance=ExtResource("11_07gvh")]
-position = Vector2(78, -126)
+position = Vector2(1613, 1901)
+
+[node name="Chest2" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(-616, 1913)
+
+[node name="Chest3" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(50, -114)
+
+[node name="Chest4" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(4017, -878)
+
+[node name="Chest5" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(-716, -1155)
+
+[node name="Chest6" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(856, 1088)
+
+[node name="Chest7" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(5404, 2613)
+
+[node name="Chest8" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(1404, 4016)
+
+[node name="Chest9" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(-2252, 3136)
+
+[node name="Chest10" parent="." instance=ExtResource("11_07gvh")]
+position = Vector2(3179, 2101)
 
 [node name="Doors" type="TileMap" parent="."]
 z_index = 20
@@ -661,5 +679,422 @@ tile_set = SubResource("TileSet_yc3ke")
 format = 2
 layer_0/tile_data = PackedInt32Array(458751, 2949121, 32, 393216, 3014657, 32, 1900543, 2949121, 32, 1835008, 3014657, 32, 3735551, 2949121, 32, 3670016, 3014657, 32, 5963795, 2949121, 32, 5963796, 3014657, 32, 5963817, 2949121, 32, 5963818, 3014657, 32, 11600003, 2949121, 32, 11600004, 2949121, 32, 20119623, 2949121, 32, 20119624, 3014657, 32, -65489, 2949121, 32, -65488, 3014657, 32)
 
-[node name="octopus2" parent="." instance=ExtResource("8_k78ve")]
-position = Vector2(-59, -48)
+[node name="OctopusEnemies" type="Node" parent="."]
+
+[node name="octopus2" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(32, 169)
+
+[node name="octopus" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(-28, 168)
+
+[node name="octopus3" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(1029, 2114)
+
+[node name="octopus4" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(1271, 2374)
+
+[node name="octopus5" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2342, 2446)
+
+[node name="octopus6" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2606, 2413)
+
+[node name="octopus7" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2614, 2594)
+
+[node name="octopus8" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2321, 2244)
+
+[node name="octopus9" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2275, 4363)
+
+[node name="octopus10" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(1978, 4599)
+
+[node name="octopus11" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2242, 4566)
+
+[node name="octopus12" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2250, 4747)
+
+[node name="octopus13" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(1957, 4397)
+
+[node name="octopus14" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2115, 3839)
+
+[node name="octopus15" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2108, 3576)
+
+[node name="octopus16" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2116, 3306)
+
+[node name="octopus17" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2359, 3050)
+
+[node name="octopus18" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2717, 3047)
+
+[node name="octopus19" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(3045, 3050)
+
+[node name="octopus20" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(3365, 3053)
+
+[node name="octopus21" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2044, 2994)
+
+[node name="octopus22" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2175, 2999)
+
+[node name="octopus23" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2050, 3082)
+
+[node name="octopus24" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(2181, 3085)
+
+[node name="octopus25" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(516, -865)
+
+[node name="octopus26" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(836, -862)
+
+[node name="octopus27" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(-485, -921)
+
+[node name="octopus28" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(-354, -916)
+
+[node name="octopus29" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(-479, -833)
+
+[node name="octopus30" parent="OctopusEnemies" instance=ExtResource("8_k78ve")]
+position = Vector2(-348, -830)
+
+[node name="MechEnemies" type="Node" parent="."]
+
+[node name="mech" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(-218, 2184)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech2" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(-200, 1326)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech3" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(1307, 1910)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech4" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(1610, 2168)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech5" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2679, 2124)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech6" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(3056, 2132)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech7" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2859, 2205)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech8" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(3918, 2937)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech9" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(3918, 3133)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech10" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(4274, 2937)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech11" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(4278, 3131)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech12" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2332, -865)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech13" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2631, -965)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech14" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2631, -769)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech15" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2987, -965)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech16" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2991, -771)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech17" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2584, 4186)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech18" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(1338, 4711)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech19" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(2767, 4726)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech20" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(1156, 5102)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech21" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(1040, 5315)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech22" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(1313, 5325)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech23" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(-1560, 3052)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech24" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(-950, 3047)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech25" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(-1913, 3095)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech26" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(-2029, 3308)
+scale = Vector2(1.5, 1.5)
+
+[node name="mech27" parent="MechEnemies" instance=ExtResource("10_d746t")]
+position = Vector2(-1756, 3318)
+scale = Vector2(1.5, 1.5)
+
+[node name="HumanEnemies" type="Node" parent="."]
+
+[node name="human" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-206, 563)
+
+[node name="human2" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(196, 579)
+
+[node name="human3" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(709, 2478)
+
+[node name="human4" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(315, 2680)
+
+[node name="human5" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(709, 2680)
+
+[node name="human6" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(315, 2470)
+
+[node name="human7" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1972, 2614)
+
+[node name="human8" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(2286, 2621)
+
+[node name="human9" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(2137, 2458)
+
+[node name="human10" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(2128, 2622)
+
+[node name="human41" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-1926, 2681)
+
+[node name="human42" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-1524, 2697)
+
+[node name="human43" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-1366, 3256)
+
+[node name="human44" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-1760, 3458)
+
+[node name="human45" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-1366, 3458)
+
+[node name="human46" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-1760, 3248)
+
+[node name="human47" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-278, 3235)
+
+[node name="human48" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(36, 3242)
+
+[node name="human49" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-113, 3079)
+
+[node name="human50" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-122, 3243)
+
+[node name="human11" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1911, 4132)
+
+[node name="human12" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(2313, 4148)
+
+[node name="human13" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1658, 4256)
+
+[node name="human14" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1264, 4458)
+
+[node name="human15" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1658, 4458)
+
+[node name="human16" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1264, 4248)
+
+[node name="human17" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(2654, 4475)
+
+[node name="human18" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(2968, 4482)
+
+[node name="human19" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(2819, 4319)
+
+[node name="human20" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(2810, 4483)
+
+[node name="human21" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5207, 2712)
+
+[node name="human22" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5609, 2728)
+
+[node name="human23" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5466, 3037)
+
+[node name="human24" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5072, 3239)
+
+[node name="human25" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5466, 3239)
+
+[node name="human26" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5072, 3029)
+
+[node name="human27" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(4574, 3388)
+
+[node name="human28" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(4888, 3395)
+
+[node name="human29" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(4739, 3232)
+
+[node name="human30" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(4730, 3396)
+
+[node name="human31" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(4545, 2743)
+
+[node name="human32" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(4947, 2759)
+
+[node name="human33" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(4292, 2867)
+
+[node name="human34" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(3898, 3069)
+
+[node name="human35" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(4292, 3069)
+
+[node name="human36" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(3898, 2859)
+
+[node name="human37" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5288, 3086)
+
+[node name="human38" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5602, 3093)
+
+[node name="human39" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5453, 2930)
+
+[node name="human40" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(5444, 3094)
+
+[node name="human51" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(264, -433)
+
+[node name="human52" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(79, -1086)
+
+[node name="human53" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(481, -1070)
+
+[node name="human54" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-174, -962)
+
+[node name="human55" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-568, -760)
+
+[node name="human56" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-174, -760)
+
+[node name="human57" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-568, -970)
+
+[node name="human58" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(822, -743)
+
+[node name="human59" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1136, -736)
+
+[node name="human60" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(987, -899)
+
+[node name="human61" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(978, -735)
+
+[node name="human62" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(321, -479)
+
+[node name="human63" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(136, -1132)
+
+[node name="human64" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(538, -1116)
+
+[node name="human65" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-117, -1008)
+
+[node name="human66" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-511, -806)
+
+[node name="human67" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-117, -806)
+
+[node name="human68" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(-511, -1016)
+
+[node name="human69" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(879, -789)
+
+[node name="human70" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1193, -782)
+
+[node name="human71" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1044, -945)
+
+[node name="human72" parent="HumanEnemies" instance=ExtResource("9_qf0k0")]
+position = Vector2(1035, -781)
