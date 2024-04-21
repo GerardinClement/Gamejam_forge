@@ -42,5 +42,14 @@ const ennemies = {
 		"bulletSpeed": 200.0,
 		"goldAmount": "tenGolds",
 		"goldValue": 10
-	},	
+	},
+	"boss": {
+		"health": 250,
+		"damage": 2,
+		"speed": 25,
+		"shootFrame": 3,
+		"bulletSpeed": 300.0,
+		"goldAmount": "tenGolds",
+		"goldValue": 10
+	}
 }

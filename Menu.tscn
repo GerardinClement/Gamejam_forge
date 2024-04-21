@@ -276,11 +276,12 @@ scale = Vector2(4.89077, 4.89077)
 sprite_frames = SubResource("SpriteFrames_06tnp")
 animation = &"background_animation"
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 2
 offset_left = -7.0
+offset_top = -11.0
 offset_right = 1145.0
-offset_bottom = 88.0
+offset_bottom = 77.0
 theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_shadow_color = Color(0.443137, 0.0627451, 0.25098, 1)
 theme_override_colors/font_outline_color = Color(0.607843, 0.0745098, 0.298039, 1)
@@ -289,8 +290,28 @@ theme_override_constants/shadow_offset_y = 15
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_bxvg7")
-theme_override_font_sizes/font_size = 75
-text = "Damien Cooper"
+theme_override_font_sizes/font_size = 65
+text = "Damian Cooper :
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 2
+offset_left = -7.0
+offset_top = 48.0
+offset_right = 1145.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
+theme_override_colors/font_shadow_color = Color(0.443137, 0.0627451, 0.25098, 1)
+theme_override_colors/font_outline_color = Color(0.607843, 0.0745098, 0.298039, 1)
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 15
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("2_bxvg7")
+theme_override_font_sizes/font_size = 50
+text = "the forge master"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -441,6 +462,11 @@ sprite_frames = SubResource("SpriteFrames_uhvp0")
 animation = &"target"
 
 [node name="Targets4" type="AnimatedSprite2D" parent="Targets"]
+position = Vector2(74, 19.3333)
+sprite_frames = SubResource("SpriteFrames_uhvp0")
+animation = &"target"
+
+[node name="Targets15" type="AnimatedSprite2D" parent="Targets"]
 position = Vector2(74, 19.3333)
 sprite_frames = SubResource("SpriteFrames_uhvp0")
 animation = &"target"
