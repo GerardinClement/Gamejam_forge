@@ -1,10 +1,9 @@
 extends Area2D
 
-var value
-var goldAmount
+var rng = RandomNumberGenerator.new()
 
 func _ready():
-	$goldAmount.play(goldAmount)
+	$Timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -13,5 +12,14 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		Global.player.money += value
-		queue_free()
+		$GoldSound.play()
+		$Gold.modulate.a = 0
+		$Timer.start()
+		$CollisionShape2D.disabled = true
+		
+func _on_Timer_timeout():
+	Global.playerMoney += rng.randi_range(1, 10)
+	print(Global.playerMoney)
+	queue_free()
+	
+

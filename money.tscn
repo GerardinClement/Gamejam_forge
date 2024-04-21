@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgs8bf3tblb52"]
+[gd_scene load_steps=9 format=3 uid="uid://dgs8bf3tblb52"]
 
 [ext_resource type="Script" path="res://script/money.gd" id="1_62vjd"]
 [ext_resource type="Texture2D" uid="uid://cnp0bp6r58r40" path="res://Assets/Collectables/Dungeon Collectables.png" id="1_b1yas"]
+[ext_resource type="AudioStream" uid="uid://bohsbfchs10te" path="res://Assets/Sounds/moneySound.mp3" id="3_1sxqh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx8by"]
 size = Vector2(22, 22)
@@ -54,8 +55,14 @@ script = ExtResource("1_62vjd")
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yx8by")
 
-[node name="goldAmount" type="AnimatedSprite2D" parent="."]
+[node name="Gold" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2wlw4")
 animation = &"threeGolds"
+
+[node name="GoldSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1sxqh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.25
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

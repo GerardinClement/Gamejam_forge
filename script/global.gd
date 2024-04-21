@@ -12,6 +12,7 @@ var playerKeys = 0
 var allKeys = 4
 var deathAnimationOver = false
 var deathSoundOver = false
+var playerMoney = 0
 
 #Array of ennemies
 const ennemies = {

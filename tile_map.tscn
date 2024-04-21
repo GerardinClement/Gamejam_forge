@@ -1,10 +1,11 @@
-[gd_scene load_steps=68 format=3 uid="uid://b1duj81xgtv76"]
+[gd_scene load_steps=69 format=3 uid="uid://b1duj81xgtv76"]
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
 [ext_resource type="PackedScene" uid="uid://dh2npl7bcieu5" path="res://Key.tscn" id="5_hfq06"]
 [ext_resource type="PackedScene" uid="uid://26tk0bshfbfv" path="res://Exit.tscn" id="5_sw7wm"]
 [ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="6_3o8f0"]
+[ext_resource type="PackedScene" uid="uid://dgs8bf3tblb52" path="res://money.tscn" id="6_nhrk4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
 tile_data = PackedInt32Array(0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1)
@@ -5132,3 +5133,12 @@ position = Vector2(2554.36, 2169.28)
 
 [node name="Key4" parent="." instance=ExtResource("5_hfq06")]
 position = Vector2(5695.35, 3500.67)
+
+[node name="Money" parent="." instance=ExtResource("6_nhrk4")]
+position = Vector2(127.918, -95.6741)
+
+[node name="Money2" parent="." instance=ExtResource("6_nhrk4")]
+position = Vector2(248.841, -277.958)
+
+[node name="Money3" parent="." instance=ExtResource("6_nhrk4")]
+position = Vector2(246.842, -155.093)
