@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=3 uid="uid://doidue44awv84"]
 
-[ext_resource type="Script" path="res://Controls.gd" id="1_d5vcc"]
+[ext_resource type="Script" path="res://script/Controls.gd" id="1_d5vcc"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="1_kcggt"]
 [ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_w2xh3"]
 [ext_resource type="Texture2D" uid="uid://cayklwksk8fca" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 01-yellow.png" id="3_ha3n3"]

@@ -19,7 +19,6 @@ func _on_body_entered(body):
 		
 func _on_Timer_timeout():
 	Global.playerMoney += rng.randi_range(1, 10)
-	print(Global.playerMoney)
 	queue_free()
 	
 

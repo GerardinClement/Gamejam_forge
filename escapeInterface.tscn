@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=3 uid="uid://3g7jqvgdnmr7"]
 
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="1_e8fju"]
-[ext_resource type="Script" path="res://escapeInterface.gd" id="1_oxmms"]
+[ext_resource type="Script" path="res://script/escapeInterface.gd" id="1_oxmms"]
 [ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_rf2h6"]
 [ext_resource type="Script" path="res://script/Resume.gd" id="3_dch1a"]
 [ext_resource type="Script" path="res://script/BackToMenuButton.gd" id="4_5fag0"]

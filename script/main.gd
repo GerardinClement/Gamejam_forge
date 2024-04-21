@@ -15,7 +15,7 @@ func _ready():
 	else:
 		Player = Global.player
 		if self.name != "Forge":
-			$Player.position = Global.lastPosition 
+			$Player.position = Global.lastPosition
 		else:
 			music = $Player.get_node("ForgeMusic")
 		music.play()
@@ -43,6 +43,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("Inventory"):
 		inventoryMenu()
 	if Input.is_action_just_pressed("EscapeMenu"):
+		Global.lastPosition = $Player.position
 		get_tree().change_scene_to_file("res://escapeInterface.tscn")
 		
 func inventoryMenu():
