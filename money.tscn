@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cnp0bp6r58r40" path="res://Assets/Collectables/Dungeon Collectables.png" id="1_b1yas"]
 [ext_resource type="AudioStream" uid="uid://bohsbfchs10te" path="res://Assets/Sounds/moneySound.mp3" id="3_1sxqh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ur2d0"]
-radius = 5.41667
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx8by"]
+size = Vector2(22, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5fvgf"]
 atlas = ExtResource("1_b1yas")
@@ -52,8 +52,8 @@ collision_layer = 64
 script = ExtResource("1_62vjd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.96046e-08)
-shape = SubResource("CircleShape2D_ur2d0")
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_yx8by")
 
 [node name="Gold" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2wlw4")

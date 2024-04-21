@@ -4,7 +4,8 @@ var enemy = name
 const moneyPath = preload("res://money.tscn")
 
 func _ready():
-	var statEnemy = Global.ennemies[name]
+	var newName = checkName(name)
+	var statEnemy = Global.ennemies[newName]
 	var ray = RayCast2D.new()
 	ray.set_collision_mask_value(4, true)
 	ray.set_collision_mask_value(1, false)
@@ -16,7 +17,7 @@ func _ready():
 	enemy.speed = statEnemy.speed
 	enemy.shootFrame = statEnemy.shootFrame
 	enemy.bulletSpeed = statEnemy.bulletSpeed
-	enemy.bulletPath = load("res://AnimatedCharacters/Enemies/" + self.name + "/Bullet.tscn")
+	enemy.bulletPath = load("res://AnimatedCharacters/Enemies/" + newName + "/Bullet.tscn")
 	enemy.animations = $animations
 	enemy.timer = $Timer
 	enemy.ray = ray
@@ -52,10 +53,22 @@ func _on_animations_animation_finished():
 		$animations.play("moveRight")
 
 func dropMoney():
-	var statEnemy = Global.ennemies[name]
+	var newName = checkName(name)
+	var statEnemy = Global.ennemies[newName]
 	var moneyDroped = moneyPath.instantiate()
 	
 	moneyDroped.goldAmount = statEnemy.goldAmount
 	moneyDroped.value = statEnemy.goldValue
 	moneyDroped.position = position
 	get_parent().add_child(moneyDroped)
+
+func checkName(oldName: String):
+	var newName = ""
+
+	for c in oldName:
+		if c > "0" && c < "9":
+			continue
+		else:
+			newName += c
+	
+	return newName

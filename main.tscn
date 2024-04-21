@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="5_h6o1h"]
 [ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="6_egpkk"]
 [ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="7_pjywa"]
-[ext_resource type="PackedScene" uid="uid://c83jt85vdtnf0" path="res://chestMenu.tscn" id="8_fq4ra"]
+[ext_resource type="PackedScene" path="res://chestMenu.tscn" id="8_fq4ra"]
 [ext_resource type="PackedScene" uid="uid://dk23hftmrd5n8" path="res://AnimatedCharacters/Enemies/octopus/octopus.tscn" id="8_k78ve"]
 [ext_resource type="PackedScene" uid="uid://cyhlud4i6s8kv" path="res://AnimatedCharacters/Enemies/human/human.tscn" id="9_qf0k0"]
 [ext_resource type="PackedScene" uid="uid://dl0fs76fenl5d" path="res://AnimatedCharacters/Enemies/mech/mech.tscn" id="10_d746t"]
-[ext_resource type="PackedScene" uid="uid://bkbuw7o13rxyr" path="res://chest.tscn" id="11_07gvh"]
+[ext_resource type="PackedScene" path="res://chest.tscn" id="11_07gvh"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="12_58rc5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbyie"]
@@ -660,3 +660,6 @@ z_index = 20
 tile_set = SubResource("TileSet_yc3ke")
 format = 2
 layer_0/tile_data = PackedInt32Array(458751, 2949121, 32, 393216, 3014657, 32, 1900543, 2949121, 32, 1835008, 3014657, 32, 3735551, 2949121, 32, 3670016, 3014657, 32, 5963795, 2949121, 32, 5963796, 3014657, 32, 5963817, 2949121, 32, 5963818, 3014657, 32, 11600003, 2949121, 32, 11600004, 2949121, 32, 20119623, 2949121, 32, 20119624, 3014657, 32, -65489, 2949121, 32, -65488, 3014657, 32)
+
+[node name="octopus2" parent="." instance=ExtResource("8_k78ve")]
+position = Vector2(-59, -48)

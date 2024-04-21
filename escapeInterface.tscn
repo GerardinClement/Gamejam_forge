@@ -250,10 +250,10 @@ vertical_alignment = 1
 
 [node name="Controls" type="Label" parent="."]
 layout_mode = 0
-offset_left = 62.0
-offset_top = 75.0
-offset_right = 1215.0
-offset_bottom = 126.0
+offset_left = 77.0
+offset_top = 35.0
+offset_right = 1230.0
+offset_bottom = 86.0
 theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -268,9 +268,9 @@ vertical_alignment = 1
 [node name="Interact" type="Label" parent="."]
 layout_mode = 0
 offset_left = 190.0
-offset_top = 135.0
+offset_top = 98.0
 offset_right = 1134.0
-offset_bottom = 186.0
+offset_bottom = 149.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -285,9 +285,9 @@ vertical_alignment = 1
 [node name="Inventory" type="Label" parent="."]
 layout_mode = 0
 offset_left = 190.0
-offset_top = 197.0
+offset_top = 153.0
 offset_right = 1134.0
-offset_bottom = 248.0
+offset_bottom = 204.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -301,10 +301,10 @@ vertical_alignment = 1
 
 [node name="Tips" type="Label" parent="."]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 260.0
-offset_right = 1134.0
-offset_bottom = 311.0
+offset_left = 188.0
+offset_top = 258.0
+offset_right = 1132.0
+offset_bottom = 309.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -423,6 +423,22 @@ sprite_frames = SubResource("SpriteFrames_54q4v")
 animation = &"key_anim"
 frame = 19
 frame_progress = 0.241178
+
+[node name="Inventory2" type="Label" parent="."]
+offset_left = 188.0
+offset_top = 208.0
+offset_right = 1132.0
+offset_bottom = 259.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_rf2h6")
+theme_override_font_sizes/font_size = 35
+text = "Stop moving :        Right click"
+vertical_alignment = 1
 
 [connection signal="pressed" from="ResumeButton" to="ResumeButton" method="_on_pressed"]
 [connection signal="pressed" from="BackToMenuButton" to="ResumeButton" method="_on_back_to_menu_button_pressed"]

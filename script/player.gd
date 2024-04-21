@@ -71,7 +71,7 @@ class Player:
 	func player_death(animatedSprite):
 		if animatedSprite.animation == "death":
 			return
-
+	
 		Global.playerIsDead = true
 		animatedSprite.play("death")
 		
