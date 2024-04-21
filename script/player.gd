@@ -183,7 +183,7 @@ func setGlobal():
 	Global.player = player
 	
 func shoot():
-	if animation.animation == "death":
+	if animation.animation == "death" || Global.playerIsInForge:
 		return
 		
 	animation.play("shoot")
