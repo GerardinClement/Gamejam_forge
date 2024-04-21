@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://druavmkwql20o"]
+[gd_scene load_steps=4 format=3 uid="uid://druavmkwql20o"]
 
 [ext_resource type="Texture2D" uid="uid://cgy4c86eltss8" path="res://Assets/Interface/FullHeart.png" id="1_bgbcl"]
 [ext_resource type="Script" path="res://script/gui.gd" id="1_q3sno"]
+[ext_resource type="Texture2D" uid="uid://ddb7pp508y1mb" path="res://Assets/Collectables/coins.png" id="3_u1oqe"]
 
 [node name="InGame" type="Control"]
 layout_mode = 3
@@ -26,3 +27,11 @@ offset_bottom = 14.0
 grow_vertical = 0
 scale = Vector2(0.689866, 0.589463)
 texture = ExtResource("1_bgbcl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 15
+position = Vector2(881, 64)
+scale = Vector2(7.63461, 7.68215)
+texture = ExtResource("3_u1oqe")
+region_enabled = true
+region_rect = Rect2(0, 0, 17.2653, 16)

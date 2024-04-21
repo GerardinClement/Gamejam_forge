@@ -7,6 +7,7 @@ extends Control
 @onready var emptyHeart = preload("res://Assets/Interface/emptyHeart.png")
 @onready var shield = preload("res://Assets/Interface/shield.png")
 
+	
 func display_life(player):
 	remove_life()
 	var textureRect = self.get_child(0)
@@ -27,10 +28,12 @@ func display_life(player):
 func remove_life():
 	var childCount = self.get_child_count()
 	for i in childCount:
-		if i == 0:
-			pass
-		self.get_child(i).queue_free()
+		if i != 0 and get_child(i).name != "Sprite2D":
+			self.get_child(i).queue_free()
 	
 
-func _process(delta):
-	pass
+func display_money():
+	var nouveau_label = Label.new()
+	nouveau_label.text = str(Global.player.money)
+	$Sprite2D.visible = true
+	$Sprite2D.add_child(nouveau_label)

@@ -164,6 +164,7 @@ func _process(_delta):
 	if player.pv <= 0:
 		player.player_death(animation)
 	setGlobal()
+	player.gui.display_money()
 	if Global.pause != isPause and !Global.pause:
 		$Shoot.start()
 	if $Shoot.is_stopped() and !Global.pause:
