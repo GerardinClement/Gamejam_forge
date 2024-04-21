@@ -50,23 +50,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_bkx21")
 text = "Back to main menu"
 script = ExtResource("1_fo27m")
 
-[node name="AssetsTitle" type="Label" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 304.0
-offset_right = 1152.0
-offset_bottom = 339.0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("1_3x54i")
-theme_override_font_sizes/font_size = 35
-text = "Assets"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TeamTitle" type="Label" parent="."]
 layout_mode = 0
 offset_left = -1.0
@@ -84,24 +67,6 @@ text = "A game created by"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AssetsText" type="Label" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 365.0
-offset_right = 1154.0
-offset_bottom = 478.0
-theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_2wl1r")
-theme_override_font_sizes/font_size = 25
-text = "Thanks to :
-Pupkin (global theme)
-Finnmercury (Interface)
-Dettamada (cards)
-Frakassets (keys)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TeamText" type="Label" parent="."]
 layout_mode = 0
 offset_left = -1.0
@@ -115,6 +80,42 @@ theme_override_font_sizes/font_size = 25
 text = "Clément Gérardin
 maxime thibault
 léo boulatrous"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AssetsTitle" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 304.0
+offset_right = 1152.0
+offset_bottom = 339.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_3x54i")
+theme_override_font_sizes/font_size = 35
+text = "Assets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AssetsText" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 365.0
+offset_right = 1154.0
+offset_bottom = 507.0
+theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2wl1r")
+theme_override_font_sizes/font_size = 25
+text = "Thanks to :
+Pupkin (global theme)
+Finnmercury (Interface)
+Dettamada (cards)
+Frakassets (keys)
+Osterga (main theme)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
