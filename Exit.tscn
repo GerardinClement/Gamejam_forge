@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bexwh0b37mhv4"]
 
 [ext_resource type="Texture2D" uid="uid://cayklwksk8fca" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 01-yellow.png" id="1_pfdxs"]
-[ext_resource type="Script" path="res://Exit.gd" id="1_ukaq1"]
+[ext_resource type="Script" path="res://script/Exit.gd" id="1_ukaq1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_epa2n"]
 radius = 20.0

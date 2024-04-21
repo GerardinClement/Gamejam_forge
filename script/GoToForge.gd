@@ -15,8 +15,12 @@ func _on_body_entered(body):
 	if body.name != "Player":
 		return
 	if Global.playerIsInForge == false:
+		body.get_node("Music").stop()
+		body.get_node("ForgeMusic").play()
 		go_to_forge()
 	else:
+		body.get_node("ForgeMusic").stop()
+		body.get_node("Music").play()
 		exit_forge()
 		
 func go_to_forge():

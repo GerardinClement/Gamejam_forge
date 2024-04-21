@@ -2,10 +2,12 @@ extends Node2D
 
 @onready var inventory_menu = $Player/Camera2D/InventoryMenu
 @onready var Player = $Player.player
+var music
 var card_manager_scene = preload("res://cardsManager.tscn")
 var card_manager
 
 func _ready():
+	music = $Player.get_node("Music")
 	var card_manager_scene = preload("res://cardsManager.tscn")
 	inventory_menu.hide()
 	if not Global.gameIsStart:
@@ -14,6 +16,9 @@ func _ready():
 		Player = Global.player
 		if self.name != "Forge":
 			$Player.position = Global.lastPosition 
+		else:
+			music = $Player.get_node("ForgeMusic")
+		music.play()
 
 func start_the_game():
 	card_manager = card_manager_scene.instantiate()
@@ -29,6 +34,8 @@ func start_the_game():
 	
 	
 func _process(_delta):
+	if music && !music.playing:
+		music.play()
 	if Input.is_action_just_pressed("Inventory"):
 		inventoryMenu()
 	if Input.is_action_just_pressed("EscapeMenu"):

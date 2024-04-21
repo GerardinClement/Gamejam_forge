@@ -69,6 +69,9 @@ class Player:
 		iframes.start()
 
 	func player_death(animatedSprite):
+		if animatedSprite.animation == "death":
+			return
+
 		animatedSprite.play("death")
 		Global.playerIsDead = true
 		
@@ -181,6 +184,7 @@ func setGlobal():
 	
 func shoot():
 	animation.play("shoot")
+	$LaserSound.play()
 	player.shoot(self.get_parent(), $Node2D/Marker2D, animation.flip_h)
 	if player.attack_speed > 0:
 		$Shoot.wait_time = player.attack_speed

@@ -1,7 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bghlfveoqowne"]
+[gd_scene load_steps=28 format=3 uid="uid://bghlfveoqowne"]
 
 [ext_resource type="Texture2D" uid="uid://df2xye4npxgco" path="res://Assets/Characters/players blue x3.png" id="1_obtna"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_yfuhs"]
+[ext_resource type="AudioStream" uid="uid://csxtf8qhsh3r8" path="res://Assets/Sounds/Laser.wav" id="3_op4cg"]
+[ext_resource type="AudioStream" uid="uid://b5rccu4wwa4n5" path="res://Assets/Sounds/overdrive-matrika-main-version-03-04-11688.mp3" id="4_lpr1u"]
+[ext_resource type="AudioStream" uid="uid://bfn3f5wifovns" path="res://Assets/Sounds/nostalgic-bossa-christian-larssen-main-version-10612-03-18.mp3" id="5_jbp4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwbjh"]
 size = Vector2(16, 27.9799)
@@ -222,6 +225,18 @@ one_shot = true
 [node name="ScentTimer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_op4cg")
+volume_db = -10.0
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lpr1u")
+volume_db = -10.0
+
+[node name="ForgeMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jbp4m")
+volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
