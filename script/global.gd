@@ -8,6 +8,8 @@ var player = null
 var pause = false
 var playerIsDead = false
 var playerIsInForge = false
+var deathAnimationOver = false
+var deathSoundOver = false
 
 #Array of ennemies
 const ennemies = {

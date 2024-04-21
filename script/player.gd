@@ -26,8 +26,8 @@ class Player:
 	var scent_trail = []
 		
 	func _init(playerAnimation, gui, timerIframe):
-		pv = 6
-		pv_max = 6
+		pv = 1
+		pv_max = 1
 		speed = 75
 		attack_speed = 2
 		strength = 25
@@ -69,8 +69,11 @@ class Player:
 		iframes.start()
 
 	func player_death(animatedSprite):
-		animatedSprite.play("death")
+		if animatedSprite.animation == "death":
+			return
+
 		Global.playerIsDead = true
+		animatedSprite.play("death")
 		
 	func shoot(parent, marker2d, lookLeft):
 		for side in shootSide:
@@ -180,7 +183,11 @@ func setGlobal():
 	Global.player = player
 	
 func shoot():
+	if animation.animation == "death" || Global.playerIsInForge:
+		return
+		
 	animation.play("shoot")
+	$LaserSound.play()
 	player.shoot(self.get_parent(), $Node2D/Marker2D, animation.flip_h)
 	if player.attack_speed > 0:
 		$Shoot.wait_time = player.attack_speed
