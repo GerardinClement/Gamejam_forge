@@ -48,6 +48,7 @@ class Player:
 		self.iframes = timerIframe
 	
 	func add_card(newCard):
+		print(newCard)
 		if count_number_of_card() == 6:
 			return 
 		newCard.applyEffects(self)
@@ -56,7 +57,6 @@ class Player:
 		else:
 			cards[newCard.name].append(newCard)
 		gui.display_life(self)
-		print("new card:", newCard.name)
 		
 	func take_damage(bullet):
 		if !iframes.is_stopped():
