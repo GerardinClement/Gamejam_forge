@@ -36,6 +36,10 @@ func start_the_game():
 func _process(_delta):
 	if music && !music.playing:
 		music.play()
+	if Global.playerIsDead:
+		music.stop()
+		if !$Player.get_node("DeathSound").playing:
+			$Player.get_node("DeathSound").play()
 	if Input.is_action_just_pressed("Inventory"):
 		inventoryMenu()
 	if Input.is_action_just_pressed("EscapeMenu"):

@@ -15,11 +15,11 @@ func load_cards():
 	var flashMcqueen = Card.new("FlashMcqueen", "Focus. Speed. I am speed", "stats", {"speed": 10, "attack_speed": 0.33})
 	var mirror = Card.new("Mirror", "Shoot in back", "gadget", {"shootSide": ["back", "topBack", "top", "topForward", "bottom", "bottomBack", "bottomForward"]})
 	
-	cards["firstOne"] = firstOne
-	cards["health+"] = heal
+	#cards["firstOne"] = firstOne
+	#cards["health+"] = heal
 	cards["mirror"] = mirror
 	cards["flashMcqueen"] = flashMcqueen
-	cards["theDevil"] = theDevil
+	#cards["theDevil"] = theDevil
 	Global.allCards = cards
 	
 func generate_random_card(deck):
