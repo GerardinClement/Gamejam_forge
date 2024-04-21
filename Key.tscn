@@ -189,6 +189,8 @@ script = ExtResource("1_fplna")
 shape = SubResource("CircleShape2D_jv13v")
 
 [node name="KeyAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.98023e-07, 3.57628e-07)
+scale = Vector2(0.6875, 0.6875)
 sprite_frames = SubResource("SpriteFrames_p1r5c")
 animation = &"key_anim"
 frame = 2
