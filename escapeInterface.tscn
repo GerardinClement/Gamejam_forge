@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://3g7jqvgdnmr7"]
+[gd_scene load_steps=40 format=3 uid="uid://3g7jqvgdnmr7"]
 
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="1_e8fju"]
+[ext_resource type="Script" path="res://script/escapeInterface.gd" id="1_oxmms"]
 [ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_rf2h6"]
 [ext_resource type="Script" path="res://script/Resume.gd" id="3_dch1a"]
 [ext_resource type="Script" path="res://script/BackToMenuButton.gd" id="4_5fag0"]
 [ext_resource type="Texture2D" uid="uid://cayklwksk8fca" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 01-yellow.png" id="4_mo4js"]
 [ext_resource type="Texture2D" uid="uid://e8a403a5gbw0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 04-yellow.png" id="5_76v0a"]
+[ext_resource type="Texture2D" uid="uid://deev8e0q3qrm6" path="res://Assets/key/key_32x32_24f.png" id="7_y33wp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0fgsx"]
 
@@ -41,9 +43,186 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhonq"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uqir"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoqhs"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjcf4"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q7me"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vf7l"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15orv"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6dyv"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7x0r"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqewj"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k1wf"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7rm1"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22vkk"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8b1o"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlxiw"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4hy5"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjq1s"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_speya"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpbae"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu5ob"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(608, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrr5d"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(640, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ucgm"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(672, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyvly"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(704, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b743j"]
+atlas = ExtResource("7_y33wp")
+region = Rect2(736, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_54q4v"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_xhonq")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1uqir")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qoqhs")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_hjcf4")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0q7me")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1vf7l")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_15orv")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n6dyv")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_i7x0r")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_eqewj")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4k1wf")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_d7rm1")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_22vkk")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_x8b1o")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_dlxiw")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_r4hy5")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gjq1s")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_speya")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tpbae")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_uu5ob")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lrr5d")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1ucgm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_yyvly")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_b743j")
+}],
+"loop": true,
+"name": &"key_anim",
+"speed": 5.0
+}]
+
 [node name="EscapeInterface" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_oxmms")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -255
@@ -72,9 +251,9 @@ vertical_alignment = 1
 [node name="Controls" type="Label" parent="."]
 layout_mode = 0
 offset_left = 62.0
-offset_top = 89.0
+offset_top = 75.0
 offset_right = 1215.0
-offset_bottom = 140.0
+offset_bottom = 126.0
 theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -89,9 +268,9 @@ vertical_alignment = 1
 [node name="Interact" type="Label" parent="."]
 layout_mode = 0
 offset_left = 190.0
-offset_top = 166.0
+offset_top = 135.0
 offset_right = 1134.0
-offset_bottom = 217.0
+offset_bottom = 186.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -106,9 +285,9 @@ vertical_alignment = 1
 [node name="Inventory" type="Label" parent="."]
 layout_mode = 0
 offset_left = 190.0
-offset_top = 228.0
+offset_top = 197.0
 offset_right = 1134.0
-offset_bottom = 279.0
+offset_bottom = 248.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -123,9 +302,9 @@ vertical_alignment = 1
 [node name="Tips" type="Label" parent="."]
 layout_mode = 0
 offset_left = 190.0
-offset_top = 291.0
+offset_top = 260.0
 offset_right = 1134.0
-offset_bottom = 342.0
+offset_bottom = 311.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -139,10 +318,10 @@ vertical_alignment = 1
 
 [node name="TipExit" type="Label" parent="."]
 layout_mode = 0
-offset_left = 313.0
-offset_top = 340.0
-offset_right = 811.0
-offset_bottom = 391.0
+offset_left = 261.0
+offset_top = 315.75
+offset_right = 759.0
+offset_bottom = 366.75
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -156,10 +335,10 @@ vertical_alignment = 1
 
 [node name="TipBlacksmith" type="Label" parent="."]
 layout_mode = 0
-offset_left = 312.0
-offset_top = 410.0
-offset_right = 1017.0
-offset_bottom = 461.0
+offset_left = 260.0
+offset_top = 372.75
+offset_right = 965.0
+offset_bottom = 423.75
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -171,11 +350,28 @@ theme_override_font_sizes/font_size = 30
 text = "look for the blacksmith !"
 vertical_alignment = 1
 
+[node name="TipKeys" type="Label" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 429.75
+offset_right = 965.0
+offset_bottom = 480.75
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_rf2h6")
+theme_override_font_sizes/font_size = 30
+text = "look for the keys !"
+vertical_alignment = 1
+
 [node name="ResumeButton" type="Button" parent="."]
 layout_mode = 0
-offset_top = 481.0
+offset_top = 504.0
 offset_right = 1152.0
-offset_bottom = 576.0
+offset_bottom = 599.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -191,9 +387,9 @@ script = ExtResource("3_dch1a")
 
 [node name="BackToMenuButton" type="Button" parent="."]
 layout_mode = 0
-offset_top = 557.0
+offset_top = 570.0
 offset_right = 1151.0
-offset_bottom = 648.0
+offset_bottom = 661.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -210,15 +406,23 @@ script = ExtResource("4_5fag0")
 
 [node name="Exit" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.156863, 0.952941, 0.478431, 1)
-position = Vector2(1071, 360)
+position = Vector2(1017, 337)
 scale = Vector2(2.92105, 2.92105)
 sprite_frames = SubResource("SpriteFrames_3pdgb")
 animation = &"exit"
 
 [node name="Blacksmith" type="AnimatedSprite2D" parent="."]
-position = Vector2(1071, 434)
+position = Vector2(1017, 396)
 scale = Vector2(2.92105, 2.92105)
 sprite_frames = SubResource("SpriteFrames_w33pb")
+
+[node name="Key" type="AnimatedSprite2D" parent="."]
+position = Vector2(1020, 459)
+scale = Vector2(1.6875, 1.6875)
+sprite_frames = SubResource("SpriteFrames_54q4v")
+animation = &"key_anim"
+frame = 19
+frame_progress = 0.241178
 
 [connection signal="pressed" from="ResumeButton" to="ResumeButton" method="_on_pressed"]
 [connection signal="pressed" from="BackToMenuButton" to="ResumeButton" method="_on_back_to_menu_button_pressed"]

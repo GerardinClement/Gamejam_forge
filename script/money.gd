@@ -16,16 +16,13 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
+		Global.playerMoney += rng.randi_range(1, 10)
+		$CollisionShape2D.disabled = true
 		$GoldSound.play()
 		$Gold.modulate.a = 0
 		$Timer.start()
-		$CollisionShape2D.disabled = true
 		
 func _on_Timer_timeout():
-	if value != 0:
-		Global.playerMoney += value
-	else:
-		Global.playerMoney += rng.randi_range(1, 10)
 	queue_free()
 	
 

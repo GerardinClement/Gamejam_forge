@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://doidue44awv84"]
+[gd_scene load_steps=38 format=3 uid="uid://doidue44awv84"]
 
+[ext_resource type="Script" path="res://script/Controls.gd" id="1_d5vcc"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="1_kcggt"]
 [ext_resource type="FontFile" uid="uid://ds5prrng070ny" path="res://Assets/Fonts/paladins/paladinssemiital.ttf" id="2_w2xh3"]
 [ext_resource type="Texture2D" uid="uid://cayklwksk8fca" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 01-yellow.png" id="3_ha3n3"]
 [ext_resource type="Texture2D" uid="uid://e8a403a5gbw0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Loaders/yellow/Loading Sprite 04-yellow.png" id="4_1rims"]
+[ext_resource type="Texture2D" uid="uid://deev8e0q3qrm6" path="res://Assets/key/key_32x32_24f.png" id="5_5gcab"]
 [ext_resource type="Script" path="res://script/BackToMenuButton.gd" id="5_pvqbp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2d3e8"]
@@ -36,11 +38,188 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhonq"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uqir"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoqhs"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjcf4"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q7me"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vf7l"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15orv"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6dyv"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7x0r"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqewj"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k1wf"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7rm1"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22vkk"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8b1o"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(416, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlxiw"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(448, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4hy5"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(480, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjq1s"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(512, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_speya"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(544, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpbae"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(576, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu5ob"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(608, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrr5d"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(640, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ucgm"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(672, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyvly"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(704, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b743j"]
+atlas = ExtResource("5_5gcab")
+region = Rect2(736, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2coj"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_xhonq")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1uqir")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_qoqhs")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_hjcf4")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_0q7me")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1vf7l")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_15orv")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_n6dyv")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_i7x0r")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_eqewj")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4k1wf")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_d7rm1")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_22vkk")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_x8b1o")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_dlxiw")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_r4hy5")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gjq1s")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_speya")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tpbae")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_uu5ob")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lrr5d")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1ucgm")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_yyvly")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_b743j")
+}],
+"loop": true,
+"name": &"key_anim",
+"speed": 5.0
+}]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gyfqs"]
 
 [node name="Controls" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_d5vcc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -255
@@ -51,9 +230,9 @@ color = Color(0.286275, 0.329412, 0.470588, 1)
 
 [node name="Controls" type="Label" parent="."]
 layout_mode = 0
-offset_top = 45.0
+offset_top = 20.0
 offset_right = 1153.0
-offset_bottom = 96.0
+offset_bottom = 71.0
 theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -69,10 +248,10 @@ vertical_alignment = 1
 
 [node name="Interact" type="Label" parent="."]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 162.0
-offset_right = 1022.0
-offset_bottom = 213.0
+offset_left = 80.0
+offset_top = 86.0
+offset_right = 1024.0
+offset_bottom = 137.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -86,10 +265,10 @@ vertical_alignment = 1
 
 [node name="Inventory" type="Label" parent="."]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 232.0
-offset_right = 1022.0
-offset_bottom = 283.0
+offset_left = 80.0
+offset_top = 156.0
+offset_right = 1024.0
+offset_bottom = 207.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -103,10 +282,10 @@ vertical_alignment = 1
 
 [node name="Tips" type="Label" parent="."]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 303.0
-offset_right = 1022.0
-offset_bottom = 354.0
+offset_left = 80.0
+offset_top = 227.0
+offset_right = 1024.0
+offset_bottom = 278.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -120,10 +299,10 @@ vertical_alignment = 1
 
 [node name="TipExit" type="Label" parent="."]
 layout_mode = 0
-offset_left = 162.0
-offset_top = 372.0
-offset_right = 708.0
-offset_bottom = 423.0
+offset_left = 164.0
+offset_top = 296.0
+offset_right = 710.0
+offset_bottom = 347.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -137,10 +316,10 @@ vertical_alignment = 1
 
 [node name="TipBlacksmith" type="Label" parent="."]
 layout_mode = 0
-offset_left = 161.0
-offset_top = 442.0
-offset_right = 926.0
-offset_bottom = 493.0
+offset_left = 163.0
+offset_top = 366.0
+offset_right = 928.0
+offset_bottom = 417.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -152,17 +331,39 @@ theme_override_font_sizes/font_size = 35
 text = "look for the blacksmith !"
 vertical_alignment = 1
 
+[node name="TipKeys" type="Label" parent="."]
+offset_left = 164.0
+offset_top = 434.0
+offset_right = 869.0
+offset_bottom = 485.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("2_w2xh3")
+theme_override_font_sizes/font_size = 35
+text = "look for the keys !"
+vertical_alignment = 1
+
 [node name="Exit" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.156863, 0.952941, 0.478431, 1)
-position = Vector2(1015.75, 389.75)
+position = Vector2(1017.75, 313.75)
 scale = Vector2(2.92105, 2.92105)
 sprite_frames = SubResource("SpriteFrames_pkxjf")
 animation = &"exit"
 
 [node name="Blacksmith" type="AnimatedSprite2D" parent="."]
-position = Vector2(1015.75, 463.75)
+position = Vector2(1017.75, 387.75)
 scale = Vector2(2.92105, 2.92105)
 sprite_frames = SubResource("SpriteFrames_hmll7")
+
+[node name="Key" type="AnimatedSprite2D" parent="."]
+position = Vector2(1020, 459)
+scale = Vector2(1.6875, 1.6875)
+sprite_frames = SubResource("SpriteFrames_p2coj")
+animation = &"key_anim"
 
 [node name="BackToMenu" type="Button" parent="."]
 layout_mode = 0

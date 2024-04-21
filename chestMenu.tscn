@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c83jt85vdtnf0"]
+[gd_scene load_steps=4 format=3 uid="uid://c83jt85vdtnf0"]
 
 [ext_resource type="Script" path="res://script/chestMenu.gd" id="1_xwhum"]
+[ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="2_xdk2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmndy"]
 
 [node name="ChestMenu" type="Control"]
 layout_mode = 3
@@ -25,13 +28,24 @@ scale = Vector2(5.35681, 0.264263)
 position = Vector2(883, 313)
 scale = Vector2(5.35681, 0.264263)
 
-[node name="Button" type="Button" parent="."]
+[node name="SkipButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1006.0
-offset_top = 573.0
-offset_right = 1048.0
-offset_bottom = 604.0
+offset_left = 833.0
+offset_top = 543.0
+offset_right = 960.0
+offset_bottom = 582.0
 scale = Vector2(2.15138, 1.55506)
-text = "SKIP"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.156863, 0.94902, 0.215686, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_xdk2g")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cmndy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_cmndy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_cmndy")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_cmndy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cmndy")
+text = "SKIP "
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_button_pressed"]
