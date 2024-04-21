@@ -14,4 +14,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	Global.playerKeys += 1
-	animation_key.modulate.a = 0
+	queue_free()

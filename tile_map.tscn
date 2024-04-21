@@ -1,7 +1,8 @@
-[gd_scene load_steps=67 format=3 uid="uid://b1duj81xgtv76"]
+[gd_scene load_steps=68 format=3 uid="uid://b1duj81xgtv76"]
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
+[ext_resource type="PackedScene" uid="uid://dh2npl7bcieu5" path="res://Key.tscn" id="5_hfq06"]
 [ext_resource type="PackedScene" uid="uid://26tk0bshfbfv" path="res://Exit.tscn" id="5_sw7wm"]
 [ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="6_3o8f0"]
 
@@ -5109,10 +5110,15 @@ position = Vector2(1152.26, 5376.89)
 
 [node name="GoToForge" parent="." instance=ExtResource("6_3o8f0")]
 position = Vector2(-504.678, 1302.18)
-scale = Vector2(1, 1)
 
 [node name="GoToForge2" parent="." instance=ExtResource("6_3o8f0")]
 position = Vector2(768.508, 336.37)
 
 [node name="GoToForge3" parent="." instance=ExtResource("6_3o8f0")]
 position = Vector2(-2221.58, 2577.16)
+
+[node name="Key" parent="." instance=ExtResource("5_hfq06")]
+position = Vector2(104.933, 67.4754)
+
+[node name="Key2" parent="." instance=ExtResource("5_hfq06")]
+position = Vector2(478.694, 66.4683)

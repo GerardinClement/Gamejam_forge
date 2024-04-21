@@ -599,6 +599,7 @@ script = ExtResource("1_g3bdo")
 
 [node name="Player" parent="." instance=ExtResource("3_keqr3")]
 process_priority = 2
+z_index = 12
 position = Vector2(7, -34)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
