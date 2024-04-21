@@ -6,6 +6,8 @@ extends Control
 @onready var cardManager = CardManager.new()
 @onready var dropable1 = $Dropable
 @onready var dropable2 = $Dropable2
+@onready var priceLabel = $price
+var price = 0
 var Instance = preload("res://script/createInstance.gd").new()
 var Merge = preload("res://script/mergeCards.gd").new()
 
@@ -16,28 +18,35 @@ func displayShop():
 	var size = self.size
 	var i = 0
 	
-	for key in shop:
-		for x in Global.player.occurenceCard[key]:
+	for cardsArray in Global.player.cards.values():
+		for card in cardsArray:
 			var marker = self.get_child(i + 1)
-			Instance.create_card(self, shop[key], marker.position, false)
+			Instance.create_card(self, card, marker.position, false)
 			i += 1
 		
 func add_to_dropable(card):
 	if not card.isStored:
 		if not dropable1.cardIsOn:
+			price += card.card.level * 5
 			dropable1.add_card(card, dropable1.position)
 		elif not dropable2.cardIsOn:
+			price += card.card.level * 5
 			dropable2.add_card(card, dropable2.position)
 	else:
 		if card.dropableZoneName == "Dropable":
+			price -= card.card.level * 5
 			dropable1.remove_card()
 		else:
+			price -= card.card.level * 5
 			dropable2.remove_card()
+	priceLabel.text = str(price) + " Simflouz"
 
 func open(shopCards):
 	shop = shopCards
 	animatedSprite.play("default")
 	
+func _process(_delta):
+	priceLabel.text = str(price) + " Simflouz"
 
 func _on_animated_sprite_2d_2_animation_finished():
 	displayShop()
@@ -47,6 +56,10 @@ func animate_forge_success(pos: Vector2, card_instance):
 	card_instance.forge_animation(dropable1.initialPosCard)
 	
 func forge():
+	if Global.player.money < self.price:
+		return
+	Global.player.money -= self.price
+	price = 0
 	var mergeCard = Merge.merge_cards(dropable1.cardOn.card, dropable2.cardOn.card)
 	Global.player.add_card(mergeCard)
 	var card_instance = Instance.create_card(self, mergeCard, dropable1.position, true)
@@ -61,6 +74,7 @@ func _on_button_pressed():
 		forge()
 
 func close():
+	price = 0
 	dropable1.remove_card()
 	dropable2.remove_card()
 	var count = self.get_child_count()

@@ -11,8 +11,8 @@ func displayPlayerCards(player):
 	var left_position = viewport_rect.size.x / 2
 
 	var i = 0
-	for card in player.cards.values():
-		for x in player.occurenceCard[card.name]:
+	for cardsArray in player.cards.values():
+		for card in cardsArray:
 			var marker = self.markersNode.get_child(i)
 			Instance.create_card(self, card, marker.position, false)
 			i += 1

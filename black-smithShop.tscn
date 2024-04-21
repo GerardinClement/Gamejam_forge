@@ -117,6 +117,15 @@ offset_bottom = 492.0
 theme_override_fonts/font = ExtResource("4_k268s")
 text = "Forge"
 
+[node name="price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 136.0
+offset_right = 360.0
+offset_bottom = 159.0
+scale = Vector2(2.96246, 1.57479)
+text = "0$"
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]
 [connection signal="body_entered" from="Dropable" to="." method="_on_dropable_body_entered"]

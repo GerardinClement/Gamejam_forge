@@ -19,8 +19,8 @@ var hasShot = true
 func play_shoot_animations(parent):
 	if health <= 0:
 		return
-	
-	if timer.is_stopped() && canShoot && !checkWalls(parent):
+
+	if timer.is_stopped() && canShoot && !checkWalls(parent) && animations.animation != "hit":
 		hasShot = false
 		if parent.position.x < Global.playerPos.x:
 			animations.set_flip_h(false)
@@ -28,7 +28,7 @@ func play_shoot_animations(parent):
 			animations.set_flip_h(true)
 		animations.play("shootRight")
 		timer.start()
-		
+	
 	if checkFrame() && !hasShot:
 		hasShot = true
 		shoot(parent)
@@ -37,7 +37,7 @@ func process(delta, parent):
 	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && parent.position.distance_to(Global.playerPos) < 200:
 		return
 	
-	if health <= 0:
+	if health <= 0 || animations.animation == "hit":
 		return
 	
 	chase_player(parent)
@@ -63,7 +63,7 @@ func move(delta, parent):
 	if enemyDir == Vector2():
 		animations.play("idle")
 		return
-	
+
 	velocity = parent.position.direction_to(enemyDir)
 
 	if enemyDir.x > parent.position.x:
@@ -107,6 +107,8 @@ func check_death(parent):
 	animations.play("death")
 
 func takeDamage():
-	print(Global.player.strength)
+	if animations.animation == "hit" || animations.animation == "death":
+		return
+
 	health -= Global.player.strength
-	print(self, " : ", health)
+	animations.play("hit")

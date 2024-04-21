@@ -10,6 +10,8 @@ var playerIsDead = false
 var playerIsInForge = false
 var playerKeys = 0
 var allKeys = 4
+var deathAnimationOver = false
+var deathSoundOver = false
 
 #Array of ennemies
 const ennemies = {
@@ -19,6 +21,8 @@ const ennemies = {
 		"speed": 50,
 		"shootFrame": 3,
 		"bulletSpeed": 200.0,
+		"goldAmount": "threeGolds",
+		"goldValue": 3
 	},
 	"human": {
 		"health": 25,
@@ -26,6 +30,8 @@ const ennemies = {
 		"speed": 50,
 		"shootFrame": 1,
 		"bulletSpeed": 200.0,
+		"goldAmount": "oneGold",
+		"goldValue": 1
 	},
 	"mech": {
 		"health": 100,
@@ -33,5 +39,7 @@ const ennemies = {
 		"speed": 50,
 		"shootFrame": 3,
 		"bulletSpeed": 200.0,
+		"goldAmount": "tenGolds",
+		"goldValue": 10
 	},	
 }
