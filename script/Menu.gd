@@ -6,6 +6,7 @@ extends Control
 @onready var animation_targets = $Targets
 
 func _ready():
+	$EricSanchez.play()
 	animation_mecha.play("mecha_animation")
 	animation_mecha.flip_h = true
 	animation_background.play("background_animation")
@@ -20,6 +21,7 @@ func _process(delta):
 	pass
 
 func _on_start_button_pressed():
+	$EricSanchez.stop()
 	animation_mecha.modulate.a = 0
 	animation_mecha_death.play("mecha_death")
 	animation_mecha_death.flip_h = true
@@ -35,5 +37,6 @@ func _on_credits_button_pressed():
 	get_tree().change_scene_to_file("res://Credits.tscn")
 
 func _on_quit_button_pressed():
+	$EricSanchez.stop()
 	get_tree().quit()
 

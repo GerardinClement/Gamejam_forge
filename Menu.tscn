@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bvvr2ifpc0s0w"]
+[gd_scene load_steps=46 format=3 uid="uid://bvvr2ifpc0s0w"]
 
 [ext_resource type="Script" path="res://script/Menu.gd" id="1_qhih1"]
 [ext_resource type="Texture2D" uid="uid://bgqd45gdxoe14" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Boss/boss x3.png" id="2_aip23"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dl8fvdxb3nfx0" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/World_map/Blue/worldmap_blue.png" id="3_ecrtr"]
 [ext_resource type="Texture2D" uid="uid://c825jf53riexh" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Menu buttons v2/Blue/menu_button02.png" id="4_a0ex4"]
 [ext_resource type="Texture2D" uid="uid://coy72muqwcskx" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Inventory Pack/blue/Selector1.png" id="7_j8tj4"]
+[ext_resource type="AudioStream" uid="uid://b0x7pio7c574u" path="res://Assets/Sounds/EricSanchez.mp3" id="8_brq5a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlny2"]
 atlas = ExtResource("2_j7orl")
@@ -493,6 +494,9 @@ animation = &"target"
 position = Vector2(-48, 34.3333)
 sprite_frames = SubResource("SpriteFrames_uhvp0")
 animation = &"target"
+
+[node name="EricSanchez" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_brq5a")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
