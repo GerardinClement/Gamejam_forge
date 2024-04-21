@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c05idamsil7gv"
-path="res://.godot/imported/Anchorage_Mountains.jpg-e94bb2766b9b0a9f65cd9745355fee6e.ctex"
+uid="uid://deev8e0q3qrm6"
+path="res://.godot/imported/key_32x32_24f.png-7331ca571094da525654027a190a19d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Anchorage_Mountains.jpg"
-dest_files=["res://.godot/imported/Anchorage_Mountains.jpg-e94bb2766b9b0a9f65cd9745355fee6e.ctex"]
+source_file="res://Assets/key/key_32x32_24f.png"
+dest_files=["res://.godot/imported/key_32x32_24f.png-7331ca571094da525654027a190a19d6.ctex"]
 
 [params]
 
