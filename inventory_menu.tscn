@@ -1,48 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctr3p3hercw2n"]
+[gd_scene load_steps=3 format=3 uid="uid://ctr3p3hercw2n"]
 
 [ext_resource type="Script" path="res://script/inventory_menu.gd" id="1_pu8kg"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="2_xc7lv"]
-[ext_resource type="Texture2D" uid="uid://cnp0bp6r58r40" path="res://Assets/Collectables/Dungeon Collectables.png" id="3_nudia"]
-[ext_resource type="FontFile" uid="uid://0payxjcvrkak" path="res://Assets/Fonts/paladins/paladinsstraight.ttf" id="3_toidl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5fvgf"]
-atlas = ExtResource("3_nudia")
-region = Rect2(5, 132, 20, 22)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kxiyy"]
-atlas = ExtResource("3_nudia")
-region = Rect2(64, 136, 27, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wx83d"]
-atlas = ExtResource("3_nudia")
-region = Rect2(33, 136, 28, 17)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vi5cf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5fvgf")
-}],
-"loop": true,
-"name": &"oneGold",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kxiyy")
-}],
-"loop": true,
-"name": &"tenGolds",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wx83d")
-}],
-"loop": true,
-"name": &"threeGolds",
-"speed": 5.0
-}]
 
 [node name="InventoryMenu" type="Control"]
 layout_mode = 3
@@ -67,13 +26,13 @@ offset_right = 1311.0
 offset_bottom = 876.0
 color = Color(0.286275, 0.329412, 0.470588, 1)
 
-[node name="PressTab" type="Label" parent="."]
+[node name="Label" type="Label" parent="."]
 z_index = 10
 layout_mode = 0
-offset_left = 49.0
-offset_top = 87.0
-offset_right = 780.0
-offset_bottom = 137.0
+offset_left = 73.0
+offset_top = 74.0
+offset_right = 804.0
+offset_bottom = 124.0
 theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_shadow_color = Color(0.054902, 0.054902, 0.054902, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -87,23 +46,21 @@ text = "Press tab to resume"
 vertical_alignment = 1
 
 [node name="Money" type="Label" parent="."]
-z_index = 10
 layout_mode = 0
-offset_left = 33.0
-offset_top = 208.0
-offset_right = 289.0
-offset_bottom = 258.0
-theme_override_colors/font_color = Color(0.788235, 0.854902, 0, 1)
+offset_left = 1052.0
+offset_top = 74.0
+offset_right = 1132.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0.156863, 0.952941, 0.478431, 1)
 theme_override_colors/font_shadow_color = Color(0.054902, 0.054902, 0.054902, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 8
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/outline_size = 5
-theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("3_toidl")
-theme_override_font_sizes/font_size = 35
-text = "gold"
-horizontal_alignment = 1
+theme_override_constants/shadow_offset_x = 15
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("2_xc7lv")
+theme_override_font_sizes/font_size = 40
+text = "10"
 vertical_alignment = 1
 
 [node name="Markers" type="Node2D" parent="."]
@@ -125,9 +82,3 @@ position = Vector2(345, 495)
 
 [node name="Marker2D" type="Marker2D" parent="Markers"]
 position = Vector2(170, 494)
-
-[node name="Gold" type="AnimatedSprite2D" parent="."]
-position = Vector2(157, 192)
-scale = Vector2(4.85294, 4.85294)
-sprite_frames = SubResource("SpriteFrames_vi5cf")
-animation = &"threeGolds"

@@ -26,3 +26,10 @@ offset_bottom = 14.0
 grow_vertical = 0
 scale = Vector2(0.689866, 0.589463)
 texture = ExtResource("1_bgbcl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 15
+position = Vector2(881, 64)
+scale = Vector2(7.63461, 7.68215)
+region_enabled = true
+region_rect = Rect2(0, 0, 17.2653, 16)

@@ -16,10 +16,10 @@ func load_cards():
 	var mirror = Card.new("Mirror", "Shoot in back", "gadget", {"shootSide": ["back", "topBack", "top", "topForward", "bottom", "bottomBack", "bottomForward"]})
 	
 	cards["firstOne"] = firstOne
-	cards["health+"] = heal
-	cards["mirror"] = mirror
-	cards["flashMcqueen"] = flashMcqueen
-	cards["theDevil"] = theDevil
+	#cards["health+"] = heal
+	#cards["mirror"] = mirror
+	#cards["flashMcqueen"] = flashMcqueen
+	#cards["theDevil"] = theDevil
 	Global.allCards = cards
 	
 func generate_random_card(deck):
@@ -27,16 +27,10 @@ func generate_random_card(deck):
 	if size == 0:
 		return null
 	var random_key = deck.keys()[randi() % size]
-	return generate_card(random_key)
+	return duplicate_card(Global.allCards[random_key])
 
-func generate_card(name):
-	if name == "firstOne":
-		return Card.new("FirstOne", "This is the First one", "stats", {"strength": 10,"attack_speed": 10, "pv_max": 1 })
-	elif name == "health+":
-		return Card.new("Health+", "Give heal", "stats", {"pv_max": 1})
-	elif name == "mirror":
-		return Card.new("Mirror", "Shoot in back", "gadget", {"shootSide": ["back", "topBack", "top", "topForward", "bottom", "bottomBack", "bottomForward"]})
-	elif name == "flashMcqueen":
-		return Card.new("FlashMcqueen", "Focus. Speed. I am speed", "stats", {"speed": 2, "attack_speed": 0.33})
-	elif name == "theDevil":
-		return Card.new("TheDevil", "The devil", "stats", {"strength": 20, "pv_max": -2})
+func duplicate_card(original_card):
+	var new_card = Card.new(original_card.name, original_card.description, original_card.type, original_card.effects)
+	#new_card.image = original_card.image.duplicate()
+	new_card.level = original_card.level
+	return new_card

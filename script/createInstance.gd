@@ -12,7 +12,7 @@ func create_card(parent, card, pos: Vector2,  playAnimation:bool):
 	parent.add_child(card_instance)
 	var sprite = card_instance.get_child(1)
 	var cardTexture = card_instance.card.image
-	sprite.texture = cardTexture
+	sprite.texture = card.loadImage()
 	card_instance.scale = Vector2(0.7, 0.7)
 	if not playAnimation:
 		card_instance.position = Vector2(pos.x, pos.y)

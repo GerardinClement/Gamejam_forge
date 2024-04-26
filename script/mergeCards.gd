@@ -15,12 +15,16 @@ func get_card_abilities(card):
 
 func increase_card_level(card, card2):
 	var increasedCard = card
+	var addCard = card2
 	if card.level < card2.level:
 		increasedCard = card2
-	for key in increasedCard.effects:
-		increasedCard.effects[key] += increasedCard.effects[key]
-	increasedCard.level += 1
-	return increasedCard
+		addCard = card
+	var effects = increasedCard.effects.duplicate()
+	for key in effects:
+		effects[key] += addCard.effects[key]
+	var new_card = Card.new(increasedCard.name, increasedCard.description, increasedCard.type, effects)
+	new_card.level = increasedCard.level + 1
+	return new_card
 
 func merge_cards(card1, card2):
 	var mergedCard
