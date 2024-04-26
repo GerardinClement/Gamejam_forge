@@ -53,3 +53,9 @@ const ennemies = {
 		"goldValue": 10
 	}
 }
+
+var enemies_scene = {
+	"octopus": preload("res://AnimatedCharacters/Enemies/octopus/octopus.tscn"),
+	"human": preload("res://AnimatedCharacters/Enemies/human/human.tscn"),
+	"mech": preload("res://AnimatedCharacters/Enemies/mech/mech.tscn")
+}

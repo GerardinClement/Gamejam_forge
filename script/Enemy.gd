@@ -2,7 +2,6 @@ class_name Enemy
 
 extends CharacterBody2D
 
-@onready var player = get_parent().get_parent().get_node("Player")
 var animations
 var timer
 var speed

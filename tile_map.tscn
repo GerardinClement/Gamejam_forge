@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://b1duj81xgtv76"]
+[gd_scene load_steps=73 format=3 uid="uid://b1duj81xgtv76"]
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bexwh0b37mhv4" path="res://Exit.tscn" id="5_sw7wm"]
 [ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="6_3o8f0"]
 [ext_resource type="PackedScene" path="res://money.tscn" id="6_nhrk4"]
+[ext_resource type="PackedScene" uid="uid://cqkp4235i3tow" path="res://spawner.tscn" id="7_r77a3"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
 tile_data = PackedInt32Array(0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1)
@@ -5094,6 +5095,15 @@ pattern_54 = SubResource("TileMapPattern_jguvf")
 pattern_55 = SubResource("TileMapPattern_5dlgk")
 pattern_56 = SubResource("TileMapPattern_e6x4o")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ondv5"]
+size = Vector2(733.531, 90.8885)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivy1t"]
+size = Vector2(429.725, 346.945)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vriqt"]
+size = Vector2(1898.78, 84.5959)
+
 [node name="TileMap" type="TileMap"]
 position = Vector2(1, 0)
 scale = Vector2(1.00064, 0.992954)
@@ -5192,3 +5202,33 @@ scale = Vector2(1.00064, 0.992954)
 [node name="GoToForge4" parent="Levels/Forges" instance=ExtResource("6_3o8f0")]
 position = Vector2(3845, 2640)
 scale = Vector2(1.00064, 0.992954)
+
+[node name="Area2D" parent="." instance=ExtResource("7_r77a3")]
+
+[node name="SpawnZone" type="Area2D" parent="Area2D"]
+position = Vector2(-343.78, 529.733)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/SpawnZone"]
+position = Vector2(340.782, 315.346)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ondv5")
+
+[node name="Area2D2" parent="." instance=ExtResource("7_r77a3")]
+position = Vector2(158.898, -430.03)
+
+[node name="SpawnZone" type="Area2D" parent="Area2D2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2/SpawnZone"]
+position = Vector2(449.712, 630.946)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ivy1t")
+
+[node name="Area2D3" parent="." instance=ExtResource("7_r77a3")]
+position = Vector2(262.832, -839.918)
+
+[node name="SpawnZone" type="Area2D" parent="Area2D3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3/SpawnZone"]
+position = Vector2(12.9916, -173.22)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vriqt")

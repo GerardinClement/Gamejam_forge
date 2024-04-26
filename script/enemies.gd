@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
-var enemy = name
 const moneyPath = preload("res://money.tscn")
+var enemy_name
+var enemy
 
 func _ready():
-	var newName = checkName(name)
-	var statEnemy = Global.ennemies[newName]
+	var statEnemy = Global.ennemies[enemy_name]
 	var ray = RayCast2D.new()
 	ray.set_collision_mask_value(4, true)
 	ray.set_collision_mask_value(1, false)
@@ -17,7 +17,7 @@ func _ready():
 	enemy.speed = statEnemy.speed
 	enemy.shootFrame = statEnemy.shootFrame
 	enemy.bulletSpeed = statEnemy.bulletSpeed
-	enemy.bulletPath = load("res://AnimatedCharacters/Enemies/" + newName + "/Bullet.tscn")
+	enemy.bulletPath = load("res://AnimatedCharacters/Enemies/" + enemy_name + "/Bullet.tscn")
 	enemy.animations = $animations
 	enemy.timer = $Timer
 	enemy.ray = ray
@@ -53,22 +53,10 @@ func _on_animations_animation_finished():
 		$animations.play("moveRight")
 
 func dropMoney():
-	var newName = checkName(name)
-	var statEnemy = Global.ennemies[newName]
+	var statEnemy = Global.ennemies[enemy_name]
 	var moneyDroped = moneyPath.instantiate()
 	
 	moneyDroped.goldAmount = statEnemy.goldAmount
 	moneyDroped.value = statEnemy.goldValue
 	moneyDroped.position = position
 	get_parent().add_child(moneyDroped)
-
-func checkName(oldName: String):
-	var newName = ""
-
-	for c in oldName:
-		if c >= "0" && c <= "9":
-			continue
-		else:
-			newName += c
-	
-	return newName

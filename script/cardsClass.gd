@@ -14,7 +14,6 @@ class Card:
 		self.effects = new_effects
 		self.type = new_type
 		self.level = 1
-		self.loadImage()
 		
 	func applyEffects(player):
 		for effect_key in effects.keys():
@@ -64,8 +63,4 @@ class Card:
 		if self.type == "merge":
 			filename = "mergeCard"
 		var loadedTexture = load("res://Assets/Cards/" +  filename + ".png")
-		if self.image != null:
-			print("Image loaded successfully.")
-		else:
-			print("Failed to load the image.")
 		return loadedTexture
