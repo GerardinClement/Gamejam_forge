@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
 [ext_resource type="PackedScene" path="res://Key.tscn" id="5_hfq06"]
 [ext_resource type="PackedScene" uid="uid://bexwh0b37mhv4" path="res://Exit.tscn" id="5_sw7wm"]
-[ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="6_3o8f0"]
 [ext_resource type="PackedScene" uid="uid://delsvobgp5l47" path="res://money.tscn" id="6_nhrk4"]
 [ext_resource type="PackedScene" uid="uid://cqkp4235i3tow" path="res://spawner.tscn" id="7_r77a3"]
+[ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://black-smith.tscn" id="8_mpfe7"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
 tile_data = PackedInt32Array(0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1)
@@ -5105,7 +5105,7 @@ size = Vector2(429.725, 340.147)
 size = Vector2(1898.78, 84.5959)
 
 [node name="TileMap" type="TileMap"]
-position = Vector2(1, 0)
+position = Vector2(-3, 2)
 scale = Vector2(1.00064, 0.992954)
 tile_set = SubResource("TileSet_wh2f6")
 collision_animatable = true
@@ -5185,24 +5185,6 @@ scale = Vector2(1.00064, 0.992954)
 position = Vector2(1154, 5339)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="Forges" type="Node" parent="Levels"]
-
-[node name="GoToForge" parent="Levels/Forges" instance=ExtResource("6_3o8f0")]
-position = Vector2(-80, -75.0001)
-scale = Vector2(1.00064, 0.992954)
-
-[node name="GoToForge2" parent="Levels/Forges" instance=ExtResource("6_3o8f0")]
-position = Vector2(738, 284)
-scale = Vector2(1.00064, 0.992954)
-
-[node name="GoToForge3" parent="Levels/Forges" instance=ExtResource("6_3o8f0")]
-position = Vector2(-2222, 2559)
-scale = Vector2(1.00064, 0.992954)
-
-[node name="GoToForge4" parent="Levels/Forges" instance=ExtResource("6_3o8f0")]
-position = Vector2(3845, 2640)
-scale = Vector2(1.00064, 0.992954)
-
 [node name="Area2D" parent="." instance=ExtResource("7_r77a3")]
 
 [node name="SpawnZone" type="Area2D" parent="Area2D"]
@@ -5229,3 +5211,6 @@ position = Vector2(262.832, -839.918)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3/SpawnZone"]
 position = Vector2(12.9916, -173.22)
 shape = SubResource("RectangleShape2D_vriqt")
+
+[node name="Black-smith" parent="." instance=ExtResource("8_mpfe7")]
+position = Vector2(194.875, 340.398)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d2v846qn6y318"]
+[gd_scene load_steps=14 format=3 uid="uid://d2v846qn6y318"]
 
 [ext_resource type="Texture2D" uid="uid://cwy7ocjj4rh1h" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/NPC/No Outlines/npc x3.png" id="1_7yfcr"]
 [ext_resource type="Script" path="res://script/black-smith.gd" id="1_sjui2"]
+[ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="3_mgh5q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4eoxu"]
 atlas = ExtResource("1_7yfcr")
@@ -69,7 +70,7 @@ animations = [{
 size = Vector2(63, 79)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_edaky"]
-radius = 109.636
+radius = 56.9439
 
 [node name="Black-smith" type="CharacterBody2D"]
 scale = Vector2(0.65, 0.65)
@@ -89,8 +90,17 @@ shape = SubResource("RectangleShape2D_x8feg")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(5, 9)
+position = Vector2(27.6923, 6.15385)
 shape = SubResource("CircleShape2D_edaky")
+
+[node name="Black-smithShop" parent="." instance=ExtResource("3_mgh5q")]
+visible = false
+z_index = 10
+offset_left = -196.923
+offset_top = -189.231
+offset_right = -196.923
+offset_bottom = -189.231
+scale = Vector2(0.658088, 0.658088)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
