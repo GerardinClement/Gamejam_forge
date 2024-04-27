@@ -16,7 +16,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		Global.playerMoney += rng.randi_range(1, 10)
+		Global.player.money += rng.randi_range(1, 10)
 		$CollisionShape2D.disabled = true
 		$GoldSound.play()
 		$Gold.modulate.a = 0

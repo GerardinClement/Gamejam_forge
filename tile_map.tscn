@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" path="res://Key.tscn" id="5_hfq06"]
 [ext_resource type="PackedScene" uid="uid://bexwh0b37mhv4" path="res://Exit.tscn" id="5_sw7wm"]
 [ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="6_3o8f0"]
-[ext_resource type="PackedScene" path="res://money.tscn" id="6_nhrk4"]
+[ext_resource type="PackedScene" uid="uid://delsvobgp5l47" path="res://money.tscn" id="6_nhrk4"]
 [ext_resource type="PackedScene" uid="uid://cqkp4235i3tow" path="res://spawner.tscn" id="7_r77a3"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
@@ -5099,7 +5099,7 @@ pattern_56 = SubResource("TileMapPattern_e6x4o")
 size = Vector2(733.531, 90.8885)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivy1t"]
-size = Vector2(429.725, 346.945)
+size = Vector2(429.725, 340.147)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vriqt"]
 size = Vector2(1898.78, 84.5959)
@@ -5210,7 +5210,6 @@ position = Vector2(-343.78, 529.733)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/SpawnZone"]
 position = Vector2(340.782, 315.346)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ondv5")
 
 [node name="Area2D2" parent="." instance=ExtResource("7_r77a3")]
@@ -5219,8 +5218,7 @@ position = Vector2(158.898, -430.03)
 [node name="SpawnZone" type="Area2D" parent="Area2D2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2/SpawnZone"]
-position = Vector2(449.712, 630.946)
-scale = Vector2(1, 1)
+position = Vector2(449.712, 634.345)
 shape = SubResource("RectangleShape2D_ivy1t")
 
 [node name="Area2D3" parent="." instance=ExtResource("7_r77a3")]
@@ -5230,5 +5228,4 @@ position = Vector2(262.832, -839.918)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3/SpawnZone"]
 position = Vector2(12.9916, -173.22)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vriqt")

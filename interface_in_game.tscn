@@ -1,35 +1,134 @@
-[gd_scene load_steps=3 format=3 uid="uid://druavmkwql20o"]
+[gd_scene load_steps=15 format=3 uid="uid://druavmkwql20o"]
 
 [ext_resource type="Texture2D" uid="uid://cgy4c86eltss8" path="res://Assets/Interface/FullHeart.png" id="1_bgbcl"]
 [ext_resource type="Script" path="res://script/gui.gd" id="1_q3sno"]
+[ext_resource type="Texture2D" uid="uid://fpu2m0hdtw4h" path="res://Assets/Collectables/coin2_20x20.png" id="3_edmwd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guxgg"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cooc0"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8muup"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vicck"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynj2h"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu65t"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(100, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qtye"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(120, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqwyp"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(140, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7tp5"]
+atlas = ExtResource("3_edmwd")
+region = Rect2(160, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3pbhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guxgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cooc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8muup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vicck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynj2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu65t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qtye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqwyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7tp5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uc7o2"]
+font_size = 50
 
 [node name="InGame" type="Control"]
 layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q3sno")
+metadata/_edit_use_anchors_ = true
+
+[node name="Heart" type="Control" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 39.0
+offset_right = -46.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-script = ExtResource("1_q3sno")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 0.999999
-offset_top = -16.0
-offset_right = 34.0
-offset_bottom = 14.0
+[node name="TextureRect" type="TextureRect" parent="Heart"]
+visible = false
+z_index = 15
+layout_mode = 2
+offset_left = 17.0
+offset_top = 557.5
+offset_right = 55.0
+offset_bottom = 592.5
 grow_vertical = 0
-scale = Vector2(0.689866, 0.589463)
+scale = Vector2(1.2, 1)
 texture = ExtResource("1_bgbcl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 15
-position = Vector2(881, 64)
-scale = Vector2(7.63461, 7.68215)
-region_enabled = true
-region_rect = Rect2(0, 0, 17.2653, 16)
+[node name="Coin" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 917.0
+offset_top = 33.0
+offset_right = 1058.0
+offset_bottom = 112.0
+scale = Vector2(0.747804, 0.747804)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin"]
+position = Vector2(41, 41)
+scale = Vector2(3.45898, 3.57345)
+sprite_frames = SubResource("SpriteFrames_3pbhw")
+frame_progress = 0.797877
+speed_scale = 0.75
+
+[node name="Amount" type="Label" parent="Coin"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 73.0
+text = "10"
+label_settings = SubResource("LabelSettings_uc7o2")

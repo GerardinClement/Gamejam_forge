@@ -7,30 +7,35 @@ extends Control
 @onready var emptyHeart = preload("res://Assets/Interface/emptyHeart.png")
 @onready var shield = preload("res://Assets/Interface/shield.png")
 
+func _ready():
+	$Coin/AnimatedSprite2D.play('default')
+
 func display_life(player):
 	remove_life()
-	var textureRect = self.get_child(0)
+	var textureRect = $Heart/TextureRect
 	for i in player.pv_max:
 		var textureDup = textureRect.duplicate()
 		if abs(player.pv - int(player.pv)) > 0 and i == int(player.pv) and player.pv > 0:
 			textureDup.set_texture(halfHeart)
 		elif i >= player.pv:
 			textureDup.set_texture(emptyHeart)
-		textureDup.position.x = (textureRect.position.x + (textureRect.size.x / 1.25)) * i
-		self.add_child(textureDup)
+		textureDup.position.x = (textureRect.position.x + (textureRect.size.x * 1.33)) * i
+		textureDup.visible = true
+		$Heart.add_child(textureDup)
 	for i in player.shield:
 		var textureDup = textureRect.duplicate()
 		textureDup.set_texture(shield)
-		textureDup.position.x = (textureRect.position.x + (textureRect.size.x / 1.25)) * (i + player.pv_max)
-		self.add_child(textureDup)
+		textureDup.position.x = (textureRect.position.x + (textureRect.size.x * 1.33)) * (i + player.pv_max)
+		textureDup.visible = true
+		$Heart.add_child(textureDup)
 
 func remove_life():
-	var childCount = self.get_child_count()
+	var container = $Heart
+	var childCount = container.get_child_count()
 	for i in childCount:
-		if i == 0:
-			pass
-		self.get_child(i).queue_free()
+		if i != 0:
+			container.get_child(i).queue_free()
 	
 
 func _process(delta):
-	pass
+	$Coin/Amount.text = str(Global.player.money)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgs8bf3tblb52"]
+[gd_scene load_steps=9 format=3 uid="uid://delsvobgp5l47"]
 
 [ext_resource type="Script" path="res://script/money.gd" id="1_62vjd"]
 [ext_resource type="Texture2D" uid="uid://cnp0bp6r58r40" path="res://Assets/Collectables/Dungeon Collectables.png" id="1_b1yas"]

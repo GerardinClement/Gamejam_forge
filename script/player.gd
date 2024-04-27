@@ -4,7 +4,7 @@ const bulletPath = preload("res://bullet.tscn")
 @onready var animation = $AnimatedSprite2D
 @onready var playerAnimation =  $AnimatedSprite2D/AnimationPlayer
 @onready var Card = "res://Cards.gd"
-@onready var gui = $Camera2D/Gui
+@onready var gui = $Camera2D/GUI
 @onready var guided_missile = preload("res://guided_missile.tscn")
 const scent_scene = preload("res://scent.tscn")
 var player: Player
