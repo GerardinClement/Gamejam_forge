@@ -12,25 +12,25 @@ func _ready():
 
 func display_life(player):
 	remove_life()
-	var textureRect = $Heart/TextureRect
+	var textureRect = $Life/HeartIcon
 	for i in player.pv_max:
 		var textureDup = textureRect.duplicate()
 		if abs(player.pv - int(player.pv)) > 0 and i == int(player.pv) and player.pv > 0:
 			textureDup.set_texture(halfHeart)
 		elif i >= player.pv:
 			textureDup.set_texture(emptyHeart)
-		textureDup.position.x = (textureRect.position.x + (textureRect.size.x * 1.33)) * i
+		textureDup.position.x = (textureRect.position.x + (textureRect.size.x / 1.75)) * i
 		textureDup.visible = true
-		$Heart.add_child(textureDup)
+		$Life.add_child(textureDup)
+	textureRect = $Life/ShieldIcon
 	for i in player.shield:
 		var textureDup = textureRect.duplicate()
-		textureDup.set_texture(shield)
-		textureDup.position.x = (textureRect.position.x + (textureRect.size.x * 1.33)) * (i + player.pv_max)
+		textureDup.position.x = (textureRect.position.x + (textureRect.size.x / 1.75)) * (i + player.pv_max)
 		textureDup.visible = true
-		$Heart.add_child(textureDup)
+		$Life.add_child(textureDup)
 
 func remove_life():
-	var container = $Heart
+	var container = $Life
 	var childCount = container.get_child_count()
 	for i in childCount:
 		if i != 0:
