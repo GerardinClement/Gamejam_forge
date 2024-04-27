@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8afn38mfwi0d"]
+[gd_scene load_steps=9 format=3 uid="uid://c8afn38mfwi0d"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_g3bdo"]
 [ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://tile_map.tscn" id="2_r3ojv"]
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
-[ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="5_h6o1h"]
-[ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="6_egpkk"]
-[ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="7_pjywa"]
-[ext_resource type="PackedScene" uid="uid://c83jt85vdtnf0" path="res://chestMenu.tscn" id="8_fq4ra"]
+[ext_resource type="PackedScene" uid="uid://v1isdrkxdmq6" path="res://camera_2d.tscn" id="6_o47cr"]
 [ext_resource type="PackedScene" uid="uid://bkbuw7o13rxyr" path="res://chest.tscn" id="11_07gvh"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="12_58rc5"]
 
@@ -594,52 +591,6 @@ script = ExtResource("1_g3bdo")
 
 [node name="TileMap" parent="." instance=ExtResource("2_r3ojv")]
 
-[node name="Player" parent="." instance=ExtResource("3_keqr3")]
-process_priority = 2
-z_index = 15
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-5, 1)
-zoom = Vector2(1.8, 1.8)
-drag_left_margin = 0.0
-drag_top_margin = 0.0
-drag_right_margin = 0.0
-drag_bottom_margin = 0.0
-
-[node name="InventoryMenu" parent="Player/Camera2D" instance=ExtResource("5_h6o1h")]
-anchors_preset = -1
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -345.0
-offset_top = -214.0
-offset_right = -345.0
-offset_bottom = -214.0
-scale = Vector2(0.595376, 0.595376)
-size_flags_horizontal = 0
-
-[node name="Black-smithShop" parent="Player/Camera2D" instance=ExtResource("6_egpkk")]
-visible = false
-offset_left = -361.0
-offset_top = -187.0
-offset_right = -361.0
-offset_bottom = -187.0
-scale = Vector2(0.455806, 0.455806)
-
-[node name="ChestMenu" parent="Player/Camera2D" instance=ExtResource("8_fq4ra")]
-visible = false
-offset_left = -334.0
-offset_top = -187.0
-offset_right = -334.0
-offset_bottom = -187.0
-scale = Vector2(0.578131, 0.578131)
-
-[node name="GUI" parent="Player/Camera2D" instance=ExtResource("7_pjywa")]
-offset_left = -272.0
-offset_top = -170.0
-offset_right = -272.0
-offset_bottom = -170.0
-scale = Vector2(0.552406, 0.552406)
-
 [node name="Doors" type="TileMap" parent="."]
 z_index = 20
 tile_set = SubResource("TileSet_yc3ke")
@@ -677,3 +628,7 @@ position = Vector2(-2252, 3136)
 
 [node name="Chest10" parent="Chests" instance=ExtResource("11_07gvh")]
 position = Vector2(3179, 2101)
+
+[node name="Player" parent="." instance=ExtResource("3_keqr3")]
+
+[node name="Camera2D" parent="Player" instance=ExtResource("6_o47cr")]

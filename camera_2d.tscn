@@ -12,12 +12,13 @@ drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 
-[node name="Gui" parent="." instance=ExtResource("1_p81op")]
+[node name="GUI" parent="." instance=ExtResource("1_p81op")]
 anchors_preset = -1
-offset_left = -302.0
-offset_top = 166.0
-offset_right = -302.0
-offset_bottom = 166.0
+offset_left = -286.0
+offset_top = -168.0
+offset_right = -286.0
+offset_bottom = -168.0
+scale = Vector2(0.526321, 0.526321)
 
 [node name="InventoryMenu" parent="." instance=ExtResource("2_mhprl")]
 anchors_preset = -1

@@ -149,7 +149,6 @@ func _ready():
 	if not Global.gameIsStart:
 		player = Player.new(playerAnimation, gui, $IFrames)
 		Global.player = player
-		gui.display_life(player)
 		$Shoot.wait_time = player.attack_speed
 		$Shoot.start()
 	else:

@@ -19,7 +19,6 @@ func displayPlayerCards(player):
 
 func open(player):
 	displayPlayerCards(player)
-	_print_money_amount()
 	
 func close():
 	var count = self.get_child_count()
@@ -27,9 +26,6 @@ func close():
 		var child = self.get_child(i)
 		if child.name.find("StaticBody2D") >= 0 or child.name == "Cards":
 			child.queue_free()
-
-func _print_money_amount():
-	$Money.text = str(Global.playerMoney)
 	
 func _on_exit_pressed():
 	Engine.time_scale = 1

@@ -35,7 +35,6 @@ func remove_life():
 	for i in childCount:
 		if i != 0:
 			container.get_child(i).queue_free()
-	
 
 func _process(delta):
 	$Coin/Amount.text = str(Global.player.money)

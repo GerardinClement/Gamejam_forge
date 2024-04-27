@@ -111,17 +111,17 @@ texture = ExtResource("1_bgbcl")
 [node name="Coin" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 917.0
-offset_top = 33.0
-offset_right = 1058.0
-offset_bottom = 112.0
+offset_left = 975.0
+offset_top = 40.0
+offset_right = 1116.0
+offset_bottom = 119.0
 scale = Vector2(0.747804, 0.747804)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin"]
 position = Vector2(41, 41)
 scale = Vector2(3.45898, 3.57345)
 sprite_frames = SubResource("SpriteFrames_3pbhw")
-frame_progress = 0.797877
+frame_progress = 0.567987
 speed_scale = 0.75
 
 [node name="Amount" type="Label" parent="Coin"]
