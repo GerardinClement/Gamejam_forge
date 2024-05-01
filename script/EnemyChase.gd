@@ -34,5 +34,7 @@ func physics_update(_delta):
 	var direction = player.global_position - enemy.global_position
 	if enemy.player_in:
 		enemy.velocity = direction.normalized() * enemy.stats.speed
+		if direction < Vector2(50, 50):
+			enemy.velocity *= -1
 	else:
 		Transitioned.emit(self, "Idle")

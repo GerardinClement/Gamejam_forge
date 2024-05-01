@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://script/EnemyChase.gd" id="7_3worj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh4wr"]
-radius = 8.0
-height = 28.0
+radius = 30.718
+height = 61.436
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0ivr"]
 atlas = ExtResource("2_5iq8v")
@@ -164,7 +164,8 @@ collision_mask = 9
 script = ExtResource("1_pyyym")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(2, 1)
+rotation = 0.153692
 shape = SubResource("CapsuleShape2D_kh4wr")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]

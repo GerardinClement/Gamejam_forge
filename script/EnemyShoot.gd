@@ -25,6 +25,5 @@ func update(_delta):
 	pass
 
 func physics_update(_delta):
-	var direction = player.global_position - enemy.global_position
-	if direction.length() > 100:
+	if not enemy.player_in:
 		Transitioned.emit(self, "Idle")
