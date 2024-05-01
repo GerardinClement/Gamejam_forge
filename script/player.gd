@@ -28,7 +28,7 @@ class Player:
 	func _init(playerAnimation, gui, timerIframe):
 		pv = 6
 		pv_max = 6
-		speed = 110
+		speed = 150
 		attack_speed = 2
 		strength = 50
 		shield = 1
@@ -193,19 +193,25 @@ func shoot():
 	$Shoot.start()
 
 func move(_delta):
-	$Node2D.look_at(get_global_mouse_position())
-	var mouseOffset = get_global_mouse_position() - self.position;
-	var direction = mouseOffset.normalized() * player.speed
-	if direction.x > 0:
+	var move_vector = Vector2(0, 0)
+
+	if Input.is_action_pressed("Right"):
+		move_vector.x += 1
+	if Input.is_action_pressed("Left"):
+			move_vector.x -= 1
+	if Input.is_action_pressed("Down"):
+		move_vector.y += 1
+	if Input.is_action_pressed("Up"):
+		move_vector.y -= 1
+	if move_vector.length() > 0:
+		move_vector = move_vector.normalized()
+	if move_vector.x > 0:
 		animation.flip_h = false
 	else:
 		animation.flip_h = true
-	if Input.is_action_pressed("rightClick"):
-		animation.play("idle")
-		return
 	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle":
 		animation.play("run")
-	velocity = direction * _delta * player.speed
+	velocity = move_vector * player.speed
 	move_and_slide()
 
 func _on_animated_sprite_2d_animation_finished():

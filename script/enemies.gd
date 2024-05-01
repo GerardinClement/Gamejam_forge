@@ -8,6 +8,7 @@ var stats
 var bulletPath
 var bullet_instance
 var player_in = false
+var is_dead = false
 
 func _ready():
 	stats = Global.ennemies[enemy_name].duplicate()
@@ -71,6 +72,7 @@ func _on_area_2d_body_exited(body):
 func _on_animations_animation_finished():
 	if $animations.animation == "death":
 		dropMoney()
+		is_dead = true
 		queue_free()
 
 	if $animations.animation == "hit":
@@ -86,7 +88,5 @@ func dropMoney():
 
 
 func _on_animations_frame_changed():
-	if is_queued_for_deletion():
-		return
-	if animations.animation == "shoot" and animations.frame == stats.shootFrame:
+	if bullet_instance != null and animations.animation == "shoot" and animations.frame == stats.shootFrame:
 			self.add_child(bullet_instance)
