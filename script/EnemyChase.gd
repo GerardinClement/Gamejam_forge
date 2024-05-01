@@ -5,22 +5,6 @@ class_name EnemyChase
 var player: CharacterBody2D
 var move_direction
 
-#func chase_player(parent):
-	#move_direction = Vector2()
-	#enemy.ray.position = enemy.position
-	#enemy.ray.target_position = parent.to_local(Global.playerPos)
-	#enemy.ray.force_raycast_update()
-#
-	#if !enemy.ray.is_colliding():
-		#move_direction = enemy.to_local(player.global_position)
-	#elif Global.playerIsInForge:
-		#for scent in Global.player.scent_trail:
-			#enemy.ray.target_position = parent.to_local(scent.position)
-			#enemy.ray.force_raycast_update()
-			#if !enemy.ray.is_colliding():
-				#move_direction = enemy.to_local(scent.position)
-				#break
-
 func enter():
 	player = get_tree().get_first_node_in_group("Player")
 	
