@@ -75,16 +75,13 @@ class Player:
 		Global.playerIsDead = true
 		animatedSprite.play("death")
 		
-	func shoot(parent, marker2d, lookLeft):
+	func shoot(parent, marker2d, lookLeft, direction):
 		for side in shootSide:
 			if shootSide[side]:
-				self.bulletDirection(parent, marker2d, lookLeft, side)
+				self.bulletDirection(parent, marker2d, lookLeft, side, direction)
 				
-	func bulletDirection(parent, marker2d, lookLeft, side):
-		var direction = Vector2(1, 0)
+	func bulletDirection(parent, marker2d, lookLeft, side, direction):
 		var rotate = 0
-		if lookLeft:
-			direction.x = -1
 		match side:
 			"forward":
 				createBulletInstance(parent, marker2d, direction, rotate)
@@ -130,7 +127,7 @@ class Player:
 		parent.add_child(bullet)
 		bullet.position = marker2d.global_position
 		bullet.velocity = direction
-		bullet.rotation_degrees = angleRotate
+		#bullet.look_at(get_global_mouse_position())
 		
 	func remove_card(card):
 		card.remove_effects(self)
@@ -187,31 +184,51 @@ func shoot():
 		
 	animation.play("shoot")
 	$LaserSound.play()
-	player.shoot(self.get_parent(), $Node2D/Marker2D, animation.flip_h)
+	var mouseOffset = get_global_mouse_position() - self.position;
+	var direction = mouseOffset.normalized() * player.speed
+	var bullet = bulletPath.instantiate()
+	bullet.position = $Node2D/Marker2D.global_position
+	bullet.velocity = direction
+	bullet.look_at(get_global_mouse_position())
+	self.get_parent().add_child(bullet)
 	if player.attack_speed > 0:
 		$Shoot.wait_time = player.attack_speed
 	$Shoot.start()
 
-func move(_delta):
-	var move_vector = Vector2(0, 0)
-
+func get_direction():
+	var direction = Vector2(0, 0)
+	
 	if Input.is_action_pressed("Right"):
-		move_vector.x += 1
+		direction.x += 1
 	if Input.is_action_pressed("Left"):
-			move_vector.x -= 1
+		direction.x -= 1
 	if Input.is_action_pressed("Down"):
-		move_vector.y += 1
+		direction.y += 1
 	if Input.is_action_pressed("Up"):
-		move_vector.y -= 1
-	if move_vector.length() > 0:
-		move_vector = move_vector.normalized()
-	if move_vector.x > 0:
+		direction.y -= 1
+	if direction.length() > 0:
+		direction = direction.normalized()
+	return direction
+		
+func flip_sprite(direction):
+	if direction.x > 0:
 		animation.flip_h = false
 	else:
 		animation.flip_h = true
-	if !animation.is_playing() or animation.animation == "run" or animation.animation == "idle":
+		
+func play_animation(direction):
+	if animation.animation == "shoot" and animation.is_playing():
+		return
+	if direction == Vector2(0, 0):
+		animation.play("idle")
+	else:
 		animation.play("run")
-	velocity = move_vector * player.speed
+	
+func move(_delta):
+	var direction = get_direction()
+	flip_sprite(direction)
+	play_animation(direction)
+	velocity = direction * player.speed
 	move_and_slide()
 
 func _on_animated_sprite_2d_animation_finished():
