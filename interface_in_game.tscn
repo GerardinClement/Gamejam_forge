@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://druavmkwql20o"]
+[gd_scene load_steps=16 format=3 uid="uid://druavmkwql20o"]
 
 [ext_resource type="Texture2D" uid="uid://cgy4c86eltss8" path="res://Assets/Interface/FullHeart.png" id="1_bgbcl"]
 [ext_resource type="Script" path="res://script/gui.gd" id="1_q3sno"]
+[ext_resource type="Texture2D" uid="uid://cbvr7hwihm6jn" path="res://Assets/Interface/shield.png" id="3_bdap2"]
 [ext_resource type="Texture2D" uid="uid://fpu2m0hdtw4h" path="res://Assets/Collectables/coin2_20x20.png" id="3_edmwd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_guxgg"]
@@ -84,7 +85,7 @@ anchors_preset = 0
 script = ExtResource("1_q3sno")
 metadata/_edit_use_anchors_ = true
 
-[node name="Heart" type="Control" parent="."]
+[node name="Life" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,17 +97,29 @@ offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Heart"]
+[node name="HeartIcon" type="TextureRect" parent="Life"]
 visible = false
 z_index = 15
 layout_mode = 2
-offset_left = 17.0
-offset_top = 557.5
-offset_right = 55.0
-offset_bottom = 592.5
+offset_left = 30.0
+offset_top = 588.0
+offset_right = 72.0
+offset_bottom = 627.0
 grow_vertical = 0
-scale = Vector2(1.2, 1)
+scale = Vector2(0.665467, 0.665467)
 texture = ExtResource("1_bgbcl")
+
+[node name="ShieldIcon" type="TextureRect" parent="Life"]
+visible = false
+z_index = 15
+layout_mode = 2
+offset_left = 31.0
+offset_top = 588.5
+offset_right = 73.0
+offset_bottom = 627.5
+grow_vertical = 0
+scale = Vector2(0.585466, 0.665467)
+texture = ExtResource("3_bdap2")
 
 [node name="Coin" type="Control" parent="."]
 layout_mode = 3

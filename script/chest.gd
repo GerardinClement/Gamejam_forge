@@ -3,7 +3,7 @@ extends StaticBody2D
 var cardManager = preload("res://script/cardsManager.gd").new()
 var playerInZone = false
 var open = false
-@onready var chestMenu = $"../../Player/Camera2D/ChestMenu"
+@onready var chestMenu = $"ChestMenu"
 
 func _ready():
 	$AnimatedSprite2D.play("idle")

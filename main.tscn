@@ -632,3 +632,5 @@ position = Vector2(3179, 2101)
 [node name="Player" parent="." instance=ExtResource("3_keqr3")]
 
 [node name="Camera2D" parent="Player" instance=ExtResource("6_o47cr")]
+
+[editable path="Player/Camera2D"]

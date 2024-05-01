@@ -9,7 +9,7 @@ func spawn_enemies():
 	for i in 10:
 		var size = Global.enemies_scene.size()
 		var random_key = Global.enemies_scene.keys()[randi() % size]
-		create_enemy_instance(random_key, spawnerZone)
+		call_deferred("create_enemy_instance", random_key, spawnerZone)
 		
 func create_enemy_instance(enemy_name, spawnerZone):
 	var enemy = Global.enemies_scene[enemy_name]

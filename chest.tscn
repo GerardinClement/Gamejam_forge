@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkbuw7o13rxyr"]
+[gd_scene load_steps=16 format=3 uid="uid://bkbuw7o13rxyr"]
 
 [ext_resource type="Script" path="res://script/chest.gd" id="1_xqntj"]
 [ext_resource type="Texture2D" uid="uid://dyowg5dl3i6d4" path="res://Assets/Objects/Fantasy RPG (Toony) 32x32.png" id="1_yc2nq"]
+[ext_resource type="PackedScene" uid="uid://c83jt85vdtnf0" path="res://chestMenu.tscn" id="3_810pm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43irc"]
 size = Vector2(11.8481, 13.8795)
@@ -88,6 +89,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_id6vv"]
+radius = 5.77689
 
 [node name="Chest" type="StaticBody2D"]
 scale = Vector2(1.1685, 1.1685)
@@ -104,11 +106,19 @@ sprite_frames = SubResource("SpriteFrames_q0s0k")
 animation = &"open"
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.855798, 13.6928)
 scale = Vector2(4.90645, 5.22525)
 shape = SubResource("CircleShape2D_id6vv")
+
+[node name="ChestMenu" parent="." instance=ExtResource("3_810pm")]
+visible = false
+offset_left = -272.144
+offset_top = -147.197
+offset_right = -272.144
+offset_bottom = -147.197
+scale = Vector2(0.463925, 0.463925)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

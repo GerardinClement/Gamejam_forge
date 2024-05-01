@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animatedSprite = $AnimatedSprite2D
-@onready var shopMenu = $"../Player/Camera2D/Black-smithShop"
+@onready var shopMenu = $"Black-smithShop"
 @onready var CardManager = preload("res://script/cardsManager.gd")
 @onready var cardManager = CardManager.new()
 var player_in_chat_zone = false
