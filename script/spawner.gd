@@ -6,7 +6,7 @@ func _on_body_entered(body):
 
 func spawn_enemies():
 	var spawnerZone = self.find_child("SpawnZone")
-	for i in 10:
+	for i in 1:
 		var size = Global.enemies_scene.size()
 		var random_key = Global.enemies_scene.keys()[randi() % size]
 		call_deferred("create_enemy_instance", random_key, spawnerZone)

@@ -1,6 +1,6 @@
 extends Control
 
-@onready var cards = preload("res://cards.tscn")
+@onready var cards = preload("res://Scene/cards.tscn")
 @onready var CardManager = preload("res://script/cardsManager.gd")
 @onready var animatedSprite = $AnimatedSprite2D2
 @onready var cardManager = CardManager.new()

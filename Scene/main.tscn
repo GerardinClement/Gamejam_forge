@@ -1,14 +1,14 @@
 [gd_scene load_steps=9 format=3 uid="uid://c8afn38mfwi0d"]
 
-[ext_resource type="Script" path="res://script/main.gd" id="1_g3bdo"]
-[ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://tile_map.tscn" id="2_r3ojv"]
-[ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://player.tscn" id="3_keqr3"]
-[ext_resource type="PackedScene" uid="uid://v1isdrkxdmq6" path="res://camera_2d.tscn" id="6_o47cr"]
-[ext_resource type="PackedScene" uid="uid://bkbuw7o13rxyr" path="res://chest.tscn" id="11_07gvh"]
-[ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="12_58rc5"]
+[ext_resource type="Script" path="res://script/main.gd" id="1_nwx6k"]
+[ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://Scene/tile_map.tscn" id="2_rkwgk"]
+[ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="3_4vbnl"]
+[ext_resource type="PackedScene" uid="uid://bkbuw7o13rxyr" path="res://Scene/chest.tscn" id="4_4oyy5"]
+[ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://Scene/player.tscn" id="5_4e522"]
+[ext_resource type="PackedScene" uid="uid://v1isdrkxdmq6" path="res://Scene/camera_2d.tscn" id="6_5brhp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbyie"]
-texture = ExtResource("12_58rc5")
+texture = ExtResource("3_4vbnl")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -587,9 +587,9 @@ texture = ExtResource("12_58rc5")
 sources/1 = SubResource("TileSetAtlasSource_tbyie")
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_g3bdo")
+script = ExtResource("1_nwx6k")
 
-[node name="TileMap" parent="." instance=ExtResource("2_r3ojv")]
+[node name="TileMap" parent="." instance=ExtResource("2_rkwgk")]
 
 [node name="Doors" type="TileMap" parent="."]
 z_index = 20
@@ -599,38 +599,38 @@ layer_0/tile_data = PackedInt32Array(458751, 2949121, 32, 393216, 3014657, 32, 1
 
 [node name="Chests" type="Node" parent="."]
 
-[node name="Chest" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(1613, 1901)
 
-[node name="Chest2" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest2" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(-616, 1913)
 
-[node name="Chest3" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest3" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(50, -114)
 
-[node name="Chest4" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest4" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(4017, -878)
 
-[node name="Chest5" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest5" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(-716, -1155)
 
-[node name="Chest6" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest6" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(856, 1088)
 
-[node name="Chest7" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest7" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(5404, 2613)
 
-[node name="Chest8" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest8" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(1404, 4016)
 
-[node name="Chest9" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest9" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(-2252, 3136)
 
-[node name="Chest10" parent="Chests" instance=ExtResource("11_07gvh")]
+[node name="Chest10" parent="Chests" instance=ExtResource("4_4oyy5")]
 position = Vector2(3179, 2101)
 
-[node name="Player" parent="." instance=ExtResource("3_keqr3")]
+[node name="Player" parent="." instance=ExtResource("5_4e522")]
 
-[node name="Camera2D" parent="Player" instance=ExtResource("6_o47cr")]
+[node name="Camera2D" parent="Player" instance=ExtResource("6_5brhp")]
 
 [editable path="Player/Camera2D"]

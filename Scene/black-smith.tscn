@@ -1,35 +1,35 @@
 [gd_scene load_steps=14 format=3 uid="uid://d2v846qn6y318"]
 
-[ext_resource type="Texture2D" uid="uid://cwy7ocjj4rh1h" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/NPC/No Outlines/npc x3.png" id="1_7yfcr"]
-[ext_resource type="Script" path="res://script/black-smith.gd" id="1_sjui2"]
-[ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://black-smithShop.tscn" id="3_mgh5q"]
+[ext_resource type="Script" path="res://script/black-smith.gd" id="1_mbq0c"]
+[ext_resource type="Texture2D" uid="uid://cwy7ocjj4rh1h" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/NPC/No Outlines/npc x3.png" id="2_60eh1"]
+[ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://Scene/black-smithShop.tscn" id="3_ytlg7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4eoxu"]
-atlas = ExtResource("1_7yfcr")
+atlas = ExtResource("2_60eh1")
 region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4nm6"]
-atlas = ExtResource("1_7yfcr")
+atlas = ExtResource("2_60eh1")
 region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0yvao"]
-atlas = ExtResource("1_7yfcr")
+atlas = ExtResource("2_60eh1")
 region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dskr"]
-atlas = ExtResource("1_7yfcr")
+atlas = ExtResource("2_60eh1")
 region = Rect2(288, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3c2r"]
-atlas = ExtResource("1_7yfcr")
+atlas = ExtResource("2_60eh1")
 region = Rect2(384, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jloar"]
-atlas = ExtResource("1_7yfcr")
+atlas = ExtResource("2_60eh1")
 region = Rect2(0, 192, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x8nac"]
-atlas = ExtResource("1_7yfcr")
+atlas = ExtResource("2_60eh1")
 region = Rect2(96, 192, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lmf3x"]
@@ -76,7 +76,7 @@ radius = 56.9439
 scale = Vector2(0.65, 0.65)
 collision_layer = 32
 collision_mask = 31
-script = ExtResource("1_sjui2")
+script = ExtResource("1_mbq0c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lmf3x")
@@ -93,7 +93,7 @@ shape = SubResource("RectangleShape2D_x8feg")
 position = Vector2(27.6923, 6.15385)
 shape = SubResource("CircleShape2D_edaky")
 
-[node name="Black-smithShop" parent="." instance=ExtResource("3_mgh5q")]
+[node name="Black-smithShop" parent="." instance=ExtResource("3_ytlg7")]
 visible = false
 z_index = 10
 offset_left = -196.923

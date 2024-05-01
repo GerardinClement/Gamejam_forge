@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_p4hy5"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_774k0"]
-[ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://GoToForge.tscn" id="4_c3pxg"]
-[ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://black-smith.tscn" id="9_ei8sp"]
+[ext_resource type="PackedScene" uid="uid://cs2twu8w73vem" path="res://Scene/GoToForge.tscn" id="4_c3pxg"]
+[ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://Scene/black-smith.tscn" id="9_ei8sp"]
 [ext_resource type="Texture2D" uid="uid://dgk77un2ro0c2" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/UI/ui x1.png" id="10_bjx5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41wcj"]

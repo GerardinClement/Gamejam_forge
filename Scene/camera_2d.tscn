@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://v1isdrkxdmq6"]
 
-[ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://interface_in_game.tscn" id="1_p81op"]
-[ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://inventory_menu.tscn" id="2_mhprl"]
+[ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://Scene/interface_in_game.tscn" id="1_p81op"]
+[ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://Scene/inventory_menu.tscn" id="2_mhprl"]
 
 [node name="Camera2D" type="Camera2D"]
 z_index = 10

@@ -1,12 +1,12 @@
 extends CharacterBody2D
-const bulletPath = preload("res://bullet.tscn")
+const bulletPath = preload("res://Scene/bullet.tscn")
 
 @onready var animation = $AnimatedSprite2D
 @onready var playerAnimation =  $AnimatedSprite2D/AnimationPlayer
 @onready var Card = "res://Cards.gd"
 @onready var gui = $Camera2D/GUI
-@onready var guided_missile = preload("res://guided_missile.tscn")
-const scent_scene = preload("res://scent.tscn")
+@onready var guided_missile = preload("res://Scene/guided_missile.tscn")
+const scent_scene = preload("res://Scene/scent.tscn")
 var player: Player
 var isPause
 
@@ -26,11 +26,11 @@ class Player:
 	var scent_trail = []
 		
 	func _init(playerAnimation, gui, timerIframe):
-		pv = 6
+		pv = 15
 		pv_max = 6
-		speed = 75
+		speed = 120
 		attack_speed = 2
-		strength = 25
+		strength = 10
 		shield = 1
 		money = 10
 		shootSide = {
@@ -210,7 +210,7 @@ func move(_delta):
 
 func _on_animated_sprite_2d_animation_finished():
 	if animation.animation == "death":
-		get_tree().change_scene_to_file("res://GameOver.tscn")
+		get_tree().change_scene_to_file("res://Scene/GameOver.tscn")
 	
 func add_scent():
 	var scent = scent_scene.instantiate()
