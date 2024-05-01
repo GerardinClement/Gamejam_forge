@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://m1nejsn24hqr" path="res://Assets/Characters/Enemies/Mech/MechSheet.png" id="1_lna24"]
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_pyyym"]
 [ext_resource type="Texture2D" uid="uid://umnf3hr8dd8y" path="res://Assets/Characters/Enemies/Mech/mechExplosion.png" id="2_5iq8v"]
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/mech/StateMachine.gd" id="4_kbau2"]
+[ext_resource type="Script" path="res://script/StateMachine.gd" id="4_tumf1"]
 [ext_resource type="Script" path="res://AnimatedCharacters/Enemies/mech/EnemyIdle.gd" id="5_27fvi"]
 [ext_resource type="Script" path="res://script/EnemyShoot.gd" id="6_61d8y"]
 [ext_resource type="Script" path="res://script/EnemyChase.gd" id="7_3worj"]
@@ -191,7 +191,7 @@ shape = SubResource("RectangleShape2D_fkvlr")
 position = Vector2(-23, 1)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
-script = ExtResource("4_kbau2")
+script = ExtResource("4_tumf1")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]

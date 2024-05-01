@@ -4,7 +4,6 @@ const moneyPath = preload("res://Scene/money.tscn")
 @onready var animations = $animations
 @onready var timer = $Timer
 var enemy_name
-var enemy
 var stats
 var bulletPath
 var bullet_instance
@@ -87,5 +86,7 @@ func dropMoney():
 
 
 func _on_animations_frame_changed():
+	if is_queued_for_deletion():
+		return
 	if animations.animation == "shoot" and animations.frame == stats.shootFrame:
-		self.add_child(bullet_instance)
+			self.add_child(bullet_instance)

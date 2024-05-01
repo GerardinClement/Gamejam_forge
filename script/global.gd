@@ -16,24 +16,24 @@ var playerMoney = 0
 
 #Array of ennemies
 const ennemies = {
-	#"octopus": {
-		#"health": 50,
-		#"damage": 0.5,
-		#"speed": 50,
-		#"shootFrame": 3,
-		#"bulletSpeed": 200.0,
-		#"goldAmount": "threeGolds",
-		#"goldValue": 3
-	#},
-	#"human": {
-		#"health": 25,
-		#"damage": 0.5,
-		#"speed": 50,
-		#"shootFrame": 1,
-		#"bulletSpeed": 200.0,
-		#"goldAmount": "oneGold",
-		#"goldValue": 1
-	#},
+	"octopus": {
+		"health": 50,
+		"damage": 0.5,
+		"speed": 50,
+		"shootFrame": 3,
+		"bulletSpeed": 200.0,
+		"goldAmount": "threeGolds",
+		"goldValue": 3
+	},
+	"human": {
+		"health": 25,
+		"damage": 0.5,
+		"speed": 50,
+		"shootFrame": 1,
+		"bulletSpeed": 200.0,
+		"goldAmount": "oneGold",
+		"goldValue": 1
+	},
 	"mech": {
 		"health": 100,
 		"damage": 0.5,
@@ -55,7 +55,7 @@ const ennemies = {
 }
 
 var enemies_scene = {
-	#"octopus": preload("res://AnimatedCharacters/Enemies/octopus/octopus.tscn"),
-	#"human": preload("res://AnimatedCharacters/Enemies/human/human.tscn"),
+	"octopus": preload("res://AnimatedCharacters/Enemies/octopus/octopus.tscn"),
+	"human": preload("res://AnimatedCharacters/Enemies/human/human.tscn"),
 	"mech": preload("res://AnimatedCharacters/Enemies/mech/mech.tscn")
 }
