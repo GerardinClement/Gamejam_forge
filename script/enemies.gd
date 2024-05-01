@@ -38,7 +38,8 @@ func move(delta):
 		animations.set_flip_h(true)
 	if not animations.is_playing():
 		animations.play("move")
-	move_and_slide()
+	if animations.animation != "shoot" and animations.animation != "death":
+		move_and_slide()
 	
 func takeDamage():
 	if animations.animation == "hit" || animations.animation == "death":
