@@ -13,14 +13,16 @@ func _ready():
 func _process(delta):
 	pass
 
-
+func catch():
+	Global.player.money += rng.randi_range(1, 10)
+	$CollisionShape2D.disabled = true
+	$GoldSound.play()
+	$Gold.modulate.a = 0
+	$Timer.start()
+	
 func _on_body_entered(body):
 	if body.name == "Player":
-		Global.player.money += rng.randi_range(1, 10)
-		$CollisionShape2D.disabled = true
-		$GoldSound.play()
-		$Gold.modulate.a = 0
-		$Timer.start()
+		call_deferred("catch")
 		
 func _on_Timer_timeout():
 	queue_free()

@@ -21,7 +21,7 @@ const ennemies = {
 		"damage": 0.5,
 		"speed": 50,
 		"shootFrame": 3,
-		"bulletSpeed": 200.0,
+		"bulletSpeed": 400.0,
 		"goldAmount": "threeGolds",
 		"goldValue": 3
 	},
@@ -30,7 +30,7 @@ const ennemies = {
 		"damage": 0.5,
 		"speed": 50,
 		"shootFrame": 1,
-		"bulletSpeed": 200.0,
+		"bulletSpeed": 400.0,
 		"goldAmount": "oneGold",
 		"goldValue": 1
 	},
@@ -39,7 +39,7 @@ const ennemies = {
 		"damage": 0.5,
 		"speed": 50,
 		"shootFrame": 4,
-		"bulletSpeed": 200.0,
+		"bulletSpeed": 400.0,
 		"goldAmount": "tenGolds",
 		"goldValue": 10
 	},
