@@ -29,9 +29,9 @@ class Player:
 	func _init(playerAnimation, gui, timerIframe):
 		pv = 6
 		pv_max = 6
-		speed = 150
+		speed = 180
 		attack_speed = 2
-		strength = 50
+		strength = 1
 		shield = 1
 		money = 10
 		pieces_of_cards = 100

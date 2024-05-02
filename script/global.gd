@@ -17,27 +17,33 @@ var playerMoney = 0
 #Array of ennemies
 const ennemies = {
 	"octopus": {
+		"level": 1,
 		"health": 50,
 		"damage": 0.5,
 		"speed": 50,
 		"shootFrame": 3,
+		"attack_speed": 1,
 		"bulletSpeed": 400.0,
 		"goldAmount": "threeGolds",
 		"goldValue": 3
 	},
 	"human": {
+		"level": 1,
 		"health": 25,
 		"damage": 0.5,
 		"speed": 50,
+		"attack_speed": 0.5,
 		"shootFrame": 1,
 		"bulletSpeed": 400.0,
 		"goldAmount": "oneGold",
 		"goldValue": 1
 	},
 	"mech": {
+		"level": 1,
 		"health": 100,
 		"damage": 0.5,
 		"speed": 50,
+		"attack_speed": 1,
 		"shootFrame": 4,
 		"bulletSpeed": 400.0,
 		"goldAmount": "tenGolds",

@@ -10,10 +10,12 @@ var bulletPath
 var bullet_instance
 var player_in = false
 var is_dead = false
+var is_shooting = false
 
 func _ready():
 	stats = Global.ennemies[enemy_name].duplicate()
 	bulletPath = load("res://AnimatedCharacters/Enemies/" + enemy_name + "/Bullet.tscn")
+	timer.wait_time = stats.attack_speed
 	create_ray()
 	
 func create_ray():
@@ -52,6 +54,14 @@ func takeDamage():
 func death():
 	animations.play("death")
 
+func increase_level():
+	stats["level"] += 1
+	stats["health"] *= stats["level"]
+	stats["damage"] *= stats["level"]
+	stats["speed"] *= stats["level"]
+	stats["health"] *= stats["level"]
+	stats["bulletSpeed"] *= stats["level"]
+		
 #func _process(delta):
 	#enemy.check_death(self)
 	#enemy.process(delta, self)
@@ -59,10 +69,12 @@ func death():
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		player_in = true
+		timer.start()
 #
 func _on_area_2d_body_exited(body):
 	if body.name == 'Player':
 		player_in = false
+		timer.stop()
 
 #func chooseRandomEnemy():
 	#var ennemies = Global.ennemies.keys()
@@ -74,7 +86,9 @@ func _on_animations_animation_finished():
 		dropMoney()
 		is_dead = true
 		queue_free()
-
+	if $animations.animation == "shoot":
+		is_shooting = false
+		timer.start()
 	if $animations.animation == "hit":
 		$animations.play("move")
 #
@@ -92,3 +106,4 @@ func dropMoney():
 func _on_animations_frame_changed():
 	if bullet_instance != null and animations.animation == "shoot" and animations.frame == stats.shootFrame:
 		self.add_child(bullet_instance)
+

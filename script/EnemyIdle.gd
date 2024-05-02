@@ -25,8 +25,6 @@ func physics_update(delta):
 	if enemy:
 		enemy.velocity = move_direction * enemy.stats.speed
 	
-	if enemy.player_in and enemy.timer.is_stopped():
-		Transitioned.emit(self, "Shoot")
-	elif enemy.player_in:
+	if enemy.player_in:
 		Transitioned.emit(self, "Chase")
 		

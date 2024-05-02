@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_5ca8a"]
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_njbmb"]
 [ext_resource type="Script" path="res://script/StateMachine.gd" id="3_4ag4s"]
-[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/mech/EnemyIdle.gd" id="4_qmtxs"]
+[ext_resource type="Script" path="res://script/EnemyIdle.gd" id="4_dwn1v"]
 [ext_resource type="Script" path="res://script/EnemyShoot.gd" id="5_m1x1k"]
 [ext_resource type="Script" path="res://script/EnemyChase.gd" id="6_cgafm"]
 
@@ -204,7 +204,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_h0y30")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t2dgs")
+"texture": SubResource("AtlasTexture_ay2qx")
 }],
 "loop": false,
 "name": &"hit",
@@ -305,7 +305,7 @@ shape = SubResource("RectangleShape2D_3ojqj")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lm8er")
-animation = &"shoot"
+animation = &"hit"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -329,7 +329,7 @@ script = ExtResource("3_4ag4s")
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("4_qmtxs")
+script = ExtResource("4_dwn1v")
 enemy = NodePath("../..")
 
 [node name="Shoot" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
@@ -342,5 +342,6 @@ enemy = NodePath("../..")
 
 [connection signal="animation_finished" from="animations" to="." method="_on_animations_animation_finished"]
 [connection signal="frame_changed" from="animations" to="." method="_on_animations_frame_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="View" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="View" to="." method="_on_area_2d_body_exited"]
