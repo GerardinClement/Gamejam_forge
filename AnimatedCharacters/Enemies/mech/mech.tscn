@@ -9,8 +9,8 @@
 [ext_resource type="Script" path="res://script/EnemyChase.gd" id="7_3worj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh4wr"]
-radius = 30.718
-height = 61.436
+radius = 15.4355
+height = 39.2223
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0ivr"]
 atlas = ExtResource("2_5iq8v")
