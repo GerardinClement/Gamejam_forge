@@ -11,7 +11,6 @@ func _process(delta):
 			Global.player.pieces_of_cards -= price
 			
 func create_card():
-	print("create Card")
 	Global.player.add_card(card_manager.generate_random_card(Global.allCards))
 	Global.player.gui.display_cards()
 

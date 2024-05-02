@@ -149,14 +149,14 @@ animations = [{
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9),
-"transitions": PackedFloat32Array(1, 222.86, 7.99999, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.760784, 0.0823529, 0.180392, 1), Color(1, 1, 1, 1), Color(0.760784, 0.0823529, 0.180392, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_054m5"]
@@ -164,14 +164,14 @@ resource_name = "damage"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7, 0.9),
-"transitions": PackedFloat32Array(0.392292, 1, 1, 0.63728, 1),
+"times": PackedFloat32Array(0.1, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.882353, 0, 0.0980392, 1), Color(1, 1, 1, 1), Color(0.882353, 0, 0.0980392, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(0.760784, 0.0823529, 0.180392, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_d01wx"]
@@ -184,6 +184,8 @@ _data = {
 size = Vector2(15, 22)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+modulate = Color(1, 1, 1, 1)
+self_modulate = Color(0.760784, 0.0823529, 0.180392, 1)
 z_index = 5
 collision_mask = 250
 script = ExtResource("1_yfuhs")
@@ -197,7 +199,7 @@ shape = SubResource("RectangleShape2D_fwbjh")
 position = Vector2(-8, -12)
 scale = Vector2(0.505067, 0.553075)
 sprite_frames = SubResource("SpriteFrames_p5bdb")
-animation = &"idle"
+animation = &"death"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
 root_node = NodePath("../..")
@@ -221,6 +223,7 @@ position = Vector2(-7.5, -1)
 shape = SubResource("RectangleShape2D_t7hxa")
 
 [node name="IFrames" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="ScentTimer" type="Timer" parent="."]

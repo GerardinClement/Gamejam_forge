@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://druavmkwql20o"]
+[gd_scene load_steps=17 format=3 uid="uid://druavmkwql20o"]
 
 [ext_resource type="Texture2D" uid="uid://cgy4c86eltss8" path="res://Assets/Interface/FullHeart.png" id="1_bgbcl"]
 [ext_resource type="Script" path="res://script/gui.gd" id="1_q3sno"]
 [ext_resource type="Texture2D" uid="uid://cbvr7hwihm6jn" path="res://Assets/Interface/shield.png" id="3_bdap2"]
 [ext_resource type="Texture2D" uid="uid://fpu2m0hdtw4h" path="res://Assets/Collectables/coin2_20x20.png" id="3_edmwd"]
 [ext_resource type="Texture2D" uid="uid://5saficebk7jl" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x3.png" id="5_n32dh"]
-[ext_resource type="PackedScene" uid="uid://b0pweq64e17kj" path="res://Scene/cards.tscn" id="6_7dl8d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_guxgg"]
 atlas = ExtResource("3_edmwd")
@@ -205,10 +204,6 @@ position = Vector2(729, 558)
 
 [node name="Marker2D" type="Marker2D" parent="Markers"]
 position = Vector2(649, 558)
-
-[node name="ExampleCard" parent="Markers" instance=ExtResource("6_7dl8d")]
-visible = false
-scale = Vector2(0.332086, 0.332086)
 
 [node name="Cards" type="Control" parent="."]
 anchors_preset = 0
