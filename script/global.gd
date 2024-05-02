@@ -38,20 +38,20 @@ const ennemies = {
 		"health": 100,
 		"damage": 0.5,
 		"speed": 50,
-		"shootFrame": 3,
+		"shootFrame": 4,
 		"bulletSpeed": 200.0,
 		"goldAmount": "tenGolds",
 		"goldValue": 10
 	},
-	"boss": {
-		"health": 250,
-		"damage": 2,
-		"speed": 25,
-		"shootFrame": 3,
-		"bulletSpeed": 300.0,
-		"goldAmount": "tenGolds",
-		"goldValue": 10
-	}
+	#"boss": {
+		#"health": 250,
+		#"damage": 2,
+		#"speed": 25,
+		#"shootFrame": 3,
+		#"bulletSpeed": 300.0,
+		#"goldAmount": "tenGolds",
+		#"goldValue": 10
+	#}
 }
 
 var enemies_scene = {

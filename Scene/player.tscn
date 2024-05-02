@@ -183,7 +183,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t7hxa"]
 size = Vector2(15, 22)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 collision_mask = 122
 script = ExtResource("1_yfuhs")
@@ -235,7 +235,7 @@ volume_db = -10.0
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_lpr1u")
-volume_db = -10.0
+volume_db = 10.0
 
 [node name="ForgeMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_jbp4m")

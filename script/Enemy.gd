@@ -33,7 +33,7 @@ func play_shoot_animations(parent):
 		shoot(parent)
 
 func process(delta, parent):
-	if animations.is_playing && animations.animation != "moveRight" && animations.animation != "idle" && parent.position.distance_to(Global.playerPos) < 200:
+	if animations.is_playing && animations.animation != "move" && animations.animation != "idle" && parent.position.distance_to(Global.playerPos) < 200:
 		return
 	
 	if health <= 0 || animations.animation == "hit":
@@ -41,6 +41,7 @@ func process(delta, parent):
 	
 	chase_player(parent)
 	move(delta, parent)
+	play_shoot_animations(parent)
 
 func chase_player(parent):
 	enemyDir = Vector2()
@@ -59,18 +60,15 @@ func chase_player(parent):
 				break
 
 func move(delta, parent):
-	if enemyDir == Vector2():
+	if enemyDir == Vector2(0, 0):
 		animations.play("idle")
 		return
-
-	velocity = parent.position.direction_to(enemyDir)
-
-	if enemyDir.x > parent.position.x:
+	if parent.velocity.x > 0:
 		animations.set_flip_h(false)
 	else:
 		animations.set_flip_h(true)
-	animations.play("moveRight")
-	parent.move_and_collide(velocity * speed * delta)
+	animations.play("move")
+	parent.move_and_slide()
 
 func shoot(parent):
 	var bullet = bulletPath.instantiate()
@@ -98,12 +96,6 @@ func checkWalls(parent):
 		resetAnimation()
 		return true
 	return false
-
-func check_death(parent):
-	if health > 0:
-		return
-
-	animations.play("death")
 
 func takeDamage():
 	if animations.animation == "hit" || animations.animation == "death":

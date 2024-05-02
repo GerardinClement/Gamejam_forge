@@ -2,7 +2,7 @@ class_name Instance
 
 extends Node
 
-var cards = preload("res://cards.tscn")
+var cards = preload("res://Scene/cards.tscn")
 
 func create_card(parent, card, pos: Vector2,  playAnimation:bool):
 	var card_instance = cards.instantiate()

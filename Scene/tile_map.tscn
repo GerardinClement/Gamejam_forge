@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
-[ext_resource type="PackedScene" path="res://Key.tscn" id="5_hfq06"]
-[ext_resource type="PackedScene" uid="uid://bexwh0b37mhv4" path="res://Exit.tscn" id="5_sw7wm"]
-[ext_resource type="PackedScene" uid="uid://delsvobgp5l47" path="res://money.tscn" id="6_nhrk4"]
-[ext_resource type="PackedScene" uid="uid://cqkp4235i3tow" path="res://spawner.tscn" id="7_r77a3"]
-[ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://black-smith.tscn" id="8_mpfe7"]
+[ext_resource type="PackedScene" uid="uid://dh2npl7bcieu5" path="res://Scene/Key.tscn" id="5_hfq06"]
+[ext_resource type="PackedScene" uid="uid://26tk0bshfbfv" path="res://Scene/Exit.tscn" id="5_sw7wm"]
+[ext_resource type="PackedScene" uid="uid://delsvobgp5l47" path="res://Scene/money.tscn" id="6_nhrk4"]
+[ext_resource type="PackedScene" uid="uid://cqkp4235i3tow" path="res://Scene/spawner.tscn" id="7_r77a3"]
+[ext_resource type="PackedScene" uid="uid://d2v846qn6y318" path="res://Scene/black-smith.tscn" id="8_mpfe7"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_4wwn5"]
 tile_data = PackedInt32Array(0, 1048576, 0, 65536, 1048576, 1, 1, 1114112, 0, 65537, 1114112, 1)

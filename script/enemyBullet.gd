@@ -11,9 +11,9 @@ var isDestroyed = false
 @onready var animations = $AnimatedSprite2D
 
 func _ready():
-	self.damage = parent.enemy.damage
-	self.speed = parent.enemy.bulletSpeed
-	self.bulletPath = parent.enemy.bulletPath
+	self.damage = parent.stats.damage
+	self.speed = parent.stats.bulletSpeed
+	self.bulletPath = parent.bulletPath
 	self.get_node("AnimatedSprite2D").play("default")
 	look_at(Global.playerPos)
 	var direction = self.global_position.direction_to(Global.playerPos)

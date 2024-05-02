@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/chest.gd" id="1_xqntj"]
 [ext_resource type="Texture2D" uid="uid://dyowg5dl3i6d4" path="res://Assets/Objects/Fantasy RPG (Toony) 32x32.png" id="1_yc2nq"]
-[ext_resource type="PackedScene" uid="uid://c83jt85vdtnf0" path="res://chestMenu.tscn" id="3_810pm"]
+[ext_resource type="PackedScene" uid="uid://c83jt85vdtnf0" path="res://Scene/chestMenu.tscn" id="3_810pm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43irc"]
 size = Vector2(11.8481, 13.8795)

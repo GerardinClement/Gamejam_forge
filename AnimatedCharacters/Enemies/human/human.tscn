@@ -1,7 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://cyhlud4i6s8kv"]
+[gd_scene load_steps=29 format=3 uid="uid://cyhlud4i6s8kv"]
 
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_5btoe"]
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_64q6h"]
+[ext_resource type="Script" path="res://script/StateMachine.gd" id="3_5ednb"]
+[ext_resource type="Script" path="res://AnimatedCharacters/Enemies/mech/EnemyIdle.gd" id="4_xdde2"]
+[ext_resource type="Script" path="res://script/EnemyShoot.gd" id="5_6a2mw"]
+[ext_resource type="Script" path="res://script/EnemyChase.gd" id="6_8r4p2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_42g01"]
 radius = 5.5
@@ -159,7 +163,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_80g3y")
 }],
 "loop": true,
-"name": &"moveRight",
+"name": &"move",
 "speed": 5.0
 }, {
 "frames": [{
@@ -176,7 +180,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_fa0r3")
 }],
 "loop": true,
-"name": &"shootRight",
+"name": &"shoot",
 "speed": 4.0
 }]
 
@@ -194,9 +198,7 @@ shape = SubResource("CapsuleShape2D_42g01")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lyqgq")
-animation = &"hit"
-frame = 3
-frame_progress = 1.0
+animation = &"shoot"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -212,6 +214,23 @@ shape = SubResource("RectangleShape2D_dosin")
 [node name="leftSide" type="Marker2D" parent="."]
 position = Vector2(-13, 0)
 
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_5ednb")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_xdde2")
+enemy = NodePath("../..")
+
+[node name="Shoot" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_6a2mw")
+enemy = NodePath("../..")
+
+[node name="Chase" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("6_8r4p2")
+enemy = NodePath("../..")
+
 [connection signal="animation_finished" from="animations" to="." method="_on_animations_animation_finished"]
+[connection signal="frame_changed" from="animations" to="." method="_on_animations_frame_changed"]
 [connection signal="body_entered" from="View" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="View" to="." method="_on_area_2d_body_exited"]
