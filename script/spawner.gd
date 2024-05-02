@@ -12,7 +12,7 @@ func _on_body_entered(body):
 		
 func check_if_spawner(node):
 	var groups = node.get_groups()
-	if not groups.has("Spawner"):
+	if not groups.has("SpawnZone"):
 		return false
 	return true
 

@@ -5227,17 +5227,20 @@ position = Vector2(194.875, 340.398)
 position = Vector2(260, -832)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D3" groups=["Spawner"]]
+[node name="CollisionShape2D2" parent="Spawner/Area2D3" index="1"]
+position = Vector2(1170.25, -16.1135)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D3" groups=["SpawnZone"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D3/SpawnZone"]
 position = Vector2(-537.155, -47.8371)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vriqt")
 
-[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D3" groups=["Spawner"]]
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D3" groups=["SpawnZone"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D3/SpawnZone2"]
-position = Vector2(546.65, 9.53674e-06)
+position = Vector2(550.648, 36.2554)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jl3ov")
 
@@ -5245,7 +5248,13 @@ shape = SubResource("RectangleShape2D_jl3ov")
 position = Vector2(1423, -1169)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D8" groups=["Spawner"]]
+[node name="CollisionShape2D" parent="Spawner/Area2D8" index="0"]
+position = Vector2(652.582, 325.292)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D8" index="1"]
+position = Vector2(2060.68, 325.292)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D8" groups=["SpawnZone"]]
 position = Vector2(1861.81, 230.625)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D8/SpawnZone"]
@@ -5253,7 +5262,7 @@ position = Vector2(-523.664, -177.249)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wlh3d")
 
-[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D8" groups=["Spawner"]]
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D8" groups=["SpawnZone"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D8/SpawnZone2"]
 position = Vector2(1303.29, 523.69)
@@ -5261,27 +5270,37 @@ scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4vqr0")
 
 [node name="Area2D2" parent="Spawner" instance=ExtResource("7_r77a3")]
-position = Vector2(156, -425)
+position = Vector2(160, -240)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D2" groups=["Spawner"]]
+[node name="CollisionShape2D" parent="Spawner/Area2D2" index="0"]
+position = Vector2(-12.9917, 169.192)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D2" index="1"]
+visible = false
+position = Vector2(-522.665, 65.4612)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D2" groups=["SpawnZone"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D2/SpawnZone"]
-position = Vector2(449.712, 634.345)
+position = Vector2(449.712, 437.08)
 shape = SubResource("RectangleShape2D_ivy1t")
 
 [node name="Area2D" parent="Spawner" instance=ExtResource("7_r77a3")]
 position = Vector2(-3, 2)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D" groups=["Spawner"]]
+[node name="CollisionShape2D2" parent="Spawner/Area2D" index="1"]
+position = Vector2(-6.99548, 988.968)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D" groups=["SpawnZone"]]
 position = Vector2(-343.78, 529.733)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D/SpawnZone"]
 position = Vector2(348.777, 49.3472)
 shape = SubResource("RectangleShape2D_ondv5")
 
-[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D" groups=["Spawner"]]
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D" groups=["SpawnZone"]]
 position = Vector2(-343.78, 785.535)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D/SpawnZone2"]
@@ -5292,21 +5311,24 @@ shape = SubResource("RectangleShape2D_ondv5")
 position = Vector2(-9, 654)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D4" groups=["Spawner"]]
+[node name="CollisionShape2D2" parent="Spawner/Area2D4" index="1"]
+position = Vector2(496.682, 998.032)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D4" groups=["SpawnZone"]]
 position = Vector2(-343.78, 529.733)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D4/SpawnZone"]
 position = Vector2(857.451, 215.518)
 shape = SubResource("RectangleShape2D_ondv5")
 
-[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D4" groups=["Spawner"]]
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D4" groups=["SpawnZone"]]
 position = Vector2(-334.786, 262.852)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D4/SpawnZone2"]
 position = Vector2(1118.28, 289.981)
 shape = SubResource("RectangleShape2D_tp2w7")
 
-[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D4" groups=["Spawner"]]
+[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D4" groups=["SpawnZone"]]
 position = Vector2(-1387.11, 414.924)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D4/SpawnZone3"]
@@ -5318,7 +5340,13 @@ shape = SubResource("RectangleShape2D_pbgp5")
 position = Vector2(489, 1327)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D5" groups=["Spawner"]]
+[node name="CollisionShape2D" parent="Spawner/Area2D5" index="0"]
+position = Vector2(0.99936, 619.364)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D5" index="1"]
+position = Vector2(-1114.29, 1728.18)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D5" groups=["SpawnZone"]]
 position = Vector2(-343.78, 529.733)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D5/SpawnZone"]
@@ -5326,7 +5354,7 @@ position = Vector2(351.775, 1372.67)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6aj7l")
 
-[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D5" groups=["Spawner"]]
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D5" groups=["SpawnZone"]]
 position = Vector2(-334.786, 262.852)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D5/SpawnZone2"]
@@ -5334,7 +5362,7 @@ position = Vector2(1054.33, 935.561)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jtx8o")
 
-[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D5" groups=["Spawner"]]
+[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D5" groups=["SpawnZone"]]
 position = Vector2(-1387.11, 414.924)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D5/SpawnZone3"]
@@ -5346,7 +5374,10 @@ shape = SubResource("RectangleShape2D_1pjgh")
 position = Vector2(-635, 2711)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D6" groups=["Spawner"]]
+[node name="CollisionShape2D" parent="Spawner/Area2D6" index="0"]
+position = Vector2(-416.733, 342.413)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D6" groups=["SpawnZone"]]
 position = Vector2(-343.78, 529.733)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D6/SpawnZone"]
@@ -5358,7 +5389,10 @@ shape = SubResource("RectangleShape2D_0dodm")
 position = Vector2(2121, 2755)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D7" groups=["Spawner"]]
+[node name="CollisionShape2D2" parent="Spawner/Area2D7" index="1"]
+position = Vector2(1473.06, 295.079)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D7" groups=["SpawnZone"]]
 position = Vector2(-343.78, 529.733)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D7/SpawnZone"]
@@ -5366,7 +5400,7 @@ position = Vector2(691.058, -878.566)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qep55")
 
-[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D7" groups=["Spawner"]]
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D7" groups=["SpawnZone"]]
 position = Vector2(-1226.22, 2818.86)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D7/SpawnZone2"]
@@ -5374,10 +5408,19 @@ position = Vector2(1208.73, -872.021)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_d7awe")
 
-[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D7" groups=["Spawner"]]
+[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D7" groups=["SpawnZone"]]
 position = Vector2(-1226.22, 2818.86)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D7/SpawnZone3"]
 position = Vector2(3823.8, -2261.94)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_d7awe")
+
+[editable path="Spawner/Area2D3"]
+[editable path="Spawner/Area2D8"]
+[editable path="Spawner/Area2D2"]
+[editable path="Spawner/Area2D"]
+[editable path="Spawner/Area2D4"]
+[editable path="Spawner/Area2D5"]
+[editable path="Spawner/Area2D6"]
+[editable path="Spawner/Area2D7"]

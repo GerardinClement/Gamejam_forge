@@ -12,6 +12,10 @@ script = ExtResource("1_7oyqg")
 position = Vector2(1, 332)
 shape = SubResource("CircleShape2D_0w0v3")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(654, 2)
+shape = SubResource("CircleShape2D_0w0v3")
+
 [node name="Timer" type="Timer" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
