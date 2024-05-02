@@ -45,8 +45,10 @@ func displayShop():
 		shopMenu.hide()
 		shopMenu.close()
 		shopOpen = false
+		Global.playerIsInForge = false
 	else:
 		shopMenu.show()
 		shopMenu.open(Global.player.cards)
 		shopOpen = true
+		Global.playerIsInForge = true
 	Global.pause = shopOpen

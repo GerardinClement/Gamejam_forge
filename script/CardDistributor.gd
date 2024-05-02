@@ -13,6 +13,7 @@ func _process(delta):
 func create_card():
 	print("create Card")
 	Global.player.add_card(card_manager.generate_random_card(Global.allCards))
+	Global.player.gui.display_cards()
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":

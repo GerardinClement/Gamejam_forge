@@ -2,7 +2,6 @@ extends Area2D
 
 var cardIsOn = false
 var initialPosCard
-var positionCard = Vector2(45, 60)
 var mouseOn
 var cardOn
 
@@ -14,12 +13,14 @@ func add_card(card, position):
 	cardOn = card
 	initialPosCard = card.position
 	var tween = get_tree().create_tween()
-	tween.tween_property(cardOn, "position", Vector2(position.x + positionCard.x, position.y + positionCard.y), 0.2).set_ease(Tween.EASE_OUT)
+	tween.tween_property(cardOn, "global_position", $Marker2D.global_position, 0.2).set_ease(Tween.EASE_OUT)
 	cardIsOn = true
 	cardOn.isStored = true
 	card.dropableZoneName = self.name
 
 func  remove_card():
+	if not cardOn:
+		return
 	var tween = get_tree().create_tween()
 	tween.tween_property(cardOn, "position", initialPosCard, 0.2).set_ease(Tween.EASE_OUT)
 	cardIsOn = false

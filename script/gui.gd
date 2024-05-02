@@ -11,11 +11,7 @@ var createInstance = preload("res://script/createInstance.gd").new()
 func _ready():
 	$Inventory/Coin/AnimatedSprite2D.play('default')
 
-func displayPlayerCards():
-	var viewport_rect = get_viewport_rect()
-	var bottom_position = viewport_rect.size.y * 0.83
-	var left_position = viewport_rect.size.x / 2
-
+func display_cards():
 	var i = 0
 	remove_cards()
 	for cardsArray in Global.player.cards.values():

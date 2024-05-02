@@ -5219,7 +5219,7 @@ position = Vector2(1154, 5339)
 scale = Vector2(1.00064, 0.992954)
 
 [node name="Black-smith" parent="." instance=ExtResource("8_mpfe7")]
-position = Vector2(194.875, 340.398)
+position = Vector2(-128.918, 23.1631)
 
 [node name="Spawner" type="Node" parent="."]
 

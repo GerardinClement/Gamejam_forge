@@ -56,7 +56,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Black-smithShop" type="Control"]
+[node name="Black-smithShop" type="Control" groups=["Forge"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,7 +68,7 @@ script = ExtResource("1_r1a0n")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 position = Vector2(550, 327)
-scale = Vector2(2.55404, 2.22716)
+scale = Vector2(1.287, 1.12229)
 sprite_frames = SubResource("SpriteFrames_kn1bf")
 frame = 5
 frame_progress = 1.0
@@ -78,44 +78,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Marker2D" type="Marker2D" parent="Control"]
-position = Vector2(630, 209)
-rotation = 3.14159
-scale = Vector2(2.11886, 0.572058)
-gizmo_extents = 0.0
-
-[node name="Marker2D2" type="Marker2D" parent="Control"]
-position = Vector2(765, 204)
-rotation = 3.14159
-scale = Vector2(2.11886, 0.572058)
-gizmo_extents = 0.0
-
-[node name="Marker2D3" type="Marker2D" parent="Control"]
-position = Vector2(897, 204)
-rotation = 3.14159
-scale = Vector2(2.11886, 0.572058)
-gizmo_extents = 0.0
-
-[node name="Marker2D4" type="Marker2D" parent="Control"]
-position = Vector2(897, 403)
-rotation = 3.14159
-scale = Vector2(2.11886, 0.572058)
-gizmo_extents = 0.0
-
-[node name="Marker2D5" type="Marker2D" parent="Control"]
-position = Vector2(770, 403)
-rotation = 3.14159
-scale = Vector2(2.11886, 0.572058)
-gizmo_extents = 0.0
-
-[node name="Marker2D6" type="Marker2D" parent="Control"]
-position = Vector2(634, 403)
-rotation = 3.14159
-scale = Vector2(2.11886, 0.572058)
-gizmo_extents = 0.0
-
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(387, 154)
+position = Vector2(695, 275.481)
 scale = Vector2(2.54812, 2.54812)
 texture = ExtResource("5_6yfa4")
 region_enabled = true
@@ -123,10 +87,10 @@ region_rect = Rect2(0, 0, 19.9011, 20)
 
 [node name="price" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 311.0
-offset_top = 129.0
-offset_right = 351.0
-offset_bottom = 168.0
+offset_left = 629.0
+offset_top = 258.481
+offset_right = 669.0
+offset_bottom = 297.481
 scale = Vector2(0.92805, 1.22478)
 theme_override_fonts/font = ExtResource("4_k268s")
 theme_override_font_sizes/font_size = 28
@@ -134,20 +98,23 @@ text = "0"
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 281.0
-offset_top = 461.0
-offset_right = 394.0
-offset_bottom = 492.0
+offset_left = 599.0
+offset_top = 323.0
+offset_right = 712.0
+offset_bottom = 354.0
+scale = Vector2(1.30706, 1.30706)
 theme_override_fonts/font = ExtResource("4_k268s")
 text = "Forge"
 
 [node name="Dropable2" parent="Control" instance=ExtResource("3_ht2lt")]
 modulate = Color(0.8, 1, 1, 0.372549)
-position = Vector2(405, 261)
+position = Vector2(503, 278)
+scale = Vector2(0.984679, 0.940062)
 
 [node name="Dropable" parent="Control" instance=ExtResource("3_ht2lt")]
 modulate = Color(0.8, 1, 1, 0.372549)
-position = Vector2(194, 261)
+position = Vector2(382, 278)
+scale = Vector2(0.984679, 0.940062)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]

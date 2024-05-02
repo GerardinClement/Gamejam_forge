@@ -98,19 +98,19 @@ shape = SubResource("CircleShape2D_edaky")
 visible = false
 z_index = 10
 offset_left = -196.923
-offset_top = -189.231
+offset_top = -230.769
 offset_right = -196.923
-offset_bottom = -189.231
+offset_bottom = -230.769
 scale = Vector2(0.658088, 0.658088)
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 4.61539
 offset_top = -16.9231
 offset_right = 44.6154
 offset_bottom = 23.0769
+scale = Vector2(1.42776, 1.42776)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 position = Vector2(-27.2413, -29.0971)

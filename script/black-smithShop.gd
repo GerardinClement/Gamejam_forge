@@ -17,14 +17,6 @@ var cardsInstance: Array
 
 func displayShop():
 	control.visible = true
-	var size = self.size
-	var i = 0
-	
-	for cardsArray in Global.player.cards.values():
-		for card in cardsArray:
-			var marker = control.get_child(i)
-			Instance.create_card(self, card, marker.position, false)
-			i += 1
 		
 func add_to_dropable(card):
 	if not card.isStored:
@@ -79,8 +71,3 @@ func close():
 	price = 0
 	dropable1.remove_card()
 	dropable2.remove_card()
-	var count = self.get_child_count()
-	for i in count:
-		var child = self.get_child(i)
-		if child.name.find("StaticBody2D") >= 0 or child.name == "Cards":
-			child.queue_free()

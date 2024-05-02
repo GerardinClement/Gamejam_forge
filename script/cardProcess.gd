@@ -26,15 +26,13 @@ func _ready():
 	
 func _process(delta):
 	if not animationPlayer.is_playing() and not animatesExplosions.is_playing():
-		if Input.is_action_just_pressed("click") and onShop and mouseOn:
-			get_parent().add_to_dropable(self)
+		if Input.is_action_just_pressed("click") and Global.playerIsInForge and mouseOn:
+			get_tree().call_group("Forge", "add_to_dropable", self)
 		if Input.is_action_just_pressed("click") and forChoose and mouseOn:
 			isSelected = true
 
 func _on_mouse_entered():
 	mouseOn = true
-	if get_parent().name == "Black-smithShop":
-		onShop = true
 	rectLabel.visible = true
 	labelName.text = card.name
 	labelLevel.text = "Level: " + str(card.level)
@@ -60,9 +58,15 @@ func _on_mouse_exited():
 func _on_animation_player_animation_finished(anim_name):
 	animationsFinished.append(anim_name)
 	var tween = get_tree().create_tween()
-	if initPos:
+	if initPos and anim_name == "Intro":
 		tween.tween_property(self, "position", Vector2(initPos.x, initPos.y), 0.2).set_ease(Tween.EASE_OUT)
+		tween.tween_callback(Global.player.gui.display_cards)
+		tween.tween_callback(self.queue_free)
+		
 
+func _on_tween_completed():
+	self.queue_free()
+	
 func destroy_card():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Card, "scale", Vector2(0.1, 0.1), 0.3).set_ease(Tween.EASE_IN)

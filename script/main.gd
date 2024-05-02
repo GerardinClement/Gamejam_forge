@@ -26,6 +26,7 @@ func start_the_game():
 	add_child(card_manager)
 	for i in 1:
 		Player.add_card(card_manager.generate_random_card(card_manager.cards))
+	Player.gui.display_cards()
 	inventory_menu.hide()
 	Global.gameIsStart = true
 	

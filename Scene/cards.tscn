@@ -10,18 +10,17 @@ size = Vector2(135.141, 187.794)
 
 [sub_resource type="Animation" id="Animation_ok8d2"]
 resource_name = "Intro"
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 3
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.7, 1),
-"transitions": PackedFloat32Array(1, 2.46229, 1.8025, 5.46415),
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 2.46229, 1.8025, 0.683019, 1),
 "update": 0,
-"values": [0.00154606, -0.33343, 0.0189992, 0.315905]
+"values": [0.00154606, -0.33343, 0.0189992, 0.315905, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_srsln"]

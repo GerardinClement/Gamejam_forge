@@ -58,7 +58,6 @@ class Player:
 		else:
 			cards[newCard.name].append(newCard)
 		gui.display_life(self)
-		gui.displayPlayerCards()
 		
 	func take_damage(bullet):
 		if !iframes.is_stopped():
@@ -157,6 +156,7 @@ func _ready():
 		player.gui = gui
 		player.iframes = $IFrames
 	gui.display_life(player)
+	gui.display_cards()
 	
 func _process(_delta):
 	player = Global.player
