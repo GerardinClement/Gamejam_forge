@@ -161,9 +161,10 @@ scale = Vector2(0.463925, 0.463925)
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_left = -1.0
-offset_right = 39.0
-offset_bottom = 40.0
+offset_left = 5.13479
+offset_top = 3.42319
+offset_right = 45.1348
+offset_bottom = 43.4232
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 position = Vector2(-27.2413, -29.0971)

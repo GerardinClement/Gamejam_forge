@@ -34,7 +34,7 @@ class Player:
 		strength = 50
 		shield = 1
 		money = 10
-		pieces_of_cards = 15
+		pieces_of_cards = 100
 		shootSide = {
 			"forward": true,
 			"back": false,

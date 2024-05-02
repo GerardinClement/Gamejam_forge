@@ -20,9 +20,10 @@ func displayPlayerCards():
 	remove_cards()
 	for cardsArray in Global.player.cards.values():
 		for card in cardsArray:
+			print(i)
 			var marker = $Markers.get_child(i)
 			var card_instance = createInstance.create_card($Cards, card, marker.position, false)
-			card_instance.scale = $Markers/ExampleCard.scale
+			card_instance.scale = Vector2(0.6, 0.6)
 			i += 1
 			
 func remove_cards():

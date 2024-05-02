@@ -8,6 +8,7 @@ var forChoose = false
 var isSelected = false
 var animationsFinished: Array
 var dropableZoneName
+var old_scale: Vector2
 
 @onready var rectLabel = $ColorRect
 @onready var labelName = $ColorRect/name
@@ -41,6 +42,7 @@ func _on_mouse_entered():
 	labelEffects.text = ""
 	for key in card.effects:
 		labelEffects.text += key + ": " + str(card.effects[key]) + "\n"
+	old_scale = self.scale
 	self.scale = Vector2(0.8, 0.8)
 	
 func forge_animation(cardInitPos):
@@ -53,7 +55,7 @@ func remove_card_from_forge():
 func _on_mouse_exited():
 	mouseOn = false
 	rectLabel.visible = false
-	self.scale = Vector2(0.7, 0.7)
+	self.scale = old_scale
 
 func _on_animation_player_animation_finished(anim_name):
 	animationsFinished.append(anim_name)

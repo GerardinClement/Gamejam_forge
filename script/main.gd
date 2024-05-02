@@ -45,11 +45,9 @@ func _process(_delta):
 func inventoryMenu():
 	if Global.pause and inventory_menu.visible:
 		inventory_menu.hide()
-		inventory_menu.close()
 		Engine.time_scale = 1
 		Global.pause = false
 	elif not Global.pause and not inventory_menu.visible:
 		inventory_menu.show()
-		inventory_menu.open(Player)
 		Engine.time_scale = 0
 		Global.pause = true
