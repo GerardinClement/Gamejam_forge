@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://druavmkwql20o"]
+[gd_scene load_steps=17 format=3 uid="uid://druavmkwql20o"]
 
 [ext_resource type="Texture2D" uid="uid://cgy4c86eltss8" path="res://Assets/Interface/FullHeart.png" id="1_bgbcl"]
 [ext_resource type="Script" path="res://script/gui.gd" id="1_q3sno"]
 [ext_resource type="Texture2D" uid="uid://cbvr7hwihm6jn" path="res://Assets/Interface/shield.png" id="3_bdap2"]
 [ext_resource type="Texture2D" uid="uid://fpu2m0hdtw4h" path="res://Assets/Collectables/coin2_20x20.png" id="3_edmwd"]
+[ext_resource type="Texture2D" uid="uid://5saficebk7jl" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x3.png" id="5_n32dh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_guxgg"]
 atlas = ExtResource("3_edmwd")
@@ -121,7 +122,18 @@ grow_vertical = 0
 scale = Vector2(0.585466, 0.665467)
 texture = ExtResource("3_bdap2")
 
-[node name="Coin" type="Control" parent="."]
+[node name="Inventory" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = -8.0
+offset_right = 1.0
+offset_bottom = -8.0
+grow_horizontal = 0
+
+[node name="Coin" type="Control" parent="Inventory"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 975.0
@@ -130,18 +142,43 @@ offset_right = 1116.0
 offset_bottom = 119.0
 scale = Vector2(0.747804, 0.747804)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Inventory/Coin"]
 position = Vector2(41, 41)
 scale = Vector2(3.45898, 3.57345)
 sprite_frames = SubResource("SpriteFrames_3pbhw")
-frame_progress = 0.567987
 speed_scale = 0.75
 
-[node name="Amount" type="Label" parent="Coin"]
+[node name="Amount" type="Label" parent="Inventory/Coin"]
 layout_mode = 0
 offset_left = 89.0
 offset_top = 4.0
 offset_right = 246.0
 offset_bottom = 73.0
 text = "10"
+label_settings = SubResource("LabelSettings_uc7o2")
+
+[node name="Piece_of_cards" type="Control" parent="Inventory"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 975.0
+offset_top = 115.0
+offset_right = 1116.0
+offset_bottom = 194.0
+scale = Vector2(0.747804, 0.747804)
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="Inventory/Piece_of_cards"]
+position = Vector2(41, 41)
+scale = Vector2(2.54035, 2.62442)
+texture = ExtResource("5_n32dh")
+region_enabled = true
+region_rect = Rect2(608.956, 789.575, 30.4148, 32.4424)
+
+[node name="Amount" type="Label" parent="Inventory/Piece_of_cards"]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 73.0
+text = "5
+"
 label_settings = SubResource("LabelSettings_uc7o2")

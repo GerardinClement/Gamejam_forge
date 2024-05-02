@@ -14,7 +14,7 @@ func _physics_process(_delta):
 	move_and_collide(velocity.normalized() * _delta * SPEED)
 
 func _on_area_2d_body_entered(body):
-	if body.name != "TileMap" && !is_destroyed:
+	if body.name != "TileMap" and !is_destroyed:
 		body.takeDamage()
 	destroy_itself()
 	

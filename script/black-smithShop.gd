@@ -4,9 +4,10 @@ extends Control
 @onready var CardManager = preload("res://script/cardsManager.gd")
 @onready var animatedSprite = $AnimatedSprite2D2
 @onready var cardManager = CardManager.new()
-@onready var dropable1 = $Dropable
-@onready var dropable2 = $Dropable2
-@onready var priceLabel = $price
+@onready var dropable1 = $Control/Dropable
+@onready var dropable2 = $Control/Dropable2
+@onready var priceLabel = $Control/price
+@onready var control = $Control
 var price = 0
 var Instance = preload("res://script/createInstance.gd").new()
 var Merge = preload("res://script/mergeCards.gd").new()
@@ -15,12 +16,13 @@ var shop
 var cardsInstance: Array
 
 func displayShop():
+	control.visible = true
 	var size = self.size
 	var i = 0
 	
 	for cardsArray in Global.player.cards.values():
 		for card in cardsArray:
-			var marker = self.get_child(i + 1)
+			var marker = control.get_child(i)
 			Instance.create_card(self, card, marker.position, false)
 			i += 1
 		
@@ -39,14 +41,14 @@ func add_to_dropable(card):
 		else:
 			price -= card.card.level * 5
 			dropable2.remove_card()
-	priceLabel.text = str(price) + " Simflouz"
+	priceLabel.text = str(price)
 
 func open(shopCards):
 	shop = shopCards
 	animatedSprite.play("default")
 	
 func _process(_delta):
-	priceLabel.text = str(price) + " Simflouz"
+	priceLabel.text = str(price)
 
 func _on_animated_sprite_2d_2_animation_finished():
 	displayShop()

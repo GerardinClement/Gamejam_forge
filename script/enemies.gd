@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const moneyPath = preload("res://Scene/money.tscn")
+const pieces_of_cards_scene = preload("res://Scene/piecesOfCards.tscn")
 @onready var animations = $animations
 @onready var timer = $Timer
 var enemy_name
@@ -78,12 +79,15 @@ func _on_animations_animation_finished():
 		$animations.play("move")
 #
 func dropMoney():
+	var pieces_of_cards_droped = pieces_of_cards_scene.instantiate()
 	var moneyDroped = moneyPath.instantiate()
 	
 	moneyDroped.goldAmount = stats.goldAmount
 	moneyDroped.value = stats.goldValue
 	moneyDroped.position = position
+	pieces_of_cards_droped.position = position
 	get_parent().add_child(moneyDroped)
+	get_parent().add_child(pieces_of_cards_droped)
 
 func _on_animations_frame_changed():
 	if bullet_instance != null and animations.animation == "shoot" and animations.frame == stats.shootFrame:

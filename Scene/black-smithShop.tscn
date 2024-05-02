@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhjnugc48cumm"]
+[gd_scene load_steps=13 format=3 uid="uid://dhjnugc48cumm"]
 
 [ext_resource type="Texture2D" uid="uid://hhge5bg3lnyf" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Animated Tablets/blue/tablet_animation_spritesheet.png" id="1_h5ona"]
 [ext_resource type="Script" path="res://script/black-smithShop.gd" id="1_r1a0n"]
 [ext_resource type="PackedScene" uid="uid://j47svx0fyeop" path="res://Scene/dropable.tscn" id="3_ht2lt"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="4_k268s"]
+[ext_resource type="Texture2D" uid="uid://fpu2m0hdtw4h" path="res://Assets/Collectables/coin2_20x20.png" id="5_6yfa4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0le6r"]
 atlas = ExtResource("1_h5ona")
@@ -72,43 +73,66 @@ sprite_frames = SubResource("SpriteFrames_kn1bf")
 frame = 5
 frame_progress = 1.0
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(634, 204)
-scale = Vector2(-2.11886, -0.572058)
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Marker2D" type="Marker2D" parent="Control"]
+position = Vector2(630, 209)
+rotation = 3.14159
+scale = Vector2(2.11886, 0.572058)
 gizmo_extents = 0.0
 
-[node name="Marker2D2" type="Marker2D" parent="."]
+[node name="Marker2D2" type="Marker2D" parent="Control"]
 position = Vector2(765, 204)
-scale = Vector2(-2.11886, -0.572058)
+rotation = 3.14159
+scale = Vector2(2.11886, 0.572058)
 gizmo_extents = 0.0
 
-[node name="Marker2D3" type="Marker2D" parent="."]
+[node name="Marker2D3" type="Marker2D" parent="Control"]
 position = Vector2(897, 204)
-scale = Vector2(-2.11886, -0.572058)
+rotation = 3.14159
+scale = Vector2(2.11886, 0.572058)
 gizmo_extents = 0.0
 
-[node name="Marker2D4" type="Marker2D" parent="."]
+[node name="Marker2D4" type="Marker2D" parent="Control"]
 position = Vector2(897, 403)
-scale = Vector2(-2.11886, -0.572058)
+rotation = 3.14159
+scale = Vector2(2.11886, 0.572058)
 gizmo_extents = 0.0
 
-[node name="Marker2D5" type="Marker2D" parent="."]
+[node name="Marker2D5" type="Marker2D" parent="Control"]
 position = Vector2(770, 403)
-scale = Vector2(-2.11886, -0.572058)
+rotation = 3.14159
+scale = Vector2(2.11886, 0.572058)
 gizmo_extents = 0.0
 
-[node name="Marker2D6" type="Marker2D" parent="."]
+[node name="Marker2D6" type="Marker2D" parent="Control"]
 position = Vector2(634, 403)
-scale = Vector2(-2.11886, -0.572058)
+rotation = 3.14159
+scale = Vector2(2.11886, 0.572058)
 gizmo_extents = 0.0
 
-[node name="Dropable" parent="." instance=ExtResource("3_ht2lt")]
-position = Vector2(194, 261)
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(387, 154)
+scale = Vector2(2.54812, 2.54812)
+texture = ExtResource("5_6yfa4")
+region_enabled = true
+region_rect = Rect2(0, 0, 19.9011, 20)
 
-[node name="Dropable2" parent="." instance=ExtResource("3_ht2lt")]
-position = Vector2(405, 261)
+[node name="price" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 129.0
+offset_right = 351.0
+offset_bottom = 168.0
+scale = Vector2(0.92805, 1.22478)
+theme_override_fonts/font = ExtResource("4_k268s")
+theme_override_font_sizes/font_size = 28
+text = "0"
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 281.0
 offset_top = 461.0
@@ -117,16 +141,15 @@ offset_bottom = 492.0
 theme_override_fonts/font = ExtResource("4_k268s")
 text = "Forge"
 
-[node name="price" type="Label" parent="."]
-layout_mode = 0
-offset_left = 320.0
-offset_top = 136.0
-offset_right = 360.0
-offset_bottom = 159.0
-scale = Vector2(2.96246, 1.57479)
-text = "0$"
+[node name="Dropable2" parent="Control" instance=ExtResource("3_ht2lt")]
+modulate = Color(0.8, 1, 1, 0.372549)
+position = Vector2(405, 261)
+
+[node name="Dropable" parent="Control" instance=ExtResource("3_ht2lt")]
+modulate = Color(0.8, 1, 1, 0.372549)
+position = Vector2(194, 261)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D2" to="." method="_on_animated_sprite_2d_2_animation_finished"]
-[connection signal="body_entered" from="Dropable" to="." method="_on_dropable_body_entered"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="Control/Dropable" to="." method="_on_dropable_body_entered"]

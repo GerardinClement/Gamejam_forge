@@ -8,7 +8,7 @@ extends Control
 @onready var shield = preload("res://Assets/Interface/shield.png")
 
 func _ready():
-	$Coin/AnimatedSprite2D.play('default')
+	$Inventory/Coin/AnimatedSprite2D.play('default')
 
 func display_life(player):
 	remove_life()
@@ -37,4 +37,5 @@ func remove_life():
 			container.get_child(i).queue_free()
 
 func _process(delta):
-	$Coin/Amount.text = str(Global.player.money)
+	$Inventory/Coin/Amount.text = str(Global.player.money)
+	$Inventory/Piece_of_cards/Amount.text = str(Global.player.pieces_of_cards)

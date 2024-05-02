@@ -6,7 +6,7 @@ var open = false
 @onready var chestMenu = $"ChestMenu"
 
 func _ready():
-	$AnimatedSprite2D.play("idle")
+	$AnimatedSprite2D.play("idle2")
 
 func createCards():
 	var cardsForChoose: Array
@@ -17,7 +17,7 @@ func createCards():
 
 func _process(delta):
 	if Input.is_action_just_pressed("Interact") and playerInZone and !open:
-		$AnimatedSprite2D.play("open")
+		$AnimatedSprite2D.play("open2")
 
 
 func _on_area_2d_body_entered(body):
@@ -31,9 +31,9 @@ func _on_area_2d_body_exited(body):
 
 
 func _on_animated_sprite_2d_animation_finished():
-	if $AnimatedSprite2D.animation == "open":
+	if $AnimatedSprite2D.animation == "open2":
 		open = true
 		Global.pause = true
 		chestMenu.open(createCards())
 		set_process(false)
-		$AnimatedSprite2D.play("already_use")
+		$AnimatedSprite2D.play("already_use2")

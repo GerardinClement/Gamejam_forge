@@ -1,15 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkbuw7o13rxyr"]
+[gd_scene load_steps=19 format=3 uid="uid://bkbuw7o13rxyr"]
 
 [ext_resource type="Script" path="res://script/chest.gd" id="1_xqntj"]
 [ext_resource type="Texture2D" uid="uid://dyowg5dl3i6d4" path="res://Assets/Objects/Fantasy RPG (Toony) 32x32.png" id="1_yc2nq"]
 [ext_resource type="PackedScene" uid="uid://c83jt85vdtnf0" path="res://Scene/chestMenu.tscn" id="3_810pm"]
+[ext_resource type="Texture2D" uid="uid://bu15ks0yxhion" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x2.png" id="3_qg4cf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43irc"]
-size = Vector2(11.8481, 13.8795)
+size = Vector2(20.962, 20.2244)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_imtep"]
 atlas = ExtResource("1_yc2nq")
 region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqcjn"]
+atlas = ExtResource("3_qg4cf")
+region = Rect2(768, 392, 64, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p40ri"]
 atlas = ExtResource("1_yc2nq")
@@ -26,6 +31,10 @@ region = Rect2(96, 160, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwcep"]
 atlas = ExtResource("1_yc2nq")
 region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxnjm"]
+atlas = ExtResource("3_qg4cf")
+region = Rect2(704, 392, 64, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yud64"]
 atlas = ExtResource("1_yc2nq")
@@ -55,6 +64,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cqcjn")
+}],
+"loop": false,
+"name": &"already_use2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_p40ri")
 }, {
 "duration": 1.0,
@@ -68,6 +85,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxnjm")
+}],
+"loop": true,
+"name": &"idle2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -86,6 +111,17 @@ animations = [{
 "loop": false,
 "name": &"open",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxnjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqcjn")
+}],
+"loop": false,
+"name": &"open2",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_id6vv"]
@@ -97,13 +133,13 @@ collision_layer = 16
 script = ExtResource("1_xqntj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.427899, 0.4279)
+position = Vector2(0.855798, 8.55798)
 scale = Vector2(2.817, -2.15807)
 shape = SubResource("RectangleShape2D_43irc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q0s0k")
-animation = &"open"
+animation = &"already_use2"
 
 [node name="Area2D" type="Area2D" parent="."]
 

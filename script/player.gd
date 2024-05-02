@@ -19,8 +19,9 @@ class Player:
 	var speed: int
 	var attack_speed: int
 	var strength: int
+	var money:int
+	var pieces_of_cards:int
 	var playerAnimation
-	var money
 	var gui
 	var iframes
 	var scent_trail = []
@@ -33,6 +34,7 @@ class Player:
 		strength = 50
 		shield = 1
 		money = 10
+		pieces_of_cards = 0
 		shootSide = {
 			"forward": true,
 			"back": false,
