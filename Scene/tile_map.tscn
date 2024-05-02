@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://b1duj81xgtv76"]
+[gd_scene load_steps=84 format=3 uid="uid://b1duj81xgtv76"]
 
 [ext_resource type="Texture2D" uid="uid://dkj15bqj1pwph" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/tileset x1.png" id="1_kf7dp"]
 [ext_resource type="Texture2D" uid="uid://c0hekh4nn5l81" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x1.png" id="2_ljkmu"]
@@ -5095,14 +5095,47 @@ pattern_54 = SubResource("TileMapPattern_jguvf")
 pattern_55 = SubResource("TileMapPattern_5dlgk")
 pattern_56 = SubResource("TileMapPattern_e6x4o")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ondv5"]
-size = Vector2(733.531, 90.8885)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vriqt"]
+size = Vector2(798.487, 490.456)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jl3ov"]
+size = Vector2(834.964, 497.505)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlh3d"]
+size = Vector2(825.47, 231.632)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vqr0"]
+size = Vector2(787.245, 237.675)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivy1t"]
 size = Vector2(429.725, 340.147)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vriqt"]
-size = Vector2(1898.78, 84.5959)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ondv5"]
+size = Vector2(733.531, 90.8885)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp2w7"]
+size = Vector2(211.865, 239.814)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbgp5"]
+size = Vector2(355.775, 187.32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6aj7l"]
+size = Vector2(1826.83, 320.822)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtx8o"]
+size = Vector2(211.865, 839.981)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pjgh"]
+size = Vector2(355.775, 911.925)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dodm"]
+size = Vector2(935.401, 129.916)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qep55"]
+size = Vector2(962.384, 323.529)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7awe"]
+size = Vector2(1800.35, 310.436)
 
 [node name="TileMap" type="TileMap"]
 position = Vector2(-3, 2)
@@ -5185,32 +5218,209 @@ scale = Vector2(1.00064, 0.992954)
 position = Vector2(1154, 5339)
 scale = Vector2(1.00064, 0.992954)
 
-[node name="Area2D" parent="." instance=ExtResource("7_r77a3")]
-
-[node name="SpawnZone" type="Area2D" parent="Area2D"]
-position = Vector2(-343.78, 529.733)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/SpawnZone"]
-position = Vector2(340.782, 315.346)
-shape = SubResource("RectangleShape2D_ondv5")
-
-[node name="Area2D2" parent="." instance=ExtResource("7_r77a3")]
-position = Vector2(158.898, -430.03)
-
-[node name="SpawnZone" type="Area2D" parent="Area2D2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2/SpawnZone"]
-position = Vector2(449.712, 634.345)
-shape = SubResource("RectangleShape2D_ivy1t")
-
-[node name="Area2D3" parent="." instance=ExtResource("7_r77a3")]
-position = Vector2(262.832, -839.918)
-
-[node name="SpawnZone" type="Area2D" parent="Area2D3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3/SpawnZone"]
-position = Vector2(12.9916, -173.22)
-shape = SubResource("RectangleShape2D_vriqt")
-
 [node name="Black-smith" parent="." instance=ExtResource("8_mpfe7")]
 position = Vector2(194.875, 340.398)
+
+[node name="Spawner" type="Node" parent="."]
+
+[node name="Area2D3" parent="Spawner" instance=ExtResource("7_r77a3")]
+position = Vector2(260, -832)
+scale = Vector2(1.00064, 0.992954)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D3" index="1"]
+position = Vector2(1170.25, -16.1135)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D3" groups=["SpawnZone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D3/SpawnZone"]
+position = Vector2(-537.155, -47.8371)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vriqt")
+
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D3" groups=["SpawnZone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D3/SpawnZone2"]
+position = Vector2(550.648, 36.2554)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jl3ov")
+
+[node name="Area2D8" parent="Spawner" instance=ExtResource("7_r77a3")]
+position = Vector2(1423, -1169)
+scale = Vector2(1.00064, 0.992954)
+
+[node name="CollisionShape2D" parent="Spawner/Area2D8" index="0"]
+position = Vector2(652.582, 325.292)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D8" index="1"]
+position = Vector2(2060.68, 325.292)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D8" groups=["SpawnZone"]]
+position = Vector2(1861.81, 230.625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D8/SpawnZone"]
+position = Vector2(-523.664, -177.249)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wlh3d")
+
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D8" groups=["SpawnZone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D8/SpawnZone2"]
+position = Vector2(1303.29, 523.69)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_4vqr0")
+
+[node name="Area2D2" parent="Spawner" instance=ExtResource("7_r77a3")]
+position = Vector2(160, -240)
+scale = Vector2(1.00064, 0.992954)
+
+[node name="CollisionShape2D" parent="Spawner/Area2D2" index="0"]
+position = Vector2(-12.9917, 169.192)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D2" index="1"]
+visible = false
+position = Vector2(-522.665, 65.4612)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D2" groups=["SpawnZone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D2/SpawnZone"]
+position = Vector2(449.712, 437.08)
+shape = SubResource("RectangleShape2D_ivy1t")
+
+[node name="Area2D" parent="Spawner" instance=ExtResource("7_r77a3")]
+position = Vector2(-3, 2)
+scale = Vector2(1.00064, 0.992954)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D" index="1"]
+position = Vector2(-6.99548, 988.968)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D" groups=["SpawnZone"]]
+position = Vector2(-343.78, 529.733)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D/SpawnZone"]
+position = Vector2(348.777, 49.3472)
+shape = SubResource("RectangleShape2D_ondv5")
+
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D" groups=["SpawnZone"]]
+position = Vector2(-343.78, 785.535)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D/SpawnZone2"]
+position = Vector2(348.777, 49.3472)
+shape = SubResource("RectangleShape2D_ondv5")
+
+[node name="Area2D4" parent="Spawner" instance=ExtResource("7_r77a3")]
+position = Vector2(-9, 654)
+scale = Vector2(1.00064, 0.992954)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D4" index="1"]
+position = Vector2(496.682, 998.032)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D4" groups=["SpawnZone"]]
+position = Vector2(-343.78, 529.733)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D4/SpawnZone"]
+position = Vector2(857.451, 215.518)
+shape = SubResource("RectangleShape2D_ondv5")
+
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D4" groups=["SpawnZone"]]
+position = Vector2(-334.786, 262.852)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D4/SpawnZone2"]
+position = Vector2(1118.28, 289.981)
+shape = SubResource("RectangleShape2D_tp2w7")
+
+[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D4" groups=["SpawnZone"]]
+position = Vector2(-1387.11, 414.924)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D4/SpawnZone3"]
+position = Vector2(1203.23, 284.001)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pbgp5")
+
+[node name="Area2D5" parent="Spawner" instance=ExtResource("7_r77a3")]
+position = Vector2(489, 1327)
+scale = Vector2(1.00064, 0.992954)
+
+[node name="CollisionShape2D" parent="Spawner/Area2D5" index="0"]
+position = Vector2(0.99936, 619.364)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D5" index="1"]
+position = Vector2(-1114.29, 1728.18)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D5" groups=["SpawnZone"]]
+position = Vector2(-343.78, 529.733)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D5/SpawnZone"]
+position = Vector2(351.775, 1372.67)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_6aj7l")
+
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D5" groups=["SpawnZone"]]
+position = Vector2(-334.786, 262.852)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D5/SpawnZone2"]
+position = Vector2(1054.33, 935.561)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jtx8o")
+
+[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D5" groups=["SpawnZone"]]
+position = Vector2(-1387.11, 414.924)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D5/SpawnZone3"]
+position = Vector2(699.552, 794.851)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_1pjgh")
+
+[node name="Area2D6" parent="Spawner" instance=ExtResource("7_r77a3")]
+position = Vector2(-635, 2711)
+scale = Vector2(1.00064, 0.992954)
+
+[node name="CollisionShape2D" parent="Spawner/Area2D6" index="0"]
+position = Vector2(-416.733, 342.413)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D6" groups=["SpawnZone"]]
+position = Vector2(-343.78, 529.733)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D6/SpawnZone"]
+position = Vector2(-762.512, -180.271)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0dodm")
+
+[node name="Area2D7" parent="Spawner" instance=ExtResource("7_r77a3")]
+position = Vector2(2121, 2755)
+scale = Vector2(1.00064, 0.992954)
+
+[node name="CollisionShape2D2" parent="Spawner/Area2D7" index="1"]
+position = Vector2(1473.06, 295.079)
+
+[node name="SpawnZone" type="Area2D" parent="Spawner/Area2D7" groups=["SpawnZone"]]
+position = Vector2(-343.78, 529.733)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D7/SpawnZone"]
+position = Vector2(691.058, -878.566)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_qep55")
+
+[node name="SpawnZone2" type="Area2D" parent="Spawner/Area2D7" groups=["SpawnZone"]]
+position = Vector2(-1226.22, 2818.86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D7/SpawnZone2"]
+position = Vector2(1208.73, -872.021)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_d7awe")
+
+[node name="SpawnZone3" type="Area2D" parent="Spawner/Area2D7" groups=["SpawnZone"]]
+position = Vector2(-1226.22, 2818.86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D7/SpawnZone3"]
+position = Vector2(3823.8, -2261.94)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_d7awe")
+
+[editable path="Spawner/Area2D3"]
+[editable path="Spawner/Area2D8"]
+[editable path="Spawner/Area2D2"]
+[editable path="Spawner/Area2D"]
+[editable path="Spawner/Area2D4"]
+[editable path="Spawner/Area2D5"]
+[editable path="Spawner/Area2D6"]
+[editable path="Spawner/Area2D7"]

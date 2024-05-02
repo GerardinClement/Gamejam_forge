@@ -33,7 +33,7 @@ func remove_life():
 	var container = $Life
 	var childCount = container.get_child_count()
 	for i in childCount:
-		if i != 0:
+		if i != 0 and container.get_child(i).name != "ShieldIcon":
 			container.get_child(i).queue_free()
 
 func _process(delta):

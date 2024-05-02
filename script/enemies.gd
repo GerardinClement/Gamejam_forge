@@ -46,7 +46,6 @@ func takeDamage():
 		return
 
 	stats.health -= Global.player.strength
-	print(stats.health - Global.player.strength)
 	animations.play("hit")
 	
 func death():
@@ -86,7 +85,6 @@ func dropMoney():
 	moneyDroped.position = position
 	get_parent().add_child(moneyDroped)
 
-
 func _on_animations_frame_changed():
 	if bullet_instance != null and animations.animation == "shoot" and animations.frame == stats.shootFrame:
-			self.add_child(bullet_instance)
+		self.add_child(bullet_instance)

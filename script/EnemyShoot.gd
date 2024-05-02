@@ -27,3 +27,5 @@ func update(_delta):
 func physics_update(_delta):
 	if not enemy.player_in:
 		Transitioned.emit(self, "Idle")
+	else:
+		Transitioned.emit(self, "Chase")

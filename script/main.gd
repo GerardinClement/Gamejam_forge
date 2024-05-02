@@ -18,8 +18,8 @@ func _ready():
 			$Player.position = Global.lastPosition
 		else:
 			music = $Player.get_node("ForgeMusic")
-		music.play()
-		#music.stop()
+		#music.play()
+		music.stop()
 
 func start_the_game():
 	card_manager = card_manager_scene.instantiate()
@@ -30,8 +30,8 @@ func start_the_game():
 	Global.gameIsStart = true
 	
 func _process(_delta):
-	if music && !music.playing:
-		music.play()
+	#if music && !music.playing:
+		#music.play()
 	if Global.playerIsDead:
 		music.stop()
 		if !$Player.get_node("DeathSound").playing:
