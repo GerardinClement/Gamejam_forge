@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://Scene/player.tscn" id="5_4e522"]
 [ext_resource type="PackedScene" uid="uid://v1isdrkxdmq6" path="res://Scene/camera_2d.tscn" id="6_5brhp"]
 [ext_resource type="PackedScene" uid="uid://dkxgwfjr3338n" path="res://Scene/piecesOfCards.tscn" id="7_3xx8l"]
-[ext_resource type="PackedScene" uid="uid://drg463avur3fj" path="res://Scene/CardDistributer.tscn" id="8_wdlds"]
+[ext_resource type="PackedScene" uid="uid://drg463avur3fj" path="res://Scene/CardDistributor.tscn" id="8_wdlds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbyie"]
 texture = ExtResource("3_4vbnl")

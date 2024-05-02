@@ -23,17 +23,20 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		playerInZone = true
+		$Control.visible = true
 
 
 func _on_area_2d_body_exited(body):
 	if body.name == "Player":
 		playerInZone = false
+		$Control.visible = false
 
 
 func _on_animated_sprite_2d_animation_finished():
 	if $AnimatedSprite2D.animation == "open2":
 		open = true
 		Global.pause = true
+		$Control.visible = false
 		chestMenu.open(createCards())
 		set_process(false)
 		$AnimatedSprite2D.play("already_use2")

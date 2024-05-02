@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2v846qn6y318"]
+[gd_scene load_steps=15 format=3 uid="uid://d2v846qn6y318"]
 
 [ext_resource type="Script" path="res://script/black-smith.gd" id="1_mbq0c"]
 [ext_resource type="Texture2D" uid="uid://cwy7ocjj4rh1h" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/NPC/No Outlines/npc x3.png" id="2_60eh1"]
 [ext_resource type="PackedScene" uid="uid://dhjnugc48cumm" path="res://Scene/black-smithShop.tscn" id="3_ytlg7"]
+[ext_resource type="Texture2D" uid="uid://da05ubc4g40uk" path="res://Assets/Interface/keyboard(1).png" id="4_mc3n1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4eoxu"]
 atlas = ExtResource("2_60eh1")
@@ -101,6 +102,21 @@ offset_top = -189.231
 offset_right = -196.923
 offset_bottom = -189.231
 scale = Vector2(0.658088, 0.658088)
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.61539
+offset_top = -16.9231
+offset_right = 44.6154
+offset_bottom = 23.0769
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(-27.2413, -29.0971)
+texture = ExtResource("4_mc3n1")
+region_enabled = true
+region_rect = Rect2(65.1606, 0.594978, 12.7023, 12.1319)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

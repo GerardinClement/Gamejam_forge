@@ -23,11 +23,13 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":
 		player_in_chat_zone = true
+		$Control.visible = true
 
 
 func _on_area_2d_body_exited(body):
 	if body.name == "Player":
 		player_in_chat_zone = false
+		$Control.visible = false
 		
 func generate_shop():
 	for i in 3:
