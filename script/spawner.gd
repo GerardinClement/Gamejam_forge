@@ -1,8 +1,14 @@
 extends Area2D
 
+var is_active = true
+
+func active_spawner():
+	is_active = true
+
 func _on_body_entered(body):
-	if body.name == "Player" and $Timer.is_stopped():
+	if body.name == "Player" and is_active:
 		spawn_enemies()
+		is_active = false
 		
 func check_if_spawner(node):
 	var groups = node.get_groups()

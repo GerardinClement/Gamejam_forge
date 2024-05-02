@@ -14,10 +14,12 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	$KeySound.play()
-	$KeyAnimation.modulate.a = 0
-	$Timer.start()
+	if body.name == "Player":
+		$KeySound.play()
+		$KeyAnimation.modulate.a = 0
+		$Timer.start()
 	
 func _on_Timer_timeout():
 	Global.playerKeys += 1
+	get_tree().call_group("Spawner", "active_spawner")
 	queue_free()
