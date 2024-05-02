@@ -25,8 +25,6 @@ func create_enemy_instance(enemy_name, spawnerZone):
 	var enemyInstance = enemy.instantiate()
 	enemyInstance.enemy_name = enemy_name
 	enemyInstance.global_position = get_spawn_position(spawnerZone)
-	print("create enemy", enemyInstance.name)
-	print("spawner zone:", spawnerZone.name)
 	self.add_child(enemyInstance)
 	
 func get_spawn_position(spawnerZone):

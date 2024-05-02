@@ -5247,7 +5247,6 @@ position = Vector2(-334.786, 262.852)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/Area2D4/SpawnZone2"]
 position = Vector2(1118.28, 289.981)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tp2w7")
 
 [editable path="Spawner/Area2D3"]

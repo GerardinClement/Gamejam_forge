@@ -46,7 +46,6 @@ func takeDamage():
 		return
 
 	stats.health -= Global.player.strength
-	print(stats.health - Global.player.strength)
 	animations.play("hit")
 	
 func death():
