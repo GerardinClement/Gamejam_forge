@@ -34,7 +34,7 @@ class Player:
 		strength = 50
 		shield = 1
 		money = 10
-		pieces_of_cards = 0
+		pieces_of_cards = 15
 		shootSide = {
 			"forward": true,
 			"back": false,
@@ -58,6 +58,7 @@ class Player:
 		else:
 			cards[newCard.name].append(newCard)
 		gui.display_life(self)
+		gui.displayPlayerCards()
 		
 	func take_damage(bullet):
 		if !iframes.is_stopped():

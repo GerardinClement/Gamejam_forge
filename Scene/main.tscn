@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8afn38mfwi0d"]
+[gd_scene load_steps=11 format=3 uid="uid://c8afn38mfwi0d"]
 
 [ext_resource type="Script" path="res://script/main.gd" id="1_nwx6k"]
 [ext_resource type="PackedScene" uid="uid://b1duj81xgtv76" path="res://Scene/tile_map.tscn" id="2_rkwgk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bghlfveoqowne" path="res://Scene/player.tscn" id="5_4e522"]
 [ext_resource type="PackedScene" uid="uid://v1isdrkxdmq6" path="res://Scene/camera_2d.tscn" id="6_5brhp"]
 [ext_resource type="PackedScene" uid="uid://dkxgwfjr3338n" path="res://Scene/piecesOfCards.tscn" id="7_3xx8l"]
+[ext_resource type="PackedScene" uid="uid://drg463avur3fj" path="res://Scene/CardDistributer.tscn" id="8_wdlds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbyie"]
 texture = ExtResource("3_4vbnl")
@@ -636,5 +637,8 @@ position = Vector2(3179, 2101)
 
 [node name="PiecesOfCards" parent="." instance=ExtResource("7_3xx8l")]
 position = Vector2(-79, 17)
+
+[node name="CardDistributer" parent="." instance=ExtResource("8_wdlds")]
+position = Vector2(-63, -121)
 
 [editable path="Player/Camera2D"]

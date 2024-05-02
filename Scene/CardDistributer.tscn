@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=3 uid="uid://drg463avur3fj"]
+
+[ext_resource type="Script" path="res://script/CardDistributer.gd" id="1_hk1sh"]
+[ext_resource type="Texture2D" uid="uid://5saficebk7jl" path="res://Assets/Tech Dungeon Roguelite - Asset Pack (v5)/Props and Items/props and items x3.png" id="1_q5a1x"]
+[ext_resource type="Texture2D" uid="uid://da05ubc4g40uk" path="res://Assets/Interface/keyboard(1).png" id="3_la41e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j45le"]
+atlas = ExtResource("1_q5a1x")
+region = Rect2(960, 200, 96, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfup0"]
+atlas = ExtResource("1_q5a1x")
+region = Rect2(1152, 200, 96, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwjsh"]
+atlas = ExtResource("1_q5a1x")
+region = Rect2(1248, 200, 96, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uamjj"]
+atlas = ExtResource("1_q5a1x")
+region = Rect2(1344, 200, 96, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgaov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j45le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfup0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwjsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uamjj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_noyl4"]
+radius = 47.0106
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh0ox"]
+size = Vector2(78, 51)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6yrhx"]
+font_size = 50
+
+[node name="CardDistributer" type="StaticBody2D"]
+collision_layer = 128
+script = ExtResource("1_hk1sh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xgaov")
+frame = 3
+frame_progress = 0.519804
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 18)
+shape = SubResource("CircleShape2D_noyl4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1.5)
+shape = SubResource("RectangleShape2D_yh0ox")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 39.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(-38, -47)
+texture = ExtResource("3_la41e")
+region_enabled = true
+region_rect = Rect2(65.1606, 0.594978, 12.7023, 12.1319)
+
+[node name="Piece_of_cards" type="Control" parent="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 11.0
+offset_top = -43.0
+offset_right = 152.0
+offset_bottom = 36.0
+scale = Vector2(0.181063, 0.181063)
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="Control/Piece_of_cards"]
+position = Vector2(41, 41)
+scale = Vector2(2.54035, 2.62442)
+texture = ExtResource("1_q5a1x")
+region_enabled = true
+region_rect = Rect2(608.956, 789.575, 30.4148, 32.4424)
+
+[node name="Amount" type="Label" parent="Control/Piece_of_cards"]
+layout_mode = 0
+offset_left = 93.8898
+offset_top = 11.0459
+offset_right = 374.89
+offset_bottom = 80.0459
+text = "x 5
+"
+label_settings = SubResource("LabelSettings_6yrhx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

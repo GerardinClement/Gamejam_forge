@@ -6,9 +6,28 @@ extends Control
 @onready var halfHeart = preload("res://Assets/Interface/HalfHeart.png")
 @onready var emptyHeart = preload("res://Assets/Interface/emptyHeart.png")
 @onready var shield = preload("res://Assets/Interface/shield.png")
+var createInstance = preload("res://script/createInstance.gd").new()
 
 func _ready():
 	$Inventory/Coin/AnimatedSprite2D.play('default')
+
+func displayPlayerCards():
+	var viewport_rect = get_viewport_rect()
+	var bottom_position = viewport_rect.size.y * 0.83
+	var left_position = viewport_rect.size.x / 2
+
+	var i = 0
+	remove_cards()
+	for cardsArray in Global.player.cards.values():
+		for card in cardsArray:
+			var marker = $Markers.get_child(i)
+			var card_instance = createInstance.create_card($Cards, card, marker.position, false)
+			card_instance.scale = $Markers/ExampleCard.scale
+			i += 1
+			
+func remove_cards():
+	for i in $Cards.get_child_count():
+		$Cards.get_child(i).queue_free()
 
 func display_life(player):
 	remove_life()
