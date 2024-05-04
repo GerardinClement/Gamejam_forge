@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqhn2eoxbn2j0"
-path="res://.godot/imported/gunz.png-ea8ddd8c346c3e8d8f12fec912c164c5.ctex"
+uid="uid://dfhwdnh5trpd1"
+path="res://.godot/imported/ChampagneJerseys.png-52f471246edbfcedaabb221db8c897b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/gunz.png"
-dest_files=["res://.godot/imported/gunz.png-ea8ddd8c346c3e8d8f12fec912c164c5.ctex"]
+source_file="res://Assets/Cards/ChampagneJerseys.png"
+dest_files=["res://.godot/imported/ChampagneJerseys.png-52f471246edbfcedaabb221db8c897b9.ctex"]
 
 [params]
 

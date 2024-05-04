@@ -28,16 +28,21 @@ func _process(delta):
 	if not animationPlayer.is_playing() and not animatesExplosions.is_playing():
 		if Input.is_action_just_pressed("click") and Global.playerIsInForge and mouseOn:
 			get_tree().call_group("Forge", "add_to_dropable", self)
+		elif Input.is_action_just_pressed("click") and self.card.type == "consumable":
+			use_card()
 		if Input.is_action_just_pressed("click") and forChoose and mouseOn:
 			isSelected = true
 
 func _on_mouse_entered():
+	
 	mouseOn = true
 	rectLabel.visible = true
 	labelName.text = card.name
 	labelLevel.text = "Level: " + str(card.level)
 	labelDescription.text = card.description
 	labelEffects.text = ""
+	if self.card.type == "consumable":
+		labelEffects.text += "Click for use\n"
 	for key in card.effects:
 		labelEffects.text += key + ": " + str(card.effects[key]) + "\n"
 	old_scale = self.scale
@@ -82,3 +87,10 @@ func _on_animates_explosions_animation_finished():
 func _on_animates_explosions_frame_changed():
 	if animatesExplosions.animation == "vortex" and animatesExplosions.frame == 14:
 		$Card.visible = false
+
+
+func use_card():
+	self.card.applyEffects(Global.player)
+	Global.player.remove_card(self.card)
+	Global.player.gui.display_life(Global.player)
+	self.queue_free()

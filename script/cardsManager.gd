@@ -9,17 +9,19 @@ func _ready():
 	load_cards()
 
 func load_cards():
-	var firstOne = Card.new("FirstOne", "This is the First one", "stats", {"strength": 10,"attack_speed": 10, "pv_max": 1 })
+	var theFool = Card.new("theFool", "Are you dumb, stupid, or dumb, huh?", "stats", {"strength": 1,"attack_speed": 0.10, "pv_max": 1})
 	var theDevil = Card.new("TheDevil", "The devil", "stats", {"strength": 20, "pv_max": -2})
-	var heal = Card.new("Health+", "Give heal", "stats", {"pv_max": 1})
+	var champagneJerseys = Card.new("ChampagneJerseys", "Give heal", "consumable", {"pv": 1})
 	var flashMcqueen = Card.new("FlashMcqueen", "Focus. Speed. I am speed", "stats", {"speed": 10, "attack_speed": 0.33})
-	var gunz = Card.new("Gunz", "Are you incapable of aiming?", "stats", {"n_bullet": 1})
+	var rainyDay = Card.new("RainyDay", "take out the umbrellas", "stats", {"n_bullet": 1})
+	var stoneHeart = Card.new("StoneHeart", "away the stony heart out of your flesh, and I will give you a heart of flesh", "stats", {"shield": 1})
 	
-	cards["firstOne"] = firstOne
-	cards["health+"] = heal
-	cards["gunz"] = gunz
+	cards["theFool"] = theFool
+	cards["champagneJerseys"] = champagneJerseys
+	cards["rainyDay"] = rainyDay
 	cards["flashMcqueen"] = flashMcqueen
 	cards["theDevil"] = theDevil
+	cards["stoneHeart"] = stoneHeart
 	Global.allCards = cards
 	
 func generate_random_card(deck):

@@ -24,13 +24,18 @@ class Card:
 					player.attack_speed -= player.attack_speed * effects[effect_key]
 					if player.attack_speed <= 0:
 						player.attack_speed = 0.1
+					print(player.attack_speed)
 				"pv_max":
 					player.pv_max += effects[effect_key]
+					player.pv += effects[effect_key]
+				"pv":
 					player.pv += effects[effect_key]
 				"speed":
 					player.speed += effects[effect_key]
 				"n_bullet":
 					player.n_bullet += effects[effect_key]
+				"shield":
+					player.shield += effects[effect_key]
 
 	func addShootSide(player, shootSide):
 		for side in shootSide:

@@ -17,7 +17,7 @@ class Player:
 	var pv_max: float
 	var shield: int
 	var speed: int
-	var attack_speed: int
+	var attack_speed: float
 	var strength: int
 	var n_bullet: int
 	var money:int
@@ -29,7 +29,7 @@ class Player:
 		
 	func _init(playerAnimation, gui, timerIframe):
 		pv_max = 6
-		pv = pv_max
+		pv = pv_max - 2
 		speed = 180
 		attack_speed = 2
 		strength = 50
@@ -43,13 +43,20 @@ class Player:
 	
 	func add_card(newCard):
 		if count_number_of_card() == 6:
-			return 
-		newCard.applyEffects(self)
+			return
+		if newCard.type == "stats":
+			newCard.applyEffects(self)
 		if not cards.has(newCard.name):
 			cards[newCard.name] = [newCard]
 		else:
 			cards[newCard.name].append(newCard)
-		gui.display_life(self)
+		gui.actualize_gui()
+		
+	func remove_card(card):
+		if card.type == "stats":
+			card.remove_effects(self)
+		self.cards.erase(card.name)
+		gui.actualize_gui()
 		
 	func take_damage(bullet):
 		if !iframes.is_stopped():
@@ -90,9 +97,6 @@ class Player:
 		bullet.velocity = direction
 		#bullet.look_at(get_global_mouse_position())
 		
-	func remove_card(card):
-		card.remove_effects(self)
-		self.cards.erase(card.name)
 		
 	func count_number_of_card():
 		var count = 0

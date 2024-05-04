@@ -11,6 +11,10 @@ var createInstance = preload("res://script/createInstance.gd").new()
 func _ready():
 	$Inventory/Coin/AnimatedSprite2D.play('default')
 
+func actualize_gui():
+	display_cards()
+	display_life(Global.player)
+	
 func display_cards():
 	var i = 0
 	remove_cards()
