@@ -45,6 +45,7 @@ func _process(_delta):
 				cardChooseInstance = card_instance
 				card_instance.animationPlayer.play("Intro")
 				Global.player.add_card(card_instance.card)
+				Global.player.gui.display_cards()
 				delete_cards()
 				card_instance.isSelected = false
 				self.isClose = true

@@ -19,6 +19,7 @@ class Player:
 	var speed: int
 	var attack_speed: int
 	var strength: int
+	var n_bullet: int
 	var money:int
 	var pieces_of_cards:int
 	var playerAnimation
@@ -27,24 +28,15 @@ class Player:
 	var scent_trail = []
 		
 	func _init(playerAnimation, gui, timerIframe):
-		pv = 6
 		pv_max = 6
+		pv = pv_max
 		speed = 180
 		attack_speed = 2
-		strength = 1
-		shield = 1
+		strength = 50
+		shield = 0
 		money = 10
 		pieces_of_cards = 100
-		shootSide = {
-			"forward": true,
-			"back": false,
-			"top": false,
-			"bottom": false,
-			"topBack": false,
-			"topForward": false,
-			"bottomBack": false,
-			"bottomForward": false,
-		}
+		n_bullet = 1
 		self.playerAnimation = playerAnimation
 		self.gui = gui
 		self.iframes = timerIframe
@@ -78,9 +70,9 @@ class Player:
 		animatedSprite.play("death")
 		
 	func shoot(parent, marker2d, lookLeft, direction):
-		for side in shootSide:
-			if shootSide[side]:
-				self.bulletDirection(parent, marker2d, lookLeft, side, direction)
+		for i in n_bullet:
+			pass
+			#self.bulletDirection(parent, marker2d, lookLeft, side, direction)
 				
 	func bulletDirection(parent, marker2d, lookLeft, side, direction):
 		var rotate = 0
@@ -90,40 +82,7 @@ class Player:
 			"back":
 				direction.x = -direction.x
 				createBulletInstance(parent, marker2d, direction, rotate)
-			"top":
-				direction = Vector2(0, -1)
-				rotate = 90
-				createBulletInstance(parent, marker2d, direction, rotate)
-			"bottom":
-				rotate = 90
-				direction = Vector2(0, 1)
-				createBulletInstance(parent, marker2d, direction, rotate)
-			"topBack":
-				rotate = 45
-				if direction.x < 0:
-					rotate = -45
-				direction = Vector2(-direction.x, -1)
-				createBulletInstance(parent, marker2d, direction, rotate)
-			"topForward":
-				rotate = 135
-				if direction.x < 0:
-					rotate = -135
-				direction = Vector2(direction.x, -1)
-				createBulletInstance(parent, marker2d, direction, rotate)
-			"bottomBack":
-				rotate = 45
-				if direction.x > 0:
-					rotate = -45
-				direction = Vector2(-direction.x, 1)
-				createBulletInstance(parent, marker2d, direction, rotate)
-			"bottomForward":
-				rotate = 135
-				if direction.x > 0:
-					rotate = -135
-				direction = Vector2(direction.x, 1)
-				createBulletInstance(parent, marker2d, direction, rotate)
-		
-				
+	
 	func createBulletInstance(parent, marker2d, direction, angleRotate):
 		var bullet = bulletPath.instantiate()
 		parent.add_child(bullet)
@@ -181,22 +140,35 @@ func setGlobal():
 	Global.playerPos = self.position
 	Global.player = player
 	
+func set_bullet_direction(bullet, direction):
+	bullet.position = $Node2D/Marker2D.global_position
+	bullet.velocity = direction * player.speed
+	var rotation = atan2(direction.y, direction.x)
+	bullet.rotation = rotation
+	
+	
 func shoot():
 	if animation.animation == "death" || Global.playerIsInForge:
 		return
-		
+
 	animation.play("shoot")
 	$LaserSound.play()
-	var mouseOffset = get_global_mouse_position() - self.position;
-	var direction = mouseOffset.normalized() * player.speed
-	var bullet = bulletPath.instantiate()
-	bullet.position = $Node2D/Marker2D.global_position
-	bullet.velocity = direction
-	bullet.look_at(get_global_mouse_position())
-	self.get_parent().add_child(bullet)
+
+	var coneAngle = 10 * player.n_bullet
+	var angleBetweenBullets = coneAngle / (player.n_bullet)
+
+	var mouseOffset = get_global_mouse_position() - self.position
+	var mouseDirection = mouseOffset.normalized()
+
+	for i in player.n_bullet:
+		var bulletDirection = mouseDirection.rotated(PI * (-coneAngle / 2 + angleBetweenBullets * i) / 180.0)
+		var bullet = bulletPath.instantiate()
+		set_bullet_direction(bullet, bulletDirection)
+		self.get_parent().add_child(bullet)
+
 	if player.attack_speed > 0:
 		$Shoot.wait_time = player.attack_speed
-	$Shoot.start()
+		$Shoot.start()
 
 func get_direction():
 	var direction = Vector2(0, 0)

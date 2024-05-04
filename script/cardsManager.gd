@@ -13,11 +13,11 @@ func load_cards():
 	var theDevil = Card.new("TheDevil", "The devil", "stats", {"strength": 20, "pv_max": -2})
 	var heal = Card.new("Health+", "Give heal", "stats", {"pv_max": 1})
 	var flashMcqueen = Card.new("FlashMcqueen", "Focus. Speed. I am speed", "stats", {"speed": 10, "attack_speed": 0.33})
-	var mirror = Card.new("Mirror", "Shoot in back", "gadget", {"shootSide": ["back", "topBack", "top", "topForward", "bottom", "bottomBack", "bottomForward"]})
+	var gunz = Card.new("Gunz", "Are you incapable of aiming?", "stats", {"n_bullet": 1})
 	
 	cards["firstOne"] = firstOne
 	cards["health+"] = heal
-	cards["mirror"] = mirror
+	cards["gunz"] = gunz
 	cards["flashMcqueen"] = flashMcqueen
 	cards["theDevil"] = theDevil
 	Global.allCards = cards
