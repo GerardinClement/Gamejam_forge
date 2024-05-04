@@ -10,11 +10,11 @@ var animationsFinished: Array
 var dropableZoneName
 var old_scale: Vector2
 
-@onready var rectLabel = $ColorRect
-@onready var labelName = $ColorRect/name
-@onready var labelDescription = $ColorRect/description
-@onready var labelLevel = $ColorRect/level
-@onready var labelEffects = $ColorRect/effects
+@onready var rectLabel = $Control
+@onready var labelName = $Control/ColorRect/TextureRect/name
+@onready var labelDescription = $Control/ColorRect/TextureRect2/description
+@onready var labelLevel = $Control/ColorRect/level
+@onready var labelEffects = $Control/ColorRect/TextureRect3/effects
 @onready var animationPlayer = $Card/AnimationPlayer
 @onready var animatesExplosions = $AnimatesExplosions
 var initPos

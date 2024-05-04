@@ -1,9 +1,12 @@
-[gd_scene load_steps=87 format=3 uid="uid://b0pweq64e17kj"]
+[gd_scene load_steps=90 format=3 uid="uid://b0pweq64e17kj"]
 
 [ext_resource type="Script" path="res://script/cardProcess.gd" id="1_0gio1"]
 [ext_resource type="Texture2D" uid="uid://cy2818fw4y2io" path="res://Assets/Cards/FlashMcqueen.png" id="2_hjjs5"]
 [ext_resource type="Texture2D" uid="uid://jdjw6i13j6vy" path="res://Assets/explosions/spritesheet.png" id="3_2annx"]
+[ext_resource type="Texture2D" uid="uid://dhi3pgygwmfil" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Text ScreenPads/blue/bg_for_scalable_screen.png" id="3_6gdra"]
+[ext_resource type="Texture2D" uid="uid://bgtw2r6qsd5j8" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Text ScreenPads/blue/scalable_Text_screen.png" id="4_7pnum"]
 [ext_resource type="Texture2D" uid="uid://du245a20fq0j2" path="res://Assets/explosions/round_vortex.png" id="4_twvx7"]
+[ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="5_sf2ws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkmhg"]
 size = Vector2(135.141, 187.794)
@@ -659,55 +662,103 @@ libraries = {
 "": SubResource("AnimationLibrary_myeox")
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = 11
-offset_left = -218.0
-offset_top = -222.0
-offset_right = -13.0
-offset_bottom = 48.0
-color = Color(0.254902, 0.184314, 0.47451, 0.858824)
-
-[node name="name" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 3.0
-offset_right = 55.0
-offset_bottom = 26.0
-scale = Vector2(1.73716, 1.89721)
-text = "Name"
-uppercase = true
-
-[node name="level" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 9.71887
-offset_top = 40.3218
-offset_right = 67.7189
-offset_bottom = 63.3218
-text = "Level: 1"
-
-[node name="description" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 9.75597
-offset_top = 64.3218
-offset_right = 98.756
-offset_bottom = 87.3218
-scale = Vector2(1.24789, 1.09635)
-text = "Description"
-
-[node name="effects" type="RichTextLabel" parent="ColorRect"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 89.0
-offset_right = 167.0
-offset_bottom = 211.0
-scale = Vector2(1.1342, 1.39516)
-
 [node name="AnimatesExplosions" type="AnimatedSprite2D" parent="."]
 visible = false
 position = Vector2(-11.0232, -14.983)
 scale = Vector2(4.43843, 4.56824)
 sprite_frames = SubResource("SpriteFrames_k133j")
 animation = &"vortex"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="TextureRect" parent="Control"]
+z_index = 11
+offset_left = -240.43
+offset_top = -277.629
+offset_right = -8.42953
+offset_bottom = 13.3714
+texture = ExtResource("3_6gdra")
+
+[node name="TextureRect" type="TextureRect" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.101
+anchor_bottom = 0.101
+offset_left = 1.01237
+offset_top = -21.3925
+offset_right = 168.012
+offset_bottom = 38.6075
+texture = ExtResource("4_7pnum")
+
+[node name="name" type="Label" parent="Control/ColorRect/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.585
+anchor_bottom = 0.585
+offset_left = 16.0201
+offset_top = -22.1248
+offset_right = 102.02
+offset_bottom = 14.8752
+grow_vertical = 2
+scale = Vector2(1.73716, 1.89721)
+theme_override_fonts/font = ExtResource("5_sf2ws")
+theme_override_font_sizes/font_size = 17
+text = "Name"
+autowrap_mode = 2
+uppercase = true
+
+[node name="TextureRect2" type="TextureRect" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.101
+anchor_bottom = 0.101
+offset_left = 5.35715
+offset_top = 201.601
+offset_right = 211.357
+offset_bottom = 253.601
+scale = Vector2(1.0962, 1.0962)
+texture = ExtResource("4_7pnum")
+
+[node name="description" type="RichTextLabel" parent="Control/ColorRect/TextureRect2"]
+layout_mode = 0
+offset_left = 21.1191
+offset_top = 11.9736
+offset_right = 463.119
+offset_bottom = 79.9736
+scale = Vector2(0.398231, 0.45889)
+theme_override_fonts/normal_font = ExtResource("5_sf2ws")
+text = "Description"
+
+[node name="level" type="Label" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 4.11751
+offset_top = 75.9937
+offset_right = 102.118
+offset_bottom = 98.9937
+theme_override_fonts/font = ExtResource("5_sf2ws")
+text = "Level: 1"
+
+[node name="TextureRect3" type="TextureRect" parent="Control/ColorRect"]
+layout_mode = 0
+offset_left = 1.15308
+offset_top = 98.9983
+offset_right = 231.153
+offset_bottom = 227.998
+texture = ExtResource("4_7pnum")
+
+[node name="effects" type="RichTextLabel" parent="Control/ColorRect/TextureRect3"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 284.0
+offset_bottom = 69.0
+scale = Vector2(0.734915, 1.55904)
+theme_override_fonts/normal_font = ExtResource("5_sf2ws")
+text = "Effects"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
