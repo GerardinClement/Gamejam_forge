@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cyhlud4i6s8kv"]
+[gd_scene load_steps=28 format=3 uid="uid://cyhlud4i6s8kv"]
 
 [ext_resource type="Texture2D" uid="uid://c703cfgkiweuu" path="res://Assets/Characters/Enemies/No Outlines/enemies x1.png" id="1_5btoe"]
 [ext_resource type="Script" path="res://script/enemies.gd" id="1_64q6h"]
@@ -18,10 +18,6 @@ region = Rect2(0, 481, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q02g"]
 atlas = ExtResource("1_5btoe")
 region = Rect2(32, 481, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1krum"]
-atlas = ExtResource("1_5btoe")
-region = Rect2(64, 481, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8esv"]
 atlas = ExtResource("1_5btoe")
@@ -95,9 +91,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5q02g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1krum")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p8esv")
@@ -195,7 +188,9 @@ shape = SubResource("CapsuleShape2D_42g01")
 
 [node name="animations" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lyqgq")
-animation = &"hit"
+animation = &"death"
+frame = 6
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
