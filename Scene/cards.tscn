@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bgtw2r6qsd5j8" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Text ScreenPads/blue/scalable_Text_screen.png" id="4_7pnum"]
 [ext_resource type="Texture2D" uid="uid://du245a20fq0j2" path="res://Assets/explosions/round_vortex.png" id="4_twvx7"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="5_sf2ws"]
-[ext_resource type="Texture2D" uid="uid://dr2cfnowagv6u" path="res://Assets/Interface/Skillicon_life.png" id="7_tmsym"]
+[ext_resource type="Texture2D" uid="uid://dr2cfnowagv6u" path="res://Assets/Interface/Skillicon_pv_max.png" id="7_jq7ht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkmhg"]
 size = Vector2(135.141, 187.794)
@@ -670,6 +670,7 @@ sprite_frames = SubResource("SpriteFrames_k133j")
 animation = &"vortex"
 
 [node name="Control" type="Control" parent="."]
+self_modulate = Color(0.952941, 0.952941, 0.952941, 1)
 layout_mode = 3
 anchors_preset = 0
 offset_left = -71.0
@@ -725,17 +726,18 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_sf2ws")
 text = "Level: 1"
 
-[node name="ColorRect3" type="TextureRect" parent="Control"]
+[node name="Effect1" type="TextureRect" parent="Control"]
+visible = false
 z_index = 11
 layout_mode = 0
-offset_left = 10.9367
-offset_top = 54.0928
-offset_right = 78.9367
-offset_bottom = 94.0928
-scale = Vector2(1.25007, 0.70974)
+offset_left = 13.9305
+offset_top = 50.0882
+offset_right = 81.9305
+offset_bottom = 90.0882
+scale = Vector2(1.44374, 0.819698)
 texture = ExtResource("4_7pnum")
 
-[node name="BgForScalableScreen" type="ColorRect" parent="Control/ColorRect3"]
+[node name="BgForScalableScreen" type="ColorRect" parent="Control/Effect1"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 7.0
@@ -744,12 +746,121 @@ offset_bottom = 25.0
 scale = Vector2(1.21746, 1.4499)
 color = Color(0, 0.905882, 1, 0.909804)
 
-[node name="SkilliconLife" type="Sprite2D" parent="Control/ColorRect3"]
-position = Vector2(12.0166, 19.6928)
+[node name="Skillicon" type="Sprite2D" parent="Control/Effect1"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(10.418, 21.1062)
 scale = Vector2(0.34593, 0.609288)
-texture = ExtResource("7_tmsym")
+texture = ExtResource("7_jq7ht")
 
-[node name="Label" type="Label" parent="Control/ColorRect3/SkilliconLife"]
+[node name="Label" type="Label" parent="Control/Effect1/Skillicon"]
+offset_left = 13.8534
+offset_top = -13.8963
+offset_right = 139.853
+offset_bottom = 12.1037
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_sf2ws")
+theme_override_font_sizes/font_size = 25
+text = "+ 1"
+
+[node name="Effect2" type="TextureRect" parent="Control"]
+visible = false
+z_index = 11
+layout_mode = 0
+offset_left = 13.9815
+offset_top = 83.0881
+offset_right = 81.9815
+offset_bottom = 123.088
+scale = Vector2(1.44374, 0.819698)
+texture = ExtResource("4_7pnum")
+
+[node name="BgForScalableScreen" type="ColorRect" parent="Control/Effect2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 54.0
+offset_bottom = 25.0
+scale = Vector2(1.21746, 1.4499)
+color = Color(0, 0.905882, 1, 0.909804)
+
+[node name="Skillicon" type="Sprite2D" parent="Control/Effect2"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(10.418, 21.1062)
+scale = Vector2(0.34593, 0.609288)
+texture = ExtResource("7_jq7ht")
+
+[node name="Label" type="Label" parent="Control/Effect2/Skillicon"]
+offset_left = 13.8534
+offset_top = -13.8963
+offset_right = 139.853
+offset_bottom = 12.1037
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_sf2ws")
+theme_override_font_sizes/font_size = 25
+text = "+ 1"
+
+[node name="Effect3" type="TextureRect" parent="Control"]
+visible = false
+z_index = 11
+layout_mode = 0
+offset_left = 14.031
+offset_top = 115.088
+offset_right = 82.031
+offset_bottom = 155.088
+scale = Vector2(1.44374, 0.819698)
+texture = ExtResource("4_7pnum")
+
+[node name="BgForScalableScreen" type="ColorRect" parent="Control/Effect3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 54.0
+offset_bottom = 25.0
+scale = Vector2(1.21746, 1.4499)
+color = Color(0, 0.905882, 1, 0.909804)
+
+[node name="Skillicon" type="Sprite2D" parent="Control/Effect3"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(10.418, 21.1062)
+scale = Vector2(0.34593, 0.609288)
+texture = ExtResource("7_jq7ht")
+
+[node name="Label" type="Label" parent="Control/Effect3/Skillicon"]
+offset_left = 13.8534
+offset_top = -13.8963
+offset_right = 139.853
+offset_bottom = 12.1037
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_sf2ws")
+theme_override_font_sizes/font_size = 25
+text = "+ 1"
+
+[node name="Effect4" type="TextureRect" parent="Control"]
+visible = false
+z_index = 11
+layout_mode = 0
+offset_left = 14.082
+offset_top = 148.088
+offset_right = 82.082
+offset_bottom = 188.088
+scale = Vector2(1.44374, 0.819698)
+texture = ExtResource("4_7pnum")
+
+[node name="BgForScalableScreen" type="ColorRect" parent="Control/Effect4"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 54.0
+offset_bottom = 25.0
+scale = Vector2(1.21746, 1.4499)
+color = Color(0, 0.905882, 1, 0.909804)
+
+[node name="Skillicon" type="Sprite2D" parent="Control/Effect4"]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(10.418, 21.1062)
+scale = Vector2(0.34593, 0.609288)
+texture = ExtResource("7_jq7ht")
+
+[node name="Label" type="Label" parent="Control/Effect4/Skillicon"]
 offset_left = 13.8534
 offset_top = -13.8963
 offset_right = 139.853

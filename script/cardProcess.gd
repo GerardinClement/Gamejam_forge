@@ -8,19 +8,19 @@ var forChoose = false
 var isSelected = false
 var animationsFinished: Array
 var dropableZoneName
-var old_scale: Vector2
+var init_scale: Vector2
 
 @onready var rectLabel = $Control
 @onready var labelName = $Control/ColorRect2/name
 #@onready var labelDescription = $Control/ColorRect/description
 @onready var labelLevel = $Control/ColorRect2/level
-@onready var labelEffects = $Control/ColorRect3/effects
 @onready var animationPlayer = $Card/AnimationPlayer
 @onready var animatesExplosions = $AnimatesExplosions
 var initPos
 
 func _ready():
-	self.scale = Vector2(0.7, 0.7)
+	self.scale = Vector2(0.6, 0.6)
+	init_scale = self.scale
 	rectLabel.visible = false
 	self.input_pickable = true
 	
@@ -39,14 +39,18 @@ func _on_mouse_entered():
 	rectLabel.visible = true
 	labelName.text = card.name
 	labelLevel.text = "Level: " + str(card.level)
-	#labelDescription.text = card.description
-	labelEffects.text = ""
-	if self.card.type == "consumable":
-		labelEffects.text += "Click for use\n"
+	var i = 1
 	for key in card.effects:
-		labelEffects.text += key + ": " + str(card.effects[key]) + "\n"
-	old_scale = self.scale
+		var rectEffect = rectLabel.find_child("Effect" + str(i))
+		var skillIcon = rectEffect.find_child("Skillicon")
+		var label = rectEffect.find_child("Label")
+		skillIcon.texture = load("res://Assets/Interface/Skillicon_" +  key + ".png")
+		print("res://Assets/Interface/Skillicon_" +  key + ".png")
+		label.text = str(card.effects[key])
+		rectEffect.visible = true
+		i += 1
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.3).set_ease(Tween.EASE_IN)
+	self.z_index = 100
 	
 func forge_animation(cardInitPos):
 	initPos = cardInitPos
@@ -59,7 +63,8 @@ func _on_mouse_exited():
 	mouseOn = false
 	rectLabel.visible = false
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", old_scale, 0.3).set_ease(Tween.EASE_IN)
+	tween.tween_property(self, "scale", init_scale, 0.3).set_ease(Tween.EASE_IN)
+	self.z_index = 11
 
 func _on_animation_player_animation_finished(anim_name):
 	animationsFinished.append(anim_name)
