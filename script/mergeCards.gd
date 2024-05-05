@@ -38,6 +38,7 @@ func merge_cards(card1, card2):
 		if card1.type == "consumable" or card2.type == "consumable":
 			type = "consumable"
 		mergedCard = Card.new(card1.name + card2.name, "This is a merge card", type, {abilities1: card1.effects[abilities1], abilities2: card2.effects[abilities2]})
-	Global.player.cards[card1.name].remove_at(0)
-	Global.player.cards[card2.name].remove_at(0)
+		mergedCard.is_merge = true
+	Global.player.remove_card(card1)
+	Global.player.remove_card(card2)
 	return mergedCard

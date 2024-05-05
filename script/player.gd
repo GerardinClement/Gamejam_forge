@@ -50,12 +50,17 @@ class Player:
 			cards[newCard.name] = [newCard]
 		else:
 			cards[newCard.name].append(newCard)
-		gui.actualize_gui()
+		gui.display_life(self)
 		
 	func remove_card(card):
 		if card.type == "stats":
-			card.remove_effects(self)
-		self.cards.erase(card.name)
+			card.removeEffects(self)
+		var i = 0
+		for value in self.cards[card.name]:
+			if card == value:
+				self.cards[card.name].remove_at(i)
+			i += 1
+				
 		gui.actualize_gui()
 		
 	func take_damage(bullet):

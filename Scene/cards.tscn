@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://b0pweq64e17kj"]
+[gd_scene load_steps=96 format=3 uid="uid://b0pweq64e17kj"]
 
 [ext_resource type="Script" path="res://script/cardProcess.gd" id="1_0gio1"]
 [ext_resource type="Texture2D" uid="uid://cy2818fw4y2io" path="res://Assets/Cards/FlashMcqueen.png" id="2_hjjs5"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bgtw2r6qsd5j8" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Text ScreenPads/blue/scalable_Text_screen.png" id="4_7pnum"]
 [ext_resource type="Texture2D" uid="uid://du245a20fq0j2" path="res://Assets/explosions/round_vortex.png" id="4_twvx7"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="5_sf2ws"]
+[ext_resource type="Texture2D" uid="uid://ddagcy40gaogs" path="res://Assets/Interface/Star.png" id="7_67hni"]
 [ext_resource type="Texture2D" uid="uid://dr2cfnowagv6u" path="res://Assets/Interface/Skillicon_pv_max.png" id="7_jq7ht"]
+[ext_resource type="Texture2D" uid="uid://bqutskvjpkbr6" path="res://Assets/Interface/Mouse.png" id="9_m6c3b"]
+[ext_resource type="Texture2D" uid="uid://20v85vc2w6oc" path="res://Assets/Interface/Mouse-Left.png" id="10_ors0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkmhg"]
 size = Vector2(135.141, 187.794)
@@ -641,6 +644,28 @@ animations = [{
 "speed": 30.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jacv7"]
+atlas = ExtResource("9_m6c3b")
+region = Rect2(0, 0, 20, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xayx"]
+atlas = ExtResource("10_ors0x")
+region = Rect2(0, 0, 20, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf8ay"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_jacv7")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_0xayx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Cards" type="StaticBody2D"]
 z_index = 15
 position = Vector2(0, -65)
@@ -702,29 +727,24 @@ layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.585
 anchor_bottom = 0.585
-offset_left = 9.48848
-offset_top = -25.7685
-offset_right = 322.488
-offset_bottom = 51.2315
+offset_left = 7.1237
+offset_top = -21.3746
+offset_right = 336.124
+offset_bottom = 72.6254
 grow_vertical = 2
 scale = Vector2(0.237209, 0.259063)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_sf2ws")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 42
 text = "Name"
 autowrap_mode = 2
 uppercase = true
 
-[node name="level" type="Label" parent="Control/ColorRect2"]
-layout_mode = 0
-offset_left = 8.71974
-offset_top = 42.3842
-offset_right = 106.72
-offset_bottom = 79.3842
-scale = Vector2(0.504737, 0.504737)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_sf2ws")
-text = "Level: 1"
+[node name="Level" type="Sprite2D" parent="Control/ColorRect2"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(11.885, 51.1495)
+scale = Vector2(0.273842, 0.45953)
+texture = ExtResource("7_67hni")
 
 [node name="Effect1" type="TextureRect" parent="Control"]
 visible = false
@@ -748,8 +768,8 @@ color = Color(0, 0.905882, 1, 0.909804)
 
 [node name="Skillicon" type="Sprite2D" parent="Control/Effect1"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(10.418, 21.1062)
-scale = Vector2(0.34593, 0.609288)
+position = Vector2(13.0944, 20.3735)
+scale = Vector2(0.513483, 0.880855)
 texture = ExtResource("7_jq7ht")
 
 [node name="Label" type="Label" parent="Control/Effect1/Skillicon"]
@@ -766,10 +786,10 @@ text = "+ 1"
 visible = false
 z_index = 11
 layout_mode = 0
-offset_left = 13.9815
-offset_top = 83.0881
-offset_right = 81.9815
-offset_bottom = 123.088
+offset_left = 13.9784
+offset_top = 81.0881
+offset_right = 81.9784
+offset_bottom = 121.088
 scale = Vector2(1.44374, 0.819698)
 texture = ExtResource("4_7pnum")
 
@@ -784,8 +804,8 @@ color = Color(0, 0.905882, 1, 0.909804)
 
 [node name="Skillicon" type="Sprite2D" parent="Control/Effect2"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(10.418, 21.1062)
-scale = Vector2(0.34593, 0.609288)
+position = Vector2(13.0944, 20.3735)
+scale = Vector2(0.513483, 0.880855)
 texture = ExtResource("7_jq7ht")
 
 [node name="Label" type="Label" parent="Control/Effect2/Skillicon"]
@@ -820,8 +840,8 @@ color = Color(0, 0.905882, 1, 0.909804)
 
 [node name="Skillicon" type="Sprite2D" parent="Control/Effect3"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(10.418, 21.1062)
-scale = Vector2(0.34593, 0.609288)
+position = Vector2(13.0944, 20.3735)
+scale = Vector2(0.513483, 0.880855)
 texture = ExtResource("7_jq7ht")
 
 [node name="Label" type="Label" parent="Control/Effect3/Skillicon"]
@@ -856,8 +876,8 @@ color = Color(0, 0.905882, 1, 0.909804)
 
 [node name="Skillicon" type="Sprite2D" parent="Control/Effect4"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(10.418, 21.1062)
-scale = Vector2(0.34593, 0.609288)
+position = Vector2(13.0944, 20.3735)
+scale = Vector2(0.513483, 0.880855)
 texture = ExtResource("7_jq7ht")
 
 [node name="Label" type="Label" parent="Control/Effect4/Skillicon"]
@@ -869,6 +889,13 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_sf2ws")
 theme_override_font_sizes/font_size = 25
 text = "+ 1"
+
+[node name="ClickForUse" type="AnimatedSprite2D" parent="Control"]
+visible = false
+position = Vector2(-1.16069, -8.88857)
+sprite_frames = SubResource("SpriteFrames_yf8ay")
+frame = 1
+frame_progress = 1.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

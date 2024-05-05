@@ -6,6 +6,7 @@ class Card:
 	var level: int
 	var description: String
 	var effects : Dictionary
+	var is_merge: bool
 	var image: ImageTexture
 
 	func _init(new_name: String, new_description: String, new_type: String, new_effects: Dictionary):
@@ -14,6 +15,7 @@ class Card:
 		self.effects = new_effects
 		self.type = new_type
 		self.level = 1
+		self.is_merge = false
 		
 	func applyEffects(player):
 		for effect_key in effects.keys():
@@ -53,6 +55,8 @@ class Card:
 				"pv_max":
 					player.pv_max -= effects[effect_key]
 					player.pv -= effects[effect_key]
+					if player.pv > player.pv_max:
+						player.pv = player.pv_max
 				"speed":
 					player.speed -= effects[effect_key]
 				"shootSide":
@@ -65,7 +69,7 @@ class Card:
 	func loadImage():
 		var filename = self.name
 
-		if self.type == "merge":
+		if self.is_merge:
 			filename = "mergeCard"
 		var loadedTexture = load("res://Assets/Cards/" +  filename + ".png")
 		return loadedTexture

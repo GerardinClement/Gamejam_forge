@@ -12,8 +12,6 @@ var init_scale: Vector2
 
 @onready var rectLabel = $Control
 @onready var labelName = $Control/ColorRect2/name
-#@onready var labelDescription = $Control/ColorRect/description
-@onready var labelLevel = $Control/ColorRect2/level
 @onready var animationPlayer = $Card/AnimationPlayer
 @onready var animatesExplosions = $AnimatesExplosions
 var initPos
@@ -28,7 +26,7 @@ func _process(delta):
 	if not animationPlayer.is_playing() and not animatesExplosions.is_playing():
 		if Input.is_action_just_pressed("click") and Global.playerIsInForge and mouseOn:
 			get_tree().call_group("Forge", "add_to_dropable", self)
-		elif Input.is_action_just_pressed("click") and self.card.type == "consumable":
+		elif Input.is_action_just_pressed("click") and self.card.type == "consumable" and not Global.playerIsInForge:
 			use_card()
 		if Input.is_action_just_pressed("click") and forChoose and mouseOn:
 			isSelected = true
@@ -38,18 +36,23 @@ func _on_mouse_entered():
 	mouseOn = true
 	rectLabel.visible = true
 	labelName.text = card.name
-	labelLevel.text = "Level: " + str(card.level)
+	for i in card.level:
+		var starSprite = $Control/ColorRect2/Level.duplicate()
+		starSprite.position.x += starSprite.get_rect().size.x * i
+		$Control/ColorRect2.add_child(starSprite)
 	var i = 1
 	for key in card.effects:
 		var rectEffect = rectLabel.find_child("Effect" + str(i))
 		var skillIcon = rectEffect.find_child("Skillicon")
 		var label = rectEffect.find_child("Label")
 		skillIcon.texture = load("res://Assets/Interface/Skillicon_" +  key + ".png")
-		print("res://Assets/Interface/Skillicon_" +  key + ".png")
 		label.text = str(card.effects[key])
 		rectEffect.visible = true
 		i += 1
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.3).set_ease(Tween.EASE_IN)
+	if self.card.type == "consumable":
+		$Control/ClickForUse.visible = true
+		$Control/ClickForUse.play("default")
 	self.z_index = 100
 	
 func forge_animation(cardInitPos):
@@ -64,6 +67,9 @@ func _on_mouse_exited():
 	rectLabel.visible = false
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", init_scale, 0.3).set_ease(Tween.EASE_IN)
+	if self.card.type == "consumable":
+		$Control/ClickForUse.visible = false
+		$Control/ClickForUse.stop()
 	self.z_index = 11
 
 func _on_animation_player_animation_finished(anim_name):
