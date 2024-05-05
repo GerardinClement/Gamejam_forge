@@ -11,10 +11,10 @@ var dropableZoneName
 var old_scale: Vector2
 
 @onready var rectLabel = $Control
-@onready var labelName = $Control/ColorRect/TextureRect/name
-@onready var labelDescription = $Control/ColorRect/TextureRect2/description
-@onready var labelLevel = $Control/ColorRect/level
-@onready var labelEffects = $Control/ColorRect/TextureRect3/effects
+@onready var labelName = $Control/ColorRect2/name
+#@onready var labelDescription = $Control/ColorRect/description
+@onready var labelLevel = $Control/ColorRect2/level
+@onready var labelEffects = $Control/ColorRect3/effects
 @onready var animationPlayer = $Card/AnimationPlayer
 @onready var animatesExplosions = $AnimatesExplosions
 var initPos
@@ -34,19 +34,19 @@ func _process(delta):
 			isSelected = true
 
 func _on_mouse_entered():
-	
+	var tween = get_tree().create_tween()
 	mouseOn = true
 	rectLabel.visible = true
 	labelName.text = card.name
 	labelLevel.text = "Level: " + str(card.level)
-	labelDescription.text = card.description
+	#labelDescription.text = card.description
 	labelEffects.text = ""
 	if self.card.type == "consumable":
 		labelEffects.text += "Click for use\n"
 	for key in card.effects:
 		labelEffects.text += key + ": " + str(card.effects[key]) + "\n"
 	old_scale = self.scale
-	self.scale = Vector2(0.8, 0.8)
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.3).set_ease(Tween.EASE_IN)
 	
 func forge_animation(cardInitPos):
 	initPos = cardInitPos
@@ -58,7 +58,8 @@ func remove_card_from_forge():
 func _on_mouse_exited():
 	mouseOn = false
 	rectLabel.visible = false
-	self.scale = old_scale
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", old_scale, 0.3).set_ease(Tween.EASE_IN)
 
 func _on_animation_player_animation_finished(anim_name):
 	animationsFinished.append(anim_name)

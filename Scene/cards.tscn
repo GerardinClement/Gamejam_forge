@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://script/cardProcess.gd" id="1_0gio1"]
 [ext_resource type="Texture2D" uid="uid://cy2818fw4y2io" path="res://Assets/Cards/FlashMcqueen.png" id="2_hjjs5"]
 [ext_resource type="Texture2D" uid="uid://jdjw6i13j6vy" path="res://Assets/explosions/spritesheet.png" id="3_2annx"]
-[ext_resource type="Texture2D" uid="uid://dhi3pgygwmfil" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Text ScreenPads/blue/bg_for_scalable_screen.png" id="3_6gdra"]
 [ext_resource type="Texture2D" uid="uid://bgtw2r6qsd5j8" path="res://Assets/Ultimate Pixel Sci-Fi Gui 3.2/Ultimate Pixel 3.2/Text ScreenPads/blue/scalable_Text_screen.png" id="4_7pnum"]
 [ext_resource type="Texture2D" uid="uid://du245a20fq0j2" path="res://Assets/explosions/round_vortex.png" id="4_twvx7"]
 [ext_resource type="FontFile" uid="uid://ud2fp5pfxo2b" path="res://Assets/Fonts/paladins/paladinslaser.ttf" id="5_sf2ws"]
+[ext_resource type="Texture2D" uid="uid://dr2cfnowagv6u" path="res://Assets/Interface/Skillicon_life.png" id="7_tmsym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkmhg"]
 size = Vector2(135.141, 187.794)
@@ -652,7 +652,7 @@ position = Vector2(-4.57807, -1.9915)
 shape = SubResource("RectangleShape2D_kkmhg")
 
 [node name="Card" type="Sprite2D" parent="."]
-position = Vector2(-4, -2)
+position = Vector2(-5.00463, -2.99227)
 scale = Vector2(0.285789, 0.285789)
 texture = ExtResource("2_hjjs5")
 
@@ -672,93 +672,92 @@ animation = &"vortex"
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -71.0
+offset_top = -95.0
+offset_right = 58.0
+offset_bottom = 84.0
 
-[node name="ColorRect" type="TextureRect" parent="Control"]
+[node name="ColorRect2" type="TextureRect" parent="Control"]
 z_index = 11
-offset_left = -240.43
-offset_top = -277.629
-offset_right = -8.42953
-offset_bottom = 13.3714
-texture = ExtResource("3_6gdra")
-
-[node name="TextureRect" type="TextureRect" parent="Control/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.101
-anchor_bottom = 0.101
-offset_left = 1.01237
-offset_top = -21.3925
-offset_right = 168.012
-offset_bottom = 38.6075
+layout_mode = 0
+offset_left = 7.85632
+offset_top = 2.09751
+offset_right = 98.8566
+offset_bottom = 76.0975
+scale = Vector2(1.26664, 0.683815)
 texture = ExtResource("4_7pnum")
 
-[node name="name" type="Label" parent="Control/ColorRect/TextureRect"]
+[node name="BgForScalableScreen" type="ColorRect" parent="Control/ColorRect2"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 72.0
+offset_bottom = 46.0
+scale = Vector2(1.21746, 1.4499)
+color = Color(0, 0.905882, 1, 0.898039)
+
+[node name="name" type="Label" parent="Control/ColorRect2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.585
 anchor_bottom = 0.585
-offset_left = 16.0201
-offset_top = -22.1248
-offset_right = 102.02
-offset_bottom = 14.8752
+offset_left = 9.48848
+offset_top = -25.7685
+offset_right = 322.488
+offset_bottom = 51.2315
 grow_vertical = 2
-scale = Vector2(1.73716, 1.89721)
+scale = Vector2(0.237209, 0.259063)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_sf2ws")
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 33
 text = "Name"
 autowrap_mode = 2
 uppercase = true
 
-[node name="TextureRect2" type="TextureRect" parent="Control/ColorRect"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.101
-anchor_bottom = 0.101
-offset_left = 5.35715
-offset_top = 201.601
-offset_right = 211.357
-offset_bottom = 253.601
-scale = Vector2(1.0962, 1.0962)
-texture = ExtResource("4_7pnum")
-
-[node name="description" type="RichTextLabel" parent="Control/ColorRect/TextureRect2"]
+[node name="level" type="Label" parent="Control/ColorRect2"]
 layout_mode = 0
-offset_left = 21.1191
-offset_top = 11.9736
-offset_right = 463.119
-offset_bottom = 79.9736
-scale = Vector2(0.398231, 0.45889)
-theme_override_fonts/normal_font = ExtResource("5_sf2ws")
-text = "Description"
-
-[node name="level" type="Label" parent="Control/ColorRect"]
-layout_mode = 0
-offset_left = 4.11751
-offset_top = 75.9937
-offset_right = 102.118
-offset_bottom = 98.9937
+offset_left = 8.71974
+offset_top = 42.3842
+offset_right = 106.72
+offset_bottom = 79.3842
+scale = Vector2(0.504737, 0.504737)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_sf2ws")
 text = "Level: 1"
 
-[node name="TextureRect3" type="TextureRect" parent="Control/ColorRect"]
+[node name="ColorRect3" type="TextureRect" parent="Control"]
+z_index = 11
 layout_mode = 0
-offset_left = 1.15308
-offset_top = 98.9983
-offset_right = 231.153
-offset_bottom = 227.998
+offset_left = 10.9367
+offset_top = 54.0928
+offset_right = 78.9367
+offset_bottom = 94.0928
+scale = Vector2(1.25007, 0.70974)
 texture = ExtResource("4_7pnum")
 
-[node name="effects" type="RichTextLabel" parent="Control/ColorRect/TextureRect3"]
+[node name="BgForScalableScreen" type="ColorRect" parent="Control/ColorRect3"]
 layout_mode = 0
-offset_left = 22.0
-offset_top = 20.0
-offset_right = 284.0
-offset_bottom = 69.0
-scale = Vector2(0.734915, 1.55904)
-theme_override_fonts/normal_font = ExtResource("5_sf2ws")
-text = "Effects"
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 54.0
+offset_bottom = 25.0
+scale = Vector2(1.21746, 1.4499)
+color = Color(0, 0.905882, 1, 0.909804)
+
+[node name="SkilliconLife" type="Sprite2D" parent="Control/ColorRect3"]
+position = Vector2(12.0166, 19.6928)
+scale = Vector2(0.34593, 0.609288)
+texture = ExtResource("7_tmsym")
+
+[node name="Label" type="Label" parent="Control/ColorRect3/SkilliconLife"]
+offset_left = 13.8534
+offset_top = -13.8963
+offset_right = 139.853
+offset_bottom = 12.1037
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_sf2ws")
+theme_override_font_sizes/font_size = 25
+text = "+ 1"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
