@@ -24,12 +24,14 @@ func _ready():
 	
 func _process(delta):
 	if not animationPlayer.is_playing() and not animatesExplosions.is_playing():
-		if Input.is_action_just_pressed("click") and Global.playerIsInForge and mouseOn:
+		if Input.is_action_just_pressed("LeftClick") and Global.playerIsInForge and mouseOn:
 			get_tree().call_group("Forge", "add_to_dropable", self)
-		elif Input.is_action_just_pressed("click") and self.card.type == "consumable" and not Global.playerIsInForge:
+		elif Input.is_action_just_pressed("LeftClick") and self.card.type == "consumable" and not Global.playerIsInForge:
 			use_card()
-		if Input.is_action_just_pressed("click") and forChoose and mouseOn:
+		if Input.is_action_just_pressed("LeftClick") and forChoose and mouseOn:
 			isSelected = true
+		if Input.is_action_just_pressed("RightClick") and mouseOn:
+			delete_card()
 
 func _on_mouse_entered():
 	var tween = get_tree().create_tween()
@@ -106,3 +108,9 @@ func use_card():
 	Global.player.remove_card(self.card)
 	Global.player.gui.display_life(Global.player)
 	self.queue_free()
+
+
+func delete_card():
+	Global.player.remove_card(self.card)
+	destroy_card()
+	Global.player.gui.actualize_gui()

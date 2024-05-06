@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv44mcqqfwl3x"
-path="res://.godot/imported/StoneHeart.png-0a05003ce61c59714cd3fff040688dcb.ctex"
+uid="uid://brlbc3nrf6xa2"
+path="res://.godot/imported/Mouse-Right.png-a18509a8649e653098f28cdffa6baa68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/StoneHeart.png"
-dest_files=["res://.godot/imported/StoneHeart.png-0a05003ce61c59714cd3fff040688dcb.ctex"]
+source_file="res://Assets/Interface/Mouse-Right.png"
+dest_files=["res://.godot/imported/Mouse-Right.png-a18509a8649e653098f28cdffa6baa68.ctex"]
 
 [params]
 

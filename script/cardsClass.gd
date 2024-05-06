@@ -59,8 +59,10 @@ class Card:
 						player.pv = player.pv_max
 				"speed":
 					player.speed -= effects[effect_key]
-				"shootSide":
-					addShootSide(player, effects[effect_key])
+				"n_bullet":
+					player.n_bullet -= effects[effect_key]
+				"shield":
+					player.shield -= effects[effect_key]
 
 	func removeShootSide(player, shootSide):
 		for side in shootSide:

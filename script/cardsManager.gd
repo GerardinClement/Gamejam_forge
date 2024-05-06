@@ -9,7 +9,7 @@ func _ready():
 	load_cards()
 
 func load_cards():
-	var theFool = Card.new("theFool", "Are you dumb, stupid, or dumb, huh?", "stats", {"strength": 1,"attack_speed": 0.10, "pv_max": 1})
+	var theFool = Card.new("TheFool", "Are you dumb, stupid, or dumb, huh?", "stats", {"strength": 1,"attack_speed": 0.10, "pv_max": 1})
 	var theDevil = Card.new("TheDevil", "The devil", "stats", {"strength": 20, "pv_max": -2})
 	var champagneJerseys = Card.new("ChampagneJerseys", "Give heal", "consumable", {"pv": 1})
 	var flashMcqueen = Card.new("FlashMcqueen", "Focus. Speed. I am speed", "stats", {"speed": 10, "attack_speed": 0.33})

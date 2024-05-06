@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://b0pweq64e17kj"]
+[gd_scene load_steps=97 format=3 uid="uid://b0pweq64e17kj"]
 
 [ext_resource type="Script" path="res://script/cardProcess.gd" id="1_0gio1"]
 [ext_resource type="Texture2D" uid="uid://cy2818fw4y2io" path="res://Assets/Cards/FlashMcqueen.png" id="2_hjjs5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dr2cfnowagv6u" path="res://Assets/Interface/Skillicon_pv_max.png" id="7_jq7ht"]
 [ext_resource type="Texture2D" uid="uid://bqutskvjpkbr6" path="res://Assets/Interface/Mouse.png" id="9_m6c3b"]
 [ext_resource type="Texture2D" uid="uid://20v85vc2w6oc" path="res://Assets/Interface/Mouse-Left.png" id="10_ors0x"]
+[ext_resource type="Texture2D" uid="uid://brlbc3nrf6xa2" path="res://Assets/Interface/Mouse-Right.png" id="11_ipqcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkmhg"]
 size = Vector2(135.141, 187.794)
@@ -648,18 +649,28 @@ animations = [{
 atlas = ExtResource("9_m6c3b")
 region = Rect2(0, 0, 20, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0xayx"]
-atlas = ExtResource("10_ors0x")
-region = Rect2(0, 0, 20, 28)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_yf8ay"]
 animations = [{
 "frames": [{
 "duration": 3.0,
 "texture": SubResource("AtlasTexture_jacv7")
 }, {
-"duration": 3.0,
-"texture": SubResource("AtlasTexture_0xayx")
+"duration": 1.0,
+"texture": ExtResource("10_ors0x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_untba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_m6c3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ipqcw")
 }],
 "loop": true,
 "name": &"default",
@@ -894,8 +905,20 @@ text = "+ 1"
 visible = false
 position = Vector2(-1.16069, -8.88857)
 sprite_frames = SubResource("SpriteFrames_yf8ay")
-frame = 1
 frame_progress = 1.0
+
+[node name="ClickForUse2" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(130.839, -9.09264)
+sprite_frames = SubResource("SpriteFrames_untba")
+frame = 1
+frame_progress = 0.698548
+
+[node name="Label" type="Label" parent="Control/ClickForUse2"]
+offset_left = -24.0618
+offset_top = -39.9628
+offset_right = 26.9382
+offset_bottom = -16.9628
+text = "Delete"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
