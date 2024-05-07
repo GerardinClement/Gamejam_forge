@@ -21,22 +21,23 @@ func _ready():
 	init_scale = self.scale
 	rectLabel.visible = false
 	self.input_pickable = true
+
+func handleClick():
+	if Input.is_action_just_pressed("LeftClick") and Global.playerIsInForge and mouseOn:
+		get_tree().call_group("Forge", "add_to_dropable", self)
+	elif Input.is_action_just_pressed("LeftClick") and self.card.type == "consumable" and not Global.playerIsInForge:
+		use_card()
+	if Input.is_action_just_pressed("LeftClick") and forChoose and mouseOn:
+		isSelected = true
+	if Input.is_action_just_pressed("RightClick") and mouseOn:
+		delete_card()
 	
 func _process(delta):
 	if not animationPlayer.is_playing() and not animatesExplosions.is_playing():
-		if Input.is_action_just_pressed("LeftClick") and Global.playerIsInForge and mouseOn:
-			get_tree().call_group("Forge", "add_to_dropable", self)
-		elif Input.is_action_just_pressed("LeftClick") and self.card.type == "consumable" and not Global.playerIsInForge:
-			use_card()
-		if Input.is_action_just_pressed("LeftClick") and forChoose and mouseOn:
-			isSelected = true
-		if Input.is_action_just_pressed("RightClick") and mouseOn:
-			delete_card()
-
-func _on_mouse_entered():
-	var tween = get_tree().create_tween()
-	mouseOn = true
-	rectLabel.visible = true
+		if Global.cardMouseOn == self:
+			handleClick()
+			
+func display_description():
 	labelName.text = card.name
 	for i in card.level:
 		var starSprite = $Control/ColorRect2/Level.duplicate()
@@ -51,6 +52,19 @@ func _on_mouse_entered():
 		label.text = str(card.effects[key])
 		rectEffect.visible = true
 		i += 1
+	
+
+func _on_mouse_entered():
+	
+	if Global.cardMouseOn and Global.cardMouseOn != self:
+		Global.cardMouseOn.hidden_description()
+	elif Global.cardMouseOn == self:
+		return
+	Global.cardMouseOn = self
+	mouseOn = true
+	rectLabel.visible = true
+	display_description()
+	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.3).set_ease(Tween.EASE_IN)
 	if self.card.type == "consumable":
 		$Control/ClickForUse.visible = true
@@ -63,16 +77,20 @@ func forge_animation(cardInitPos):
 	
 func remove_card_from_forge():
 	self.isStored = false
-
-func _on_mouse_exited():
+	
+func hidden_description():
+	Global.cardMouseOn = null
 	mouseOn = false
 	rectLabel.visible = false
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", init_scale, 0.3).set_ease(Tween.EASE_IN)
 	if self.card.type == "consumable":
-		$Control/ClickForUse.visible = false
 		$Control/ClickForUse.stop()
 	self.z_index = 11
+	
+
+func _on_mouse_exited():
+	hidden_description()
 
 func _on_animation_player_animation_finished(anim_name):
 	animationsFinished.append(anim_name)
@@ -111,6 +129,7 @@ func use_card():
 
 
 func delete_card():
+	Global.cardMouseOn = null
 	Global.player.remove_card(self.card)
 	destroy_card()
 	Global.player.gui.actualize_gui()
