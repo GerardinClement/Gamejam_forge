@@ -28,14 +28,14 @@ class Player:
 	var scent_trail = []
 		
 	func _init(playerAnimation, gui, timerIframe):
-		pv_max = 6
-		pv = pv_max - 2
-		speed = 180
+		pv_max = 4
+		pv = pv_max
+		speed = 140
 		attack_speed = 2
-		strength = 50
+		strength = 33
 		shield = 0
-		money = 10
-		pieces_of_cards = 100
+		money = 0
+		pieces_of_cards = 0
 		n_bullet = 1
 		self.playerAnimation = playerAnimation
 		self.gui = gui
@@ -60,7 +60,8 @@ class Player:
 			if card == value:
 				self.cards[card.name].remove_at(i)
 			i += 1
-				
+		if self.cards[card.name].size() == 0:
+			self.cards.erase(card.name)
 		gui.actualize_gui()
 		
 	func take_damage(bullet):

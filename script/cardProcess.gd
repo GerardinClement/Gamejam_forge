@@ -36,7 +36,9 @@ func _process(delta):
 	if not animationPlayer.is_playing() and not animatesExplosions.is_playing():
 		if Global.cardMouseOn == self:
 			handleClick()
-			
+	if not self.card.animation.is_empty():
+		$Card/AnimationPlayer.play(self.card.animation)
+		self.card.animation = ""
 func display_description():
 	labelName.text = card.name
 	for i in card.level:
@@ -45,17 +47,20 @@ func display_description():
 		$Control/ColorRect2.add_child(starSprite)
 	var i = 1
 	for key in card.effects:
-		var rectEffect = rectLabel.find_child("Effect" + str(i))
-		var skillIcon = rectEffect.find_child("Skillicon")
-		var label = rectEffect.find_child("Label")
-		skillIcon.texture = load("res://Assets/Interface/Skillicon_" +  key + ".png")
-		label.text = str(card.effects[key])
-		rectEffect.visible = true
-		i += 1
+		if key != "empty":
+			var rectEffect = rectLabel.find_child("Effect" + str(i))
+			var skillIcon = rectEffect.find_child("Skillicon")
+			var label = rectEffect.find_child("Label")
+			skillIcon.texture = load("res://Assets/Interface/Skillicon_" +  key + ".png")
+			label.text = str(card.effects[key])
+			rectEffect.visible = true
+			i += 1
+		else:
+			$Control/Description.visible = true
+			$Control/Description/Label.text = self.card.description
 	
 
 func _on_mouse_entered():
-	
 	if Global.cardMouseOn and Global.cardMouseOn != self:
 		Global.cardMouseOn.hidden_description()
 	elif Global.cardMouseOn == self:
@@ -122,6 +127,7 @@ func _on_animates_explosions_frame_changed():
 
 
 func use_card():
+	Global.cardMouseOn = null
 	self.card.applyEffects(Global.player)
 	Global.player.remove_card(self.card)
 	Global.player.gui.display_life(Global.player)

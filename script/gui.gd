@@ -26,6 +26,7 @@ func display_cards():
 			i += 1
 			
 func remove_cards():
+	Global.cardMouseOn = null
 	for i in $Cards.get_child_count():
 		$Cards.get_child(i).queue_free()
 

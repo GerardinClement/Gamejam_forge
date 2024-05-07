@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cerc2ruqsnyvg"
-path="res://.godot/imported/Skillicon11_13.png-aacc656f0caad259ebf30276526706b6.ctex"
+uid="uid://docr87wlaqsoq"
+path="res://.godot/imported/TheLovers.png-50a63c30807e265f5eb3113c1efa1dcc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Interface/Skillicon11_13.png"
-dest_files=["res://.godot/imported/Skillicon11_13.png-aacc656f0caad259ebf30276526706b6.ctex"]
+source_file="res://Assets/Cards/TheLovers.png"
+dest_files=["res://.godot/imported/TheLovers.png-50a63c30807e265f5eb3113c1efa1dcc.ctex"]
 
 [params]
 

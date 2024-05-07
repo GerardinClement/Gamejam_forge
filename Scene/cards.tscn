@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://b0pweq64e17kj"]
+[gd_scene load_steps=99 format=3 uid="uid://b0pweq64e17kj"]
 
 [ext_resource type="Script" path="res://script/cardProcess.gd" id="1_0gio1"]
 [ext_resource type="Texture2D" uid="uid://cy2818fw4y2io" path="res://Assets/Cards/FlashMcqueen.png" id="2_hjjs5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ddagcy40gaogs" path="res://Assets/Interface/Star.png" id="7_67hni"]
 [ext_resource type="Texture2D" uid="uid://dr2cfnowagv6u" path="res://Assets/Interface/Skillicon_pv_max.png" id="7_jq7ht"]
 [ext_resource type="Texture2D" uid="uid://bqutskvjpkbr6" path="res://Assets/Interface/Mouse.png" id="9_m6c3b"]
+[ext_resource type="Texture2D" uid="uid://bk5ivbx7gsu3s" path="res://Assets/Interface/Skillicon_random_money.png" id="9_soc2s"]
 [ext_resource type="Texture2D" uid="uid://20v85vc2w6oc" path="res://Assets/Interface/Mouse-Left.png" id="10_ors0x"]
 [ext_resource type="Texture2D" uid="uid://brlbc3nrf6xa2" path="res://Assets/Interface/Mouse-Right.png" id="11_ipqcw"]
 
@@ -83,6 +84,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, -65)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Card:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.285789, 0.285789)]
+}
 
 [sub_resource type="Animation" id="Animation_vtsc7"]
 resource_name = "remove"
@@ -99,11 +112,27 @@ tracks/0/keys = {
 "values": [Vector2(0, -65), Vector2(0, -101), Vector2(0, 57), Vector2(-2, 1210)]
 }
 
+[sub_resource type="Animation" id="Animation_6w6xf"]
+resource_name = "increase_level"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Card:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2.92817, 0.297302, 1),
+"update": 0,
+"values": [Vector2(0.285789, 0.285789), Vector2(0.5, 0.5), Vector2(0.285789, 0.285789)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_myeox"]
 _data = {
 "Intro": SubResource("Animation_ok8d2"),
 "MergeLeft": SubResource("Animation_srsln"),
 "RESET": SubResource("Animation_sw2v1"),
+"increase_level": SubResource("Animation_6w6xf"),
 "remove": SubResource("Animation_vtsc7")
 }
 
@@ -704,6 +733,8 @@ position = Vector2(-11.0232, -14.983)
 scale = Vector2(4.43843, 4.56824)
 sprite_frames = SubResource("SpriteFrames_k133j")
 animation = &"vortex"
+frame = 66
+frame_progress = 1.0
 
 [node name="Control" type="Control" parent="."]
 self_modulate = Color(0.952941, 0.952941, 0.952941, 1)
@@ -815,15 +846,15 @@ color = Color(0, 0.905882, 1, 0.909804)
 
 [node name="Skillicon" type="Sprite2D" parent="Control/Effect2"]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(13.0944, 20.3735)
-scale = Vector2(0.513483, 0.880855)
-texture = ExtResource("7_jq7ht")
+position = Vector2(12.4848, 19.4855)
+scale = Vector2(0.521848, 0.760433)
+texture = ExtResource("9_soc2s")
 
 [node name="Label" type="Label" parent="Control/Effect2/Skillicon"]
-offset_left = 13.8534
-offset_top = -13.8963
-offset_right = 139.853
-offset_bottom = 12.1037
+offset_left = 11.9292
+offset_top = -12.8567
+offset_right = 137.929
+offset_bottom = 13.1433
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("5_sf2ws")
 theme_override_font_sizes/font_size = 25
@@ -907,18 +938,38 @@ position = Vector2(-1.16069, -8.88857)
 sprite_frames = SubResource("SpriteFrames_yf8ay")
 frame_progress = 1.0
 
-[node name="ClickForUse2" type="AnimatedSprite2D" parent="Control"]
+[node name="ClickForDelete" type="AnimatedSprite2D" parent="Control"]
 position = Vector2(130.839, -9.09264)
 sprite_frames = SubResource("SpriteFrames_untba")
 frame = 1
 frame_progress = 0.698548
 
-[node name="Label" type="Label" parent="Control/ClickForUse2"]
+[node name="Label" type="Label" parent="Control/ClickForDelete"]
 offset_left = -24.0618
 offset_top = -39.9628
 offset_right = 26.9382
 offset_bottom = -16.9628
 text = "Delete"
+
+[node name="Description" type="ColorRect" parent="Control"]
+visible = false
+offset_left = 14.0
+offset_top = 58.0
+offset_right = 100.0
+offset_bottom = 138.0
+scale = Vector2(1.21746, 1.4499)
+color = Color(0, 0.905882, 1, 0.909804)
+
+[node name="Label" type="RichTextLabel" parent="Control/Description"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 86.0
+offset_bottom = 80.0
+scale = Vector2(0.999982, 0.989398)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 10
+text = "Description detaille d'une carte avec des effets de fou"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

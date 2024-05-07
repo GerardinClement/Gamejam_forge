@@ -184,7 +184,7 @@ text = "5
 label_settings = SubResource("LabelSettings_uc7o2")
 
 [node name="Markers" type="Node2D" parent="."]
-position = Vector2(491, 316)
+position = Vector2(489, 350)
 scale = Vector2(0.581926, 0.581926)
 
 [node name="Marker2D6" type="Marker2D" parent="Markers"]
