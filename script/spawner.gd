@@ -1,6 +1,7 @@
 extends Area2D
 
 var is_active = true
+@export var nb_enemies:int
 
 func active_spawner():
 	is_active = true
@@ -21,7 +22,7 @@ func spawn_enemies():
 	for i in spawners_count:
 		var spawner = self.get_child(i)
 		if check_if_spawner(spawner):
-			for x in 5:
+			for x in nb_enemies:
 				var size = Global.enemies_scene.size()
 				var random_key = Global.enemies_scene.keys()[randi() % size]
 				call_deferred("create_enemy_instance", random_key, spawner)

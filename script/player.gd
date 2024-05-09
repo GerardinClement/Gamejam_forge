@@ -28,9 +28,9 @@ class Player:
 	var scent_trail = []
 		
 	func _init(playerAnimation, gui, timerIframe):
-		pv_max = 4
+		pv_max = 5
 		pv = pv_max
-		speed = 140
+		speed = 220
 		attack_speed = 2
 		strength = 33
 		shield = 0

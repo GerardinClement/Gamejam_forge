@@ -25,10 +25,10 @@ func _ready():
 func handleClick():
 	if Input.is_action_just_pressed("LeftClick") and Global.playerIsInForge and mouseOn:
 		get_tree().call_group("Forge", "add_to_dropable", self)
-	elif Input.is_action_just_pressed("LeftClick") and self.card.type == "consumable" and not Global.playerIsInForge:
-		use_card()
 	if Input.is_action_just_pressed("LeftClick") and forChoose and mouseOn:
 		isSelected = true
+	if Input.is_action_just_pressed("LeftClick") and self.card.type == "consumable" and  not forChoose and not Global.playerIsInForge:
+		use_card()
 	if Input.is_action_just_pressed("RightClick") and mouseOn:
 		delete_card()
 	
