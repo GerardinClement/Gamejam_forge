@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://v1isdrkxdmq6"]
+[gd_scene load_steps=5 format=3 uid="uid://v1isdrkxdmq6"]
 
+[ext_resource type="Script" path="res://script/camera_2d.gd" id="1_gtufu"]
 [ext_resource type="PackedScene" uid="uid://druavmkwql20o" path="res://Scene/interface_in_game.tscn" id="1_p81op"]
 [ext_resource type="PackedScene" uid="uid://ctr3p3hercw2n" path="res://Scene/inventory_menu.tscn" id="2_mhprl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5ofx"]
+size = Vector2(641, 360)
 
 [node name="Camera2D" type="Camera2D"]
 z_index = 10
@@ -10,6 +14,7 @@ drag_left_margin = 0.0
 drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
+script = ExtResource("1_gtufu")
 
 [node name="GUI" parent="." instance=ExtResource("1_p81op")]
 anchors_preset = -1
@@ -29,3 +34,12 @@ offset_right = -351.0
 offset_bottom = -193.0
 scale = Vector2(0.595376, 0.595376)
 size_flags_horizontal = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_o5ofx")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -46,7 +46,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Money" type="Area2D"]
+[node name="Money" type="Area2D" groups=["Collectibles"]]
 scale = Vector2(1.2, 1.2)
 collision_layer = 64
 script = ExtResource("1_62vjd")

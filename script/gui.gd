@@ -43,7 +43,6 @@ func display_life(player):
 		textureDup.visible = true
 		$Life.add_child(textureDup)
 	textureRect = $Life/ShieldIcon
-	print("shield:", player.shield)
 	for i in player.shield:
 		var textureDup = textureRect.duplicate()
 		textureDup.position.x = (textureRect.position.x + (textureRect.size.x / 1.75)) * (i + player.pv_max)

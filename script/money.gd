@@ -6,6 +6,7 @@ var goldAmount = 0
 
 func _ready():
 	$Timer.connect("timeout", Callable(self, "_on_Timer_timeout"))
+	$Timer.start()
 	if value != 0:
 		$Gold.play(goldAmount)
 
@@ -18,7 +19,6 @@ func catch():
 	$CollisionShape2D.disabled = true
 	$GoldSound.play()
 	$Gold.modulate.a = 0
-	$Timer.start()
 	
 func _on_body_entered(body):
 	if body.name == "Player":
